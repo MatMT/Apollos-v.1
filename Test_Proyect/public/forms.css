@@ -1,0 +1,182 @@
+:root {
+  --fuente: 'Oxygen', sans-serif;
+  --primario: #e0e5ec;
+  --secundario: #88edff;
+  --negro: #000;
+  --gris: #e1e1e1;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; /* 1rem = 10px */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: var(--fuente);
+  font-size: 1.6rem;
+  line-height: 2;
+}
+
+/* -- Globales -- */
+.contenedor {
+  width: min(90%, 120rem);
+  margin: 0 auto;
+}
+* {
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--fuente);
+  font-weight: bold;
+  line-height: 1.2;
+}
+h1 {
+  font-size: 4.8rem;
+}
+h2 {
+  font-size: 4rem;
+}
+h3 {
+  font-size: 3.2rem;
+}
+h4 {
+  font-size: 2.8rem;
+}
+img {
+  max-width: 100%;
+}
+
+/* -- Utilidades -- */
+.no-margin {
+  margin: 0;
+}
+.no-padding {
+  padding: 0;
+}
+.centrar-texto {
+  text-align: center;
+}
+
+/*  */
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primario);
+}
+
+h1 {
+  color: #fff;
+  font-weight: bold;
+  background-color: var(--secundario);
+}
+
+span#text-shadow {
+  font-size: 14px;
+  color: #909090;
+}
+
+label {
+  color: var(--negro);
+  font-size: 2.5rem;
+}
+
+form {
+  margin-top: 1.5%;
+  padding: 4rem 3.5rem ;
+  /*  */
+  /*  */
+  border-radius: 10px;
+  width: 40%;
+  height: 80%;
+
+  max-width: 500px;
+  min-width: 313px;
+
+  background-color: #e0e5ec;
+  box-shadow: 9px 9px 16px rgb(163, 177, 198, 0.6),
+    -9px -9px 16px rgba(255, 255, 255, 0.5);
+}
+
+form #botones input {
+
+
+  font-weight: bold;
+  color: #fff;
+
+  font-size: 2.5rem;
+  padding-top: 8px;
+  padding-bottom: 8px;
+
+  padding-right: 2%;
+  padding-left: 2%;
+
+  border: none;
+  margin-top: 5px;
+  border-radius: 10%;
+  background-color: var(--secundario);
+}
+
+form #botones input:active {
+  box-shadow: inset -8px -8px 20px #fff9, inset -5px -5px 6px #fff9,
+    inset 8px 8px 20px #0003, inset 5px 5px 6px #0001;
+}
+
+form .datos input {
+  width: 100%;
+  height: 4rem;
+  border: none;
+  border-radius: 5px;
+}
+
+form .datos input:hover {
+  border: none;
+  background-color: rgba(194, 194, 194, 0.6);
+}
+
+div .datos {
+  margin-bottom: 0.5rem;
+  text-align: justify;
+}
+
+/* div .datos input {
+  margin-left: 1.5%;
+} */
+
+/* -- Estilo de la tabla -- */
+/* 
+table {
+  font-size: 120%;
+  padding: 2% 0px 2% 0px;
+  margin-bottom: 4.5rem;
+  border-spacing: 40px 10px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  background-color: #e0e5ec;
+  box-shadow: 9px 9px 16px rgb(163, 177, 198, 0.6),
+    -9px -9px 16px rgba(255, 255, 255, 0.5);
+}
+
+table tr td {
+  text-align: center;
+  width: auto;
+  padding: 8px;
+  border-radius: 5px;
+  border: solid 1px rgba(163, 177, 198, 0.6);
+}
+
+table th {
+  font-size: 110%;
+} */

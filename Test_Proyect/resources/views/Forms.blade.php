@@ -16,7 +16,7 @@
     <!-- Como definimos en la rutas, nuestro fomrulario al ser "accionado" enviara los datos mediante el método "Post"
     Por eso es importante definir las 2 rutas, o más bien los 2 métodos para ambas rutas.
     Así mismo en "action" colocamos este mismo archivo, será procesado por si mismo y no por otra página -->
-    <form id="personal-data"  method="POST">
+    <form id="personal-data" method="POST">
         <h1 class="no-margin centrar-texto">Formulario</h1>
         <hr>
         <div id="datos_form">
@@ -28,16 +28,6 @@
                 <label for="NameType">Nombre</label>
                 <br>
                 <input type="text" name="NameType" placeholder=" Ingrese su nombre" class="nombre" id="NameType">
-            </div>            
-            <div class="datos">
-                <label for="UserType">Usuario</label>
-                <br>
-                <input type="text" name="UserType" placeholder=" Ingrese su usuario" id="NameType">
-            </div>
-            <div class="datos">
-                <label for="AgeType">Edad</label>
-                <br>
-                <input type="number" name="AgeType" min="0" max="120" placeholder=" 0" id="AgeType">
             </div>
             <div class="datos">
                 <label for="EmailType">Email</label>
@@ -45,14 +35,14 @@
                 <input type="email" name="EmailType" placeholder=" email@example.com" class="nombre" id="EmailType">
             </div>
             <div class="datos">
-                <label for="WorkType">Contraseña</label>
+                <label for="PassType">Contraseña</label>
                 <br>
-                <input type="password" name="WorkType" placeholder=" contra123" id="WorkType">
+                <input type="password" name="PassType" placeholder=" contra123" id="PassType">
             </div>
             <div class="datos">
-                <label for="WorkType">Con firmar contraseña</label>
+                <label for="PassType">Con firmar contraseña</label>
                 <br>
-                <input type="password" name="WorkType" placeholder=" contra123" id="WorkType">
+                <input type="password" name="PassType" placeholder=" contra123" id="PassType">
             </div>
             <hr>
             <div id="botones">
@@ -62,4 +52,5 @@
         </div>
     </form>
 </body>
+
 </html>

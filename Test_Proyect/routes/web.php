@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ControllerForm;
 use App\Http\Controllers\FirstController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\DashboardController;
 
 // use App\Http\Controllers\RegistController;
 // use Illuminate\Support\Facades\View;
@@ -122,10 +123,36 @@ Route::get('/usuario/{usuario}', function ($usuario) {
 
 // ------------  Tutorial 2 Prueba de modelo y migracion ------------ 
 
-Route::resource('/modelo', ClienteController::class);
+// Route::resource('/modelo', [ClienteController::class]);
 
 // Ejemplo 7 - Plantillas Blade
-Route::get('/', function () {
+Route::get('/blade', function () {
     $users = ['Juan', 'Pedro', 'Maria', 'Ana'];
     return view('vista1')->with('users', $users);
+});
+
+
+// ------------------------------------------------ 
+//                  Sistema CRUD
+//  Utilizando Jetstream
+// ------------------------------------------------ 
+
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dash', function () {
+//     return view('dash.index');
+// })->name('dash');
+
+Route::get('/', function () {
+    return view('auth.login');
+});
+
+Route::get('/dash', [DashboardController::class, 'index']);
+
+// Acciones
+Route::get('/dash/crud', function () {
+    return view('crud.index');
+});
+
+
+Route::get('/dash/crud/create', function () {
+    return view('crud.create');
 });

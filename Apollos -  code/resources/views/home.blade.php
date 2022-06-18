@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,10 +12,11 @@
     <script src="{{ asset('js/sessionScript.js') }}"></script>
     <title>Inicia sesión | Apollo's</title>
 </head>
+
 <body>
     <div class="body">
         <div class="content">
-             <div class="login">
+            <div class="login">
                 <div class="form-work">
                     <div class="tabs">
                         <h3 class="login-tab"><a href="#login-tab" class="active"><span>Ingresar</span></a></h3>
@@ -23,20 +25,24 @@
                     <div class="forms">
                         <div class="active" id="login-tab">
                             <form action="" class="login-form" method="post">
-                                <input type="email" id="login-email" class="form-input" autocomplete="off" placeholder="Correo electrónico">
-                                <input type="password" id="login-PW" class="form-input" autocomplete="off" placeholder="Contraseña">
-
-                                <div class="button-center">
+                                <input type="email" id="login-email" class="form-input" autocomplete="off"
+                                    placeholder="Correo electrónico">
+                                <input type="password" id="login-PW" class="form-input" autocomplete="off"
+                                    placeholder="Contraseña">
+                                {{-- <div class="button-center">
                                     <input type="submit" class="submit" value="Iniciar sesión">
-                                </div>
+                                </div> --}}
                             </form>
                         </div>
 
                         <div id="signup-tab">
                             <form action="" method="post" class="signup-form">
-                                <input type="email" id="signup-email" class="form-input" autocomplete="off" placeholder="Correo electrónico">
-                                <input type="password" id="signup-PW" class="form-input" autocomplete="off" placeholder="Contraseña">
-                                <input type="password" id="repeat-PW" class="form-input" autocomplete="off" placeholder="Repetir contraseña">
+                                <input type="email" id="signup-email" class="form-input" autocomplete="off"
+                                    placeholder="Correo electrónico">
+                                <input type="password" id="signup-PW" class="form-input" autocomplete="off"
+                                    placeholder="Contraseña">
+                                <input type="password" id="repeat-PW" class="form-input" autocomplete="off"
+                                    placeholder="Repetir contraseña">
 
                                 <div class="button-center">
                                     <input type="submit" class="submit" value="Registrarse">
@@ -53,18 +59,18 @@
                         <div class="logo"><span><img src="{{ asset('assets/apolloLogoComplete.png') }}"></span>
                             <p>¡Bienvenido!</p>
 
-                            {{--Verificamos que existe la autentificación--}}
+                            {{-- Verificamos que existe la autentificación --}}
                             <p>{{ Auth::user()->name }}</p>
 
 
-                        {{-- Nav bar provisional --}}
+                            {{-- Nav bar provisional --}}
                             <br>
                             <nav>
                                 <ul>
                                     <li>
-                                        <a href="{{'inicio'}}">Welcome</a>
+                                        <a href="{{ 'inicio' }}">Welcome</a>
                                     </li>
-                                    {{-- Utilizamos esta directiva para mostrar a los usuarios no autenticados--}}
+                                    {{-- Utilizamos esta directiva para mostrar a los usuarios no autenticados --}}
                                     @auth
                                         <li>
                                             <a href="{{ route('main') }}">Main</a>
@@ -91,4 +97,5 @@
 
     </div>
 </body>
+
 </html>

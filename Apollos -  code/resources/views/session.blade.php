@@ -28,10 +28,12 @@
                             <form class="login-form" method="POST">
                                 @csrf
                                 <label>
-                                    <input type="email" name="email" id="login-email" class="form-input" autocomplete="off" placeholder="Correo electrónico">
+                                    <input type="email" name="email" id="login-email" class="form-input"
+                                        autocomplete="off" placeholder="Correo electrónico">
                                 </label>
                                 <label>
-                                    <input type="password" name="password" id="login-PW" class="form-input" autocomplete="off" placeholder="Contraseña">
+                                    <input type="password" name="password" id="login-PW" class="form-input"
+                                        autocomplete="off" placeholder="Contraseña">
                                 </label>
                                 <div class="button-center">
                                     <input type="submit" class="submit" value="Iniciar sesión">
@@ -43,9 +45,12 @@
                             {{-- Formulario de registro --}}
                             <form action="" method="post" class="signup-form">
                                 @csrf
-                                <input type="email" id="signup-email" class="form-input" autocomplete="off" placeholder="Correo electrónico">
-                                <input type="password" id="signup-PW" class="form-input" autocomplete="off" placeholder="Contraseña">
-                                <input type="password" id="repeat-PW" class="form-input" autocomplete="off" placeholder="Repetir contraseña">
+                                <input type="email" id="signup-email" class="form-input" autocomplete="off"
+                                    placeholder="Correo electrónico">
+                                <input type="password" id="signup-PW" class="form-input" autocomplete="off"
+                                    placeholder="Contraseña">
+                                <input type="password" id="repeat-PW" class="form-input" autocomplete="off"
+                                    placeholder="Repetir contraseña">
 
                                 <div class="button-center">
                                     <input type="submit" class="submit" value="Registrarse">
@@ -67,9 +72,9 @@
                             <nav>
                                 <ul>
                                     <li>
-                                        <a href="{{'inicio'}}">Welcome</a>
+                                        <a href="{{ 'inicio' }}">Welcome</a>
                                     </li>
-                                    {{-- Utilizamos esta directiva para mostrar a los usuarios no autenticados--}}
+                                    {{-- Utilizamos esta directiva para mostrar a los usuarios no autenticados --}}
                                     @auth
                                         <li>
                                             <a href="{{ route('main') }}">Main</a>

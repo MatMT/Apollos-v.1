@@ -67,28 +67,8 @@
                         <div class="logo"><span><img src="{{ asset('assets/apolloLogoComplete.png') }}"></span>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, voluptatem!</p>
 
-                            {{-- Nav bar provisional --}}
-                            <br>
-                            <nav>
-                                <ul>
-                                    <li>
-                                        <a href="{{ 'inicio' }}">Welcome</a>
-                                    </li>
-                                    {{-- Utilizamos esta directiva para mostrar a los usuarios no autenticados --}}
-                                    @auth
-                                        <li>
-                                            <a href="{{ route('main') }}">Main</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ route('main') }}">Logout</a>
-                                        </li>
-                                    @else
-                                        <li>
-                                            <a href="{{ route('login') }}">Login</a>
-                                        </li>
-                                    @endauth
-                                </ul>
-                            </nav>
+                            {{-- Accedemos a la parte creada como plantilla --}}
+                            @include('partials.navigation')
 
                         </div>
                     </div>

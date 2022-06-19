@@ -1,0 +1,17 @@
+Existen 2 formas de utilizar plantillas en laravel:
+    - Template Inheritance (Herencia de plantillas)
+      Almacenadas por convención en la carpeta resources/views/layouts como "app.blade.php" en donde colocamos el código que queremos que se muestre en todas las páginas.
+
+      Estableciendo dentro de esté, el contenido variable que queremos mostrar dentro de nuesta página con @include("layouts.app") y lo colocamos mediante la directiva @yield("content");
+
+      Y dentro de la vista variable establecemos que contenido deseamos imprimir dentro de este espacio "content" usando @extends("layouts.app") y estableciendo con la directiva @section("content"); el contenido que cambia en cada página y su parte.
+
+    - Components (Componentes)
+      Almacenadas por convención en la carpeta resources/views/components como "layout.blade.php". Siendo aplicado mediante componentes denominados  {{ $slot }} donde se va a imprimir el contendio variable principal(equivalente al @yield).
+
+      Dirigidos a la vista variable utilizamos la directiva @extends("components.layout"); otra manera para imprimir es mediante las etiquetas de blade que siempre inician con x por ejemplo
+      <x-layout><h1>Titulo</h1></x-layout>, interpretando la "x-" como si apuntaran a la carpeta components y establecemos el nombre del componente.
+
+      Dentro de <x-layout> establecemos ya etiquetas como <x-slot name="title">Home</x-slot> donde definimos el nombre de la propiedad donde queremos que se imprima el contenido que anteriormente hemos establecido una variable con dicho nombre entre {{ $title }} 
+    
+      Nota: por convención para referenciar una propiedad utilizamos kebab case (meta-description) y para definir propiedades utilizamos camel case (metaDescription).

@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,18 +36,7 @@ Route::view('inicio', 'welcome');
 
 Route::view('/', 'session')->name('login')->middleware('guest');
 
-Route::post('/', function () {
-    // Utilizamos la función request que nos devuelve el objeto completo y le especificamos cuáles deseamos.
-    $credentials = request()->only('email', 'password');
-
-    // Hace el intento de coincidir las credenciales, nos devuelve verdadero o falso.
-    if (Auth::attempt($credentials)){
-    // Debemos regenerar la sesión del usuario para evitar "Session Fixation", regenerando el token csrf
-        request()->session()->regenerate();
-        return redirect('home');
-    }
-    return redirect('/');
-});
+Route::post('/', [SessionController::class, 'index']);
 
 // Utilizamos el middleware para asegurar el inicio y no ingresar sin estar autenticados
 Route::view('home', 'home')->name('main')->middleware('auth');

@@ -1,0 +1,46 @@
+Orden y estructuración de carpetas:
+
+    > App [Contiene el codigo fuente dividido en sus subcapertas]
+        > Console guardamos los comandos que creemos y los podemos registrar en el "Kernel"
+        > Exceptions contiene el administrador de errores de nuestra app.
+        > Http contiene los
+            > Controladores
+            > Middleware
+            > Kernel para registrarlos
+        > Models guardamos nuestros modelos de Eloquent(ORM) para interactuar con nuestra base de datos, con un modelo de ejemplo denomindo User
+        > Providers [serviceProvider de la aplicación y los que nosotros agreguemos]
+
+    > bootstrap
+        > Contiene el archivo app.php, encargado de "arrancar" el framework, 
+        > La carpeta cache con archivos ya generados por laravel para que no se deba procesar en cada petición y así optimizar el rendimiento
+
+    > config [Contiene toda la configuración de la aplicación para configurar las diferentes caracteristicas de Laravel]
+
+    > databases
+        > La carpeta factories, aquellas "fabricas" que utilizaremos más adelante
+        > Migrations 
+        > seeders (semilleros)
+
+    > lang [contiene todos los archivos de traducción]
+
+    > public 
+        > Index.php, el punto de entrada de todas las peticiones que se realizan para nuestra aplicación, y también se encarga de configurar del autocargado de todas las clases; siendo el unico directorio accesible publicamente; y en donde almacenamos todos nuestros archivos css, javascript o imagenes, todo aquello accesible de formna publica.
+
+    > resource [Contiene las vistas de la aplicación que aplican las utilidades del motor blade de php, y los archivos no compilados de css y js, que luego de ser compiladas terminaran en la carpeta public]
+
+    > routes
+        > web.php es en donde definimos las rutas de nuestra aplicación
+        > api.php es donde no contiene sesiones ni cookies
+        > console.php disponible para agregar comandos
+        > channels.php para establecer canales de transición o "broadcast" que soporte nuestra aplicación.
+
+    > storage
+        > La carpeta app puede ser utilizada para guardar todos los archivos generados por nuestra aplicación
+        > La carpeta framework es utilizada para guardar todos los archivos generados como las vistas, sesiones, entre otros 
+        > Logs, contiene información detallada sobre los errores que ocurran en nuestra aplicación
+
+    > tests [nos da un ejemplo de como escribir test en nuestra aplicación]
+    
+    > vendor [contiene todas las dependencias de composer, SOLAMENTE LECTURA]
+
+    Nuestro directorio por defecto esta bajo el namespace "App" cargado automaticamente por composer.

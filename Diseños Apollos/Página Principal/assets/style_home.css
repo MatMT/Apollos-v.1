@@ -1,0 +1,53 @@
+*{
+    box-sizing: border-box;
+    padding: 0%;
+    margin: 0%;
+}
+
+
+/*------ Fondo de Apollo's --------*/
+
+
+body{
+   
+    background-image: url(fondos/fondo_1.jpg);
+    width: 100%;
+    height: 100vh;
+    background-size: 1920px auto;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(10px); /* Safari 9+ */
+
+    position: relative;
+}
+
+body::before{
+    content: "";
+    background-color: #1a1a1a4f;
+    width: 100%;
+    height: 100vh;
+
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    z-index: -5;
+}
+
+
+/*----- Menú principal -------*/
+
+header{
+    width: 100%;
+    height: 150px;
+    padding: 35px 3rem;
+
+}
+
+h1{
+    font-family: 'Righteous', cursive;
+    color: white;
+}
+
+
+.menu img{
+    width: 50px;
+}

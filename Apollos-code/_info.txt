@@ -17,9 +17,10 @@ Orden y estructuración de carpetas:
     > config [Contiene toda la configuración de la aplicación para configurar las diferentes caracteristicas de Laravel]
 
     > databases
-        > La carpeta factories, aquellas "fabricas" que utilizaremos más adelante
-        > Migrations 
-        > seeders (semilleros)
+        > La carpeta factories, aquellas "fabricas" que utilizaremos más adelante para crear datos de prueba a implementar en nuestra base de datos
+        > Migrations [Contiene las migraciones de nuestra base de datos]
+        > seeders (semilleros), son los archivos que contienen los datos de prueba que queremos que se carguen en nuestra base de datos
+
 
     > lang [contiene todos los archivos de traducción]
 

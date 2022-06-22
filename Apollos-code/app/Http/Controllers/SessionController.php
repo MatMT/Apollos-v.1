@@ -1,5 +1,7 @@
 <?php
 
+// https://www.youtube.com/watch?v=wmq2hxsh6lQ&t=496s - referencia
+
 namespace App\Http\Controllers;
 
 use App\Models\User;
@@ -19,8 +21,11 @@ class SessionController extends Controller
         // Utilizamos la función request que nos devuelve el objeto completo y le especificamos cuáles deseamos.
         $credentials = request()->only('email', 'password');
 
-        // Hace el intento de coincidir las credenciales, nos devuelve verdadero o falso.
-        if (Auth::attempt($credentials)) {
+        return request();
+
+        // Attempt hace el intento de coincidir las credenciales, nos devuelve verdadero o falso.
+        // En el método attempt enviamos un segundo valor encargado de geenrar una cookie encriptada del id del usuario atenticado, mientras la cookie exista la sesión permanece abierta
+        if (Auth::attempt($credentials, $remember = true)) {
             // Debemos regenerar la sesión del usuario para evitar "Session Fixation", regenerando el token csrf
             request()->session()->regenerate();
             return redirect('home');
@@ -29,8 +34,9 @@ class SessionController extends Controller
         return redirect('/');
     }
 
-    // Recibimos los datos por medio del objeto "Request", cualquier cosa enviada por el formulario sera almacenada por este objeto
+
     public function store(Request $request)
+    // Recibimos los datos por medio del objeto "Request", cualquier cosa enviada por el formulario sera almacenada por este objeto
     {
         // Se crea el objeto en base a la clase establecida en el modelo
         $user = new User();

@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
-    {{-- <link rel="stylesheet" href="{{ asset('css/app.css') }}"> --}}
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="{{ asset('js/sessionScript.js') }}"></script> --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{{ asset('js/sessionScript.js') }}"></script>
     <title>Inicia sesión | Apollo's</title>
 </head>
 
@@ -19,7 +19,7 @@
             <div class="login">
                 <div class="form-work">
                     <div class="tabs">
-                        <h3 class="login-tab"><a href="#login-tab" class="active"><span>Ingresar</span></a></h3>
+                        <h3 class="login-tab"><a href="{{ route('login') }}"><span>Ingresar</span></a></h3>
                         <!-- Link hacia el registro -->
                         <h3 class="signup-tab"><a href="{{ route('signup') }}"><span>Registrarse</span></a></h3>
                     </div>
@@ -46,8 +46,7 @@
                             {{-- Formulario de registro --}}
                             <!-- Establecemos la ruta del controlador por medio de su action con el metodo route -->
 
-
-                            {{-- <form action="{{ route('registro.store') }}" method="post" class="signup-form">
+                            <form action="{{ route('registro.store') }}" method="post" class="signup-form">
                                 @csrf
                                 <label>
                                     <input type="text" name="name" id="signup-name" class="form-input"
@@ -75,7 +74,7 @@
                                 <div class="button-center">
                                     <input type="submit" class="submit" value="Registrarse">
                                 </div>
-                            </form> --}}
+                            </form>
                         </div>
                     </div> <!-- forms -->
                 </div>

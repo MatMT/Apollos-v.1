@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
-    {{-- <link rel="stylesheet" href="{{ asset('css/app.css') }}"> --}}
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="{{ asset('js/sessionScript.js') }}"></script> --}}
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> --}}
+    {{-- <script src="{{ asset('js/sessionScript.js') }}"></script> --}}
     <title>Inicia sesión | Apollo's</title>
 </head>
 
@@ -21,12 +21,12 @@
                     <div class="tabs">
                         <h3 class="login-tab"><a href="{{ route('login') }}" class="active"><span>Ingresar</span></a>
                         </h3>
-                        <h3 class="signup-tab"><a href="#signup-tab"><span>Registrarse</span></a></h3>
+                        <h3 class="signup-tab"><a href="{{ route('signup') }}"><span>Registrarse</span></a></h3>
                     </div>
                     <div class="forms">
                         {{-- Formulario de inicio --}}
                         <div id="login-tab">
-                            {{-- <form class="login-form" method="POST">
+                            <form class="login-form" method="POST">
                                 @csrf
                                 <label>
                                     <input type="email" name="email" id="login-email" class="form-input"
@@ -39,7 +39,7 @@
                                 <div class="button-center">
                                     <input type="submit" class="submit" value="Iniciar sesión">
                                 </div>
-                            </form> --}}
+                            </form>
                         </div>
 
 

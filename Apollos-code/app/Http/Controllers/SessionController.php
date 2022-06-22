@@ -86,5 +86,7 @@ class SessionController extends Controller
         };
 
         $user->save();
+
+        return redirect('home');
     }
 }

@@ -30,6 +30,8 @@ Route::get('/inicio', function () {
     return view('welcome');
 });
 
+Route::view('tester', 'tester');
+
 // En el caso específico de no realizar ninguna operación adicional entre la petición y la respuesta podemos utilizar el method "view" que responder a las peticiones de tipo "get" y "head"
 // Utilizando el method "name" le podemos asignar un "nombre" para instanciarlo con route() llamando su nombre y no la url propia.
 Route::view('inicio', 'welcome');

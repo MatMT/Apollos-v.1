@@ -34,9 +34,15 @@ Route::get('/inicio', function () {
 // Utilizando el method "name" le podemos asignar un "nombre" para instanciarlo con route() llamando su nombre y no la url propia.
 Route::view('inicio', 'welcome');
 
-Route::view('/', 'session')->name('login')->middleware('guest');
+Route::view('/', 'login')->name('login')->middleware('guest'); // Autentificación de invitado
 
-Route::post('/', [SessionController::class, 'index']);
+Route::post('/', [SessionController::class, 'index'])->name('login.index'); // Inicio de sesión
+
+// -------
+
+Route::view('registro', 'signup')->name('signup'); // ->middleware('guest'); Autentificación de invitado
+
+Route::post('registro', [SessionController::class, 'store'])->name('registro.store'); // Registro de usuarios
 
 // Utilizamos el middleware para asegurar el inicio y no ingresar sin estar autenticados
 Route::view('home', 'home')->name('main')->middleware('auth');

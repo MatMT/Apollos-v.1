@@ -16,43 +16,6 @@
 <body>
     <div class="body">
         <div class="content">
-            <div class="login">
-                <div class="form-work">
-                    <div class="tabs">
-                        <h3 class="login-tab"><a href="#login-tab" class="active"><span>Ingresar</span></a></h3>
-                        <h3 class="signup-tab"><a href="#signup-tab"><span>Registrarse</span></a></h3>
-                    </div>
-                    <div class="forms">
-                        <div class="active" id="login-tab">
-                            <form action="" class="login-form" method="post">
-                                <input type="email" id="login-email" class="form-input" autocomplete="off"
-                                    placeholder="Correo electrónico">
-                                <input type="password" id="login-PW" class="form-input" autocomplete="off"
-                                    placeholder="Contraseña">
-                                {{-- <div class="button-center">
-                                    <input type="submit" class="submit" value="Iniciar sesión">
-                                </div> --}}
-                            </form>
-                        </div>
-
-                        <div id="signup-tab">
-                            <form action="" method="post" class="signup-form">
-                                <input type="email" id="signup-email" class="form-input" autocomplete="off"
-                                    placeholder="Correo electrónico">
-                                <input type="password" id="signup-PW" class="form-input" autocomplete="off"
-                                    placeholder="Contraseña">
-                                <input type="password" id="repeat-PW" class="form-input" autocomplete="off"
-                                    placeholder="Repetir contraseña">
-
-                                <div class="button-center">
-                                    <input type="submit" class="submit" value="Registrarse">
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <div class="aside">
                 <div class="aside-content">
                     <div class="logo-phrase">

@@ -23,7 +23,11 @@
                             <p>¡Bienvenido!</p>
 
                             {{-- Verificamos que existe la autentificación --}}
-                            <p>{{ Auth::user()->name }}</p>
+                            @if (session('status'))
+                                <p>{{ session('status') }}</p>
+                                <p>{{ Auth::user()->name }}</p>
+                            @endif
+
 
                             {{-- Accedemos a la parte creada como plantilla --}}
                             @include('partials.navigation')

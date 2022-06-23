@@ -23,14 +23,30 @@
                         <!-- Link hacia el registro -->
                         <h3 class="signup-tab"><a href="{{ route('signup') }}"><span>Registrarse</span></a></h3>
                     </div>
+
+                    <!-- Si existe algún error de validación se imprimen -->
+                    @if ($errors->any())
+                        <div class="errores">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>
+                                        {{ $error }}
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
                     <div class="forms">
                         <div class="active" id="login-tab">
                             {{-- Formulario de inicio --}}
                             <form class="login-form" method="POST" action="{{ route('login.index') }}">
                                 @csrf
                                 <label>
-                                    <input type="text" name="email" id="login-email" class="form-input"
-                                        autocomplete="off" placeholder="Correo electrónico">
+                                    {{-- En caso de fallar se restaura el antiguo valor ingresado con old --}}
+                                    <input type="email" name="email" id="login-email" class="form-input" required
+                                        value="{{ old('email') }}" autocomplete="off"
+                                        placeholder="Correo electrónico">
                                 </label>
                                 <label>
                                     <input type="password" name="password" id="login-PW" class="form-input"

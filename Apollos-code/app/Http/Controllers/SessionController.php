@@ -7,40 +7,56 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Validation\ValidationException;
 
 
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
 
 class SessionController extends Controller
 {
     // "__invoke" Controlador invocable de una sola acción o un solo método.
 
-    public function index()
+    public function index(Request $request, Redirector $redirect)
     {
-        // Utilizamos la función request que nos devuelve el objeto completo y le especificamos cuáles deseamos validar
-        $credentials = request()->validate([
+        // Objeto request devuelve los atributos completos y le especificamos cuáles deseamos validar
+        $credentials = $request->validate([
             'email' => ['required', 'email', 'string'],
             'password' => ['required', 'string']
         ]);
 
         // Recordar la sesión y no cerrar con el navegador 
-        $remember = request()->filled('remember');
+        $remember = $request->filled('remember');
 
-        // Attempt hace el intento de coincidir las credenciales, nos devuelve verdadero o falso.
-        // En el método attempt enviamos un segundo valor encargado de geenrar una cookie encriptada del id del usuario atenticado, mientras la cookie exista la sesión permanece abierta
+        // Attempt intenta coincidir las credenciales, devuelve un bool.
+        // Método attempt, segundo valor encargado de geenrar una cookie encriptada del id del usuario atenticado, mientras la cookie exista la sesión permanece abierta
         if (Auth::attempt($credentials, $remember)) {
-            // Debemos regenerar la sesión del usuario para evitar "Session Fixation", regenerando el token csrf
-            request()->session()->regenerate();
-            return redirect('home');
+            // Regenerar la sesión del usuario para evitar "Session Fixation", regenerando el token csrf
+            $request->session()->regenerate();
+            // En caso de no estar autenticado y se intenta acceder a una url protegida que no sea home luego de un login exitoso se le reenvia a la url anterior a iniciar sesión
+            return $redirect
+                ->intended('home')
+                ->with('status', 'You are logged in');
         }
-        // En caso de no funcionar la sesión me redirige al login
-        return redirect('/');
+        // En caso de no funcionar la sesión manda un error
+        throw ValidationException::withMessages([
+            'email' => __('auth.failed')
+        ]);
     }
 
+    public function logout(Request $request, Redirector $redirect)
+    {
+        Auth::logout();
 
+        // Invalida la sesión y genera una nueva con el csrf
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return $redirect->to(route('login'))->with('status', 'Has cerrado sesión');
+    }
+
+    // ------
     public function store(Request $request)
-    // Recibimos los datos por medio del objeto "Request", cualquier cosa enviada por el formulario sera almacenada por este objeto
     {
         // Se crea el objeto en base a la clase establecida en el modelo
         $user = new User();

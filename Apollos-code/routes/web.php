@@ -39,6 +39,7 @@ Route::view('inicio', 'welcome');
 Route::view('/', 'login')->name('login')->middleware('guest'); // Autentificación de invitado
 
 Route::post('/', [SessionController::class, 'index'])->name('login.index'); // Inicio de sesión
+Route::post('logout', [SessionController::class, 'logout']); // Cerrar sesión
 
 // Utilizamos el middleware para asegurar el inicio y no ingresar sin estar autenticados
 Route::view('home', 'home')->name('main')->middleware('auth');

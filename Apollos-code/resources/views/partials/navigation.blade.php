@@ -11,7 +11,10 @@
                 <a href="{{ route('main') }}">Main</a>
             </li>
             <li>
-                <a href="{{ route('main') }}">Logout</a>
+                <form action="/logout" method="POST">
+                    @csrf
+                    <a href="#" onclick="this.closest('form').submit()">Logout</a>
+                </form>
             </li>
         @else
             <li>

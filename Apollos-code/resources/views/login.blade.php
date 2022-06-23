@@ -29,12 +29,15 @@
                             <form class="login-form" method="POST" action="{{ route('login.index') }}">
                                 @csrf
                                 <label>
-                                    <input type="email" name="email" id="login-email" class="form-input"
+                                    <input type="text" name="email" id="login-email" class="form-input"
                                         autocomplete="off" placeholder="Correo electrónico">
                                 </label>
                                 <label>
                                     <input type="password" name="password" id="login-PW" class="form-input"
                                         autocomplete="off" placeholder="Contraseña">
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="remember"> Recuerda mi sesión
                                 </label>
                                 <div class="button-center">
                                     <input type="submit" class="submit" value="Iniciar sesión">
@@ -42,40 +45,6 @@
                             </form>
                         </div>
 
-                        <div id="signup-tab">
-                            {{-- Formulario de registro --}}
-                            <!-- Establecemos la ruta del controlador por medio de su action con el metodo route -->
-
-                            <form action="{{ route('registro.store') }}" method="post" class="signup-form">
-                                @csrf
-                                <label>
-                                    <input type="text" name="name" id="signup-name" class="form-input"
-                                        autocomplete="off" placeholder="Nombre">
-                                </label>
-                                <label>
-                                    <input type="text" name="lastname" id="signup-lastname" class="form-input"
-                                        autocomplete="off" placeholder="Apellido">
-                                </label>
-                                <label>
-                                    <input type="email" id="signup-email" class="form-input" autocomplete="off"
-                                        placeholder="Correo electrónico">
-                                </label>
-                                <label>
-                                    <input type="password" id="signup-PW" class="form-input" autocomplete="off"
-                                        placeholder="Contraseña">
-                                </label>
-                                <label>
-                                    <input type="radio" name="gender" value="male"> Masculino
-                                    <input type="radio" name="gender" value="female"> Femenino
-                                </label>
-                                <label>
-                                    <input type="date" id="date" class="form-input">
-                                </label>
-                                <div class="button-center">
-                                    <input type="submit" class="submit" value="Registrarse">
-                                </div>
-                            </form>
-                        </div>
                     </div> <!-- forms -->
                 </div>
             </div>

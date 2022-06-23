@@ -24,25 +24,6 @@
                         <h3 class="signup-tab"><a href="{{ route('signup') }}"><span>Registrarse</span></a></h3>
                     </div>
                     <div class="forms">
-                        {{-- Formulario de inicio --}}
-                        <div id="login-tab">
-                            <form class="login-form" method="POST">
-                                @csrf
-                                <label>
-                                    <input type="email" name="email" id="login-email" class="form-input"
-                                        autocomplete="off" placeholder="Correo electrónico">
-                                </label>
-                                <label>
-                                    <input type="password" name="password" id="login-PW" class="form-input"
-                                        autocomplete="off" placeholder="Contraseña">
-                                </label>
-                                <div class="button-center">
-                                    <input type="submit" class="submit" value="Iniciar sesión">
-                                </div>
-                            </form>
-                        </div>
-
-
                         {{-- Formulario de registro --}}
                         <div class="active" id="signup-tab">
                             <!-- Establecemos la ruta del controlador por medio de su action con el metodo route -->

@@ -18,14 +18,18 @@ class SessionController extends Controller
 
     public function index()
     {
-        // Utilizamos la función request que nos devuelve el objeto completo y le especificamos cuáles deseamos.
-        $credentials = request()->only('email', 'password');
+        // Utilizamos la función request que nos devuelve el objeto completo y le especificamos cuáles deseamos validar
+        $credentials = request()->validate([
+            'email' => ['required', 'email', 'string'],
+            'password' => ['required', 'string']
+        ]);
 
-        return request();
+        // Recordar la sesión y no cerrar con el navegador 
+        $remember = request()->filled('remember');
 
         // Attempt hace el intento de coincidir las credenciales, nos devuelve verdadero o falso.
         // En el método attempt enviamos un segundo valor encargado de geenrar una cookie encriptada del id del usuario atenticado, mientras la cookie exista la sesión permanece abierta
-        if (Auth::attempt($credentials, $remember = true)) {
+        if (Auth::attempt($credentials, $remember)) {
             // Debemos regenerar la sesión del usuario para evitar "Session Fixation", regenerando el token csrf
             request()->session()->regenerate();
             return redirect('home');

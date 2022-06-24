@@ -67,8 +67,8 @@ class SessionController extends Controller
             'email' => 'required|email|unique:users|max:50',
             'password' => 'required|min:4',
             'nacimiento' => 'required|date',
-            'artista' => 'required',
-            'name_artist' => 'unique:users|min:3|max:30'
+            'artista' => 'nullable',
+            'name_artist' => 'nullable|unique:users|min:3|max:30'
         ]);
 
         // Se crea el objeto - siguiendo la clase establecida en el modelo

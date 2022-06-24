@@ -18,13 +18,20 @@
 </head>
 
 <body>
+    <!-- Generar o remover el input para el nombre del artista -->
     <script>
-        // Generar o remover el input para el nombre del artista
         function viewFunction() {
             var nameArtistInput = document.querySelector('#inputArtist');
             nameArtistInput.classList.toggle('vHidden');
         }
     </script>
+
+    {{-- Delimitación de fecha de nacimiento --}}
+    @php
+        $actualDate = date('Y-m-d');
+        $lastDate = strtotime('-13 year', strtotime($actualDate));
+        $lastDate = date('Y-m-d', $lastDate);
+    @endphp
 
     <div class="content">
         <div class="login">
@@ -39,25 +46,25 @@
                     <div class="active" id="signup-tab">
                         <!-- Establecemos la ruta del controlador por medio de su action con el metodo route -->
                         <form action="{{ route('registro.store') }}" method="post" class="signup-form"
-                            autocomplete="off" novalidate name="registroForm">
+                            name="registroForm">
                             @csrf
                             <label>
-                                <input type="text" name="name" id="signup-name" class="form-input"
-                                    placeholder="Nombre">
+                                <input type="text" name="name" id="signup-name" value="{{ old('name') }}"
+                                    class="form-input" placeholder="Nombre">
                             </label>
                             @error('name')
                                 <p>{{ $message }}</p>
                             @enderror
                             <label>
-                                <input type="text" name="lastname" id="signup-lastname" class="form-input"
-                                    placeholder="Apellido">
+                                <input type="text" name="lastname" id="signup-lastname"
+                                    value="{{ old('lastname') }}" class="form-input" placeholder="Apellido">
                             </label>
                             @error('lastname')
                                 <p>{{ $message }}</p>
                             @enderror
                             <label>
-                                <input type="email" name="email" id="signup-email" class="form-input"
-                                    placeholder="Correo electrónico">
+                                <input type="email" name="email" id="signup-email" value="{{ old('email') }}"
+                                    class="form-input" placeholder="Correo electrónico">
                             </label>
                             @error('email')
                                 <p>{{ $message }}</p>
@@ -74,7 +81,9 @@
                                 <input type="radio" name="gender" value="female"> Femenino
                             </label>
                             <label>
-                                <input type="date" name="nacimiento" id="date" class="form-input">
+                                Fecha de nacimiento
+                                <input type="date" name="nacimiento" id="date" max="{{ $lastDate }}"
+                                    value="{{ old('nacimiento') }}" class="form-input">
                             </label>
                             <label>
                                 <input type="checkbox" name="artista" value="Artist" onclick="viewFunction()">
@@ -83,8 +92,8 @@
                             <!-- Agregado para el nombre artistico -->
                             <div id="inputArtist" class="vHidden">
                                 <label>
-                                    <input type="text" name="name_artist" class="form-input"
-                                        placeholder="Nombre Artistico">
+                                    <input type="text" name="name_artist" value="{{ old('name_artist') }}"
+                                        class="form-input" placeholder="Nombre Artistico">
                                 </label>
                             </div>
                             <div class="button-center">

@@ -20,15 +20,15 @@ class SessionController extends Controller
     {
         // Objeto request devuelve los atributos completos y le especificamos cuáles deseamos validar.
         $credentials = $request->validate([
-            'email' => ['required', 'email', 'string'],
-            'password' => ['required', 'string']
+            'email' => 'required|email',
+            'password' => 'required'
         ]);
 
         // Recordar la sesión y no cerrar con el navegador 
         $remember = $request->filled('remember');
 
         // Attempt intenta coincidir las credenciales, devuelve un bool.
-        // Método attempt, segundo valor encargado de geenrar una cookie encriptada del id del usuario atenticado, mientras la cookie exista la sesión permanece abierta
+        // $remember es la variable encargado de generar una cookie encriptada del id del usuario atenticado, mientras la cookie exista la sesión permanece abierta
         if (Auth::attempt($credentials, $remember)) {
             // Regenerar la sesión del usuario para evitar "Session Fixation", regenerando el token csrf
             $request->session()->regenerate();
@@ -62,13 +62,13 @@ class SessionController extends Controller
     {
         // Validaciones - se interrumpe el flujo, en caso de no cumplirse nos retorna la misma vista con los respectivos erroes
         $request->validate([
-            'name' => ['required', 'string', 'size:2'],
-            'lastname' => ['required', 'string', 'size:4'],
-            'email' => ['required', 'email', 'string'],
-            'password' => ['required', 'size:4'],
-            'gender' => ['required'],
-            'nacimiento' => ['required'],
-            'artista' => ['required']
+            'name' => 'required|min:2|max:20 ',
+            'lastname' => 'required|min:4|max:25 ',
+            'email' => 'required|email|unique:users|max:50',
+            'password' => 'required|min:4',
+            'nacimiento' => 'required|date',
+            'artista' => 'required',
+            'name_artist' => 'unique:users|min:3|max:30'
         ]);
 
         // Se crea el objeto - siguiendo la clase establecida en el modelo
@@ -124,6 +124,8 @@ class SessionController extends Controller
         if ($artista == "Artist") {
             $user->artist = true;
         };
+
+        $user->name_artist = $request->name_artist;
 
         // Se guarda el registro
         $user->save();

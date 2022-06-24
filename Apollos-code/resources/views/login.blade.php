@@ -26,7 +26,7 @@
                     </div>
 
                     <!-- Si existe algún error de validación se imprimen -->
-                    @if ($errors->any())
+                    {{-- @if ($errors->any())
                         <div class="errores">
                             <ul>
                                 @foreach ($errors->all() as $error)
@@ -36,12 +36,12 @@
                                 @endforeach
                             </ul>
                         </div>
-                    @endif
+                    @endif --}}
 
                     <div class="forms">
                         <div class="active" id="login-tab">
                             {{-- Formulario de inicio --}}
-                            <form class="login-form" method="POST" action="{{ route('login.index') }}">
+                            <form class="login-form" method="POST" action="{{ route('login.index') }}" novalidate>
                                 @csrf
                                 <label>
                                     {{-- En caso de fallar se restaura el antiguo valor ingresado con old --}}
@@ -49,10 +49,16 @@
                                         value="{{ old('email') }}" autocomplete="off"
                                         placeholder="Correo electrónico">
                                 </label>
+                                @error('email')
+                                    <p>{{ $message }}</p>
+                                @enderror
                                 <label>
                                     <input type="password" name="password" id="login-PW" class="form-input" required
                                         autocomplete="off" placeholder="Contraseña">
                                 </label>
+                                @error('password')
+                                    <p>{{ $message }}</p>
+                                @enderror
                                 <label>
                                     <input type="checkbox" name="remember"> Recuerda mi sesión
                                 </label>

@@ -47,6 +47,6 @@ Route::view('home', 'home')->name('main')->middleware('auth');
 
 // -------
 
-Route::view('registro', 'signup')->name('signup'); // ->middleware('guest'); Autentificación de invitado
+Route::view('registro', 'signup')->name('signup')->middleware('guest'); // Autentificación de invitado
 
 Route::post('registro', [SessionController::class, 'store'])->name('registro.store'); // Registro de usuarios

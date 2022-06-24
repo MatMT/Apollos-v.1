@@ -14,8 +14,6 @@ use Illuminate\Routing\Redirector;
 
 class SessionController extends Controller
 {
-    // "__invoke" Controlador invocable de una sola acción o un solo método.
-
     public function index(Request $request, Redirector $redirect)
     {
         // Objeto request devuelve los atributos completos y le especificamos cuáles deseamos validar.
@@ -33,8 +31,6 @@ class SessionController extends Controller
             // Regenerar la sesión del usuario para evitar "Session Fixation", regenerando el token csrf
             $request->session()->regenerate();
             // En caso de no estar autenticado y se intenta acceder a una url protegida que no sea home luego de un login exitoso se le reenvia a la url anterior a iniciar sesión
-
-            // return Auth::user()->name; ******
 
             return $redirect
                 ->intended('home')
@@ -64,11 +60,11 @@ class SessionController extends Controller
         $request->validate([
             'name' => 'required|min:2|max:20 ',
             'lastname' => 'required|min:4|max:25 ',
-            'email' => 'required|email|unique:users|max:50',
+            'email' => 'required|email|unique:users,email|max:50',
             'password' => 'required|min:4',
             'nacimiento' => 'required|date',
             'artista' => 'nullable',
-            'name_artist' => 'nullable|unique:users|min:3|max:30'
+            'name_artist' => 'nullable|unique:users,name_artist|min:3|max:30'
         ]);
 
         // Se crea el objeto - siguiendo la clase establecida en el modelo
@@ -129,6 +125,9 @@ class SessionController extends Controller
 
         // Se guarda el registro
         $user->save();
+
+        // Se inicia sesión
+        Auth::login($user);
 
         return redirect('home');
     }

@@ -50,7 +50,7 @@
                                         placeholder="Correo electrónico">
                                 </label>
                                 <label>
-                                    <input type="password" name="password" id="login-PW" class="form-input"
+                                    <input type="password" name="password" id="login-PW" class="form-input" required
                                         autocomplete="off" placeholder="Contraseña">
                                 </label>
                                 <label>
@@ -71,6 +71,10 @@
                     <div class="logo-phrase">
                         <div class="logo"><span><img src="{{ asset('assets/apolloLogoComplete.png') }}"></span>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, voluptatem!</p>
+
+                            @if (session('status'))
+                                <p>{{ session('status') }}</p>
+                            @endif
 
                             {{-- Accedemos a la parte creada como plantilla --}}
                             @include('partials.navigation')

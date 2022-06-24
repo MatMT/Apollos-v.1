@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 
-
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 
@@ -19,7 +18,7 @@ class SessionController extends Controller
 
     public function index(Request $request, Redirector $redirect)
     {
-        // Objeto request devuelve los atributos completos y le especificamos cuáles deseamos validar
+        // Objeto request devuelve los atributos completos y le especificamos cuáles deseamos validar.
         $credentials = $request->validate([
             'email' => ['required', 'email', 'string'],
             'password' => ['required', 'string']
@@ -34,9 +33,12 @@ class SessionController extends Controller
             // Regenerar la sesión del usuario para evitar "Session Fixation", regenerando el token csrf
             $request->session()->regenerate();
             // En caso de no estar autenticado y se intenta acceder a una url protegida que no sea home luego de un login exitoso se le reenvia a la url anterior a iniciar sesión
+
+            // return Auth::user()->name; ******
+
             return $redirect
                 ->intended('home')
-                ->with('status', 'You are logged in');
+                ->with('status', "You're logged in");
         }
         // En caso de no funcionar la sesión manda un error
         throw ValidationException::withMessages([
@@ -52,16 +54,27 @@ class SessionController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return $redirect->to(route('login'))->with('status', 'Has cerrado sesión');
+        return $redirect->to(route('login'))->with('status', "You're logged out");
     }
 
     // ------
     public function store(Request $request)
     {
-        // Se crea el objeto en base a la clase establecida en el modelo
+        // Validaciones - se interrumpe el flujo, en caso de no cumplirse nos retorna la misma vista con los respectivos erroes
+        $request->validate([
+            'name' => ['required', 'string', 'size:2'],
+            'lastname' => ['required', 'string', 'size:4'],
+            'email' => ['required', 'email', 'string'],
+            'password' => ['required', 'size:4'],
+            'gender' => ['required'],
+            'nacimiento' => ['required'],
+            'artista' => ['required']
+        ]);
+
+        // Se crea el objeto - siguiendo la clase establecida en el modelo
         $user = new User();
 
-        // Se asignan los valores del Request o formulario al objeto a registrar en la Db
+        // Se asignan los valores del Request(formulario) al objeto a registrar en la Db
         $user->name = $request->name;
         $user->last_name = $request->lastname;
         $user->email = $request->email;
@@ -70,6 +83,7 @@ class SessionController extends Controller
         // Retornar true en caso de ser female ---
         // Creamos una variable para evaluar el género
         $genero = $request->gender;
+
         // Validación del género
         if ($genero == "male") {
             $user->gender = false;
@@ -111,6 +125,7 @@ class SessionController extends Controller
             $user->artist = true;
         };
 
+        // Se guarda el registro
         $user->save();
 
         return redirect('home');

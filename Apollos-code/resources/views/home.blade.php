@@ -8,8 +8,6 @@
     <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="{{ asset('js/sessionScript.js') }}"></script>
     <title>Inicia sesión | Apollo's</title>
 </head>
 

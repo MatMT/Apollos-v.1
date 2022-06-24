@@ -8,76 +8,108 @@
     <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> --}}
-    {{-- <script src="{{ asset('js/sessionScript.js') }}"></script> --}}
     <title>Inicia sesión | Apollo's</title>
+    <style>
+        /* Hacer invisible el elemento */
+        .vHidden {
+            visibility: hidden;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="body">
-        <div class="content">
-            <div class="login">
-                <div class="form-work">
-                    <div class="tabs">
-                        <h3 class="login-tab"><a href="{{ route('login') }}" class="active"><span>Ingresar</span></a>
-                        </h3>
-                        <h3 class="signup-tab"><a href="{{ route('signup') }}"><span>Registrarse</span></a></h3>
+    <script>
+        // Generar o remover el input para el nombre del artista
+        function viewFunction() {
+            var nameArtistInput = document.querySelector('#inputArtist');
+            nameArtistInput.classList.toggle('vHidden');
+        }
+    </script>
+
+    <div class="content">
+        <div class="login">
+            <div class="form-work">
+                <div class="tabs">
+                    <h3 class="login-tab"><a href="{{ route('login') }}" class="active"><span>Ingresar</span></a>
+                    </h3>
+                    <h3 class="signup-tab"><a href="{{ route('signup') }}"><span>Registrarse</span></a></h3>
+                </div>
+                <div class="forms">
+                    {{-- Formulario de registro --}}
+                    <div class="active" id="signup-tab">
+                        <!-- Establecemos la ruta del controlador por medio de su action con el metodo route -->
+                        <form action="{{ route('registro.store') }}" method="post" class="signup-form"
+                            autocomplete="off" novalidate name="registroForm">
+                            @csrf
+                            <label>
+                                <input type="text" name="name" id="signup-name" class="form-input"
+                                    placeholder="Nombre">
+                            </label>
+                            @error('name')
+                                <p>{{ $message }}</p>
+                            @enderror
+                            <label>
+                                <input type="text" name="lastname" id="signup-lastname" class="form-input"
+                                    placeholder="Apellido">
+                            </label>
+                            @error('lastname')
+                                <p>{{ $message }}</p>
+                            @enderror
+                            <label>
+                                <input type="email" name="email" id="signup-email" class="form-input"
+                                    placeholder="Correo electrónico">
+                            </label>
+                            @error('email')
+                                <p>{{ $message }}</p>
+                            @enderror
+                            <label>
+                                <input type="password" name="password" id="signup-PW" class="form-input"
+                                    placeholder="Contraseña">
+                            </label>
+                            @error('password')
+                                <p>{{ $message }}</p>
+                            @enderror
+                            <label>
+                                <input type="radio" name="gender" value="male"> Masculino
+                                <input type="radio" name="gender" value="female"> Femenino
+                            </label>
+                            <label>
+                                <input type="date" name="nacimiento" id="date" class="form-input">
+                            </label>
+                            <label>
+                                <input type="checkbox" name="artista" value="Artist" onclick="viewFunction()">
+                                Artista
+                            </label>
+                            <!-- Agregado para el nombre artistico -->
+                            <div id="inputArtist" class="vHidden">
+                                <label>
+                                    <input type="text" name="name_artist" class="form-input"
+                                        placeholder="Nombre Artistico">
+                                </label>
+                            </div>
+                            <div class="button-center">
+                                <input type="submit" class="submit" value="Registrarse">
+                            </div>
+                        </form>
                     </div>
-                    <div class="forms">
-                        {{-- Formulario de registro --}}
-                        <div class="active" id="signup-tab">
-                            <!-- Establecemos la ruta del controlador por medio de su action con el metodo route -->
-                            <form action="{{ route('registro.store') }}" method="post" class="signup-form">
-                                @csrf
-                                <label>
-                                    <input type="text" name="name" id="signup-name" class="form-input"
-                                        autocomplete="off" placeholder="Nombre">
-                                </label>
-                                <label>
-                                    <input type="text" name="lastname" id="signup-lastname" class="form-input"
-                                        autocomplete="off" placeholder="Apellido">
-                                </label>
-                                <label>
-                                    <input type="email" name="email" id="signup-email" class="form-input"
-                                        autocomplete="off" placeholder="Correo electrónico">
-                                </label>
-                                <label>
-                                    <input type="password" name="password" id="signup-PW" class="form-input"
-                                        autocomplete="off" placeholder="Contraseña">
-                                </label>
-                                <label>
-                                    <input type="radio" name="gender" value="male"> Masculino
-                                    <input type="radio" name="gender" value="female"> Femenino
-                                </label>
-                                <label>
-                                    <input type="date" name="nacimiento" id="date" class="form-input">
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="artista" value="Artist"> Artista
-                                </label>
-                                <div class="button-center">
-                                    <input type="submit" class="submit" value="Registrarse">
-                                </div>
-                            </form>
-                        </div>
-                    </div> <!-- forms -->
+                </div> <!-- forms -->
+            </div>
+        </div>
+
+        <div class="aside">
+            <div class="aside-content">
+                <div class="logo-phrase">
+                    <div class="logo"><span><img src="{{ asset('assets/apolloLogoComplete.png') }}"></span>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, voluptatem!</p>
+
+                        {{-- Accedemos a la parte creada como plantilla --}}
+                        @include('partials.navigation')
+
+                    </div>
                 </div>
             </div>
-
-            <div class="aside">
-                <div class="aside-content">
-                    <div class="logo-phrase">
-                        <div class="logo"><span><img src="{{ asset('assets/apolloLogoComplete.png') }}"></span>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, voluptatem!</p>
-
-                            {{-- Accedemos a la parte creada como plantilla --}}
-                            @include('partials.navigation')
-
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- aside --->
-        </div>
+        </div> <!-- aside --->
+    </div>
 
     </div>
 </body>

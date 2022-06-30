@@ -24,10 +24,8 @@
             </div>
         </div>
     </div>
-</div>
-
-<main class="">
     
-</main>
+
+</div>
 
 

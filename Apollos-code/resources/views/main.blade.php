@@ -10,17 +10,24 @@
 
 <!-- ... -->
 
-<div class="box-views w-full font-titulo text-white p-20">
+<div class="box-views w-full font-titulo text-white p-10">
 
-    <div class="post_1 flex w-full justify-center">
+    <div class="post_1 flex w-full justify-center h-72 items-center">
         <div class="title-post">
-            <h1 class="font-bold text-3xl">Buenas Noches Mateo</h1>
-            <h1 class="font-black text-7xl ">Un Nuevo Mundo</h1>
+            <a class="font-bold text-3xl border p-3 rounded-lg box-content w-auto">Buenas Noches Mateo</a>
+            <h1 class="font-black text-7xl my-7">Un Nuevo Mundo</h1>
             <h1 class="font-thin text-4xl">Para una nueva Aventura</h1>
         </div>
-        <img src="{{asset('assets/img/austro.png') }}" alt="hola" loading="lazy" class="h-40">
+        <div class=" h-full w-100">
+            <div class="bg-planetas h-full w-full bg-cover mx-16 relative">
+                <div class="austronauta bg-austro h-56 w-60 bg-cover absolute top-9 left-20" style="animation: 2s ease-in-out 0s infinite alternate none running flotaraustro;"></div>
+            </div>
+        </div>
     </div>
-
 </div>
+
+<main class="">
+    
+</main>
 
 

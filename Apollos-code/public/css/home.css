@@ -1,0 +1,10 @@
+.austronauta{
+    animation: flotaraustro 5s ease-in-out infinite alternate;
+    top: 2.10rem;
+    left: 5.5rem;
+}
+
+@keyframes flotaraustro{
+    0% {top: 2.10rem;}
+    100% {top: 4.25rem;}
+}

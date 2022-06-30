@@ -23,6 +23,11 @@ module.exports = {
         'blur-back': "url('/assets/img/fondo_1.jpg')",
         'blur-back_2': "url('/assets/img/fon_blu_2_o.jpg')",
         'blur-back_3': "url('/assets/img/fondo_3.jpg')",
+        'planetas' : "url('/assets/img/espacio.png')",
+        'austro' : "url('/assets/img/austronauta.png')",
+      },
+      width: {
+        '100': '28rem',
       }
     },
   },

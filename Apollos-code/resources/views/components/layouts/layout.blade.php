@@ -17,7 +17,7 @@
     <link href="{{ asset('css/uicons-regular-straight/css/uicons-regular-straight.css') }}" rel="stylesheet">
 
 </head>
-<body class="bg-blur-back_2 bg-[length:100%] bg-no-repeat bg-cover">
+<body class="bg-blur-back_2 bg-[length:100%_100%] bg-no-repeat bg-cover">
 
     {{-- se utliza $slot para incluir contenido propio de un página web, y las etiquetas x-"demás" para involucrar componentes --}}
 

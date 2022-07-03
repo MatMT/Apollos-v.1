@@ -30,6 +30,12 @@ Route::get('/inicio', function () {
     return view('welcome');
 });
 
+
+// vini prueba Route::get('/admin', 'Admin/HomeController@index')->('home');
+//Route::get([ControllerHome::class, 'admin']);
+//fin vini prueba
+
+
 Route::view('tester', 'tester');
 
 // En el caso específico de no realizar ninguna operación adicional entre la petición y la respuesta podemos utilizar el method "view" que responder a las peticiones de tipo "get" y "head"

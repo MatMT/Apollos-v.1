@@ -647,6 +647,9 @@ video {
 .h-56 {
   height: 14rem;
 }
+.h-40 {
+  height: 10rem;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -782,6 +785,9 @@ video {
 }
 .p-2 {
   padding: 0.5rem;
+}
+.p-20 {
+  padding: 5rem;
 }
 .py-4 {
   padding-top: 1rem;

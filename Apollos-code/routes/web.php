@@ -46,11 +46,14 @@ Route::post('/', [SessionController::class, 'index'])->name('login.index'); // I
 Route::post('logout', [SessionController::class, 'logout']); // Cerrar sesión
 
 // Utilizamos el middleware para asegurar el inicio y no ingresar sin estar autenticados
-Route::view('home', 'home')->name('main')->middleware('auth');
-
+Route::view('home', 'main')->name('main')->middleware('auth');
 
 // -------
 
 Route::view('registro', 'signup')->name('signup')->middleware('guest'); // Autentificación de invitado
 
 Route::post('registro', [SessionController::class, 'store'])->name('registro.store'); // Registro de usuarios
+
+// --- nuevas vistas
+Route::view('/biblioteca', 'Library')->name('biblioteca');
+Route::view('/Artista', 'Artist')->name('artista');

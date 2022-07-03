@@ -32,6 +32,9 @@ class SessionController extends Controller
             $request->session()->regenerate();
             // En caso de no estar autenticado y se intenta acceder a una url protegida que no sea home luego de un login exitoso se le reenvia a la url anterior a iniciar sesión
 
+            $data = $request->session()->all();
+            dd($data);
+
             return $redirect
                 ->intended('home')
                 ->with('status', "You're logged in");
@@ -127,7 +130,7 @@ class SessionController extends Controller
         $user->save();
 
         // Se inicia sesión
-        Auth::login($user);
+        // Auth::login($user);
 
         return redirect('home');
     }

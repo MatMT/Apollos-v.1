@@ -31,9 +31,7 @@ Route::get('/inicio', function () {
 });
 
 
-// vini prueba Route::get('/admin', 'Admin/HomeController@index')->('home');
-//Route::get([ControllerHome::class, 'admin']);
-//fin vini prueba
+
 
 
 Route::view('tester', 'tester');

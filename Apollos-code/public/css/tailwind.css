@@ -519,8 +519,17 @@ video {
 .fixed {
   position: fixed;
 }
+.absolute {
+  position: absolute;
+}
 .relative {
   position: relative;
+}
+.top-9 {
+  top: 2.25rem;
+}
+.left-20 {
+  left: 5rem;
 }
 .top-0 {
   top: 0px;
@@ -531,13 +540,17 @@ video {
 .m-10 {
   margin: 2.5rem;
 }
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
-}
 .my-5 {
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
+}
+.mx-16 {
+  margin-left: 4rem;
+  margin-right: 4rem;
+}
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
 }
 .mx-8 {
   margin-left: 2rem;
@@ -550,6 +563,14 @@ video {
 .mx-5 {
   margin-left: 1.25rem;
   margin-right: 1.25rem;
+}
+.my-6 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.my-7 {
+  margin-top: 1.75rem;
+  margin-bottom: 1.75rem;
 }
 .ml-1 {
   margin-left: 0.25rem;
@@ -581,6 +602,12 @@ video {
 .mr-10 {
   margin-right: 2.5rem;
 }
+.box-border {
+  box-sizing: border-box;
+}
+.box-content {
+  box-sizing: content-box;
+}
 .flex {
   display: flex;
 }
@@ -589,6 +616,15 @@ video {
 }
 .hidden {
   display: none;
+}
+.h-72 {
+  height: 18rem;
+}
+.h-full {
+  height: 100%;
+}
+.h-52 {
+  height: 13rem;
 }
 .h-5 {
   height: 1.25rem;
@@ -608,8 +644,8 @@ video {
 .h-3\/4 {
   height: 75%;
 }
-.h-full {
-  height: 100%;
+.h-56 {
+  height: 14rem;
 }
 .h-40 {
   height: 10rem;
@@ -619,6 +655,12 @@ video {
 }
 .w-full {
   width: 100%;
+}
+.w-96 {
+  width: 24rem;
+}
+.w-56 {
+  width: 14rem;
 }
 .w-5 {
   width: 1.25rem;
@@ -634,6 +676,12 @@ video {
 }
 .w-32 {
   width: 8rem;
+}
+.w-100 {
+  width: 28rem;
+}
+.w-60 {
+  width: 15rem;
 }
 .max-w-6xl {
   max-width: 72rem;
@@ -661,6 +709,9 @@ video {
 }
 .rounded-full {
   border-radius: 9999px;
+}
+.border {
+  border-width: 1px;
 }
 .border-t {
   border-top-width: 1px;
@@ -696,29 +747,47 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(248 113 113 / var(--tw-bg-opacity));
 }
+.bg-planetas {
+  background-image: url('/assets/img/espacio.png');
+}
+.bg-austro {
+  background-image: url('/assets/img/austronauta.png');
+}
 .bg-blur-back_2 {
   background-image: url('/assets/img/fon_blu_2_o.jpg');
-}
-.bg-\[length\:100\%\] {
-  background-size: 100%;
 }
 .bg-cover {
   background-size: cover;
 }
+.bg-\[length\:100\%\] {
+  background-size: 100%;
+}
+.bg-\[length\:100\%_100\%\] {
+  background-size: 100% 100%;
+}
 .bg-no-repeat {
   background-repeat: no-repeat;
-}
-.p-20 {
-  padding: 5rem;
-}
-.p-6 {
-  padding: 1.5rem;
 }
 .p-10 {
   padding: 2.5rem;
 }
+.p-6 {
+  padding: 1.5rem;
+}
 .p-5 {
   padding: 1.25rem;
+}
+.p-4 {
+  padding: 1rem;
+}
+.p-3 {
+  padding: 0.75rem;
+}
+.p-2 {
+  padding: 0.5rem;
+}
+.p-20 {
+  padding: 5rem;
 }
 .py-4 {
   padding-top: 1rem;
@@ -835,6 +904,9 @@ video {
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.ease-in-out {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 @media (prefers-color-scheme: dark) {
 

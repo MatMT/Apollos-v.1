@@ -13,9 +13,11 @@
 
         <div class="post_1 flex w-full justify-center h-72 items-center">
             <div class="title-post">
-                <a class="font-bold text-3xl border p-3 rounded-lg box-content w-auto">Buenas Noches Mateo</a>
-                <h1 class="font-black text-7xl my-7">Un Nuevo Mundo</h1>
-                <h1 class="font-thin text-4xl">Para una nueva Aventura</h1>
+                <a class="font-bold text-3xl border p-3 rounded-lg box-content w-auto>Buenas Noches
+                    Mateo</a>
+                <h1 class="font-black
+                    text-7xl my-7">Un Nuevo Mundo</h1>
+                    <h1 class="font-thin text-4xl">Para una nueva Aventura</h1>
             </div>
             <div class=" h-full w-100">
                 <div class="bg-planetas h-full w-full bg-cover mx-16 relative">

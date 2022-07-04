@@ -8,9 +8,9 @@
 
 </x-layouts>
 
-<link rel="stylesheet" href="{{ asset('css/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
 
-<!-- ... -->
+    <!-- ... -->
 
 <div class="box-views w-4/5 font-titulo text-white p-10 m-auto my-5">
 
@@ -24,6 +24,8 @@
         <div class="w-102 bg-planetas h-full bg-cover mx-16 relative">
             <div class="austronauta bg-austro h-56 w-60 bg-cover absolute top-9 left-20" style="animation: 2s ease-in-out 0s infinite alternate none running flotaraustro;"></div>
         </div>
+        @include('partials.navigation')
+
     </div>
     
 

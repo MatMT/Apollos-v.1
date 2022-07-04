@@ -29,6 +29,7 @@ body::before{
 ul li a{
     display: flex;
     align-items: center;
+    transition: 0.5s ease-in-out;
 }
 
 li a i{
@@ -48,3 +49,11 @@ li a i{
     transform: translateY(-5px);
 }
 
+
+.class-active{
+    color: white;
+}
+
+ul li a:hover{
+    color: white;
+}

@@ -10,7 +10,7 @@ module.exports = {
     fontFamily: {
       'logo': ['Righteous', "cursive"],
       'titulo': ['Montserrat Alternates', "sans-serif"],
-      'cuerpo': ['Inter', "sans-serif"],
+      'cuerpo': ['DM+Sans', "sans-serif"],
     },
 
     extend: {
@@ -28,6 +28,9 @@ module.exports = {
       },
       width: {
         '100': '28rem',
+        '102': '29rem',
+        '4/5': '80%',
+        '9/10': '90%',
       }
     },
   },

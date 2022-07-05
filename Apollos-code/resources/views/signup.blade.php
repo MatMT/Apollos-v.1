@@ -45,7 +45,7 @@
                     {{-- Formulario de registro --}}
                     <div class="active" id="signup-tab">
                         <!-- Establecemos la ruta del controlador por medio de su action con el metodo route -->
-                        <form action="{{ route('registro.store') }}" method="post" class="signup-form"
+                        <form action="{{ route('register.store') }}" method="post" class="signup-form"
                             name="registroForm">
                             @csrf
                             <label>

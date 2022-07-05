@@ -1,58 +1,52 @@
 <?php
 
-use App\Http\Controllers\SessionController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
-
     Route::get();
     Route::post();
     Route::patch();
     Route::put();
     Route::delete();
     Route::options();
-
     ---
-
     // Responder a varios metodos en una misma ruta.
     Route::match(['get', 'post'], '/user/profile', function () {
         ...
     });
 |--------------------------------------------------------------------------
 */
+// Método "name" asigna un alías dínamico.
 
 // Definición de una ruta tipo get: Url, función
 // Esta estructura se puede denominar "Closure" sinónimo de una función callback
-Route::get('/inicio', function () {
-    // Al usar view Laravel automáticamente se dirige a la carpeta resources/views
-    return view('welcome');
-});
+// Route::get('/inicio', function () {
+//     // Al usar view Laravel automáticamente se dirige a la carpeta resources/views
+//     return view('welcome');
+// });
 
+// Route::view('/tester', 'tester');
 
+// Método simple "view" responde como peticiones de tipo "get" y "head"
+Route::view('/', 'welcome');
 
+// Registro de usuarios ---
+Route::get('/inicio', [LoginController::class, 'index'])->name('login')->middleware('guest'); // Inicio de sesión
+Route::post('/inicio', [LoginController::class, 'store'])->name('login.store');
 
+// Registro de usuarios ---
+Route::get('/registro', [RegisterController::class, 'index'])->name('signup')->middleware('guest'); // Autentificación de invitado
+Route::post('/registro', [RegisterController::class, 'store'])->name('register.store');
 
-Route::view('tester', 'tester');
+// Cerrar sesión ---
+Route::post('/logout', [LoginController::class, 'logout']); // Cerrar sesión
 
-// En el caso específico de no realizar ninguna operación adicional entre la petición y la respuesta podemos utilizar el method "view" que responder a las peticiones de tipo "get" y "head"
-// Utilizando el method "name" le podemos asignar un "nombre" para instanciarlo con route() llamando su nombre y no la url propia.
-Route::view('inicio', 'welcome');
-
-Route::view('/', 'login')->name('login')->middleware('guest'); // Autentificación de invitado
-
-Route::post('/', [SessionController::class, 'index'])->name('login.index'); // Inicio de sesión
-Route::post('logout', [SessionController::class, 'logout']); // Cerrar sesión
-
-// Utilizamos el middleware para asegurar el inicio y no ingresar sin estar autenticados
-Route::view('home', 'main')->name('main')->middleware('auth');
-
-// -------
-
-Route::view('registro', 'signup')->name('signup')->middleware('guest'); // Autentificación de invitado
-
-Route::post('registro', [SessionController::class, 'store'])->name('registro.store'); // Registro de usuarios
+// Home ---
+Route::view('/home', 'main')->name('main')->middleware('auth'); // Autentificación de registrado
 
 // --- nuevas vistas
 Route::view('/biblioteca', 'Library')->name('biblioteca');

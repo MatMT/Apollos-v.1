@@ -41,7 +41,7 @@
                     <div class="forms">
                         <div class="active" id="login-tab">
                             {{-- Formulario de inicio --}}
-                            <form class="login-form" method="POST" action="{{ route('login.index') }}" novalidate>
+                            <form class="login-form" method="POST" action="{{ route('login.store') }}" novalidate>
                                 @csrf
                                 <label>
                                     {{-- En caso de fallar se restaura el antiguo valor ingresado con old --}}
@@ -59,9 +59,9 @@
                                 @error('password')
                                     <p>{{ $message }}</p>
                                 @enderror
-                                <label>
+                                {{-- <label>
                                     <input type="checkbox" name="remember"> Recuerda mi sesión
-                                </label>
+                                </label> --}}
                                 <div class="button-center">
                                     <input type="submit" class="submit" value="Iniciar sesión">
                                 </div>

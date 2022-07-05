@@ -14,20 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id(); // Integer(Entero) - Unsigned(Sin signo) - Increment (Autoincrementable) 
-            $table->string('name', 20); // Varchar(20 caracteres máx)
-            $table->string('last_name', 25); // Varchar(25 caracteres máx)
-            $table->string('email', 50)->unique(); // Adicionalmente se le agrega la propiedad que protege este campo como datos unicos a nivel de base de datos
+            $table->id(); // Integer(Entero) - Unsigned(Sin signo) - Increment 
+            $table->string('name', 20); // Varchar
+            $table->string('email', 60)->unique(); // Varchar - Único
+            $table->timestamp('email_verified_at')->nullable(); // Date de verificación
             $table->string('password'); // Contraseña
-            $table->boolean('gender')->nullable(); // True: Femenino - False: Masculino
-            $table->date('birth_date'); // Se solicita la fecha de nacimiento
-            $table->float('age', 3, 0); // Se calcula en base a la fecha de nacimiento y la fecha actual
-            $table->boolean('artist')->nullable(); // True: Artista - False: Usuario normal
-            $table->string('name_artist', 30)->nullable(); // Varchar(30 caracteres máx)
-            $table->timestamp('email_verified_at')->nullable(); // Para guardar fecha de verificación, puede quedar vacio
-            $table->rememberToken(); // Varchar de 100 digitos para un token de validación al momento de iniciar sesión y mantenerla guardada
-            $table->timestamps(); // Crea dos columnas para verificar la fecha y hora de creación y actualización
-            // $table->text('parrafo'); // Textos largos 
+            $table->rememberToken(); // token de 100 digitos aplicado a la validación sobre inicio y mantenimiento de sesión
+            $table->timestamps();  // Verifición date sobre creación y actualización
         });
     }
 

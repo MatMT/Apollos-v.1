@@ -11,9 +11,9 @@
     <title>Inicia sesión | Apollo's</title>
     <style>
         /* Hacer invisible el elemento */
-        .vHidden {
+        /* .vHidden {
             visibility: hidden;
-        }
+        } */
     </style>
 </head>
 
@@ -45,7 +45,7 @@
                     {{-- Formulario de registro --}}
                     <div class="active" id="signup-tab">
                         <!-- Establecemos la ruta del controlador por medio de su action con el metodo route -->
-                        <form action="{{ route('register.store') }}" method="post" class="signup-form"
+                        <form action="{{ route('signup.store') }}" method="post" class="signup-form"
                             name="registroForm">
                             @csrf
                             <label>

@@ -59,9 +59,9 @@
                                 @error('password')
                                     <p>{{ $message }}</p>
                                 @enderror
-                                {{-- <label>
+                                <label>
                                     <input type="checkbox" name="remember"> Recuerda mi sesión
-                                </label> --}}
+                                </label>
                                 <div class="button-center">
                                     <input type="submit" class="submit" value="Iniciar sesión">
                                 </div>

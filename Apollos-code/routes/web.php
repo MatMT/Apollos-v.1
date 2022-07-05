@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,13 +42,16 @@ Route::post('/inicio', [LoginController::class, 'store'])->name('login.store');
 
 // Registro de usuarios ---
 Route::get('/registro', [RegisterController::class, 'index'])->name('signup')->middleware('guest'); // Autentificación de invitado
-Route::post('/registro', [RegisterController::class, 'store'])->name('register.store');
+Route::post('/registro', [RegisterController::class, 'store'])->name('signup.store');;
 
 // Cerrar sesión ---
-Route::post('/logout', [LoginController::class, 'logout']); // Cerrar sesión
+Route::post('/logout', [LogoutController::class, 'store'])->name('logout'); // Cerrar sesión
 
 // Home ---
 Route::view('/home', 'main')->name('main')->middleware('auth'); // Autentificación de registrado
+
+// Perfil ---
+Route::get('/{user:name_artist}', [ProfileController::class, 'index'])->name('post.index');
 
 // --- nuevas vistas
 Route::view('/biblioteca', 'Library')->name('biblioteca');

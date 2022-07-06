@@ -11,7 +11,7 @@
                 <a href="{{ route('main') }}">Main</a>
             </li>
             <li>
-                <form action="/logout" method="POST">
+                <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <a href="#" onclick="this.closest('form').submit()">Logout</a>
                 </form>

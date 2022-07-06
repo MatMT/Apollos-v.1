@@ -27,6 +27,14 @@
             @include('partials.navigation')
 
         </div>
+<<<<<<< Updated upstream
+=======
+        
+        @include('partials.navigation')
+
+    </div>
+    
+>>>>>>> Stashed changes
 
 
     </div>

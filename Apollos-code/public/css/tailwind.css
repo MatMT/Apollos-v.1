@@ -543,6 +543,10 @@ video {
 .m-10 {
   margin: 2.5rem;
 }
+.my-5 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
 .my-8 {
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -554,10 +558,6 @@ video {
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
-}
-.my-5 {
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
 }
 .mx-8 {
   margin-left: 2rem;
@@ -571,9 +571,8 @@ video {
   margin-left: 2.5rem;
   margin-right: 2.5rem;
 }
-.my-7 {
-  margin-top: 1.75rem;
-  margin-bottom: 1.75rem;
+.mb-5 {
+  margin-bottom: 1.25rem;
 }
 .ml-1 {
   margin-left: 0.25rem;
@@ -608,15 +607,6 @@ video {
 .mr-5 {
   margin-right: 1.25rem;
 }
-.mb-5 {
-  margin-bottom: 1.25rem;
-}
-.mb-4 {
-  margin-bottom: 1rem;
-}
-.mb-6 {
-  margin-bottom: 1.5rem;
-}
 .box-content {
   box-sizing: content-box;
 }
@@ -631,6 +621,9 @@ video {
 }
 .h-72 {
   height: 18rem;
+}
+.h-1 {
+  height: 0.25rem;
 }
 .h-full {
   height: 100%;
@@ -656,9 +649,6 @@ video {
 .h-3\/4 {
   height: 75%;
 }
-.h-1 {
-  height: 0.25rem;
-}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -668,14 +658,23 @@ video {
 .w-full {
   width: 100%;
 }
+.w-1\/2 {
+  width: 50%;
+}
 .w-auto {
   width: auto;
+}
+.w-24 {
+  width: 6rem;
 }
 .w-102 {
   width: 29rem;
 }
 .w-60 {
   width: 15rem;
+}
+.w-9\/10 {
+  width: 90%;
 }
 .w-5 {
   width: 1.25rem;
@@ -688,18 +687,6 @@ video {
 }
 .w-28 {
   width: 7rem;
-}
-.w-9\/10 {
-  width: 90%;
-}
-.w-1\/2 {
-  width: 50%;
-}
-.w-16 {
-  width: 4rem;
-}
-.w-24 {
-  width: 6rem;
 }
 .max-w-6xl {
   max-width: 72rem;
@@ -745,13 +732,13 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(253 111 150 / var(--tw-bg-opacity));
 }
-.bg-red-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(254 226 226 / var(--tw-bg-opacity));
-}
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+.bg-red-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 226 226 / var(--tw-bg-opacity));
 }
 .bg-gray-100 {
   --tw-bg-opacity: 1;
@@ -809,10 +796,6 @@ video {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
 }
-.py-8 {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
 .px-8 {
   padding-left: 2rem;
   padding-right: 2rem;
@@ -829,11 +812,11 @@ video {
 .font-titulo {
   font-family: Montserrat Alternates, sans-serif;
 }
-.font-logo {
-  font-family: Righteous, cursive;
-}
 .font-cuerpo {
   font-family: DM+Sans, sans-serif;
+}
+.font-logo {
+  font-family: Righteous, cursive;
 }
 .text-3xl {
   font-size: 1.875rem;
@@ -843,8 +826,8 @@ video {
   font-size: 1.5rem;
   line-height: 2rem;
 }
-.text-7xl {
-  font-size: 4.5rem;
+.text-6xl {
+  font-size: 3.75rem;
   line-height: 1;
 }
 .text-4xl {
@@ -859,21 +842,13 @@ video {
   font-size: 1.125rem;
   line-height: 1.75rem;
 }
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
 }
-.text-6xl {
-  font-size: 3.75rem;
-  line-height: 1;
-}
-.text-5xl {
-  font-size: 3rem;
-  line-height: 1;
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 .font-bold {
   font-weight: 700;

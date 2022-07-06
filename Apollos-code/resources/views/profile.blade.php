@@ -1,7 +1,7 @@
 @extends('partials.nav_bar')
 
 @section('titulo')
-    Perfil: {{ $user->name_artist }}
+    Perfil: {{ $user->name }}
 @endsection
 
 @section('contenido')

@@ -35,7 +35,8 @@
 
                 <li
                     class="mx-8 {{ $active_2 ?? 'font-normal' }} {{ $active ?? 'normal' }} {{ $active_bg ?? '' }}  ">
-                    <a href="{{ route('main') }}"><i class="fi fi-rs-home"></i>Home</a></li>
+                    <a href="{{ route('main') }}"><i class="fi fi-rs-home"></i>Home</a>
+                </li>
                 <li class="mx-8 text-stone-300"><a href="{{ route('biblioteca') }}"><i
                             class="fi fi-rs-apps"></i></i>Tu
                         Biblioteca</a></li>
@@ -45,7 +46,8 @@
             </ul>
 
             <div class="profile flex h-3/4 items-center mx-5 ">
-                <a href="" class="font-titulo mr-5 w-28 text-right">{{ Auth::user()->name }}</a>
+                <a href="{{ route('posts.index', auth()->user()) }}"
+                    class="font-titulo mr-5 w-28 text-right">{{ Auth::user()->name }}</a>
                 <a href="" class="h-3/4"><img src="{{ asset('assets/img/profile.jpg') }}" alt="img"
                         class="h-full rounded-full"></a>
             </div>

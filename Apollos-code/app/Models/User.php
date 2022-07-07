@@ -26,7 +26,8 @@ class User extends Authenticatable
         'name_artist',
         'gender',
         'age',
-        'birth_date'
+        'birth_date',
+        'username'
     ];
 
     /**

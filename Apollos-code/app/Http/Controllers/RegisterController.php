@@ -16,9 +16,6 @@ class RegisterController extends Controller
 
     public function store(Request $request)
     {
-        // Modificar el Request
-        $request->request->add(['name_artist' => Str::slug($request->name_artist)]);
-
         // Validación - Se interrumpe el flujo, en caso de no cumplirse se retorna.
         $request->validate([
             'name' => 'required|min:2|max:20 ',
@@ -28,6 +25,10 @@ class RegisterController extends Controller
             'nacimiento' => 'required|date',
             'name_artist' => 'required|unique:users,name_artist|min:3|max:30'
         ]);
+
+        // Modificar el Request
+        $username = $request->name_artist;
+        $request->request->add(['name_artist' => Str::slug($request->name_artist)]);
 
         // Género --- 
         $gender = $request->gender;
@@ -75,7 +76,8 @@ class RegisterController extends Controller
             'birth_date' => $nacimiento,
             'age' => $age,
             'rol' => $artist,
-            'name_artist' =>  $request->name_artist
+            'name_artist' =>  $request->name_artist,
+            'username' => $username
         ]);
 
         // Autentificación

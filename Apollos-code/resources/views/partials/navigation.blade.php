@@ -3,7 +3,7 @@
 <nav>
     <ul>
         <li>
-            <a href="{{ 'inicio' }}">Welcome</a>
+            <a href="/">Welcome</a>
         </li>
         {{-- Utilizamos esta directiva para mostrar a los usuarios no autenticados --}}
         @auth

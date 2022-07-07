@@ -26,7 +26,7 @@ class RegisterController extends Controller
             'email' => 'required|email|unique:users,email|max:50',
             'password' => 'required|min:4',
             'nacimiento' => 'required|date',
-            'name_artist' => 'nullable|unique:users,name_artist|min:3|max:30'
+            'name_artist' => 'required|unique:users,name_artist|min:3|max:30'
         ]);
 
         // Género --- 

@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UploadController;
+use App\Http\Controllers\UpmusicController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -56,6 +57,8 @@ Route::get('/{user:name_artist}', [ProfileController::class, 'index'])->name('po
 
 // Subir ---
 Route::get('/uploads/create', [UploadController::class, 'create'])->name('posts.create');
+
+Route::get('/uploads/musictest', [UpmusicController::class, 'index']);
 
 // --- nuevas vistas
 Route::view('/biblioteca', 'Library')->name('biblioteca');

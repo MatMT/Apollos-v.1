@@ -1,12 +1,3 @@
-// Archivos a compilar
-import '../css/app.css';
-import '../css/home.css';
-import '../css/session.css';
-
-//  !!! SOLUCIONAR !!!
-// import '../css/styles.css';
-// import '../css/tailwind.css';
-
 // Dropzone
 import Dropzone from 'dropzone';
 

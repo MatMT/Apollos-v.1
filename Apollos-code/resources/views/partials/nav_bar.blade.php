@@ -18,18 +18,22 @@
 
             @auth
                 <nav class="flex gap-2 items-center">
-                    <a href="{{ route('posts.index', auth()->user()) }}"> <span class="font-normal">
-                            {{ auth()->user()->name }} </span></a>
+                    <a href="{{ route('posts.create') }}" class="font-bold uppercase text-gray-600 text-sm">Subir</a>
+
+                    <a href="{{ route('posts.index', auth()->user()) }}"
+                        class="font-bold uppercase text-gray-800 text-sm">{{ auth()->user()->name }}</a>
+
                     <a href="{{ route('main') }}" class="font-bold uppercase text-gray-600 text-sm">Home</a>
-                    <form action="{{ route('logout') }}" method="POST">
+
+                    <form action="{{ route('logout') }}" class="font-bold uppercase text-gray-600 text-sm" method="POST">
                         @csrf
-                        <a class="font-bold uppercase text-gray-600 text-sm" href="#"
-                            onclick="this.closest('form').submit()">Cerrar sesión</a>
+                        <a class="" href="#" onclick="this.closest('form').submit()">Cerrar sesión</a>
                     </form>
                 </nav>
             @endauth
             @guest
                 <nav class="flex gap-2 items-center">
+                    <a class="font-bold uppercase text-gray-600 text-sm" href="/">Welcome</a>
                     <a class="font-bold uppercase text-gray-600 text-sm" href="{{ route('login') }}">Login</a>
                     <a class="font-bold uppercase text-gray-600 text-sm" href="{{ route('signup') }}">Crear cuenta</a>
                 </nav>

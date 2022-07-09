@@ -56,6 +56,7 @@ Route::get('/{user:name_artist}', [ProfileController::class, 'index'])->name('po
 
 // Subir ---
 Route::get('/uploads/create', [UploadController::class, 'create'])->name('posts.create');
+Route::post('/uploads/create/imagen', [UploadController::class, 'store'])->name('posts.store');
 
 // --- nuevas vistas
 Route::view('/biblioteca', 'Library')->name('biblioteca');

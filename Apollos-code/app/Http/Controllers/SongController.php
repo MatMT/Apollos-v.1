@@ -6,7 +6,7 @@ use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Illuminate\Http\Request;
 
-class UploadController extends Controller
+class SongController extends Controller
 {
     public function __construct()
     {

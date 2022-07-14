@@ -4,7 +4,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\UploadController;
+use App\Http\Controllers\SongController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,8 +55,8 @@ Route::view('/home', 'main')->name('main')->middleware('auth'); // Autentificaci
 Route::get('/{user:name_artist}', [ProfileController::class, 'index'])->name('posts.index');
 
 // Subir ---
-Route::get('/uploads/create', [UploadController::class, 'create'])->name('posts.create');
-Route::post('/uploads/create/imagen', [UploadController::class, 'store'])->name('posts.store');
+Route::get('/uploads/create', [SongController::class, 'create'])->name('posts.create');
+Route::post('/uploads/create/imagen', [SongController::class, 'store'])->name('posts.store');
 
 // --- nuevas vistas
 Route::view('/biblioteca', 'Library')->name('biblioteca');

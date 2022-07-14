@@ -18,7 +18,7 @@ return new class extends Migration
             $table->enum('rol', ['artist', 'user', 'admin'])->default('user')->after('last_name'); // Rol
             $table->string('username', 25)->after('email'); // Varchar 
             $table->enum('status', ['active', 'inactive'])->default('active')->after('username'); // Estado de cuenta
-            $table->float('age', 3, 0)->after('status'); // Se calcula en base a la fecha de nacimiento y la fecha actual
+            $table->integer('age')->after('status'); // Se calcula en base a la fecha de nacimiento y la fecha actual
             $table->string('name_artist', 25); // Varchar(30 caracteres máx
             $table->boolean('gender')->nullable(); // True: Femenino - False: Masculino
             $table->date('birth_date'); // Fecha de nacimiento

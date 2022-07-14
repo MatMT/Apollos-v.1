@@ -1,7 +1,7 @@
 @extends('partials.nav_bar')
 
 @section('titulo')
-    Creando una nueva Publicación
+    Subiendo una nueva canción
 @endsection
 
 @push('styles')
@@ -16,6 +16,7 @@
                 @csrf
             </form>
         </div>
+
 
         <div class="md:w-1/2 p-10 bg-white rounded-lg shadow mt-10 md:mt-0">
             <form action="" method="POST" novalidate>

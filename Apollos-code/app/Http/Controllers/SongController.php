@@ -2,24 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Str;
-use Intervention\Image\Facades\Image;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Str;
 
 class SongController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    public function create()
-    {
-        return view('uploads.create');
-    }
-
     public function store(Request $request)
     {
+        // $input = $request->file('file');
+
+        // // Respuesta al Js 
+        // return response()->json($input);
+
         // Imagen en memoria
         $imagen = $request->file('file');
 

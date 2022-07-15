@@ -11,12 +11,12 @@
 
     <!-- ... -->
 
-    <div class="box-views w-4/5 font-titulo text-white p-10 m-auto my-5">
+    <div class="box-views w-4/5 font-titulo_2 text-white p-10 m-auto my-5">
 
-        <div class="post_1 flex w-full justify-around h-72 items-center px-5">
+        <div class="post_1 flex w-full justify-around h-80 items-center px-5">
             <div class="title-post w-1/2">
-                <a class="font-bold text-2xl border px-3 py-2 box-content w-auto rounded-xl">Buenas Noches Mateo</a>
-                <h1 class="font-black text-6xl my-8">Un Nuevo Mundo completo de música</h1>
+                <a class="font-bold text-2xl border px-3 py-2 box-content w-auto rounded-xl">Buenas Noches {{ Auth::user()->name }}</a>
+                <h1 class="font-black text-6xl my-8">Un nuevo Universo</h1>
                 <div class="line w-24 h-1 bg-white mb-5"></div>
                 <h1 class="font-cuerpo font-thin text-4xl">¿Estás listo para una nueva aventura?</h1>
             </div>

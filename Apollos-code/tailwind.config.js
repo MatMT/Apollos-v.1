@@ -2,7 +2,6 @@
 module.exports = {
   content: [
     "./resources/**/*.blade.php",
-    "./resources/views/components/app.blade.php",
     "./resources/**/*.js",
     "./resources/**/*.vue",
   ],
@@ -11,6 +10,7 @@ module.exports = {
     fontFamily: {
       'logo': ['Righteous', "cursive"],
       'titulo': ['Montserrat Alternates', "sans-serif"],
+      'titulo_2': ['Paytone One', 'sans-serif'],
       'cuerpo': ['DM+Sans', "sans-serif"],
     },
 
@@ -21,11 +21,12 @@ module.exports = {
       },
 
       backgroundImage: {
-        'blur-back': "url('/assets/img/fondo_1.jpg')",
-        'blur-back_2': "url('/assets/img/fon_blu_2_o.jpg')",
-        'blur-back_3': "url('/assets/img/fondo_3.jpg')",
-        'planetas': "url('/assets/img/espacio.png')",
-        'austro': "url('/assets/img/austronauta.png')",
+        'blur-back': "url('resources/img/fondo_1.jpg')",
+        'blur-back_2': "url('resources/img/fon_blu_2_o.jpg')",
+        'blur-back_3': "url('resources/img/fondo_3.jpg')",
+        'rosa_back': "url('resources/img/rosa.png')",
+        'planetas': "url('resources/img/espacio.png')",
+        'austro': "url('resources/img/austronauta.png')",
       },
       width: {
         '100': '28rem',

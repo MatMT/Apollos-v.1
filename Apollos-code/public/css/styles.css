@@ -18,10 +18,12 @@ body::before{
     height: 100%;
     background: rgb(255,255,255);
     background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.05085784313725494) 20%, rgba(0,0,0,1) 91%);
+    background-size: cover;
     position: absolute;
     left: 0%;
     top: 0%;
     z-index: -5;
+
 }
 
 

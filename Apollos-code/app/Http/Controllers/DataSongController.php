@@ -21,8 +21,8 @@ class DataSongController extends Controller
         $request->validate([
             'titulo' => 'required|max:50',
             'genero' => 'required',
-            'imagen' => 'required|image',
-            'song' => 'required|file'
+            'imagen' => 'required',
+            'song' => 'required'
         ]);
     }
 }

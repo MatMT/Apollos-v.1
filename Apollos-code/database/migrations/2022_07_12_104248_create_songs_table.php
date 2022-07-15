@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('songs', function (Blueprint $table) {
             $table->id();
-            $table->string('name_song', 40);
+            $table->string('name_song', 30);
             $table->string('genre', 15);
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('link');
+            $table->string('url', 40);
             $table->string('image', 40);
             $table->timestamps();
         });

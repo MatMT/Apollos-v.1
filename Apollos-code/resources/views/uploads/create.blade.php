@@ -23,38 +23,37 @@
                         La imagen es obligatoria.</p>
                 @enderror
 
-            </div>
+            </div> <!-- Imagen -->
             <div class="md:h-1/2 px-10">
 
                 <form action="{{ route('audio.store') }}" method="POST" enctype="multipart/form-data" id="dropzone_audio"
-                    class="dropzone md:h-1/2  border-dashed border-2 @error('imagen') border-red-500 @enderror w-full h-96 rounded flex flex-col justify-center items-center">
+                    class="dropzone md:h-1/2  border-dashed border-2 @error('song') border-red-500 @enderror w-full h-96 rounded flex flex-col justify-center items-center">
                     @csrf
                 </form>
 
-                @error('imagen')
+                @error('song')
                     <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
-                        La imagen es obligatoria.</p>
+                        La canción es obligatoria.</p>
                 @enderror
 
-            </div>
-        </div>
+            </div> <!-- .Mp3 -->
+        </div> <!-- Subir archivos -->
 
 
         <div class="md:w-1/2 p-10 bg-white rounded-lg shadow mt-10 md:mt-0">
             <form action="{{ route('data.store') }}" method="POST" id="song_up" novalidate>
                 @csrf
-                {{-- Imagen --}}
+                <!-- Token de imagen -->
                 <div class="mb-5">
                     <input type="hidden" name="imagen" />
                 </div>
-                {{-- Canción --}}
+
+                <!-- Token de audio -->
                 <div class="mb-5">
                     <input type="hidden" name="song" />
-                    @error('song')
-                        <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
-                            La canción es obligatoria.</p>
-                    @enderror
                 </div>
+
+                <!-- Campos -->
                 <div class="mb-5">
                     <label for="titulo" class="mb-2 block uppercase text-gray-500 font-bold">Titulo</label>
                     <input type="text" id="titulo" name="titulo" placeholder="Titulo de tu canción"
@@ -64,6 +63,7 @@
                         <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }}</p>
                     @enderror
                 </div>
+
                 <div class="mb-5">
                     <label for="genero" class="mb-2 block uppercase text-gray-500 font-bold">Género</label>
                     <select name="genero" id="genero" form="song_up"
@@ -75,7 +75,8 @@
                         <option value="rock" {{ old('genero') == 'rock' ? 'selected' : '' }}>Rock</option>
                         <option value="electronic" {{ old('genero') == 'electronic' ? 'selected' : '' }}>Electrónica
                         </option>
-                        <option value="instrumental"{{ old('genero') == 'instrumental' ? 'selected' : '' }}>Instrumental
+                        <option value="instrumental"{{ old('genero') == 'instrumental' ? 'selected' : '' }}>
+                            Instrumental
                         </option>
                     </select>
                     @error('genero')
@@ -88,6 +89,6 @@
                     class="bg-sky-600 transition-colors cursor-pointer uppercase font-bold w-full p-3  text-white rounded-lg" />
 
             </form>
-        </div>
+        </div> <!-- Rellenar información -->
     </div>
 @endsection

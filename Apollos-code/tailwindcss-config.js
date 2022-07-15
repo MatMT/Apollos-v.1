@@ -21,12 +21,12 @@ module.exports = {
       },
 
       backgroundImage: {
-        'blur-back': "url('resources/img/fondo_1.jpg')",
-        'blur-back_2': "url('resources/img/fon_blu_2_o.jpg')",
-        'blur-back_3': "url('resources/img/fondo_3.jpg')",
-        'rosa_back': "url('resources/img/rosa.png')",
-        'planetas': "url('resources/img/espacio.png')",
-        'austro': "url('resources/img/austronauta.png')",
+        'blur-back': "url('../images/fondo_1.jpg')",
+        'blur-back_2': "url('/img/fon_blu_2_o.jpg')",
+        'blur-back_3': "url('public/assets/img/fondo_3.jpg')",
+        'rosa_back': "url('public/assets/img/rosa.png')",
+        'planetas': "url('../images/espacio.png')",
+        'austro': "url('../images/austronauta.png')",
       },
       width: {
         '100': '28rem',

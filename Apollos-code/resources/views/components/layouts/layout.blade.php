@@ -8,7 +8,8 @@
     <title>{{ $title ?? 'Prueba' }}</title>
 
 
-    @vite('resources/css/tailwind.css')
+    @vite('resources/css/app.css')
+    
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,13 +17,13 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet">
 
-    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+    @vite('resources/css/styles.css')
 
     <link href="{{ asset('css/uicons-regular-straight/css/uicons-regular-straight.css') }}" rel="stylesheet">
 
 </head>
 
-<body class="bg-blur-back_2 bg-no-repeat bg-cover">
+<body class="bg-blur-back bg-no-repeat bg-cover">
 
     {{-- se utliza $slot para incluir contenido propio de un página web, y las etiquetas x-"demás" para involucrar componentes --}}
 

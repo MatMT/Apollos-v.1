@@ -19,19 +19,17 @@ class ImageController extends Controller
         // Imagen de Intervetion/Image
         $imagenServidor = Image::make($imagen);
         $imagenServidor->fit(1000, 1000);
-        $imagenServidor->resize(1000, 1000);
 
-
-        // Ruta de la imagen - public_path() - apunta hacia la carpeta public
-        $imagenPath = public_path('uploads') . '/' . $nombreImagen;
-
-        // Guardadno en otra ruta
-        $imagenServidor->save($imagenPath);
+        // Ruta de la imagen - storage_path() - apunta hacia la carpeta storage
+        $imagenStorage = storage_path('app') . '/public/uploads/imagenes/' . $nombreImagen;
 
         // Guardando en storage
-        // $imagen->store('uploads/imagenes');
+        $imagenServidor->save($imagenStorage);
 
         // Respuesta obtenida del app.js (dropzone.on)
         return response()->json(['imagen' => $nombreImagen]);
     }
 }
+
+
+// Referencia sobre el guardado en Storage: https://youtu.be/8x9UoYCVGGI?list=PLZ2ovOgdI-kWH2SrGJGXndG2b0TaqSyLB&t=689

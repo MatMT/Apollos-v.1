@@ -15,13 +15,10 @@ class SongController extends Controller
         // Id único para el archivo
         $nombreCancion = Str::uuid() . '.' . $cancion->extension();
 
-        // Ruta de la imagen
-        // $cancionPath = public_path('uploads') . '/' . $nombreCancion;
-
         // Guardando en storage
-        $cancion->storeAs('uploads/canciones', $nombreCancion);
+        $cancion->storeAs('/public/uploads/canciones', $nombreCancion);
 
-        // Respuesta al Js 
+        // Respuesta al Js (dropzone.on)
         return response()->json(['song' => $nombreCancion]);
     }
 }

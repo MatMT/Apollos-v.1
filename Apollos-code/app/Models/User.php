@@ -23,7 +23,7 @@ class User extends Authenticatable
         'email',
         'password',
         'rol',
-        'name_artist',
+        'name_artist', // Input modificada
         'gender',
         'age',
         'birth_date',
@@ -48,4 +48,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // Relación 
+    public function songs()
+    {
+        // Un usuario tiene muchas canciones
+        return $this->hasMany(Song::class);
+    }
 }

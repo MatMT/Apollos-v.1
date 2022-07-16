@@ -4,6 +4,10 @@
     Subiendo una nueva canción
 @endsection
 
+@push('js')
+    @vite(['resources/js/app.js'])
+@endpush
+
 @push('styles')
     <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
 @endpush
@@ -45,12 +49,12 @@
                 @csrf
                 <!-- Token de imagen -->
                 <div class="mb-5">
-                    <input type="hidden" name="imagen" />
+                    <input type="hidden" name="imagen" value="{{ old('imagen') }}" />
                 </div>
 
                 <!-- Token de audio -->
                 <div class="mb-5">
-                    <input type="hidden" name="song" />
+                    <input type="hidden" name="song" value="{{ old('song') }}" />
                 </div>
 
                 <!-- Campos -->

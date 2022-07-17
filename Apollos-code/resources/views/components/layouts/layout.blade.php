@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" class="h-screen w-screen">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -18,6 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet">
 
     @vite('resources/css/styles.css')
+    @vite('resources/css/home.css')
 
     <link href="{{ asset('css/uicons-regular-straight/css/uicons-regular-straight.css') }}" rel="stylesheet">
 
@@ -27,36 +28,36 @@
 
     {{-- se utliza $slot para incluir contenido propio de un página web, y las etiquetas x-"demás" para involucrar componentes --}}
 
-    <header class="py-5 px-8 text-white ">
+    <header class="py-3 px-8 text-white ">
 
         <div class="box-header w-full h-28 flex items-center justify-between py-4 px-5">
 
-            <h1 class="font-logo mx-8 text-3xl">Apollo's</h1>
+            <a href="#" class="font-logo mx-8 text-3xl tablet_5:mx-5 tablet_5:text-2xl">Apollo's</a>
 
-            <ul class="flex m-10 ml-11 text-base items-center font-cuerpo">
+            <ul class="flex my-10 mx-10 text-base items-center font-cuerpo text-center tablet_5:mx-auto">
 
                 <li
                     class="mx-8 {{ $active_2 ?? 'font-normal' }} {{ $active ?? 'normal' }} {{ $active_bg ?? '' }}  ">
-                    <a href="{{ route('main') }}"><i class="fi fi-rs-home"></i>Home</a>
+                    <a href="{{ route('main') }}"><i class="fi fi-rs-home"></i><span class="tablet_3:hidden">Home</span></a>
                 </li>
-                <li class="mx-8 text-stone-300"><a href="{{ route('biblioteca') }}"><i
-                            class="fi fi-rs-apps"></i></i>Tu
-                        Biblioteca</a></li>
-                <li class="mx-8 text-stone-300"><a href=""><i class="fi fi-rs-music"></i>Crear PlayList</a></li>
-                <li class="mx-8 text-stone-300"><a href="{{ route('artista') }}"><i
-                            class="fi fi-rs-search"></i></i>Buscar</a></li>
+                <li class="mx-8 text-stone-300"><a href="{{ route('biblioteca') }}"><i class="fi fi-rs-apps"></i></i><span class="tablet_3:hidden">Tu Biblioteca</span></a></li>
+                <li class="mx-8 text-stone-300"><a href=""><i class="fi fi-rs-music"></i><span class="tablet_3:hidden">Crear PlayList</span></a></li>
+                <li class="mx-8 text-stone-300"><a href="{{ route('artista') }}"><i class="fi fi-rs-search"></i><span class="tablet_3:hidden">Buscar</span></a></li>
             </ul>
 
             <div class="profile flex h-3/4 items-center mx-5 ">
-                <a href="{{ route('posts.index', auth()->user()) }}"
-                    class="font-titulo mr-5 w-28 text-right">{{ Auth::user()->name }}</a>
-                <a href="" class="h-3/4"><img src="{{ asset('assets/img/profile.jpg') }}" alt="img"
-                        class="h-full rounded-full"></a>
+                <a href="{{ route('posts.index', auth()->user()) }}"class="font-titulo mr-5 w-28 text-right laptop:hidden">{{ Auth::user()->name }}</a>
+                <a href="" class="h-11"><img src="{{ asset('assets/img/profile.jpg') }}" alt="img"class="h-11 min-w-[44px]  rounded-full border-slate-400"></a>
             </div>
 
 
         </div>
     </header>
+
+
+    <div class="reproductor">
+
+    </div>
 
 </body>
 

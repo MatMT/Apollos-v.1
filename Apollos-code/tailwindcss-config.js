@@ -14,11 +14,24 @@ module.exports = {
       'cuerpo': ['DM+Sans', "sans-serif"],
     },
 
+    screens: {
+      'tablet_3': {'max': '921px'},
+      // => @media (min-width: 640px) { ... }
+      'tablet_5': {'max': '1082px'},
+      // => @media (min-width: 640px) { ... }
+
+      'laptop': {'max': '1280px'},
+      // => @media (min-width: 1024px) { ... }
+
+      'desktop': '1740px',
+      // => @media (min-width: 1280px) { ... }
+    },
+
     extend: {
       colors: {
         'morado': '#4C3F91',
         'active_1': '#FF5677',
-        'morado_1' : '#4C3F91'
+        'morado_1' : '#695ECC'
       },
 
       backgroundImage: {

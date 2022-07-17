@@ -52,23 +52,28 @@
 .card{
     /**/
     border-radius: 20px;
-    min-width: 15%;
-    margin: 10px;
-    padding: 10px;
+    min-width: 16.66%;
+    padding: 25px;
     transition: 0.3s ease-in-out all;
 }
-.card:hover{
-    background-color: rgba(255, 255, 255, 0.116);
-}
+
 .imagen{
     width: 100%;
+    border-radius: 50%;
+    overflow: hidden;
 }
 
 .imagen img{
     width: 100%;
     object-fit: cover;
     border-radius: 50%;
+    transition: all .5s cubic-bezier(.45,.05,.55,.95);
 }
+
+.imagen img:hover{
+    transform:scale(1.1); /*cuando nos posicionamos sobre la imagen con esta propiedad aumentamos su escala y ademas la giramos*/
+}
+
 .title{
     width: 100%;
     text-align: center;
@@ -77,4 +82,11 @@
 
 
 /*-------  -------  ----- Media Query ---------  ------  ----*/
+
+@media screen and (max-width: 1700px) {
+    
+    .card{
+        min-width: 20%;
+    }
+}
 

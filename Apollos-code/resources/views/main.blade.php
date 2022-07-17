@@ -13,8 +13,8 @@
 
         <div class="post_1 w-full justify-around items-center">
             
-            <div class="title-post w-3/5">
-                <h1 class="font-titulo_2 text-7xl my-8 leading-tight text-white laptop:text-6xl">Descubre tu Musica en nuevo Universo </h1>
+            <div class="title-post w-3/5 laptop:w-4/5">
+                <h1 class="font-titulo_2 text-7xl my-8 leading-tight text-white desktop:text-6xl">Descubre tu Musica en nuevo Universo </h1>
                 <div class="line w-28 h-0.5 bg-white mb-5"></div>
                 <div class="line w-28 h-0.5 mb-1"></div>
 
@@ -50,8 +50,8 @@
                                     <img src="{{ asset('assets/artistas-pic/ed_sheeran.jpg') }} " alt="Había una Imagen xD">
                                 </div>
                                 <div class="title">
-                                    <div class="name font-titulo_2 text-lg">Ed Sheeran</div>
-                                    <div class="type text-lg font-thin text-slate-300">Artista</div>
+                                    <div class="name font-titulo_2 text-lg desktop_2:text-base">Ed Sheeran</div>
+                                    <div class="type text-lg font-thin text-slate-300 desktop_2:text-base">Artista</div>
                                 </div>
                             </a>
                         </div>
@@ -61,8 +61,8 @@
                                     <img src="{{ asset('assets/artistas-pic/Shawn_Mendez.jpg') }} " alt="Había una Imagen xD">
                                 </div>
                                 <div class="title">
-                                    <div class="name font-titulo_2 text-lg">Shawn Mendes</div>
-                                    <div class="type text-lg font-thin text-slate-300">Artista</div>
+                                    <div class="name font-titulo_2 text-lg desktop_2:text-base">Shawn Mendes</div>
+                                    <div class="type text-lg font-thin text-slate-300 desktop_2:text-base">Artista</div>
                                 </div>
                                 
                             </a>
@@ -73,8 +73,8 @@
                                     <img src="{{ asset('assets/artistas-pic/The_weekend.jpg') }} " alt="Había una Imagen xD">
                                 </div>
                                 <div class="title">
-                                    <div class="name font-titulo_2 text-lg">The Weeknd</div>
-                                    <div class="type text-lg font-thin text-slate-300">Artista</div>
+                                    <div class="name font-titulo_2 text-lg desktop_2:text-base">The Weeknd</div>
+                                    <div class="type text-lg font-thin text-slate-300 desktop_2:text-base">Artista</div>
                                 </div>
                                 
                             </a>
@@ -85,8 +85,8 @@
                                     <img src="{{ asset('assets/artistas-pic/charlie_p.jpg') }} " alt="Había una Imagen xD">
                                 </div>
                                 <div class="title">
-                                    <div class="name font-titulo_2 text-lg">Charlie Puth</div>
-                                    <div class="type text-lg font-thin text-slate-300">Artista</div>
+                                    <div class="name font-titulo_2 text-lg desktop_2:text-base">Charlie Puth</div>
+                                    <div class="type text-lg font-thin text-slate-300 desktop_2:text-base">Artista</div>
                                 </div>
                                 
                             </a>
@@ -97,8 +97,8 @@
                                     <img src="{{ asset('assets/artistas-pic/ed_sheeran.jpg') }} " alt="Había una Imagen xD">
                                 </div>
                                 <div class="title">
-                                    <div class="name font-titulo_2 text-lg">Ed Sheeran</div>
-                                    <div class="type text-lg font-thin text-slate-300">Artista</div>
+                                    <div class="name font-titulo_2 text-lg desktop_2:text-base">Ed Sheeran</div>
+                                    <div class="type text-lg font-thin text-slate-300 desktop_2:text-base">Artista</div>
                                 </div>
                                 
                             </a>
@@ -110,8 +110,8 @@
                                     <img src="{{ asset('assets/artistas-pic/Shawn_Mendez.jpg') }} " alt="Había una Imagen xD">
                                 </div>
                                 <div class="title">
-                                    <div class="name font-titulo_2 text-lg">Shawn Mendes</div>
-                                    <div class="type text-lg font-thin text-slate-300">Artista</div>
+                                    <div class="name font-titulo_2 text-lg desktop_2:text-base">Shawn Mendes</div>
+                                    <div class="type text-lg font-thin text-slate-300 desktop_2:text-base">Artista</div>
                                 </div>
                                 
                             </a>
@@ -122,8 +122,8 @@
                                     <img src="{{ asset('assets/artistas-pic/The_weekend.jpg') }} " alt="Había una Imagen xD">
                                 </div>
                                 <div class="title">
-                                    <div class="name font-titulo_2 text-lg">The Weeknd</div>
-                                    <div class="type text-lg font-thin text-slate-300">Artista</div>
+                                    <div class="name font-titulo_2 text-lg desktop_2:text-base">The Weeknd</div>
+                                    <div class="type text-lg font-thin text-slate-300 desktop_2:text-base">Artista</div>
                                 </div>
                                 
                             </a>
@@ -134,8 +134,8 @@
                                     <img src="{{ asset('assets/artistas-pic/charlie_p.jpg') }} " alt="Había una Imagen xD">
                                 </div>
                                 <div class="title">
-                                    <div class="name font-titulo_2 text-lg">Charlie Puth</div>
-                                    <div class="type text-lg font-thin text-slate-300">Artista</div>
+                                    <div class="name font-titulo_2 text-lg desktop_2:text-base">Charlie Puth</div>
+                                    <div class="type text-lg font-thin text-slate-300 desktop_2:text-base">Artista</div>
                                 </div>
                                 
                             </a>
@@ -149,6 +149,8 @@
             </div>
 
         </div>
+
+        
 
         <div class="carrusel"></div>
         <div class="carrusel"></div>

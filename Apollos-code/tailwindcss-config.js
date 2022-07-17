@@ -23,8 +23,9 @@ module.exports = {
       'laptop': {'max': '1280px'},
       // => @media (min-width: 1024px) { ... }
 
-      'desktop': '1740px',
+      'desktop': {'max': '1600px'},
       // => @media (min-width: 1280px) { ... }
+      'desktop_2': {'max': '1500px'},
     },
 
     extend: {

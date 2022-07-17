@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" id="scre">
 
 <head>
     <meta charset="UTF-8">
@@ -45,9 +45,37 @@
                 <li class="mx-8 text-stone-300"><a href="{{ route('artista') }}"><i class="fi fi-rs-search"></i><span class="tablet_3:hidden">Buscar</span></a></li>
             </ul>
 
-            <div class="profile flex h-3/4 items-center mx-5 ">
-                <a href="{{ route('posts.index', auth()->user()) }}"class="font-titulo mr-5 w-28 text-right laptop:hidden">{{ Auth::user()->name }}</a>
+            <div id="profile" class="profile flex h-3/4 items-center mx-5 ">
+                <a href=""class="font-titulo mr-5 w-28 text-right laptop:hidden">{{ Auth::user()->name }}</a>
                 <a href="" class="h-11"><img src="{{ asset('assets/img/profile.jpg') }}" alt="img"class="h-11 min-w-[44px]  rounded-full border-slate-400"></a>
+            </div>
+            <div id="menu" class="menu">
+                <div class="contenido-menu">
+                    <ul>
+                        <li>
+                            <a href="/">Welcome</a>
+                        </li>
+                        <li>
+                                <a href="{{ route('posts.index', auth()->user()) }}">Perfil</a>
+                        </li>
+                        {{-- Utilizamos esta directiva para mostrar a los usuarios no autenticados --}}
+                        @auth
+                            <li>
+                                <a href="{{ route('main') }}">Main</a>
+                            </li>
+                            <li>
+                                <form action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <a href="#" onclick="this.closest('form').submit()">Logout</a>
+                                </form>
+                            </li>
+                        @else
+                            <li>
+                                <a href="{{ route('login') }}">Login</a>
+                            </li>
+                        @endauth
+                    </ul>
+                </div>
             </div>
 
 
@@ -58,6 +86,8 @@
     <div class="reproductor">
 
     </div>
+
+    @vite('resources/js/menu.js')
 
 </body>
 

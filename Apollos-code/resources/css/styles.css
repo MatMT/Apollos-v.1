@@ -1,4 +1,3 @@
-
 *{
     margin: 0%;
     padding: 0%;
@@ -31,13 +30,11 @@ body::before{
     width: 100%;
     height: 100vh;
     background: rgb(255,255,255);
-    background: linear-gradient(180deg, rgba(255,255,255,0) 10%, rgba(0,0,0,0.06) 30%, rgba(0,0,0,1) 85%);
-    background-size: cover;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 10%, rgba(0,0,0,0.05085784313725494) 30%, rgba(0,0,0,1) 100%);
     position: absolute;
     left: 0%;
     top: 0%;
     z-index: -5;
-
 }
 
 
@@ -73,8 +70,6 @@ li a i{
 ul li a:hover{
     color: white;
 }
-
-
 
 /*-------  -------  ----- Reproductor ---------  ------  ----*/
 

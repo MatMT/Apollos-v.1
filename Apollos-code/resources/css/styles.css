@@ -1,0 +1,112 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+
+body{
+    position: relative;
+    width: 100%;
+    scrollbar-width: none;
+}
+
+body::after{
+    content: "";
+    width: 100%;
+    height: 100vh;
+    background-image: url(../images/fondo_1.jpg);
+    backdrop-filter: blur(6px);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    z-index: -6;
+}
+
+body::before{
+    content: "";
+    width: 100%;
+    height: 100vh;
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 10%, rgba(0,0,0,0.05085784313725494) 20%, rgba(0,0,0,1) 90%);
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    z-index: -5;
+}
+
+
+/* Barra de navegación */
+ul li a{
+    display: flex;
+    align-items: center;
+    transition: 0.5s ease-in-out;
+}
+
+li a i{
+    margin-right: 15px;
+    margin-top: 4px;
+    font-size: 18px;
+}
+
+.this{
+    padding: 5px 25px;
+    background-color: #FF5677;
+    border-radius: 9999px;
+    filter: drop-shadow(0 25px 25px rgb(0 0 0 / 0.15));
+    transition: 0.5s ease-in-out;
+}
+.this:hover{
+    transform: translateY(-5px);
+}
+
+
+.class-active{
+    color: white;
+}
+
+ul li a:hover{
+    color: white;
+}
+
+/*-------  -------  ----- Reproductor ---------  ------  ----*/
+
+.reproductor{
+    position: absolute;
+}
+
+/*---  ----------- ----- Menu  -------- -------- --------- ---- */
+
+.box-header{
+    position: relative;
+}
+.menu{
+    width: 200px;
+    height: 350px;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.349);
+
+    position: absolute;
+    right: 60px;
+    top: 80px;
+    z-index: 5;
+
+    transition: all 0.5s ease-in-out;
+
+    display: none;
+
+}
+
+/*-------  -------  ----- Querys ---------  ------  ----*/
+
+@media screen and (max-width: 921px) {
+    
+    li a i{
+        margin-right: 0px;
+        font-size: 20px;
+        margin-top: 2px;
+    }
+}

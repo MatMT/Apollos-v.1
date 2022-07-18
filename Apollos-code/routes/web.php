@@ -5,6 +5,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SongController;
+use App\Http\Controllers\ImageController;
+use App\Http\Controllers\DataSongController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,18 +23,20 @@ use Illuminate\Support\Facades\Route;
     Route::match(['get', 'post'], '/user/profile', function () {
         ...
     });
+
+    Método "name" asigna un alías dínamico.
+
+    RMB - más información aquí: https://laravel.com/docs/9.x/routing#route-model-binding
+    Cuando un modelo esta asociado a una ruta, Laravel detecta la ruta, consulta ese modelo y su tabla en la base de datos y trae la información asociada a la variable
 |--------------------------------------------------------------------------
 */
-// Método "name" asigna un alías dínamico.
 
-// Definición de una ruta tipo get: Url, función
 // Esta estructura se puede denominar "Closure" sinónimo de una función callback
+// Al usar view Laravel automáticamente se dirige a la carpeta resources/views
 // Route::get('/inicio', function () {
-//     // Al usar view Laravel automáticamente se dirige a la carpeta resources/views
 //     return view('welcome');
 // });
 
-// Route::view('/tester', 'tester');
 
 // Método simple "view" responde como peticiones de tipo "get" y "head"
 Route::view('/', 'welcome');
@@ -51,12 +55,14 @@ Route::post('/logout', [LogoutController::class, 'store'])->name('logout'); // C
 // Home ---
 Route::view('/home', 'main')->name('main')->middleware('auth'); // Autentificación de registrado
 
-// Perfil ---
+// Perfil --- Gracias al Route model binding
 Route::get('/{user:name_artist}', [ProfileController::class, 'index'])->name('posts.index');
 
 // Subir ---
-Route::get('/uploads/create', [SongController::class, 'create'])->name('posts.create');
-Route::post('/uploads/create/imagen', [SongController::class, 'store'])->name('posts.store');
+Route::get('/uploads/create', [DataSongController::class, 'create'])->name('posts.create'); // Vista
+Route::post('/uploads/create/audio', [SongController::class, 'store'])->name('audio.store'); // .mp3 
+Route::post('/uploads/create/imagen', [ImageController::class, 'store'])->name('image.store'); // Imagen 
+Route::post('/uploads/create/data', [DataSongController::class, 'store'])->name('data.store'); // Info
 
 // --- nuevas vistas
 Route::view('/biblioteca', 'Library')->name('biblioteca');

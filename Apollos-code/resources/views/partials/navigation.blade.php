@@ -1,5 +1,4 @@
 {{-- Nav bar provisional --}}
-<br>
 <nav>
     <ul>
         <li>

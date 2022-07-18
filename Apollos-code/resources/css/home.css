@@ -1,0 +1,92 @@
+.austronauta{
+    animation: flotaraustro 5s ease-in-out infinite alternate;
+    top: 2.10rem;
+    left: 5.5rem;
+}
+
+@keyframes flotaraustro{
+    0% {top: 2.10rem;}
+    100% {top: 4.25rem;}
+}
+
+
+/*------------------- Contenedor Principal y Flechas -------------------*/
+
+.main-content{
+    margin-bottom: 70px;
+}
+
+.main-content .contenedor-principal{
+    display: flex;
+    align-items: center;
+}
+
+.contenedor-principal button{
+    color: rgba(255, 255, 255, 0.336);
+    transition: all 0.3s ease-in;
+    margin: 0px 5px;
+}
+
+.contenedor-principal button:hover{
+    color: white;
+}
+
+/*-------  -------  ----- Carrucel ---------  ------  ----*/
+
+.contenedor-carousel{
+    width: 100%;
+    display: flex;
+    padding: 20px 0px;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.carousel{
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 5px;
+}
+
+/*----   ------   ---  Cards ---  ------   -------*/
+
+.card{
+    /**/
+    border-radius: 20px;
+    min-width: 16.66%;
+    padding: 25px;
+    transition: 0.3s ease-in-out all;
+}
+
+.imagen{
+    width: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.imagen img{
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: all .5s cubic-bezier(.45,.05,.55,.95);
+}
+
+.imagen img:hover{
+    transform:scale(1.1); /*cuando nos posicionamos sobre la imagen con esta propiedad aumentamos su escala y ademas la giramos*/
+}
+
+.title{
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+/*-------  -------  ----- Media Query ---------  ------  ----*/
+
+@media screen and (max-width: 1700px) {
+    
+    .card{
+        min-width: 20%;
+    }
+}
+

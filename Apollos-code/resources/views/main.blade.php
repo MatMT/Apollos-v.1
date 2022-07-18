@@ -33,7 +33,7 @@
     <main class="principal w-9/10 m-auto">
 
         <div class="carrusel">
-
+            
         </div>
 
         <div class="carrusel"></div>

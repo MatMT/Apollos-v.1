@@ -30,7 +30,7 @@
 
     <header class="py-3 px-8 text-white ">
 
-        <div class="box-header w-full h-28 flex items-center justify-between py-4 px-5">
+        <div class="box-header w-full h-28 flex items-center justify-between py-4 px-5 relative">
 
             <a href="#" class="font-logo mx-8 text-3xl tablet_5:mx-5 tablet_5:text-2xl">Apollo's</a>
 
@@ -44,40 +44,44 @@
                 <li class="mx-8 text-stone-300"><a href=""><i class="fi fi-rs-music"></i><span class="tablet_3:hidden">Crear PlayList</span></a></li>
                 <li class="mx-8 text-stone-300"><a href="{{ route('artista') }}"><i class="fi fi-rs-search"></i><span class="tablet_3:hidden">Buscar</span></a></li>
             </ul>
+            <div class="user h-11">
 
-            <div id="profile" class="profile flex h-3/4 items-center mx-5 ">
-                <a href=""class="font-titulo mr-5 w-28 text-right laptop:hidden">{{ Auth::user()->name }}</a>
-                <a href="" class="h-11"><img src="{{ asset('assets/img/profile.jpg') }}" alt="img"class="h-11 min-w-[44px]  rounded-full border-slate-400"></a>
-            </div>
-            <div id="menu" class="menu">
-                <div class="contenido-menu">
-                    <ul>
-                        <li>
-                            <a href="/">Welcome</a>
-                        </li>
-                        <li>
-                                <a href="{{ route('posts.index', auth()->user()) }}">Perfil</a>
-                        </li>
-                        {{-- Utilizamos esta directiva para mostrar a los usuarios no autenticados --}}
-                        @auth
+                <div id="profile" class="profile mx-4 ">
+                    <div class="image w-full flex justify-end items-center">
+                        <a class="font-titulo mr-5 h-6 text-right laptop:hidden">{{ Auth::user()->name }}</a>
+                        <a href="" class="h-11"><img src="{{ asset('assets/img/profile.jpg') }}" alt="img"class="h-11 min-w-[44px]  rounded-full border-slate-400"></a>
+                    </div>
+                    <div class="contenido-menu my-5" id="menu">
+                        <ul>
                             <li>
-                                <a href="{{ route('main') }}">Main</a>
+                                <a href="/">Welcome</a>
                             </li>
                             <li>
-                                <form action="{{ route('logout') }}" method="POST">
-                                    @csrf
-                                    <a href="#" onclick="this.closest('form').submit()">Logout</a>
-                                </form>
+                                    <a href="{{ route('posts.index', auth()->user()) }}">Perfil</a>
                             </li>
-                        @else
-                            <li>
-                                <a href="{{ route('login') }}">Login</a>
-                            </li>
-                        @endauth
-                    </ul>
+                            {{-- Utilizamos esta directiva para mostrar a los usuarios no autenticados --}}
+                            @auth
+                                <li>
+                                    <a href="{{ route('main') }}">Main</a>
+                                </li>
+                                <li>
+                                    <form action="{{ route('logout') }}" method="POST">
+                                        @csrf
+                                        <a href="#" onclick="this.closest('form').submit()">Logout</a>
+                                    </form>
+                                </li>
+                            @else
+                                <li>
+                                    <a href="{{ route('login') }}">Login</a>
+                                </li>
+                            @endauth
+                        </ul>
+                    </div>
+                    
                 </div>
-            </div>
 
+            </div>
+            
 
         </div>
     </header>

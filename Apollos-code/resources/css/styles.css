@@ -71,6 +71,41 @@ ul li a:hover{
     color: white;
 }
 
+/*-------  -------  ----- Profile ---------  ------  ----*/
+
+.profile{
+    padding: 10px 30px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+.profile:hover{
+    background-color: rgba(0, 0, 0, 0.295);
+    filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+}
+
+.profile.active{
+    background-color: black;
+    /*position: absolute;
+    top: 17.85%;
+    right: 0.87%;*/
+    filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+    transition: all 0.5s ease-in-out;
+}
+
+.contenido-menu{
+    display: none;
+}
+.contenido-menu.active{
+    display: block;
+}
+
+.ghost.active{
+    display: block;
+    transition: all 0.5s ease-in-out;
+}
+
+
 /*-------  -------  ----- Reproductor ---------  ------  ----*/
 
 .reproductor{

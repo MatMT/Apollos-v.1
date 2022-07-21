@@ -72,38 +72,85 @@ ul li a:hover{
 }
 
 /*-------  -------  ----- Profile ---------  ------  ----*/
-
 .profile{
     padding: 10px 30px;
     border-radius: 12px;
     cursor: pointer;
     transition: all 0.5s ease-in-out;
-}
-.profile:hover{
-    background-color: rgba(0, 0, 0, 0.295);
-    filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+    height: 64px;
 }
 
-.profile.active{
-    background-color: black;
-    /*position: absolute;
-    top: 17.85%;
-    right: 0.87%;*/
-    filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
-    transition: all 0.5s ease-in-out;
-}
+
 
 .contenido-menu{
+    width: 225px;
+    border-radius: 12px;
+    height: 250px;
+    padding: 15px 40px;
+    
+    background-color: rgba(0, 0, 0, 0.319);
+    -webkit-backdrop-filter: blur(10px);
+    -moz-backdrop-filter: blur(10px);
+    backdrop-filter: blur(8px);
+    
+    filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+    transition: all 0.5s ease-in-out;
+
+    position: absolute;
+    top: 90%;
+    right: 35%;
+
+    transition: all 0.5s ease-in-out;
     display: none;
 }
 .contenido-menu.active{
     display: block;
-}
-
-.ghost.active{
-    display: block;
+    
     transition: all 0.5s ease-in-out;
 }
+/*
+.options,
+.perfil{
+    display: none;
+}
+
+.options.active,
+.perfil.active{
+    display: dsiplay;
+}
+*/
+@keyframes bottom {
+    0% {
+     transform: translateY(-50px);
+     opacity: 0;
+    }
+   
+    100% {
+     opacity: 1;
+     transform: none;
+    }
+   }
+
+.anim {
+    animation: bottom 0.8s 0s both;
+}
+
+@keyframes bottom2 {
+    0% {
+     transform: translateY(100px);
+     opacity: 0;
+    }
+   
+    100% {
+     opacity: 1;
+     transform: none;
+    }
+   }
+
+.anim2 {
+    animation: bottom2 0.8s 0s both;
+}
+
 
 
 /*-------  -------  ----- Reproductor ---------  ------  ----*/

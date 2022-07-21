@@ -7,11 +7,14 @@ document.getElementById('profile').addEventListener('click', result)
 
 
 function result(){
-    let profile_toggle = document.getElementById('profile');
+    let profile_toggle = document.getElementById('perfil');
     let menu = document.getElementById("menu");
+    let contenedor = document.getElementById("opciones");
+    let show = true;
 
-    profile_toggle.classList.toggle('active');
-    menu.classList.toggle('active');
+    menu.classList.toggle("active");
+    
+    
 
 }
 /*profile.addEventListener('click', ()=>{

@@ -44,41 +44,48 @@
                 <li class="mx-8 text-stone-300"><a href=""><i class="fi fi-rs-music"></i><span class="tablet_3:hidden">Crear PlayList</span></a></li>
                 <li class="mx-8 text-stone-300"><a href="{{ route('artista') }}"><i class="fi fi-rs-search"></i><span class="tablet_3:hidden">Buscar</span></a></li>
             </ul>
-            <div class="user h-11">
+                    
+            <div class="user h-11 relative">
 
                 <div id="profile" class="profile mx-4 ">
                     <div class="image w-full flex justify-end items-center">
                         <a class="font-titulo mr-5 h-6 text-right laptop:hidden">{{ Auth::user()->name }}</a>
                         <a href="" class="h-11"><img src="{{ asset('assets/img/profile.jpg') }}" alt="img"class="h-11 min-w-[44px]  rounded-full border-slate-400"></a>
                     </div>
-                    <div class="contenido-menu my-5" id="menu">
-                        <ul>
+                </div>
+                <div class="contenido-menu my-5 anim" id="menu">
+                    <div class="image perfil w-full flex justify-end items-center anim" id="perfil">
+                        <img src="{{ asset('assets/img/profile.jpg') }}" alt="img"class="h-12 min-w-[48px]  rounded-full border-slate-400">
+                        <div class="name-user p-5">
+                            <span class="font-titulo h-6 text-right font-bold truncatetruncate ">{{ Auth::user()->name }}</span>
+                            <span class="text-sm text-slate-300">Usuario</span>
+                        </div>
+                        
+                    </div>
+
+                    <ul class="anim options" id="opciones">
+                        <li><a href="/">Welcome</a></li>
+                        <li>
+                            <a href="{{ route('posts.index', auth()->user()) }}">Perfil</a>
+                        </li>
+                        {{-- Utilizamos esta directiva para mostrar a los usuarios no autenticados --}}
+                        @auth
+                        <li>
+                            <a href="{{ route('main') }}">Main</a>
+                        </li>
+                        <li>
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <a href="#" onclick="this.closest('form').submit()">Logout</a>
+                            </form>
+                        </li>
+                        @else
                             <li>
-                                <a href="/">Welcome</a>
-                            </li>
-                            <li>
-                                    <a href="{{ route('posts.index', auth()->user()) }}">Perfil</a>
-                            </li>
-                            {{-- Utilizamos esta directiva para mostrar a los usuarios no autenticados --}}
-                            @auth
-                                <li>
-                                    <a href="{{ route('main') }}">Main</a>
-                                </li>
-                                <li>
-                                    <form action="{{ route('logout') }}" method="POST">
-                                        @csrf
-                                        <a href="#" onclick="this.closest('form').submit()">Logout</a>
-                                    </form>
-                                </li>
-                            @else
-                                <li>
-                                    <a href="{{ route('login') }}">Login</a>
-                                </li>
-                            @endauth
+                               <a href="{{ route('login') }}">Login</a>
+                             </li>
+                        @endauth
                         </ul>
                     </div>
-                    
-                </div>
 
             </div>
             

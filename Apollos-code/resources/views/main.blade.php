@@ -18,7 +18,7 @@
                 <div class="line w-28 h-0.5 bg-white mb-5"></div>
                 <div class="line w-28 h-0.5 mb-1"></div>
 
-                <a class="font-cuerpo font-thin text-3xl bg-morado_1 px-6 pt-1 pb-2 rounded-full drop-shadow-2xl mt-3 text-slate-300 cursor-default laptop:text-2xl">Buenas noches {{ Auth::user()->name }}</a>
+                <a class="font-cuerpo font-thin text-3xl bg-morado_1 px-6 pt-1 pb-2 rounded-full drop-shadow-2xl mt-3 text-slate-300 cursor-default laptop:text-2xl"><span id="saludo"></span> {{ Auth::user()->name }}!</a>
             </div>
             <!-- <div class="w-2/5 bg-planetas h-9/10 bg-cover mx-16 relative">
                 <div class="austronauta bg-austro h-56 w-60 bg-cover absolute top-9 left-20"
@@ -34,7 +34,7 @@
 
         
 
-        <div class="main-content text-white">
+        <div class="main-content text-white anim2">
             <h2 class="text-white text-3xl font-bold">Artistas que pueden ser para ti</h2>
 
             <div class="contenedor-principal">
@@ -155,5 +155,24 @@
         <div class="carrusel"></div>
         <div class="carrusel"></div>
         @vite('resources/js/carrucel.js')
+
+        <script>
+            var lugar = document.getElementById("saludo");
+            
+            let datatime = new Date();
+            let hour = parseInt(datatime.getHours()); 
+            
+            if(hour >= 5 && hour <=11){
+                //Escribir en html
+                lugar.innerHTML = "¡Buenos días";
+            }else{
+                if(hour >= 12 && hour <=18){
+                    lugar.innerHTML = "¡Buenas tardes";
+                }else{
+                    lugar.innerHTML = "¡Buenas noches";
+                }
+            }
+
+        </script>
 
     </main>

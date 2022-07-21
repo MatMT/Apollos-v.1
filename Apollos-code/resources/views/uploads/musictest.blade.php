@@ -8,5 +8,24 @@
 </head>
 <body>
     HOLA te extraño @...
+
+    <form>
+        <input type="file">
+        <input type="submit" value="Enviar">
+    </form>
+
+    
+   
+
+
+
+
+
+
+
+
+
+
+    
 </body>
 </html>

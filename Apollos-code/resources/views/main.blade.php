@@ -34,6 +34,7 @@
 
         
 
+    
         <div class="main-content text-white">
             <h2 class="text-white text-3xl font-bold">Artistas que pueden ser para ti</h2>
 

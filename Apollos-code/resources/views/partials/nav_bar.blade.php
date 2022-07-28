@@ -37,6 +37,7 @@
                     <a class="font-bold uppercase text-gray-600 text-sm" href="/">Welcome</a>
                     <a class="font-bold uppercase text-gray-600 text-sm" href="{{ route('login') }}">Login</a>
                     <a class="font-bold uppercase text-gray-600 text-sm" href="{{ route('signup') }}">Crear cuenta</a>
+                                       <a class="font-bold uppercase text-gray-600 text-sm" href="{{ route('signup') }}">Crear cuenta</a>
                 </nav>
             @endguest
 

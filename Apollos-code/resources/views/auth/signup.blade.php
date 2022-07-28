@@ -10,7 +10,7 @@
     <title>Regístrate | Apollo's</title>
 </head>
 
-<body class="text-base">
+<body class="text-base text-white">
     {{-- Delimitación de fecha de nacimiento --}}
     @php
         $actualDate = date('Y-m-d');
@@ -20,13 +20,14 @@
 
     <div class="body h-full w-full min-h-screen">
 
-        <div class="content min-h-screen max-w-screen bg-slate-600 ">
-            <div class="signup-container min-h-screen w-full bg-black">
+        <div class="content min-h-screen max-w-screen">
+            <div class="signup-container min-h-screen w-full">
+                
                 <div class="center-form flex items-center justify-center min-h-screen">
 
-                    <div class="form-work my-10 p-6 rounded-md bg-slate-300">
+                    <div class="form-work my-10 p-6 rounded-md">
                         <div class="logo flex justify-center items-center">
-                            <img src="{{ asset('assets/apolloLogoCompleteBlck.svg') }}" class="brightness-0 block text-center">
+                            <img src="{{ asset('assets/apolloLogoCompleteWht.svg') }}" class=" block text-center">
                         </div> {{-- logo --}}
 
                         <h1 class="mt-4 font-titulo text-lg font-semibold">¡Regístrate y disfruta de tu música favorita!</h1>
@@ -36,7 +37,7 @@
                                 @csrf
 
                                 @if ($errors->any())
-                                <div class="errors bg-red-100 border border-red-400 text-red-700 px-3 py-2 rounded mb-3">
+                                <div class="errors text-red-600 px-3 py-2 rounded mb-3">
                                     <ul>
                                         <span class="inline"><img src="{{ asset('assets/icons/errorIcon.png') }}" class="h-4 inline m-2"><strong class="font-bold">¡Oops! Algo salió mal</strong></span>
                                         @foreach ($errors->all() as $error)
@@ -107,6 +108,8 @@
                                 <div class="button-center flex items-center justify-center">
                                     <input type="submit" class="submit font-titulo" value="Registrarse">
                                 </div> {{-- button-center --}}
+
+                                <h2 class="block text-center mt-5 text-gray-900">¿Ya tienes una cuenta?<a href="{{ route('login') }}" class="block"> <span class="font-bold hover:text-slate-50 transition all">Inicia sesión</span></a></h2>
 
                             </form>
                         </div> {{-- session-form-container --}}

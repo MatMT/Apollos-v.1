@@ -7,91 +7,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
     @vite('resources/css/app.css')
-    <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
-    {{-- Script desfasado
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="{{ asset('js/sessionScript.js') }}"></script> --}}
+    <link rel="stylesheet" href="{{ asset('css/session.css') }}">
     <title>Inicia sesión | Apollo's</title>
 </head>
 
-<body>
-    <div class="body">
-        <div class="content">
-            <div class="login">
-                <div class="form-work">
-                    <div class="tabs">
-                        <h3 class="login-tab"><a href="{{ route('login') }}"><span>Ingresar</span></a></h3>
-                        <!-- Link hacia el registro -->
-                        <h3 class="signup-tab"><a href="{{ route('signup') }}"><span>Registrarse</span></a></h3>
-                    </div>
+<body class="text-base text-white">
+    
+    <div class="body h-full w-full min-h-screen">
 
-                    <!-- Si existe algún error de validación se imprimen -->
-                    {{-- @if ($errors->any())
-                        <div class="errores">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>
-                                        {{ $error }}
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif --}}
+        <div class="content min-h-screen max-w-screen">
+            <div class="signup-container min-h-screen w-full">
+                <div class="center-form flex items-center justify-center min-h-screen">
 
-                    <div class="forms">
-                        <div class="active" id="login-tab">
-                            {{-- Formulario de inicio --}}
-                            <form class="login-form" method="POST" action="{{ route('login.store') }}" novalidate>
+                    <div class="form-work my-10 p-6 rounded-md">
+                        <div class="logo flex justify-center items-center">
+                            <img src="{{ asset('assets/apolloLogoCompleteWht.svg') }}" class=" block text-center">
+                        </div> {{-- logo --}}
+
+                        <h1 class="mt-4 font-titulo text-lg font-semibold text-center">¡Bienvenido de nuevo!</h1>
+
+                        <div class="session-form-container flex justify-center">
+                            <form action="{{ route('login.store') }}" method="post" class="session-form" novalidate>
                                 @csrf
-                                <label>
-                                    {{-- En caso de fallar se restaura el antiguo valor ingresado con old --}}
-                                    <input type="email" name="email" id="login-email" class="form-input" required
-                                        value="{{ old('email') }}" autocomplete="off"
-                                        placeholder="Correo electrónico">
-                                </label>
-                                @error('email')
-                                    <p>{{ $message }}</p>
-                                @enderror
-                                <label>
-                                    <input type="password" name="password" id="login-PW" class="form-input" required
-                                        autocomplete="off" placeholder="Contraseña">
-                                </label>
-                                @error('password')
-                                    <p>{{ $message }}</p>
-                                @enderror
-                                <label>
-                                    <input type="checkbox" name="remember"> Recuerda mi sesión
-                                </label>
-                                <div class="button-center">
-                                    <input type="submit" class="submit" value="Iniciar sesión">
+
+                                @if ($errors->any())
+                                <div class="errors text-red-600 px-3 py-2 rounded mb-3">
+                                    <ul>
+                                        <span class="inline"><img src="{{ asset('assets/icons/errorIcon.png') }}" class="h-4 inline m-2"><strong class="font-bold">¡Oops! Algo salió mal</strong></span>
+                                        @foreach ($errors->all() as $error)
+                                        <li class="list-disc pl-7 list-inside">
+                                            {{ $error }}
+                                        </li>
+                                        @endforeach
+                                    </ul>
                                 </div>
+                                @endif
+
+                                <div class="input-container">
+                                    <span class="icon"><img src="{{ asset('assets/icons/mailIconWht.png') }}"></span>
+                                    <input type="email" name="email" id="login-email" class="form-input" required value="{{ old('email') }}" autocomplete="off" placeholder="Correo electrónico">
+                                </div> {{-- input-container --}}
+
+                                <div class="input-container">
+                                    <span class="icon"><img src="{{ asset('assets/icons/lockIconWht.png') }}"></span>
+                                    <input type="password" name="password" id="login-PW" class="form-input" required autocomplete="off" placeholder="Contraseña">
+                                </div> {{-- input-container --}}
+
+                                <div class="button-center flex items-center justify-center">
+                                    <input type="submit" class="submit font-titulo" value="Iniciar sesión">
+                                </div> {{-- button-center --}}
+
+                                <h2 class="block text-center mt-5 text-gray-900">¿No tienes una cuenta?<a href="{{ route('signup') }}" class=" block"> <span class="font-bold hover:text-slate-50 transition all">Regístrate</span></a></h2>
+
                             </form>
-                        </div>
+                        </div> {{-- session-form-container --}}
+                    </div> {{-- form-work --}}
 
-                    </div> <!-- forms -->
-                </div>
-            </div>
+                </div> {{-- center-form --}}
+            </div> {{-- signup-container --}}
+        </div> {{-- content --}}
+    </div> {{-- body --}}
 
-            <div class="aside">
-                <div class="aside-content">
-                    <div class="logo-phrase">
-                        <div class="logo"><span><img src="{{ asset('assets/apolloLogoComplete.png') }}"></span>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, voluptatem!</p>
-
-                            @if (session('status'))
-                                <p>{{ session('status') }}</p>
-                            @endif
-
-                            {{-- Accedemos a la parte creada como plantilla --}}
-                            @include('partials.navigation')
-
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- aside --->
-        </div>
-
-    </div>
 </body>
 
 </html>

@@ -13,12 +13,12 @@
 
         <div class="post_1 w-full justify-around items-center">
             
-            <div class="title-post w-3/5 laptop:w-4/5">
+            <div class="title-post w-3/5 laptop:w-4/5 anim2">
                 <h1 class="font-titulo_2 text-7xl my-8 leading-tight text-white desktop:text-6xl">Descubre tu Musica en nuevo Universo </h1>
                 <div class="line w-28 h-0.5 bg-white mb-5"></div>
                 <div class="line w-28 h-0.5 mb-1"></div>
 
-                <a class="font-cuerpo font-thin text-3xl bg-morado_1 px-6 pt-1 pb-2 rounded-full drop-shadow-2xl mt-3 text-slate-300 cursor-default laptop:text-2xl"><span id="saludo"></span> {{ Auth::user()->name }}!</a>
+                <a class="font-cuerpo font-thin text-3xl laptop_2:text-2xl bg-morado_1 px-6 pt-1 pb-2 rounded-full drop-shadow-2xl mt-3 text-slate-300 cursor-default"><span id="saludo"></span> {{ Auth::user()->name }}!</a>
             </div>
             <!-- <div class="w-2/5 bg-planetas h-9/10 bg-cover mx-16 relative">
                 <div class="austronauta bg-austro h-56 w-60 bg-cover absolute top-9 left-20"

@@ -24,7 +24,7 @@
                     @endif
 
                     <a href="{{ route('posts.index', auth()->user()) }}"
-                        class="font-bold uppercase text-gray-800 text-sm">{{ auth()- >user()->name }}</a>
+                        class="font-bold uppercase text-gray-800 text-sm">{{ auth()->user()->name }}</a>
 
                     <a href="{{ route('main') }}" class="font-bold uppercase text-gray-600 text-sm">Home</a>
 
@@ -41,7 +41,7 @@
                     <a class="font-bold uppercase text-gray-600 text-sm" href="/">Welcome</a>
                     <a class="font-bold uppercase text-gray-600 text-sm" href="{{ route('login') }}">Login</a>
                     <a class="font-bold uppercase text-gray-600 text-sm" href="{{ route('signup') }}">Crear cuenta</a>
-                                       <a class="font-bold uppercase text-gray-600 text-sm" href="{{ route('signup') }}">Crear cuenta</a>
+                    <a class="font-bold uppercase text-gray-600 text-sm" href="{{ route('signup') }}">Crear cuenta</a>
                 </nav>
             @endguest
 

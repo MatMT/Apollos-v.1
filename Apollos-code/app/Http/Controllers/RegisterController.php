@@ -18,17 +18,17 @@ class RegisterController extends Controller
     {
         // Validación - Se interrumpe el flujo, en caso de no cumplirse se retorna.
         $request->validate([
-            'name' => 'required|min:2|max:20 ',
-            'lastname' => 'required|min:4|max:25 ',
+            'nombre' => 'required|min:2|max:20 ',
+            'apellido' => 'required|min:4|max:25 ',
             'email' => 'required|email|unique:users,email|max:50',
             'password' => 'required|min:4',
             'nacimiento' => 'required|date',
-            'name_artist' => 'required|unique:users,name_artist|min:3|max:30'
+            'usuario' => 'required|unique:users,name_artist|min:3|max:30'
         ]);
 
         // Modificar el Request
-        $username = $request->name_artist;
-        $request->request->add(['name_artist' => Str::slug($request->name_artist)]);
+        $username = $request->usuario;
+        $request->request->add(['usuario' => Str::slug($request->usuario)]);
 
         // Género --- 
         $gender = $request->gender;
@@ -62,21 +62,28 @@ class RegisterController extends Controller
             }
         }
 
+        // Validación de edad
+        if ($age < 13) {
+            return "¡Edad mínima insuficiente!";
+        } elseif ($age > 102) {
+            return "¡Edad máxima lógica permitida!";
+        }
+
         // Artista
-        $artist = $request->artista;
+        $artist = $request->user_type;
         (empty($artist)) ? $artist = 'user' : $artist = 'artist';
 
         // Creación 
         User::create([
-            'name' => $request->name,
-            'last_name' => $request->lastname,
+            'name' => $request->nombre,
+            'last_name' => $request->apellido,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'gender' => $gender,
             'birth_date' => $nacimiento,
             'age' => $age,
             'rol' => $artist,
-            'name_artist' =>  $request->name_artist,
+            'name_artist' =>  $request->usuario,
             'username' => $username
         ]);
 

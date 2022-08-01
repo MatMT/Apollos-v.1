@@ -28,7 +28,7 @@
 
     {{-- se utliza $slot para incluir contenido propio de un página web, y las etiquetas x-"demás" para involucrar componentes --}}
 
-    <header class="py-3 px-8 text-white ">
+    <header class="py-3 px-8 text-white">
 
         <div class="box-header w-full h-28 flex items-center justify-between py-4 px-5 relative">
 

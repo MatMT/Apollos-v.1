@@ -19,7 +19,9 @@
 
             @auth
                 <nav class="flex gap-2 items-center">
-                    <a href="{{ route('posts.create') }}" class="font-bold uppercase text-gray-600 text-sm">Subir</a>
+                    @if ($user->rol == 'artist')
+                        <a href="{{ route('posts.create') }}" class="font-bold uppercase text-gray-600 text-sm">Subir</a>
+                    @endif
 
                     <a href="{{ route('posts.index', auth()->user()) }}"
                         class="font-bold uppercase text-gray-800 text-sm">{{ auth()- >user()->name }}</a>

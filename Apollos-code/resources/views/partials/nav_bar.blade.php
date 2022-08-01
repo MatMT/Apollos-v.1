@@ -28,6 +28,8 @@
 
                     <a href="{{ route('main') }}" class="font-bold uppercase text-gray-600 text-sm">Home</a>
 
+                    <a href="{{ route('main') }}" class="font-bold uppercase text-gray-600 text-sm">Editar Perfil</a>
+
                     <form action="{{ route('logout') }}" class="font-bold uppercase text-gray-600 text-sm" method="POST">
                         @csrf
                         <a class="" href="#" onclick="this.closest('form').submit()">Cerrar sesión</a>
@@ -38,6 +40,7 @@
                 <nav class="flex gap-2 items-center">
                     <a class="font-bold uppercase text-gray-600 text-sm" href="/">Welcome</a>
                     <a class="font-bold uppercase text-gray-600 text-sm" href="{{ route('login') }}">Login</a>
+                    <a class="font-bold uppercase text-gray-600 text-sm" href="{{ route('signup') }}">Crear cuenta</a>
                     <a class="font-bold uppercase text-gray-600 text-sm" href="{{ route('signup') }}">Crear cuenta</a>
                 </nav>
             @endguest

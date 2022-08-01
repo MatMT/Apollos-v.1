@@ -33,7 +33,7 @@
         <h2 class="text-4xl text-center font-black my-10">Canciones</h2>
 
         {{-- Imprimir canciones según el arreglo obtenido --}}
-        @if ($posts->count())
+        @if ($songs->count())
             <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 @foreach ($songs as $song)
                     <div>
@@ -45,7 +45,11 @@
                 @endforeach
             </div>
         @else
-            <p class="green">No tienes canciones registradas</p>
+            @if (auth()->user()->name == $user->name)
+                <p class="text-gray-600 uppercase text-center font-bold">¡Sube tu primera canción!</p>
+            @else
+                <p class="text-gray-600 uppercase text-center font-bold">No tiene canciones registradas</p>
+            @endif
         @endif
     </section>
 @endsection

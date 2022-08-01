@@ -33,15 +33,19 @@
         <h2 class="text-4xl text-center font-black my-10">Canciones</h2>
 
         {{-- Imprimir canciones según el arreglo obtenido --}}
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            @foreach ($songs as $song)
-                <div>
-                    <a href="">
-                        <img src="{{ asset('storage') . '/uploads/imagenes/' . $song->image }}"
-                            alt="Imagen de la canción {{ $song->name_song }}">
-                    </a>
-                </div>
-            @endforeach
-        </div>
+        @if ($posts->count())
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                @foreach ($songs as $song)
+                    <div>
+                        <a href="">
+                            <img src="{{ asset('storage') . '/uploads/imagenes/' . $song->image }}"
+                                alt="Imagen de la canción {{ $song->name_song }}">
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+        @else
+            <p class="green">No tienes canciones registradas</p>
+        @endif
     </section>
 @endsection

@@ -56,7 +56,7 @@ Route::post('/logout', [LogoutController::class, 'store'])->name('logout'); // C
 Route::view('/home', 'main')->name('main')->middleware('auth'); // Autentificación de registrado
 
 // Perfil --- Gracias al Route model binding
-Route::get('/{user:name_artist}', [ProfileController::class, 'index'])->name('posts.index');
+Route::get('/usuario/{user:name_artist}', [ProfileController::class, 'index'])->name('posts.index');
 
 // Subir ---
 Route::get('/uploads/create', [DataSongController::class, 'create'])->name('posts.create'); // Vista

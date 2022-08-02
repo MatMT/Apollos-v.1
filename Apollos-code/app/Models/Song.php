@@ -9,9 +9,6 @@ class Song extends Model
 {
     use HasFactory;
 
-    // Deshabilitado para las datos de prueba
-    public $timestamps = false;
-
     // Campos a recibir
     protected $fillable = [
         'name_song',

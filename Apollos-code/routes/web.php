@@ -65,11 +65,12 @@ Route::post('/uploads/create/audio', [SongController::class, 'store'])->name('au
 Route::post('/uploads/create/imagen', [ImageController::class, 'store'])->name('image.store'); // Imagen 
 Route::post('/uploads/create/data', [DataSongController::class, 'store'])->name('data.store'); // Info
 
+// Multimedia ---
+Route::get('/uploads/{song}', [SongController::class, 'show'])->name('songs.show');
+
 // --- nuevas vistas
 Route::view('/biblioteca', 'Library')->name('biblioteca');
 Route::view('/Artista', 'Artist')->name('artista');
-
-
 
 // --- UserSettings
 Route::get('/NewPassword',  [SettingsController::class, 'NewPassword'])->name('NewPassword')->middleware('auth');

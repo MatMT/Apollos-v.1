@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,10 +19,12 @@ class SongFactory extends Factory
     {
         return [
             'name_song' => $this->faker->word(),
-            'genre' =>  $this->faker->randomElement(['Pop', 'Electronic', 'Salsa']),
-            'user_id' => $this->faker->randomElement([1, 2]),
-            'link' => 'https//' . $this->faker->uuid() . '.com',
-            'image' => $this->faker->uuid() . '.jpg',
+            'genre' =>  $this->faker->randomElement(['Pop', 'Rock', 'Electrónica', 'Instrumental']),
+            'user_id' => User::all()->random()->id,
+            'url' => 'Sweden-MC.mp3',
+            'image' => 'default-song.png',
+            'created_at' => now(),
+            'updated_at' => now(),
         ];
     }
 }

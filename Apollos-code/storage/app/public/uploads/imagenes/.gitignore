@@ -2,3 +2,5 @@
 *.jpeg
 *.jpg
 !.gitignore
+!default-album.png
+!default-song.png

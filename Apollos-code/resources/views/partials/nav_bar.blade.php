@@ -28,7 +28,8 @@
 
                     <a href="{{ route('main') }}" class="font-bold uppercase text-gray-600 text-sm">Home</a>
 
-                    <a href="{{ route('main') }}" class="font-bold uppercase text-gray-600 text-sm">Editar Perfil</a>
+                    <a href="{{ route('NewPassword') }}" class="font-bold uppercase text-gray-600 text-sm">Editar Perfil</a>
+
 
                     <form action="{{ route('logout') }}" class="font-bold uppercase text-gray-600 text-sm" method="POST">
                         @csrf

@@ -21,4 +21,9 @@ class SongController extends Controller
         // Respuesta al Js (dropzone.on)
         return response()->json(['song' => $nombreCancion]);
     }
+
+    // public function show()
+    // {
+    //     return view('')
+    // }
 }

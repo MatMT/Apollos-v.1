@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\AgeController;
 
 class RegisterController extends Controller
 {
@@ -39,33 +40,13 @@ class RegisterController extends Controller
             $gender = true;
         };
 
-        // Edad actual --- 
-        $nacimiento =  $request->nacimiento;
-        $nacimientoInt = strtotime($nacimiento); // Conversión a enteros
-
-        $monthN = date("m", $nacimientoInt); // Extraemos mes 
-        $dayN = date("d", $nacimientoInt); // Extraemos día
-        $yearN = date("Y", $nacimientoInt); // Extraemos año
-
-        // Fechas actuales
-        $monthA = now()->month;
-        $dayA = now()->day;
-        $yearA = now()->year;
-
-        $age = $yearA - $yearN;
-
-        if ($monthA < $monthN) {
-            $age--;
-        } else if ($monthA == $monthN) {
-            if ($dayA < $dayN) {
-                $age--;
-            }
-        }
+        // Objeto - Calculo de la edad
+        $age = new AgeController($request->nacimiento);
 
         // Validación de edad
-        if ($age < 13) {
+        if ($age->age < 13) {
             return "¡Edad mínima insuficiente!";
-        } elseif ($age > 102) {
+        } elseif ($age->age > 102) {
             return "¡Edad máxima lógica permitida!";
         }
 
@@ -80,8 +61,8 @@ class RegisterController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'gender' => $gender,
-            'birth_date' => $nacimiento,
-            'age' => $age,
+            'birth_date' => $request->nacimiento,
+            'age' => $age->age,
             'rol' => $artist,
             'name_artist' =>  $request->usuario,
             'username' => $username

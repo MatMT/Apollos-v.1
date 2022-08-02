@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Http\Controllers\AgeController;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -17,17 +18,36 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        // Formateo de Username
+        $user = $this->faker->userName();
+        $userU = Str::ucfirst($user);
+
+        // Nacimiento y edad
+        $date = $this->faker->dateTimeBetween('-25 year', '-13 year');
+        // Convertimos a cadena (Porque el controlador espera una cadena)
+        $StringD = $date->format('Y-m-d');
+        // Nos devuelve la edad
+        $age = new AgeController($StringD);
+
+        // Tipos de usuarios
+        // 'rol' =>  $this->faker->randomElement(['artist', 'user']),
+
         return [
-            'name' => $this->faker->name(),
+            'name' => $this->faker->firstName(),
             'last_name' => $this->faker->lastName(),
             'rol' =>  $this->faker->randomElement(['artist', 'user']),
             'email' => $this->faker->unique()->safeEmail(),
-            'username' => $this->faker->userName(),
-            'date' => $this->faker->dateTimeBetween('-9 year'),
-            'email_verified_at' => now(),
+            'username' => $userU,
+            'status' => 'active',
+            'age' => $age->age,
+            // 'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-
-            'remember_token' => Str::random(10),
+            // 'remember_token' => Str::random(10),
+            'created_at' => now(),
+            'updated_at' => now(),
+            'name_artist' => $user,
+            'gender' => $this->faker->numberBetween(0, 1),
+            'birth_date' => $date,
         ];
     }
 

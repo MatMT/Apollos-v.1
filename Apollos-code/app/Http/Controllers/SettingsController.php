@@ -12,7 +12,7 @@ class SettingsController extends Controller
 {
     public function NewPassword()
     {
-        return view('configure_u ser_profile');
+        return view('configure_user_profile');
     }
 
 

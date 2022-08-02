@@ -19,12 +19,16 @@
 
             @auth
                 <nav class="flex gap-2 items-center">
-                    <a href="{{ route('posts.create') }}" class="font-bold uppercase text-gray-600 text-sm">Subir</a>
+                    @if ($user->rol == 'artist')
+                        <a href="{{ route('posts.create') }}" class="font-bold uppercase text-gray-600 text-sm">Subir</a>
+                    @endif
 
                     <a href="{{ route('posts.index', auth()->user()) }}"
                         class="font-bold uppercase text-gray-800 text-sm">{{ auth()->user()->name }}</a>
 
                     <a href="{{ route('main') }}" class="font-bold uppercase text-gray-600 text-sm">Home</a>
+
+                    <a href="{{ route('main') }}" class="font-bold uppercase text-gray-600 text-sm">Editar Perfil</a>
 
                     <form action="{{ route('logout') }}" class="font-bold uppercase text-gray-600 text-sm" method="POST">
                         @csrf
@@ -36,6 +40,7 @@
                 <nav class="flex gap-2 items-center">
                     <a class="font-bold uppercase text-gray-600 text-sm" href="/">Welcome</a>
                     <a class="font-bold uppercase text-gray-600 text-sm" href="{{ route('login') }}">Login</a>
+                    <a class="font-bold uppercase text-gray-600 text-sm" href="{{ route('signup') }}">Crear cuenta</a>
                     <a class="font-bold uppercase text-gray-600 text-sm" href="{{ route('signup') }}">Crear cuenta</a>
                 </nav>
             @endguest

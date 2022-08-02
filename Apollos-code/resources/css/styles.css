@@ -10,8 +10,26 @@ body{
     scrollbar-width: none;
 }
 
-body::after{
+/*body::after{
     content: "";
+    
+}*/
+
+body::before{
+    content: "";
+    width: 100%;
+    height: 100vh;
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 10%, rgba(0,0,0,0.05085784313725494) 20%, rgba(0,0,0,1) 90%);
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    z-index: -5;
+}
+
+/*Fondo de pantalla*/
+
+.background{
     width: 100%;
     height: 100vh;
     background-image: url(../images/fondo_1.jpg);
@@ -25,17 +43,7 @@ body::after{
     z-index: -6;
 }
 
-body::before{
-    content: "";
-    width: 100%;
-    height: 100vh;
-    background: rgb(255,255,255);
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 10%, rgba(0,0,0,0.05085784313725494) 20%, rgba(0,0,0,1) 90%);
-    position: absolute;
-    left: 0%;
-    top: 0%;
-    z-index: -5;
-}
+
 
 
 /* Barra de navegación */
@@ -78,6 +86,11 @@ ul li a:hover{
     cursor: pointer;
     transition: all 0.5s ease-in-out;
     height: 64px;
+    border-radius: 30px;
+}
+
+.profile:hover{
+    background-color: black ;
 }
 
 
@@ -88,7 +101,7 @@ ul li a:hover{
     height: 250px;
     padding: 15px 40px;
     
-    background-color: rgba(0, 0, 0, 0.319);
+    background-color: rgba(252, 245, 245, 0.319);
     -webkit-backdrop-filter: blur(10px);
     -moz-backdrop-filter: blur(10px);
     backdrop-filter: blur(8px);
@@ -100,8 +113,9 @@ ul li a:hover{
     top: 90%;
     right: 35%;
 
-    transition: all 0.5s ease-in-out;
     display: none;
+
+    transition: all 0.5s ease-in-out;
 }
 .contenido-menu.active{
     display: block;
@@ -149,6 +163,21 @@ ul li a:hover{
 
 .anim2 {
     animation: bottom2 0.8s 0s both;
+}
+
+/*--- ---- ---- ----- ---- ---- Sticky header ---- ---- ---- ---- */
+header{
+    position: fixed;
+    left: 0%;
+    top: 0%;
+    z-index: 50;
+}
+
+header.sticky{
+    background-color: rgb(43, 43, 43);
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.555);
+    color: white;
+
 }
 
 

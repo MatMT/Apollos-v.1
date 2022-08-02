@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" id="scre">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -24,11 +24,13 @@
 
 </head>
 
-<body class="bg-black bg-no-repeat bg-cover">
+<body class="bg-black absolute">
+
+    <div class="background"></div>
 
     {{-- se utliza $slot para incluir contenido propio de un página web, y las etiquetas x-"demás" para involucrar componentes --}}
 
-    <header class="py-3 px-8 text-white ">
+    <header class="py-3 px-8 text-white w-full">
 
         <div class="box-header w-full h-28 flex items-center justify-between py-4 px-5 relative">
 
@@ -101,5 +103,14 @@
     @vite('resources/js/menu.js')
 
 </body>
+
+    <script>
+        window.addEventListener("scroll", function(){
+            //Obtener 
+            const header = document.querySelector("");
+
+            header.classList.toggle("sticky", window.scrollY > 0);
+        });
+    </script>
 
 </html>

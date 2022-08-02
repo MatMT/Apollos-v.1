@@ -37,7 +37,8 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 @foreach ($songs as $song)
                     <div>
-                        <a href="">
+                        {{-- Se mapea automaticamente la ruta por cada song en su url --}}
+                        <a href="{{ route('songs.show', ['song' => $song, 'user' => $user]) }}">
                             <img src="{{ asset('storage') . '/uploads/imagenes/' . $song->image }}"
                                 alt="Imagen de la canción {{ $song->name_song }}">
                         </a>

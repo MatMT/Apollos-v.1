@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SongController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\DataSongController;
+use App\Http\Controllers\MainController;
 use App\Http\Controllers\SettingsController;
 use Illuminate\Support\Facades\Route;
 
@@ -54,10 +55,12 @@ Route::post('/registro', [RegisterController::class, 'store'])->name('signup.sto
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout'); // Cerrar sesión
 
 // Home ---
-Route::view('/home', 'main')->name('main')->middleware('auth'); // Autentificación de registrado
+Route::get('/home', [MainController::class, 'index'])->name('main');
 
 // Perfil --- Gracias al Route model binding
 Route::get('/usuario/{user:name_artist}', [ProfileController::class, 'index'])->name('posts.index');
+// Multimedia ---
+Route::get('/usuario/{user:name_artist}/canciones/{song}', [ProfileController::class, 'show'])->name('songs.show');
 
 // Subir ---
 Route::get('/uploads/create', [DataSongController::class, 'create'])->name('posts.create'); // Vista
@@ -65,8 +68,7 @@ Route::post('/uploads/create/audio', [SongController::class, 'store'])->name('au
 Route::post('/uploads/create/imagen', [ImageController::class, 'store'])->name('image.store'); // Imagen 
 Route::post('/uploads/create/data', [DataSongController::class, 'store'])->name('data.store'); // Info
 
-// Multimedia ---
-Route::get('/uploads/{song}', [SongController::class, 'show'])->name('songs.show');
+
 
 // --- nuevas vistas
 Route::view('/biblioteca', 'Library')->name('biblioteca');

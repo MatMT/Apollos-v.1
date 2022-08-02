@@ -19,7 +19,7 @@
 
             @auth
                 <nav class="flex gap-2 items-center">
-                    @if ($user->rol == 'artist')
+                    @if (auth()->user()->rol == 'artist')
                         <a href="{{ route('posts.create') }}" class="font-bold uppercase text-gray-600 text-sm">Subir</a>
                     @endif
 

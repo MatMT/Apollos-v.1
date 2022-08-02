@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SongController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\DataSongController;
+use App\Http\Controllers\SettingsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -67,3 +68,9 @@ Route::post('/uploads/create/data', [DataSongController::class, 'store'])->name(
 // --- nuevas vistas
 Route::view('/biblioteca', 'Library')->name('biblioteca');
 Route::view('/Artista', 'Artist')->name('artista');
+
+
+
+// --- UserSettings
+Route::get('/NewPassword',  [SettingsController::class,'NewPassword'])->name('NewPassword')->middleware('auth');
+Route::post('/change/password',  [SettingsController::class,'changePassword'])->name('changePassword');

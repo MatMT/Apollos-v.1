@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Song;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DataSongController extends Controller
@@ -12,9 +13,11 @@ class DataSongController extends Controller
         $this->middleware('auth');
     }
 
-    public function create()
+    public function create(User $user)
     {
-        return view('uploads.create');
+        return view('uploads.create', [
+            'user' => $user,
+        ]);
     }
 
     // Trabaja en conjunto con ImagenContoller y SongController

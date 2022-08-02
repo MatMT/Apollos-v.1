@@ -30,7 +30,7 @@
     </div>
 
     <section class="container mx-auto mt-10">
-        <h2 class="text-4xl text-center font-black my-10">Canciones</h2>
+        <h2 class="text-4xl text-center font-black my-10">Contenido</h2>
 
         {{-- Imprimir canciones según el arreglo obtenido --}}
         @if ($songs->count())
@@ -46,9 +46,17 @@
             </div>
         @else
             @if (auth()->user()->name == $user->name)
-                <p class="text-gray-600 uppercase text-center font-bold">¡Sube tu primera canción!</p>
+                @if ($user->rol == 'artist')
+                    <p class="text-gray-600 uppercase text-center font-bold">¡Sube tu primera canción!</p>
+                @else
+                    <p class="text-gray-600 uppercase text-center font-bold">Busca nuevo contenido</p>
+                @endif
             @else
-                <p class="text-gray-600 uppercase text-center font-bold">No tiene canciones registradas</p>
+                @if ($user->rol == 'artist')
+                    <p class="text-gray-600 uppercase text-center font-bold">Espera su próxima canción...</p>
+                @else
+                    <p class="text-gray-600 uppercase text-center font-bold">Aún no sigue contenido</p>
+                @endif
             @endif
         @endif
     </section>

@@ -39,9 +39,11 @@
                     <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
                         La canción es obligatoria.</p>
                 @enderror
-
+                <p class=" ">6 Mb por canción*</p>
             </div> <!-- .Mp3 -->
+
         </div> <!-- Subir archivos -->
+
 
 
         <div class="md:w-1/2 p-10 bg-white rounded-lg shadow mt-10 md:mt-0">

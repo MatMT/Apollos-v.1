@@ -2,21 +2,20 @@
 
 namespace Database\Seeders;
 
+use App\Models\Song;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\User;
-use App\Models\Song;
 
-class DatabaseSeeder extends Seeder
+class SongSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        User::factory(10)->create();
+        // Utilizar la fabrica de Canciones (Plantilla)
         Song::factory(50)->create();
     }
 }

@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\AgeController;
 
 class RegisterController extends Controller
 {
@@ -18,17 +19,17 @@ class RegisterController extends Controller
     {
         // Validación - Se interrumpe el flujo, en caso de no cumplirse se retorna.
         $request->validate([
-            'name' => 'required|min:2|max:20 ',
-            'lastname' => 'required|min:4|max:25 ',
+            'nombre' => 'required|min:2|max:20 ',
+            'apellido' => 'required|min:4|max:25 ',
             'email' => 'required|email|unique:users,email|max:50',
             'password' => 'required|min:4',
             'nacimiento' => 'required|date',
-            'name_artist' => 'required|unique:users,name_artist|min:3|max:30'
+            'usuario' => 'required|unique:users,name_artist|min:3|max:30'
         ]);
 
         // Modificar el Request
-        $username = $request->name_artist;
-        $request->request->add(['name_artist' => Str::slug($request->name_artist)]);
+        $username = $request->usuario;
+        $request->request->add(['usuario' => Str::slug($request->usuario)]);
 
         // Género --- 
         $gender = $request->gender;
@@ -39,44 +40,31 @@ class RegisterController extends Controller
             $gender = true;
         };
 
-        // Edad actual --- 
-        $nacimiento =  $request->nacimiento;
-        $nacimientoInt = strtotime($nacimiento); // Conversión a enteros
+        // Objeto - Calculo de la edad
+        $age = new AgeController($request->nacimiento);
 
-        $monthN = date("m", $nacimientoInt); // Extraemos mes 
-        $dayN = date("d", $nacimientoInt); // Extraemos día
-        $yearN = date("Y", $nacimientoInt); // Extraemos año
-
-        // Fechas actuales
-        $monthA = now()->month;
-        $dayA = now()->day;
-        $yearA = now()->year;
-
-        $age = $yearA - $yearN;
-
-        if ($monthA < $monthN) {
-            $age--;
-        } else if ($monthA == $monthN) {
-            if ($dayA < $dayN) {
-                $age--;
-            }
+        // Validación de edad
+        if ($age->age < 13) {
+            return "¡Edad mínima insuficiente!";
+        } elseif ($age->age > 102) {
+            return "¡Edad máxima lógica permitida!";
         }
 
         // Artista
-        $artist = $request->artista;
+        $artist = $request->user_type;
         (empty($artist)) ? $artist = 'user' : $artist = 'artist';
 
         // Creación 
         User::create([
-            'name' => $request->name,
-            'last_name' => $request->lastname,
+            'name' => $request->nombre,
+            'last_name' => $request->apellido,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'gender' => $gender,
-            'birth_date' => $nacimiento,
-            'age' => $age,
+            'birth_date' => $request->nacimiento,
+            'age' => $age->age,
             'rol' => $artist,
-            'name_artist' =>  $request->name_artist,
+            'name_artist' =>  $request->usuario,
             'username' => $username
         ]);
 

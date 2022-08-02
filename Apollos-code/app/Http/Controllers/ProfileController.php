@@ -16,7 +16,7 @@ class ProfileController extends Controller
     public function index(User $user)
     {
         // Llamamos al modelo y automáticamente su tabla
-        $songs = Song::where('user_id', $user->id)->get(); // Get trae los resultados de la consulta
+        $songs = Song::where('user_id', $user->id)->paginate(8); // Get trae los resultados de la consulta - Paginate elabora una lógica para crear páginas
 
         // Mostramos vista y devolvemos datos con las llaves 
         return view('profile', [
@@ -28,5 +28,14 @@ class ProfileController extends Controller
     public function create()
     {
         return view('uploads.create');
+    }
+
+    // Importamos vairables de la URL
+    public function show(User $user, Song $song)
+    {
+        return view('uploads.show', [
+            'user' => $user,
+            'song' => $song
+        ]);
     }
 }

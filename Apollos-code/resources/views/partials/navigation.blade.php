@@ -1,5 +1,4 @@
 {{-- Nav bar provisional --}}
-<br>
 <nav>
     <ul>
         <li>
@@ -18,7 +17,7 @@
             </li>
         @else
             <li>
-                <a href="{{ route('login') }}">Login</a>
+                <a href="{{ route('login') }}">Login</a>    
             </li>
         @endauth
     </ul>

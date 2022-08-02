@@ -3,7 +3,7 @@ module.exports = {
   content: [
     "./resources/**/*.blade.php",
     "./resources/**/*.js",
-    "./resources/**/*.vue",
+    "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
   ],
   theme: {
 
@@ -15,23 +15,40 @@ module.exports = {
     },
 
     screens: {
-      'tablet_3': {'max': '921px'},
+      'tablet_3': { 'max': '921px' },
       // => @media (min-width: 640px) { ... }
-      'tablet_5': {'max': '1082px'},
+      'tablet_5': { 'max': '1082px' },
       // => @media (min-width: 640px) { ... }
 
-      'laptop': {'max': '1280px'},
+      'laptop': { 'max': '1280px' },
+      'laptop_2': { 'max': '1380px' },
       // => @media (min-width: 1024px) { ... }
 
-      'desktop': '1740px',
+      'desktop': { 'max': '1600px' },
       // => @media (min-width: 1280px) { ... }
+      'desktop_2': { 'max': '1500px' },
+
+      'sm': '640px',
+      // => @media (min-width: 640px) { ... }
+
+      'md': '768px',
+      // => @media (min-width: 768px) { ... }
+
+      'lg': '1024px',
+      // => @media (min-width: 1024px) { ... }
+
+      'xl': '1280px',
+      // => @media (min-width: 1280px) { ... }
+
+      '2xl': '1536px',
+      // => @media (min-width: 1536px) { ... }
     },
 
     extend: {
       colors: {
         'morado': '#4C3F91',
         'active_1': '#FF5677',
-        'morado_1' : '#695ECC'
+        'morado_1': '#695ECC'
       },
 
       backgroundImage: {
@@ -47,7 +64,7 @@ module.exports = {
         '102': '29rem',
         '6/7': '85%',
         '9/10': '90%',
-        
+
       },
       height: {
         '84': '21rem',

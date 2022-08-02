@@ -10,7 +10,7 @@ const DropzoneImg = new Dropzone('#dropzone_img', {
     dictRemoveFile: 'Borrar Archivo',
     maxFiles: 1,
     uploadMultiple: false,
-    maxFilesize: 2, // 2 MB
+    // maxFilesize: , // 2 MB
 
     // En caso de haber subido la imagen anteriormente lo restablecerá - Callback
     init: function () {

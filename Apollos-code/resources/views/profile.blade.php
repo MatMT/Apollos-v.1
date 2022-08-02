@@ -44,6 +44,10 @@
                     </div>
                 @endforeach
             </div>
+
+            <div class="my-6">
+                {{ $songs->links() }}
+            </div>
         @else
             @if (auth()->user()->name == $user->name)
                 @if ($user->rol == 'artist')

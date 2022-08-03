@@ -86,22 +86,19 @@ ul li a:hover{
     cursor: pointer;
     transition: all 0.5s ease-in-out;
     height: 64px;
-    border-radius: 30px;
 }
 
-.profile:hover{
-    background-color: black ;
-}
-
+/*.profile:hover{
+    background-color: rgba(0, 0, 0, 0.233) ;
+}*/
 
 
 .contenido-menu{
-    width: 225px;
+    width: 260px;
     border-radius: 12px;
-    height: 250px;
-    padding: 15px 40px;
+    padding: 10px 20px;
     
-    background-color: rgba(252, 245, 245, 0.319);
+    background-color: rgba(0, 0, 0, 0.319);
     -webkit-backdrop-filter: blur(10px);
     -moz-backdrop-filter: blur(10px);
     backdrop-filter: blur(8px);
@@ -114,14 +111,26 @@ ul li a:hover{
     right: 35%;
 
     display: none;
-
-    transition: all 0.5s ease-in-out;
 }
+
 .contenido-menu.active{
     display: block;
-    
     transition: all 0.5s ease-in-out;
 }
+
+.options li{
+    margin-top: 7px;
+    margin: 7px 10px;
+    transition: all 0.5s ease-in-out;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.863);
+}
+
+.Logout{
+    margin: 20px 0px;
+}
+
+
 /*
 .options,
 .perfil{
@@ -209,6 +218,18 @@ header.sticky{
 
     display: none;
 
+}
+
+/*--- ---- ----- Reproductor ---- ----- -----*/
+
+.overway{
+    position: fixed;
+    background-color: rgb(48, 48, 48);
+    width: 425px;
+    height: 110px;
+    bottom: 40px;
+    right: 100px;
+    border-radius: 20px;
 }
 
 /*-------  -------  ----- Querys ---------  ------  ----*/

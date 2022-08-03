@@ -1,13 +1,9 @@
 @extends('layouts.shape1')
 
-@section('title', 'Home')
+@section('title', 'Home ')
 
 @section('header')
-    <x-header title="Home" active_3="font-bold text-white" active="this" active_bg="bg-active_1">
-        <h1 class="text-3xl font-bold underline text-white">
-            Hello world!
-        </h1>
-    </x-header>
+    <x-header title="Home" active_3="font-bold text-white" active="this" active_bg="bg-active_1"></x-header>
 @endsection
 
 @section('content')
@@ -16,7 +12,7 @@
 
     <div class="contenido_main">
 
-        <div class="box-views w-4/5 p-2 m-auto  mb-8">
+        <div class="box-views w-4/5 p-2 m-auto my-8">
 
             <div class="post_1 w-full justify-around items-center">
 
@@ -31,10 +27,10 @@
                             id="saludo"></span> {{ Auth::user()->name }}!</a>
                 </div>
 
-                {{-- <div class="w-2/5 bg-planetas h-9/10 bg-cover mx-16 relative">
+                <!-- <div class="w-2/5 bg-planetas h-9/10 bg-cover mx-16 relative">
                     <div class="austronauta bg-austro h-56 w-60 bg-cover absolute top-9 left-20"
                         style="animation: 2s ease-in-out 0s infinite alternate none running flotaraustro;"></div>
-                </div> --}}
+                </div> -->
 
             </div>
 
@@ -73,6 +69,9 @@
                             @endforeach
 
                             <!-- Datos estáticos -->
+
+
+
                             <div>
                                 <!-- <div class="card drop-shadow-xl">
                                                                                             <a href="">

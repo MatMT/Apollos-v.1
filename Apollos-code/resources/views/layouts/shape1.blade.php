@@ -15,7 +15,7 @@
         @vite('resources/css/home.css')
 
 
-        <title>@yield('title')</title>
+        <title>@yield('title')- Apollo's</title>
     </head>
     <body class="bg-black absolute">
         
@@ -29,6 +29,11 @@
         {{-- Se incluirá el contenido de la página en particular --}}
 
         @yield('content')
+
+        {{-- Mi reproductor de música --}}
+        <div class="overway">
+            <div class="reproductor"></div>
+        </div>
 
     </body>
     @vite('resources/js/menu.js')

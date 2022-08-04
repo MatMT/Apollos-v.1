@@ -4,6 +4,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PfController;
 use App\Http\Controllers\SongController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\DataSongController;
@@ -61,6 +62,11 @@ Route::get('/home', [MainController::class, 'index'])->name('main');
 Route::get('/usuario/{user:name_artist}', [ProfileController::class, 'index'])->name('posts.index');
 // Multimedia ---
 Route::get('/usuario/{user:name_artist}/canciones/{song}', [ProfileController::class, 'show'])->name('songs.show');
+
+// Perfil --- Gracias al Route model binding
+Route::get('/test/{user:name_artist}', [PfController::class, 'index'])->name('test');
+// Multimedia ---
+Route::get('/test/{user:name_artist}/canciones/{song}', [PfController::class, 'show'])->name('songs.show');
 
 // Subir ---
 Route::get('/uploads/create', [DataSongController::class, 'create'])->name('posts.create'); // Vista

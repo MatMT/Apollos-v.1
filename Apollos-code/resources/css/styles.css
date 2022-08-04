@@ -47,35 +47,35 @@ body::before{
 
 
 /* Barra de navegación */
-ul li a{
+header ul li a{
     display: flex;
     align-items: center;
     transition: 0.5s ease-in-out;
 }
 
-li a i{
+header li a i{
     margin-right: 15px;
     margin-top: 4px;
     font-size: 18px;
 }
 
-.this{
+header .this{
     padding: 5px 25px;
     background-color: #FF5677;
     border-radius: 9999px;
     filter: drop-shadow(0 25px 25px rgb(0 0 0 / 0.15));
     transition: 0.5s ease-in-out;
 }
-.this:hover{
+header .this:hover{
     transform: translateY(-5px);
 }
 
 
-.class-active{
+header .class-active{
     color: white;
 }
 
-ul li a:hover{
+header ul li a:hover{
     color: white;
 }
 
@@ -93,7 +93,7 @@ ul li a:hover{
 }*/
 
 
-.contenido-menu{
+header .contenido-menu{
     width: 260px;
     border-radius: 12px;
     padding: 10px 20px;
@@ -113,12 +113,12 @@ ul li a:hover{
     display: none;
 }
 
-.contenido-menu.active{
+header .contenido-menu.active{
     display: block;
     transition: all 0.5s ease-in-out;
 }
 
-.options li{
+header .options li{
     margin-top: 7px;
     margin: 7px 10px;
     transition: all 0.5s ease-in-out;
@@ -126,7 +126,7 @@ ul li a:hover{
     color: rgba(255, 255, 255, 0.863);
 }
 
-.Logout{
+header .Logout{
     margin: 20px 0px;
 }
 
@@ -154,7 +154,7 @@ ul li a:hover{
     }
    }
 
-.anim {
+header .anim {
     animation: bottom 0.8s 0s both;
 }
 
@@ -170,7 +170,7 @@ ul li a:hover{
     }
    }
 
-.anim2 {
+header .anim2 {
     animation: bottom2 0.8s 0s both;
 }
 

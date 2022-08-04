@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Song;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,6 +17,22 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // Usuario propio
+        $mati = new User();
+        $mati->name = 'Oscar';
+        $mati->last_name = 'Elías';
+        $mati->rol = 'artist';
+        $mati->email = 'oscar@correo.com';
+        $mati->username = 'Elias_MT';
+        $mati->status = 'active';
+        $mati->password = Hash::make('1234');
+        $mati->created_at = now();
+        $mati->updated_at = now();
+        $mati->name_artist = 'elias_mt';
+        $mati->gender = false;
+        $mati->birth_date = '2004-10-23';
+
+        // Fábricas
         User::factory(10)->create();
         Song::factory(50)->create();
     }

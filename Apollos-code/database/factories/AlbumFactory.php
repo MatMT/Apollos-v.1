@@ -3,14 +3,13 @@
 namespace Database\Factories;
 
 use App\Models\User;
-use App\Models\Album;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Song>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Album>
  */
-class SongFactory extends Factory
+class AlbumFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -21,11 +20,8 @@ class SongFactory extends Factory
     {
         return [
             'user_id' => User::all()->random()->id,
-            // 'album_id' => Album::all()->random()->id,
-            'name_song' => Str::ucfirst($this->faker->word()),
-            'genre' =>  $this->faker->randomElement(['Pop', 'Rock', 'Electrónica', 'Instrumental']),
-            'url' => 'Sweden-MC.mp3',
-            'image' => 'default-song.png',
+            'name_album' => Str::ucfirst($this->faker->word()),
+            'image' => 'default-album.png',
             'created_at' => now(),
             'updated_at' => now(),
         ];

@@ -14,14 +14,22 @@ class Song extends Model
         'name_song',
         'genre',
         'user_id',
+        'album_id',
         'url',
         'image',
     ];
 
     // Relación inversa
+    public function album()
+    {
+        // Una canción pertenece a un albúm
+        return $this->belongsTo(Album::class);
+    }
+
+
     public function user()
     {
-        // Select - unicos campos a recibir
-        return $this->belongsTo(User::class)->select(['name', 'name_artist']);
+        // Una canción pertenece a un usuario
+        return $this->belongsTo(User::class)->select(['name', 'name_artist']); // Select - unicos campos a recibir
     }
 }

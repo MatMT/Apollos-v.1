@@ -24,7 +24,7 @@ class RegisterController extends Controller
             'email' => 'required|email|unique:users,email|max:50',
             'password' => 'required|min:4',
             'nacimiento' => 'required|date',
-            'usuario' => 'required|unique:users,name_artist|min:3|max:30'
+            'usuario' => 'required|unique:users,name_artist|min:3|max:30',
         ]);
 
         // Modificar el Request
@@ -34,11 +34,9 @@ class RegisterController extends Controller
         // Género --- 
         $gender = $request->gender;
 
-        if ($gender == "male") {
-            $gender = false;
-        } else {
-            $gender = true;
-        };
+        // 0 hombre - 1 mujer
+        $gender == 'male' ? $gender == false : $gender;
+        $gender == 'female' ? $gender == true : $gender;
 
         // Objeto - Calculo de la edad
         $age = new AgeController($request->nacimiento);
@@ -52,7 +50,7 @@ class RegisterController extends Controller
 
         // Artista
         $artist = $request->user_type;
-        (empty($artist)) ? $artist = 'user' : $artist = 'artist';
+        $artist == '' ? $artist = 'user' : $artist;
 
         // Creación 
         User::create([

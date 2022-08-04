@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class UserSettings extends Model
 {
     use HasFactory;
-    public $fillable = ['password_actual','password','confirm_password'];
+    public $fillable = ['password_actual','password','confirm_password', 'new_name'];
 }

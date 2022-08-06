@@ -1,6 +1,6 @@
-<header class="py-3 px-8 text-white w-full">
+<header class="py-3 px-8 text-white w-full header">
 
-    <div class="box-header w-full h-28 flex items-center justify-between py-4 px-5 relative">
+    <div class="box-header w-full h-28 flex items-center justify-between py-3 px-5 relative">
 
         <a href="#" class="font-logo mx-8 text-3xl tablet_5:mx-5 tablet_5:text-2xl">Apollo's</a>
 
@@ -11,7 +11,7 @@
             <li class="mx-8 {{ $active_2 ?? 'font-normal' }} {{ $active ?? 'normal' }} {{ $active_bg ?? '' }}  ">
                 <a href="{{ route('main') }}"><i class="fi fi-rs-home"></i><span class="tablet_3:hidden">Home</span></a>
             </li>
-            <li class="mx-8 text-stone-300"><a href="{{ route('biblioteca') }}"><i class="fi fi-rs-apps"></i></i><span
+            <li class="mx-8 text-stone-300 {{ $active_li ?? 'font-normal' }} "><a href="{{ route('biblioteca') }}"><i class="fi fi-rs-apps"></i></i><span
                         class="tablet_3:hidden">Tu Biblioteca</span></a></li>
             <li class="mx-8 text-stone-300"><a href=""><i class="fi fi-rs-music"></i><span
                         class="tablet_3:hidden">Crear PlayList</span></a></li>

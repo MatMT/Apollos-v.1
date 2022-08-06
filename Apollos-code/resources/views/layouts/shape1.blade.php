@@ -15,9 +15,9 @@
         @vite('resources/css/styles.css')
         @vite('resources/css/home.css')
         @vite('resources/js/header.js')
+        @yield('css', '')
 
-
-        <title>@yield('title')- Apollo's</title>
+        <title>@yield('title')| Apollo's</title>
     </head>
     <body class="bg-black absolute" id="section-scroll">
         

@@ -15,7 +15,7 @@
                         class="tablet_3:hidden">Tu Biblioteca</span></a></li>
             <li class="mx-8 text-stone-300"><a href=""><i class="fi fi-rs-music"></i><span
                         class="tablet_3:hidden">Crear PlayList</span></a></li>
-            <li class="mx-8 text-stone-300"><a href="{{ route('artista') }}"><i class="fi fi-rs-search"></i><span
+            <li class="mx-8 text-stone-300" id="buscar"><a><i class="fi fi-rs-search"></i><span
                         class="tablet_3:hidden">Buscar</span></a></li>
         </ul>
         

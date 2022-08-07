@@ -17,6 +17,8 @@
         @vite('resources/js/header.js')
         @yield('css', '')
 
+        
+
         <title>@yield('title')| Apollo's</title>
     </head>
     <body class="bg-black absolute" id="section-scroll">
@@ -37,7 +39,25 @@
             <div class="reproductor"></div>
         </div>
 
+        <div class="overway_2" id="overlay_2">
+            <div class="buscador" id="popup_2">
+                <div class="btn-close"><i class="fi fi-rr-cross" id="btn-close"></i></div>
+                <h2 class="text-xl font-cuerpo font-bold mb-7">Busca Algo</h2>
+                <form action="">
+                    <div class="contenedor-input">
+                        <i class="fi fi-rs-search text-xl mx-2 mr-4"></i>
+                        <input type="text" name="" id="" placeholder="Buscar Artista, canción, álbum">
+                    </div>
+                </form>
+                <div class="resultados">No se ha obtenido ningun resultado</div>
+            </div>
+        </div>
+
+
+
     </body>
     @vite('resources/js/menu.js')
+    @vite('resources/js/popup-buscador.js')
+    
 
 </html>

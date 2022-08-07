@@ -193,12 +193,98 @@ header.sticky{
 }
 
 
-
 /*-------  -------  ----- Reproductor ---------  ------  ----*/
 
 .reproductor{
     position: absolute;
 }
+
+
+
+/*------ -------  ------ Buscador ------ -------- -------  */
+
+.overway_2{
+    background-color: rgba(29, 29, 29, 0.4);
+    backdrop-filter: blur(2px);
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    bottom: 0%;
+    right: 0%;
+    z-index: 500;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    color: white;
+    
+    transition: 0.6s all ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.overway_2.active{
+    opacity: 1;
+    visibility: visible;
+
+}
+
+.buscador{
+    background-color: rgb(22, 22, 22);
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.555);
+    border-radius: 10px;
+    width: 40%;
+    max-height: 600px;
+    margin-top: 100px;
+    padding: 30px;
+    padding-bottom: 50px;
+    transition: all 0.5s ease;
+    transform: scale(0.7);
+    opacity: 0;
+}
+
+
+.buscador .btn-close{
+    font-size: 16px;
+    display: block;
+    text-align: right;
+    color: rgba(255, 255, 255, 0.377);
+    transition: 0.3s all ease-in-out;
+    cursor: pointer;
+}
+
+.buscador .btn-close:hover{
+    color: rgba(255, 255, 255, 0.863);
+}
+
+
+.buscador form .contenedor-input{
+    background-color: rgb(41, 40, 40);
+    padding: 15px;
+    margin: 7px;
+    border-radius: 7px;
+    display: flex;
+}
+
+.buscador form .contenedor-input input{
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.buscador .resultados{
+    width: 100%;
+    margin: 25px 10px;
+}
+
+/*---- ------  Animaciones Buscador ---- ------ -----*/
+
+.buscador.active{
+    opacity: 1;
+    transform: scale(1);
+}
+
+
 
 /*---  ----------- ----- Menu  -------- -------- --------- ---- */
 

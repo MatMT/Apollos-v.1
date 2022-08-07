@@ -47,20 +47,22 @@ body::before{
 
 
 /* Barra de navegación */
-header ul li a{
+header ul li{
     display: flex;
     align-items: center;
     transition: 0.5s ease-in-out;
+    color: rgb(196, 196, 196);
 }
 
 header li a i{
     margin-right: 15px;
-    margin-top: 4px;
+    margin-top: 7px;
     font-size: 18px;
 }
 
-header .this{
-    padding: 5px 25px;
+header ul .this{
+    color: white;
+    padding: 7px 25px;
     background-color: #FF5677;
     border-radius: 9999px;
     filter: drop-shadow(0 25px 25px rgb(0 0 0 / 0.15));
@@ -75,7 +77,7 @@ header .class-active{
     color: white;
 }
 
-header ul li a:hover{
+header ul li:hover{
     color: white;
 }
 
@@ -154,7 +156,7 @@ header .Logout{
     }
    }
 
-header .anim {
+.anim {
     animation: bottom 0.8s 0s both;
 }
 
@@ -170,7 +172,7 @@ header .anim {
     }
    }
 
-header .anim2 {
+.anim2 {
     animation: bottom2 0.8s 0s both;
 }
 

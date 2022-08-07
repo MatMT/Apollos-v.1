@@ -38,10 +38,11 @@
         <div class="overway">
             <div class="reproductor"></div>
         </div>
-
+        
+    
         <div class="overway_2" id="overlay_2">
             <div class="buscador" id="popup_2">
-                <div class="btn-close"><i class="fi fi-rr-cross" id="btn-close"></i></div>
+                <div class="btn-close"><i class="fi fi-rr-cross" id="btn-close"></i> </div>
                 <h2 class="text-xl font-cuerpo font-bold mb-7">Busca Algo</h2>
                 <form action="">
                     <div class="contenedor-input">

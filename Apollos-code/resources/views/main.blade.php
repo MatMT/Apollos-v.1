@@ -3,7 +3,7 @@
 @section('title', 'Home ')
 
 @section('header')
-    <x-header title="Home" active_3="font-bold text-white" active="this" active_bg="bg-active_1"></x-header>
+    <x-header title="Home" active="this" ></x-header>
 @endsection
 
 @section('content')
@@ -16,7 +16,7 @@
 
             <div class="post_1 w-full justify-around items-center">
 
-                <div class="title-post w-3/5 laptop:w-4/5 anim2">
+                <div class="title-post w-3/5 laptop:w-4/5 anim">
                     <h1 class="font-titulo_2 text-7xl my-8 leading-tight text-white desktop:text-6xl">Descubre un mundo nuevo de Música</h1>
                     <div class="line w-28 h-0.5 bg-white mb-5"></div>
                     <div class="line w-28 h-0.5 mb-1"></div>
@@ -37,7 +37,7 @@
 
         <main class="principal w-6/7 m-auto mt-9 pt-16 font-cuerpo">
 
-            <div class="main-content text-white anim2">
+            <div class="main-content text-white anim">
                 <h2 class="text-white text-3xl font-bold">Artistas que pueden ser para ti</h2>
 
                 <div class="contenedor-principal">

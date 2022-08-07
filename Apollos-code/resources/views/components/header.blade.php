@@ -8,14 +8,14 @@
 
         <ul class="flex my-10 mx-10 text-base items-center font-cuerpo text-center tablet_5:mx-auto">
 
-            <li class="mx-8 {{ $active_2 ?? 'font-normal' }} {{ $active ?? 'normal' }} {{ $active_bg ?? '' }}  ">
+            <li class="mx-8 {{ $active ?? '' }} ">
                 <a href="{{ route('main') }}"><i class="fi fi-rs-home"></i><span class="tablet_3:hidden">Home</span></a>
             </li>
-            <li class="mx-8 text-stone-300 {{ $active_li ?? 'font-normal' }} "><a href="{{ route('biblioteca') }}"><i class="fi fi-rs-apps"></i></i><span
+            <li class="mx-8  {{ $activeli ?? '' }} "><a href="{{ route('biblioteca') }}"><i class="fi fi-rs-apps"></i></i><span
                         class="tablet_3:hidden">Tu Biblioteca</span></a></li>
-            <li class="mx-8 text-stone-300"><a href=""><i class="fi fi-rs-music"></i><span
+            <li class="mx-8 "><a href=""><i class="fi fi-rs-music"></i><span
                         class="tablet_3:hidden">Crear PlayList</span></a></li>
-            <li class="mx-8 text-stone-300" id="buscar"><a><i class="fi fi-rs-search"></i><span
+            <li class="mx-8 cursor-pointer" id="buscar"><a><i class="fi fi-rs-search"></i><span
                         class="tablet_3:hidden">Buscar</span></a></li>
         </ul>
         

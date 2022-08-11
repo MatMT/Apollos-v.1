@@ -11,6 +11,7 @@ use App\Http\Controllers\ImageController;
 use App\Http\Controllers\DataSongController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\SongsShowController;
 use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\Route;
 
@@ -62,20 +63,18 @@ Route::get('/home', [MainController::class, 'index'])->name('main');
 
 // Perfil --- Gracias al Route model binding
 Route::get('/usuario/{user:name_artist}', [ProfileController::class, 'index'])->name('posts.index');
+
+// Canciones PRUEBA --- Gracias al Route model binding _ OLD
+Route::get('/usuario/{user:name_artist}/canciones', [SongsShowController::class, 'index'])->name('songs.index');
+
 // Multimedia ---
-Route::get('/usuario/{user:name_artist}/canciones/{song}', [ProfileController::class, 'show'])->name('songs.show');
+Route::get('/usuario/{user:name_artist}/canciones/{song}', [ProfileController::class, 'show'])->name('song.show');
 
-// Perfil --- Gracias al Route model binding _ OLD
-// Route::get('/usuario/{user:name_artist}', [ProfileController::class, 'index'])->name('posts.index');
-// // Multimedia ---
-// Route::get('/usuario/{user:name_artist}/canciones/{song}', [ProfileController::class, 'show'])->name('songs.show');
-
-// Subir ---
+// Subir --- 1.0
 Route::get('/uploads/create', [DataSongController::class, 'create'])->name('posts.create'); // Vista
 Route::post('/uploads/create/audio', [SongController::class, 'store'])->name('audio.store'); // .mp3 
 // Route::post('/uploads/create/imagen', [ImageController::class, 'store'])->name('image.store'); // Imagen 
 Route::post('/uploads/create/data', [DataSongController::class, 'store'])->name('data.store'); // Info
-
 
 // --- Subir 2.0 
 Route::get('/uploads/selection', [UploadController::class, 'index'])->name('upload.select'); // Vista - Selección

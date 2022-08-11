@@ -19,7 +19,7 @@
 
     <div class=" p-1.5 flex justify-center items-center">
         <div class="w-1/4">
-            <span class="font-bold block text-center">{{ $song->user->name }}</span>
+            <span class="font-bold block text-center">{{ $user->name }}</span>
             {{-- Librería "Carbon" que formatea fechas --}}
             <p class="text-sm text-center text-gray-500"> {{ $song->created_at->diffForHumans() }}</p>
         </div> <!-- Información -->

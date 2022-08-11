@@ -64,7 +64,117 @@
             </div>
 
 
+        </div> <!-- HEADER PERFIL -->
+    </div>
+
+    <!-- MAING -->
+    <br>
+    <br>
+    <br>
+
+    <div class="flex justify-around">
+        <div class="contenedores">
+            <div class="box-1 active anim2" id="caja-1">
+                <div class="content">
+
+                    @if ($albums->count())
+                        @foreach ($albums as $album)
+                            {{-- Se mapea automaticamente la ruta por cada song en su url --}}
+                            <div class="playList">
+                                <img src="{{ asset('storage') . '/uploads/imagenes/' . $album->image }}"
+                                    alt="Imagen del album {{ $album->name_album }}">
+                                <!-- LINK -->
+                                <a href="{{ route('songs.index', ['song' => $album, 'user' => $user]) }}">
+                                    <h2 class="font-cuerpo font-bold mt-4 text-lg">{{ $album->name_album }}</h2>
+                                </a>
+
+                                <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Lorem ipsum dolor
+                                    sit
+                                    amet
+                                    consectetur adipisicing elit. Possimus minima recusandae eaque similique, fuga,
+                                    laboriosam
+                                    adipisci debitis deserunt doloremque vel facilis inventore exercitationem eligendi
+                                    molestiae
+                                    perferendis, atque omnis! Perspiciatis, inventore!</p>
+                            </div>
+                        @endforeach
+                    @endif
+
+
+                    <div class="playList">
+                        <img src="{{ asset('assets/artistas-pic/spider.jpg') }} " alt="Había una Imagen xD">
+                        <h2 class="font-cuerpo font-bold mt-4 text-lg">SpiderLove</h2>
+                        <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Lorem ipsum dolor sit amet
+                            consectetur adipisicing elit. Possimus minima recusandae eaque similique, fuga, laboriosam
+                            adipisci debitis deserunt doloremque vel facilis inventore exercitationem eligendi molestiae
+                            perferendis, atque omnis! Perspiciatis, inventore!</p>
+                    </div>
+                    <div class="playList">
+                        <img src="{{ asset('assets/artistas-pic/spider.jpg') }} " alt="Había una Imagen xD">
+                        <h2 class="font-cuerpo font-bold mt-4 text-lg">SpiderLove</h2>
+                        <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Lorem ipsum dolor sit amet
+                            consectetur adipisicing elit. Possimus minima recusandae eaque similique, fuga, laboriosam
+                            adipisci debitis deserunt doloremque vel facilis inventore exercitationem eligendi molestiae
+                            perferendis, atque omnis! Perspiciatis, inventore!</p>
+                    </div>
+                    <div class="playList">
+                        <img src="{{ asset('assets/artistas-pic/spider.jpg') }} " alt="Había una Imagen xD">
+                        <h2 class="font-cuerpo font-bold mt-4 text-lg">SpiderLove</h2>
+                        <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Lorem ipsum dolor sit amet
+                            consectetur adipisicing elit. Possimus minima recusandae eaque similique, fuga, laboriosam
+                            adipisci debitis deserunt doloremque vel facilis inventore exercitationem eligendi molestiae
+                            perferendis, atque omnis! Perspiciatis, inventore!</p>
+                    </div>
+                    <div class="playList">
+                        <img src="{{ asset('assets/artistas-pic/spider.jpg') }} " alt="Había una Imagen xD">
+                        <h2 class="font-cuerpo font-bold mt-4 text-lg">SpiderLove</h2>
+                        <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Lorem ipsum dolor sit amet
+                            consectetur adipisicing elit. Possimus minima recusandae eaque similique, fuga, laboriosam
+                            adipisci debitis deserunt doloremque vel facilis inventore exercitationem eligendi molestiae
+                            perferendis, atque omnis! Perspiciatis, inventore!</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="box-2 anim2" id="caja-2">
+                <div class="content">
+                    <div class="info albums">
+                        <img src="{{ asset('assets/artistas-pic/house.png') }}" alt="Había una Imagen xD">
+                        <h2 class="font-cuerpo font-bold mt-4 text-lg">Ed Sheeran</h2>
+                        <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Artista</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="box-3 anim2" id="caja-3">
+                <div class="content">
+                    <div class="info artista">
+                        <img src="{{ asset('assets/artistas-pic/ed_sheeran.jpg') }} " class="rounded-full"
+                            alt="Había una Imagen xD">
+                        <h2 class="font-cuerpo font-bold mt-4 text-lg">Ed Sheeran</h2>
+                        <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Artista</p>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="box-4 anim2" id="caja-4">
+                <div class="content">
+                    <div class="info favoritos">
+                        <img src="{{ asset('assets/artistas-pic/ed_sheeran.jpg') }} " class="rounded-full"
+                            alt="Había una Imagen xD">
+                        <h2 class="font-cuerpo font-bold mt-4 text-lg">Ed Sheeran</h2>
+                        <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Artista</p>
+                    </div>
+
+
+                </div>
+            </div>
         </div>
 
     </div>
+
 @endsection

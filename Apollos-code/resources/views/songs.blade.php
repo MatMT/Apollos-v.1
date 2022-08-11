@@ -5,30 +5,6 @@
 @endsection
 
 @section('contenido')
-    <div class="flex justify-center">
-        <div class="w-full md:w-8/12 lg:w-6/12 flex flex-col items-center md:flex-row">
-            <div class="w-8/12 lg:w-6/12 px-5">
-                <img src="{{ asset('assets/img/usuario.svg') }}" alt="imagen de usuario">
-            </div>
-            <div class="md:8/12 lg:w-6/12 px-5 flex flex-col items-center md:justify-center md:items-start py-10 md:py-10">
-                <p class="text-gray-700 text-2xl ">{{ $user->name_artist }}</p>
-
-                <p class="text-gray-800 text-sm mb-3 font-bold mt-5">
-                    0
-                    <span class="font-normal">Seguidores</span>
-                </p>
-                <p class="text-gray-800 text-sm mb-3 font-bold">
-                    0
-                    <span class="font-normal">Canciones</span>
-                </p>
-                <p class="text-gray-800 text-sm mb-3 font-bold">
-                    0
-                    <span class="font-normal">Albumes</span>
-                </p>
-            </div>
-        </div>
-    </div>
-
     <section class="container mx-auto mt-10">
         <h2 class="text-4xl text-center font-black my-10">Contenido</h2>
 
@@ -38,10 +14,12 @@
                 @foreach ($songs as $song)
                     <div>
                         {{-- Se mapea automaticamente la ruta por cada song en su url --}}
-                        <a href="{{ route('songs.show', ['song' => $song, 'user' => $user]) }}">
+                        <a href="{{ route('song.show', ['song' => $song, 'user' => $user]) }}">
                             <img src="{{ asset('storage') . '/uploads/imagenes/' . $song->image }}"
                                 alt="Imagen de la canción {{ $song->name_song }}">
                         </a>
+                        <p class="text-gray-600 uppercase text-center font-bold">{{ $song->name_song }}</p>
+
                     </div>
                 @endforeach
             </div>

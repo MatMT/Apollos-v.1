@@ -20,7 +20,7 @@
             @auth
                 <nav class="flex gap-2 items-center">
                     @if (auth()->user()->rol == 'artist')
-                        <a href="{{ route('posts.create') }}" class="font-bold uppercase text-gray-600 text-sm">Subir</a>
+                        <a href="{{ route('upload.select') }}" class="font-bold uppercase text-gray-600 text-sm">Subir</a>
                     @endif
 
                     <a href="{{ route('posts.index', auth()->user()) }}"

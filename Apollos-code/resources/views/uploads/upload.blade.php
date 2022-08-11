@@ -9,7 +9,7 @@
 
 
         <div class="hover:scale-95 md:w-1/2 p-5 bg-white rounded-lg shadow mt-10 md:mt-0">
-            <a href="">
+            <a href="{{ route('posts.create') }}">
                 <div class="md:h-1/2">
                     <img src="{{ asset('storage/uploads/imagenes/default-song.png') }}" alt="" class="m-auto">
                     <p class="pt-4 font-black text-2xl text-center">Sencillo</p>

@@ -142,12 +142,13 @@ class UploadController extends Controller
         return view('uploads.up_album_5', ['songs' => $songs, "i" => $i, 'album' => $album]);
     }
 
-    public function store_5(Request $request)
+    public function store_5(User $user)
     {
         // Validación - aceptar terminos y condiciones
         // $request->validate([
         //     'check' => 'required',
         // ]);
+
 
         // Pasada la validación se envía a la siguiente página
         return redirect()->route('posts.index', auth()->user()->name_artist);

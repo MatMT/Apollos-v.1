@@ -23,7 +23,7 @@ class ProfileController extends Controller
         $songs = Song::where('user_id', $user->id)->paginate(8); // Paginate elabora una lógica para crear páginas
 
         // Obtener albúmes
-        $album = Album::where('user_id', auth()->user()->id)->get(); // Get trae los resultados de la consulta en colección 
+        $album = Album::where('user_id', $user->id)->get(); // Get trae los resultados de la consulta en colección 
 
         // Mostramos vista y devolvemos datos con las llaves 
         return view('profile', [

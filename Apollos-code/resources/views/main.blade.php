@@ -12,7 +12,7 @@
 
     <div class="contenido_main">
 
-        <div class="box-views w-4/5 p-2 m-auto my-8">
+        <div class="box-views w-4/5 p-1 m-auto my-8">
 
             <div class="post_1 w-full justify-around items-center">
 
@@ -38,13 +38,16 @@
         <main class="principal w-6/7 m-auto mt-9 pt-16 font-cuerpo">
 
             <div class="main-content text-white anim">
+
                 <h2 class="text-white text-3xl font-bold">Artistas que pueden ser para ti</h2>
 
-                <div class="contenedor-principal">
+                <div class="contenedor-principal slider-1">
 
                     <button rolle="button" id="flecha-izquierda"><i class="fi fi-rr-angle-left"></i></button>
 
                     <div class="contenedor-carousel">
+
+                        <!-- carousel con Datos Volatiles-->
 
                         <div class="carousel">
 
@@ -67,11 +70,12 @@
                                 </div>
                             @endforeach
 
-                            <!-- Datos estáticos -->
+                                                       
+                        </div> 
 
+                        <!-- Datos estáticos -->
 
-
-                            <div class="carousel">
+                        <div class="carousel artistas">
                                 <div class="card drop-shadow-xl">
                                     <a href="">
                                         <div class="imagen">
@@ -168,8 +172,6 @@
                                 
                             </div>
 
-                        </div> <!-- carousel -->
-
                     </div>
                     <!--contenedor-carousel --->
 
@@ -179,10 +181,150 @@
 
             </div>
 
+            <div class="main-content text-white anim">
+
+                <h2 class="text-white text-3xl font-bold">Albums para toda la vida</h2>
+
+                <div class="contenedor-principal slider-2">
+                
+                    <button rolle="button" id="flecha-izquierda"><i class="fi fi-rr-angle-left"></i></button>
+
+                    <div class="contenedor-carousel">
+
+                        <div class="carousel">
+
+                            @foreach ($users as $user)
+                                <div class="card drop-shadow-xl">
+                                    <a href="{{ route('posts.index', $user->name_artist) }}">
+                                        <div class="imagen">
+                                            <img src="{{ asset('assets/img/usuario.svg') }}"
+                                                alt="Imagen de {{ $user->name }}">
+                                        </div>
+                                        <div class="title">
+                                            <div class="name font-titulo_2 text-lg desktop_2:text-base">
+                                                {{ $user->name }}
+                                            </div>
+                                            <div class="type text-lg font-thin text-slate-300 desktop_2:text-base">
+                                                Artista
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            @endforeach
+
+                                                       
+                        </div> 
+
+                        <!-- Datos estáticos -->
+                        
+                        <div class="carousel albums">
+                                <div class="card drop-shadow-xl">
+                                    <a href="">
+                                        <div class="imagen albums">
+                                            <img src="{{ asset('assets/artistas-pic/house.png') }} "
+                                                                                                        alt="Había una Imagen xD">
+                                        </div>
+                                        <div class="title">
+                                            <div class="name font-titulo_2 text-lg desktop_2:text-base">Harry's House</div>
+                                            <div class="type font-cuerpo text-lg font-thin text-slate-300 desktop_2:text-base">Harry Styles</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="card drop-shadow-xl">
+                                    <a href="">
+                                        <div class="imagen">
+                                            <img src="{{ asset('assets/artistas-pic/Shawn_Mendez.jpg') }} " alt="Había una Imagen xD">                                           
+                                        </div>
+                                        <div class="title">
+                                            <div class="name font-titulo_2 text-lg desktop_2:text-base">Shawn Mendez</div>
+                                            <div class="type text-lg font-thin text-slate-300 desktop_2:text-base">Artista</div>
+                                        </div>
+                                     </a>
+                                </div>
+                                
+                                <div class="card drop-shadow-xl">
+                                    <a href="">
+                                        <div class="imagen">
+                                            <img src="{{ asset('assets/artistas-pic/The_weekend.jpg') }} " alt="Había una Imagen xD">                                                         
+                                        </div>
+                                        <div class="title">
+                                            <div class="name font-titulo_2 text-lg desktop_2:text-base">The Weeknd</div>
+                                            <div class="type text-lg font-thin text-slate-300 desktop_2:text-base">Artista</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="card drop-shadow-xl">
+                                    <a href="">
+                                        <div class="imagen">
+                                            <img src="{{ asset('assets/artistas-pic/charlie_p.jpg') }} " alt="Había una Imagen xD">                                              
+                                        </div>
+                                        <div class="title">
+                                            <div class="name font-titulo_2 text-lg desktop_2:text-base">Charlie Puth</div>
+                                            <div class="type text-lg font-thin text-slate-300 desktop_2:text-base">Artista</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="card drop-shadow-xl">
+                                    <a href="">
+                                        <div class="imagen">
+                                            <img src="{{ asset('assets/artistas-pic/ed_sheeran.jpg') }} " alt="Había una Imagen xD">                                                    
+                                        </div>
+                                        <div class="title">
+                                            <div class="name font-titulo_2 text-lg desktop_2:text-base">Ed Sheeran</div>
+                                            <div class="type text-lg font-thin text-slate-300 desktop_2:text-base">Artista</div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="card drop-shadow-xl">
+                                    <a href="">
+                                        <div class="imagen">
+                                            <img src="{{ asset('assets/artistas-pic/Shawn_Mendez.jpg') }} " alt="Había una Imagen xD">                                                           
+                                        </div>
+                                        <div class="title">
+                                            <div class="name font-titulo_2 text-lg desktop_2:text-base">Shawn Mendez</div>
+                                            <div class="type text-lg font-thin text-slate-300 desktop_2:text-base">Artista</div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="card drop-shadow-xl">
+                                    <a href="">
+                                        <div class="imagen">
+                                            <img src="{{ asset('assets/artistas-pic/The_weekend.jpg') }} " alt="Había una Imagen xD">                                                            
+                                        </div>
+                                        <div class="title">
+                                            <div class="name font-titulo_2 text-lg desktop_2:text-base">The Weeknd</div>
+                                            <div class="type text-lg font-thin text-slate-300 desktop_2:text-base">Artista</div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="card drop-shadow-xl">
+                                    <a href="">
+                                        <div class="imagen">
+                                            <img src="{{ asset('assets/artistas-pic/charlie_p.jpg') }} " alt="Había una Imagen xD">
+                                        </div>
+                                        <div class="title">
+                                            <div class="name font-titulo_2 text-lg desktop_2:text-base">Charlie Puth</div>
+                                            <div class="type text-lg font-thin text-slate-300 desktop_2:text-base">Artista</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                
+                            </div>
+                        
+
+                    </div>
+                    <!--contenedor-carousel --->
+                    <button rolle="button" id="flecha-derecha"><i class="fi fi-rr-angle-right"></i></button>
+                </div>
+            </div>
+
+            
 
 
-            <div class="carrusel"></div>
-            <div class="carrusel"></div>
+            <div class="contenedor-principal slider-3"></div>
 
             @vite('resources/js/carrucel.js')
 

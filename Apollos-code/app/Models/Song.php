@@ -22,7 +22,7 @@ class Song extends Model
     // Relación inversa
     public function album()
     {
-        // Una canción pertenece a un albúm
+        // Una canción pertenece a un álbum
         return $this->belongsTo(Album::class);
     }
 

@@ -25,12 +25,14 @@ class DatabaseSeeder extends Seeder
         $mati->email = 'oscar@correo.com';
         $mati->username = 'Elias_MT';
         $mati->status = 'active';
+        $mati->age = '17';
         $mati->password = Hash::make('1234');
         $mati->created_at = now();
         $mati->updated_at = now();
         $mati->name_artist = 'elias_mt';
         $mati->gender = false;
         $mati->birth_date = '2004-10-23';
+        $mati->save();
 
         // Fábricas
         User::factory(10)->create();

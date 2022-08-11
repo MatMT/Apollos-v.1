@@ -35,8 +35,8 @@ class RegisterController extends Controller
         $gender = $request->gender;
 
         // 0 hombre - 1 mujer
-        $gender == 'male' ? $gender == false : $gender;
-        $gender == 'female' ? $gender == true : $gender;
+        $gender == 'male' ? $gender = false : $gender;
+        $gender == 'female' ? $gender = true : $gender;
 
         // Objeto - Calculo de la edad
         $age = new AgeController($request->nacimiento);

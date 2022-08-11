@@ -21,7 +21,7 @@ class Album extends Model
     // Relación ---
     public function songs()
     {
-        // Un Albúm tiene muchas canciones
+        // Un Álbum tiene muchas canciones
         return $this->hasMany(Song::class);
     }
 

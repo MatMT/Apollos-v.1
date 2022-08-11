@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AlbumDataController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\ImageController;
 use App\Http\Controllers\DataSongController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -65,12 +67,36 @@ Route::get('/usuario/{user:name_artist}/canciones/{song}', [ProfileController::c
 // Subir ---
 Route::get('/uploads/create', [DataSongController::class, 'create'])->name('posts.create'); // Vista
 Route::post('/uploads/create/audio', [SongController::class, 'store'])->name('audio.store'); // .mp3 
-Route::post('/uploads/create/imagen', [ImageController::class, 'store'])->name('image.store'); // Imagen 
+// Route::post('/uploads/create/imagen', [ImageController::class, 'store'])->name('image.store'); // Imagen 
 Route::post('/uploads/create/data', [DataSongController::class, 'store'])->name('data.store'); // Info
 
 
+// --- Subir 2.0 
+Route::get('/uploads/selection', [UploadController::class, 'index'])->name('upload.select'); // Vista - Selección
 
-// --- nuevas vistas
+Route::get('/uploads/selection/album/step_1', [UploadController::class, 'album_1'])->name('upload.album_1'); // Vista - subida de album
+Route::post('/uploads/selection/album/create', [UploadController::class, 'store_1'])->name('upload.store_1'); // Validación primer paso
+
+Route::get('/uploads/selection/album/step_2', [UploadController::class, 'album_2'])->name('upload.album_2'); // Vista - estableciendo titulo
+Route::post('/uploads/selection/album/step_2', [UploadController::class, 'store_2'])->name('upload.store_2'); // Validación segundo paso
+
+Route::get('/uploads/selection/album/step_3', [UploadController::class, 'album_3'])->name('upload.album_3'); // Vista - estableciendo género
+Route::post('/uploads/selection/album/step_3', [UploadController::class, 'store_3'])->name('upload.store_3'); // Validación tecer paso
+
+// 
+
+Route::get('/uploads/selection/album/step_4', [UploadController::class, 'album_4'])->name('upload.album_4'); // Vista - estableciendo género
+
+Route::post('/uploads/selection/album/step_4/data', [AlbumDataController::class, 'store'])->name('album_data.store'); // Lógica de albúm
+
+Route::post('/uploads/selection/album/step_4', [UploadController::class, 'store_4'])->name('upload.store_4'); // Validación cuarto paso
+
+// -
+Route::post('/uploads/selection/album/step_1/img', [ImageController::class, 'store'])->name('image.store'); // Controlador de Imagen
+
+
+
+// --- Nuevas vistas
 Route::view('/biblioteca', 'Library')->name('biblioteca');
 Route::view('/Artista', 'Artist')->name('artista');
 

@@ -8,12 +8,14 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
+    // AUTENTIFICACIÓN ==========
     public function __construct()
     {
         // Autentificación exceptuada para los métodos show(canción) e index(perfil)
         $this->middleware('auth')->except(['show', 'index']);
     }
 
+    // PERFIL ==========
     public function index(User $user)
     {
         // Llamamos al modelo y automáticamente su tabla
@@ -26,13 +28,14 @@ class ProfileController extends Controller
         ]);
     }
 
+    // SUBIR CANCIÓN ==========
     public function create()
     {
         return view('uploads.create');
     }
 
-    // Importamos vairables de la URL
-    public function show(User $user, Song $song)
+    // REPRODUCTOR ==========
+    public function show(User $user, Song $song) // Importamos vairables de la URL
     {
         return view('uploads.show', [
             'user' => $user,

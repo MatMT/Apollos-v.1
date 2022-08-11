@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('songs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('album_id')->constrained()->onDelete('cascade');
+            // $table->foreignId('album_id')->constrained()->onDelete('cascade')->nullable();
             $table->string('name_song', 30);
             $table->string('genre', 15);
             $table->string('url', 40);

@@ -14,10 +14,13 @@
         @vite('resources/css/app.css')
         @vite('resources/css/styles.css')
         @vite('resources/css/home.css')
+        @vite('resources/css/library.css')
         @vite('resources/js/header.js')
-        @yield('css', '')
-
         
+        @yield('css', '')
+        
+
+        <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
 
         <title>@yield('title')| Apollo's</title>
     </head>

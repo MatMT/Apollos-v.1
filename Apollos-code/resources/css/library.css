@@ -1,0 +1,144 @@
+
+/* ------ ----------  ---------- ---------- Contenedores*/
+
+.contenido{
+    width: 100%;
+    margin: 50px auto;
+}
+
+/*--------- ---------  PESTAÑAS ------------- ----------*/
+
+.opciones{
+    color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    margin: 0px 50px;
+}
+
+.opciones li{
+    margin: 12px;
+    font-weight: bold;
+    padding: 5px 30px;
+
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.opciones li:hover{
+    color: white;
+}
+
+.pestanias .line-1{
+    width: 90%;
+    height: 1px;
+    background-color: white;
+    margin: 10px 20px;
+}
+
+
+.active-opcion{
+    background-color: #CE4993;
+    color: white;
+}
+
+.albums-opcion{
+    background-color: #EE5D6C;
+    color: white;
+}
+
+.artistas-opcion{
+    background-color: #FB9062;
+    color: white;
+}
+
+.favoritos-opcion{
+    background-color: #EEAF61;
+    color: white;
+}
+
+.remove{
+    background-color: transparent;
+}
+
+
+/*------------ ------------------ -------------------- Contenedores */
+
+/*Contenedor 1*/
+.box-1,
+.box-2,
+.box-3,
+.box-4{
+    width: 100%;
+    padding: 15px;
+    display: none;
+}
+
+.active{
+    display: block;
+}
+
+.content{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.content .playList{
+    width: 20%;
+    max-width: 209.28px;
+    padding: 20px;
+    margin: 10px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.1s ease all;
+    
+}
+.content .playList:hover{
+    background-color: #70707050;
+}
+
+.content .playList img{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.content .playList .description{
+    height: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/*Contenedor 2*/
+
+.content .info{
+    width: 20%;
+    max-width: 209.28px;
+    padding: 20px;
+    margin: 10px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.1s ease all;
+    
+}
+.content .info:hover{
+    background-color: #70707050;
+}
+
+.content .info img{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.content .artista img{
+    width: 100%;
+    border-radius: 100%;
+}
+
+.content .info .description{
+    height: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+

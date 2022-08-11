@@ -148,8 +148,9 @@ class UploadController extends Controller
         // $request->validate([
         //     'check' => 'required',
         // ]);
+
         // Pasada la validación se envía a la siguiente página
-        return redirect()->route('upload.album_4');
+        return redirect()->route('posts.index', auth()->user()->name_artist);
     }
 
 

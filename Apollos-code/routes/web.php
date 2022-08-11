@@ -65,10 +65,10 @@ Route::get('/usuario/{user:name_artist}', [ProfileController::class, 'index'])->
 // Multimedia ---
 Route::get('/usuario/{user:name_artist}/canciones/{song}', [ProfileController::class, 'show'])->name('songs.show');
 
-// Perfil --- Gracias al Route model binding
-Route::get('/test/{user:name_artist}', [PfController::class, 'index'])->name('test');
-// Multimedia ---
-Route::get('/test/{user:name_artist}/canciones/{song}', [PfController::class, 'show'])->name('songs.show');
+// Perfil --- Gracias al Route model binding _ OLD
+// Route::get('/usuario/{user:name_artist}', [ProfileController::class, 'index'])->name('posts.index');
+// // Multimedia ---
+// Route::get('/usuario/{user:name_artist}/canciones/{song}', [ProfileController::class, 'show'])->name('songs.show');
 
 // Subir ---
 Route::get('/uploads/create', [DataSongController::class, 'create'])->name('posts.create'); // Vista

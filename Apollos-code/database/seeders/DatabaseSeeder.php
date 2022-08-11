@@ -35,21 +35,6 @@ class DatabaseSeeder extends Seeder
         $mati->save();
 
         // Usuario Default - 2
-        $mati = new User();
-        $mati->name = 'Valeria';
-        $mati->last_name = 'Fuentes';
-        $mati->rol = 'artist';
-        $mati->email = 'valeria@correo.com';
-        $mati->username = 'Vale_M<3';
-        $mati->status = 'active';
-        $mati->age = '13';
-        $mati->password = Hash::make('1234');
-        $mati->created_at = now();
-        $mati->updated_at = now();
-        $mati->name_artist = 'vale_m<3';
-        $mati->gender = true;
-        $mati->birth_date = '2008-12-07';
-        $mati->save();
 
         // Fábricas
         // User::factory(10)->create();

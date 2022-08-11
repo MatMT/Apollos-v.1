@@ -221,8 +221,7 @@
                                 <div class="card drop-shadow-xl">
                                     <a href="">
                                         <div class="imagen albums">
-                                            <img src="{{ asset('assets/artistas-pic/house.png') }} "
-                                                                                                        alt="Había una Imagen xD">
+                                            <img src="{{ asset('assets/artistas-pic/house.png') }} " alt="Había una Imagen xD">
                                         </div>
                                         <div class="title">
                                             <div class="name font-titulo_2 text-lg desktop_2:text-base">Harry's House</div>
@@ -230,89 +229,21 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="card drop-shadow-xl">
-                                    <a href="">
-                                        <div class="imagen">
-                                            <img src="{{ asset('assets/artistas-pic/Shawn_Mendez.jpg') }} " alt="Había una Imagen xD">                                           
-                                        </div>
-                                        <div class="title">
-                                            <div class="name font-titulo_2 text-lg desktop_2:text-base">Shawn Mendez</div>
-                                            <div class="type text-lg font-thin text-slate-300 desktop_2:text-base">Artista</div>
-                                        </div>
-                                     </a>
-                                </div>
-                                
-                                <div class="card drop-shadow-xl">
-                                    <a href="">
-                                        <div class="imagen">
-                                            <img src="{{ asset('assets/artistas-pic/The_weekend.jpg') }} " alt="Había una Imagen xD">                                                         
-                                        </div>
-                                        <div class="title">
-                                            <div class="name font-titulo_2 text-lg desktop_2:text-base">The Weeknd</div>
-                                            <div class="type text-lg font-thin text-slate-300 desktop_2:text-base">Artista</div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="card drop-shadow-xl">
-                                    <a href="">
-                                        <div class="imagen">
-                                            <img src="{{ asset('assets/artistas-pic/charlie_p.jpg') }} " alt="Había una Imagen xD">                                              
-                                        </div>
-                                        <div class="title">
-                                            <div class="name font-titulo_2 text-lg desktop_2:text-base">Charlie Puth</div>
-                                            <div class="type text-lg font-thin text-slate-300 desktop_2:text-base">Artista</div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="card drop-shadow-xl">
-                                    <a href="">
-                                        <div class="imagen">
-                                            <img src="{{ asset('assets/artistas-pic/ed_sheeran.jpg') }} " alt="Había una Imagen xD">                                                    
-                                        </div>
-                                        <div class="title">
-                                            <div class="name font-titulo_2 text-lg desktop_2:text-base">Ed Sheeran</div>
-                                            <div class="type text-lg font-thin text-slate-300 desktop_2:text-base">Artista</div>
-                                        </div>
-                                    </a>
-                                </div>
 
                                 <div class="card drop-shadow-xl">
                                     <a href="">
-                                        <div class="imagen">
-                                            <img src="{{ asset('assets/artistas-pic/Shawn_Mendez.jpg') }} " alt="Había una Imagen xD">                                                           
+                                        <div class="imagen albums">
+                                            <img src="{{ asset('assets/artistas-pic/fantasia.jpg') }} " alt="Había una Imagen xD">
                                         </div>
                                         <div class="title">
-                                            <div class="name font-titulo_2 text-lg desktop_2:text-base">Shawn Mendez</div>
-                                            <div class="type text-lg font-thin text-slate-300 desktop_2:text-base">Artista</div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="card drop-shadow-xl">
-                                    <a href="">
-                                        <div class="imagen">
-                                            <img src="{{ asset('assets/artistas-pic/The_weekend.jpg') }} " alt="Había una Imagen xD">                                                            
-                                        </div>
-                                        <div class="title">
-                                            <div class="name font-titulo_2 text-lg desktop_2:text-base">The Weeknd</div>
-                                            <div class="type text-lg font-thin text-slate-300 desktop_2:text-base">Artista</div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="card drop-shadow-xl">
-                                    <a href="">
-                                        <div class="imagen">
-                                            <img src="{{ asset('assets/artistas-pic/charlie_p.jpg') }} " alt="Había una Imagen xD">
-                                        </div>
-                                        <div class="title">
-                                            <div class="name font-titulo_2 text-lg desktop_2:text-base">Charlie Puth</div>
-                                            <div class="type text-lg font-thin text-slate-300 desktop_2:text-base">Artista</div>
+                                            <div class="name font-titulo_2 text-lg desktop_2:text-base">Fantasía</div>
+                                            <div class="type font-cuerpo text-lg font-thin text-slate-300 desktop_2:text-base">Sebastian Yatra</div>
                                         </div>
                                     </a>
                                 </div>
                                 
-                            </div>
+                                
+                        </div>
                         
 
                     </div>

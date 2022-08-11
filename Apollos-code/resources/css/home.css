@@ -53,6 +53,7 @@
     /**/
     border-radius: 20px;
     min-width: 16.66%;
+    max-width: 259.26px;
     padding: 25px;
     transition: 0.3s ease-in-out all;
 }

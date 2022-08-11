@@ -6,6 +6,7 @@ const pantalla = document.getElementById("scre");
 document.getElementById('profile').addEventListener('click', result)
 
 
+
 function result(){
     let profile_toggle = document.getElementById('perfil');
     let menu = document.getElementById("menu");
@@ -13,6 +14,7 @@ function result(){
 
     menu.classList.toggle("active");  
 }
+
 
 
 

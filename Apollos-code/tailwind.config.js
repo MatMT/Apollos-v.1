@@ -20,7 +20,7 @@ module.exports = {
       'logo': ['Righteous', "cursive"],
       'titulo': ['Montserrat Alternates', "sans-serif"],
       'titulo_2': ['Paytone One', 'sans-serif'],
-      'cuerpo': ['DM+Sans', "sans-serif"],
+      'cuerpo': ['Urbanist', "sans-serif"],
     },
 
     screens: {

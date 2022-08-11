@@ -20,7 +20,7 @@ body::before{
     width: 100%;
     height: 100vh;
     background: rgb(255,255,255);
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 10%, rgba(0,0,0,0.05085784313725494) 20%, rgba(0,0,0,1) 90%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 10%, rgba(0,0,0,0.05085784313725494) 20%, rgba(0,0,0,1) 80%);
     position: absolute;
     left: 0%;
     top: 0%;
@@ -47,61 +47,60 @@ body::before{
 
 
 /* Barra de navegación */
-ul li a{
+header ul li{
     display: flex;
     align-items: center;
     transition: 0.5s ease-in-out;
+    color: rgb(196, 196, 196);
 }
 
-li a i{
+header li a i{
     margin-right: 15px;
-    margin-top: 4px;
+    margin-top: 7px;
     font-size: 18px;
 }
 
-.this{
-    padding: 5px 25px;
+header ul .this{
+    color: white;
+    padding: 7px 25px;
     background-color: #FF5677;
     border-radius: 9999px;
     filter: drop-shadow(0 25px 25px rgb(0 0 0 / 0.15));
     transition: 0.5s ease-in-out;
 }
-.this:hover{
+header .this:hover{
     transform: translateY(-5px);
 }
 
 
-.class-active{
+header .class-active{
     color: white;
 }
 
-ul li a:hover{
+header ul li:hover{
     color: white;
 }
 
 /*-------  -------  ----- Profile ---------  ------  ----*/
 .profile{
-    padding: 10px 30px;
+    padding: 0px 20px;
     border-radius: 12px;
     cursor: pointer;
     transition: all 0.5s ease-in-out;
     height: 64px;
-    border-radius: 30px;
 }
 
-.profile:hover{
-    background-color: black ;
-}
+/*.profile:hover{
+    background-color: rgba(0, 0, 0, 0.233) ;
+}*/
 
 
-
-.contenido-menu{
-    width: 225px;
+header .contenido-menu{
+    width: 260px;
     border-radius: 12px;
-    height: 250px;
-    padding: 15px 40px;
+    padding: 10px 20px;
     
-    background-color: rgba(252, 245, 245, 0.319);
+    background-color: rgba(0, 0, 0, 0.319);
     -webkit-backdrop-filter: blur(10px);
     -moz-backdrop-filter: blur(10px);
     backdrop-filter: blur(8px);
@@ -114,14 +113,26 @@ ul li a:hover{
     right: 35%;
 
     display: none;
+}
 
-    transition: all 0.5s ease-in-out;
-}
-.contenido-menu.active{
+header .contenido-menu.active{
     display: block;
-    
     transition: all 0.5s ease-in-out;
 }
+
+header .options li{
+    margin-top: 7px;
+    margin: 7px 10px;
+    transition: all 0.5s ease-in-out;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.863);
+}
+
+header .Logout{
+    margin: 20px 0px;
+}
+
+
 /*
 .options,
 .perfil{
@@ -170,16 +181,18 @@ header{
     position: fixed;
     left: 0%;
     top: 0%;
+    transition: 0.5s ease-in-out all;
     z-index: 50;
 }
 
 header.sticky{
-    background-color: rgb(43, 43, 43);
+    /*background-color: rgb(43, 43, 43);*/
+    background-color: #282828ec;
+    border-radius: 0px 0px 40px 40px;
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.555);
     color: white;
 
 }
-
 
 
 /*-------  -------  ----- Reproductor ---------  ------  ----*/
@@ -187,6 +200,93 @@ header.sticky{
 .reproductor{
     position: absolute;
 }
+
+
+
+/*------ -------  ------ Buscador ------ -------- -------  */
+
+.overway_2{
+    background-color: rgba(29, 29, 29, 0.4);
+    backdrop-filter: blur(2px);
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    bottom: 0%;
+    right: 0%;
+    z-index: 500;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    color: white;
+    
+    transition: 0.6s all ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.overway_2.active{
+    opacity: 1;
+    visibility: visible;
+
+}
+
+.buscador{
+    background-color: rgb(22, 22, 22);
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.555);
+    border-radius: 10px;
+    width: 40%;
+    max-height: 600px;
+    margin-top: 100px;
+    padding: 30px;
+    padding-bottom: 50px;
+    transition: all 0.5s ease;
+    transform: scale(0.7);
+    opacity: 0;
+}
+
+
+.buscador .btn-close{
+    font-size: 16px;
+    display: block;
+    text-align: right;
+    color: rgba(255, 255, 255, 0.377);
+    transition: 0.3s all ease-in-out;
+    cursor: pointer;
+}
+
+.buscador .btn-close:hover{
+    color: rgba(255, 255, 255, 0.863);
+}
+
+
+.buscador form .contenedor-input{
+    background-color: rgb(41, 40, 40);
+    padding: 15px;
+    margin: 7px;
+    border-radius: 7px;
+    display: flex;
+}
+
+.buscador form .contenedor-input input{
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.buscador .resultados{
+    width: 100%;
+    margin: 25px 10px;
+}
+
+/*---- ------  Animaciones Buscador ---- ------ -----*/
+
+.buscador.active{
+    opacity: 1;
+    transform: scale(1);
+}
+
+
 
 /*---  ----------- ----- Menu  -------- -------- --------- ---- */
 
@@ -209,6 +309,18 @@ header.sticky{
 
     display: none;
 
+}
+
+/*--- ---- ----- Reproductor ---- ----- -----*/
+
+.overway{
+    position: fixed;
+    background-color: rgb(48, 48, 48);
+    width: 425px;
+    height: 110px;
+    bottom: 40px;
+    right: 100px;
+    border-radius: 20px;
 }
 
 /*-------  -------  ----- Querys ---------  ------  ----*/

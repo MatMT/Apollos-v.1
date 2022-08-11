@@ -1,8 +1,13 @@
 
-<x-layouts.layout title="Biblioteca">
+@extends('layouts.shape1')
 
-<h1 class="text-3xl font-bold underline text-white">
-    Biblioteca
-</h1>
+@section('title', 'Tu Biblioteca ')
 
-</x-layouts>
+@section('header')
+    <x-header title="Biblioteca" activeli="this" ></x-header>
+@endsection
+
+
+@section('content')
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+@endsection

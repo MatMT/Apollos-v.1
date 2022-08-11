@@ -37,7 +37,7 @@ class DatabaseSeeder extends Seeder
         // Usuario Default - 2
 
         // Fábricas
-        // User::factory(10)->create();
+        User::factory(10)->create();
         // Song::factory(50)->create();
     }
 }

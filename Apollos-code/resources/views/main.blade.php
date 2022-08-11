@@ -12,7 +12,7 @@
 
     <div class="contenido_main">
 
-        <div class="box-views w-4/5 p-1 m-auto my-8">
+        <div class="box-views w-4/5 p-1 m-auto my-1">
 
             <div class="post_1 w-full justify-around items-center">
 
@@ -35,7 +35,7 @@
 
         </div>
 
-        <main class="principal w-6/7 m-auto mt-9 pt-16 font-cuerpo">
+        <main class="principal w-6/7 m-auto mt-9 pt-5 font-cuerpo">
 
             <div class="main-content text-white anim">
 

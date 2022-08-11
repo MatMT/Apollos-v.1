@@ -71,116 +71,60 @@
         <!------------------------------------------------------------>
 
         <div class="md:w-3/5">
-            {{-- <form action="{{ route('upload.store_4') }}" method="POST" id="song_up" novalidate>
-                @csrf --}}
-            <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-                <table class="w-full text-sm text-left text-gray-500">
+            <form action="{{ route('upload.store_4') }}" method="POST" id="song_up" novalidate>
+                @csrf
+                <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+                    <table class="w-full text-sm text-left text-gray-500">
 
-                    <thead class="text-xs text-white uppercase bg-purple-900">
-                        <tr>
-                            <th scope="col" class="py-3 px-6">
-                                #
-                            </th>
-                            <th scope="col" class="py-3 px-6">
-                                Titulo
-                            </th>
-                            <th scope="col" class="py-3 px-6">
-                                Estado
-                            </th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        @if ($songs->count())
-                            @foreach ($songs as $song)
-                                <tr class="bg-white border-b  hover:bg-gray-50">
-                                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
-                                        1
-                                    </th> <!-- id -->
-                                    <td class="py-4 px-6">
-                                        {{ $song->name_song }}
-                                    </td>
-                                    <td class="py-4 px-6">
-
-                                        @if ($song->user->name)
-                                            <p>Súbida</p>
-                                        @else
-                                            <p>Por subir</p>
-                                        @endif
-
-                                    </td>
-                                </tr>
-                            @endforeach
-                        @else
-                            <tr class="bg-white border-b  hover:bg-gray-50">
-                                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
-                                    1
-                                </th> <!-- id -->
-                                <td class="py-4 px-6">
-                                    Titulo 1
-
-                                </td>
-                                <td class="py-4 px-6">
-                                    Help me :'v
-                                </td>
-                            </tr>
-                            <tr class="bg-white border-b  hover:bg-gray-50">
-                                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
-                                    2
+                        <thead class="text-xs text-white uppercase bg-purple-900">
+                            <tr>
+                                <th scope="col" class="py-3 px-6">
+                                    #
                                 </th>
-                                <td class="py-4 px-6">
-                                    Titulo 2
-                                </td>
-                                <td class="py-4 px-6">
-                                    {{-- <input type="hidden" name="song" value="{{ old('song') }}" /> --}}
-                                    Help me :'v
-                                </td>
-                            </tr>
-                            <tr class="bg-white border-b  hover:bg-gray-50">
-                                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
-                                    3
+                                <th scope="col" class="py-3 px-6">
+                                    Titulo
                                 </th>
-                                <td class="py-4 px-6">
-                                    Titulo 3
-                                </td>
-                                <td class="py-4 px-6">
-                                    {{-- <input type="hidden" name="song" value="{{ old('song') }}" /> --}}
-                                    Help me :'v
-                                </td>
-                            </tr>
-                            <tr class="bg-white border-b  hover:bg-gray-50">
-                                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
-                                    4
-                                </th>
-                                <td class="py-4 px-6">
-                                    Titulo 4
-                                </td>
-                                <td class="py-4 px-6">
-                                    {{-- <input type="hidden" name="song" value="{{ old('song') }}" /> --}}
-                                    Help me :'v
-                                </td>
-                            </tr>
-                            <tr class="bg-white hover:bg-gray-50">
-                                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
-                                    5
-                                </th>
-                                <td class="py-4 px-6">
-                                    Titulo 5
-                                </td>
-                                <td class="py-4 px-6">
-                                    {{-- <input type="hidden" name="song" value="{{ old('song') }}" /> --}}
-                                    Help me :'v
-                                </td>
-                            </tr>
-                        @endif
 
-                    </tbody>
-                </table>
-            </div> <!-- Tabla -->
-            <br>
-            {{-- <input type="submit" value="Siguiente"
-                    class=" bg-teal-500 transition-colors cursor-pointer uppercase font-bold w-full p-3  text-white rounded-lg" />
-            </form> --}}
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @if ($songs->count())
+                                @foreach ($songs as $song)
+                                    <tr class="bg-white border-b  hover:bg-gray-50">
+                                        <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+                                            {{ $i += 1 }}
+                                        </th> <!-- id -->
+                                        <td class="py-4 px-6">
+                                            {{ $song->name_song }}
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @else
+                                @for ($i = 1; $i < 6; $i++)
+                                    <tr class="bg-white border-b  hover:bg-gray-50">
+                                        <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+                                            {{ $i }}
+                                        </th> <!-- id -->
+                                        <td class="py-4 px-6">
+                                            Titulo {{ $i }}
+                                        </td>
+                                    </tr>
+                                @endfor
+                            @endif
+
+                        </tbody>
+                    </table>
+                </div> <!-- Tabla -->
+                <br>
+
+                @if ($i > 1)
+                    @if ($songs->count())
+                        <input type="submit" value="Siguiente"
+                            class=" bg-teal-500 transition-colors cursor-pointer uppercase font-bold w-full p-3  text-white rounded-lg" />
+                    @endif
+                @endif
+            </form>
         </div> <!-- MITAD -->
 
     </div> <!-- Contenedor principal -->

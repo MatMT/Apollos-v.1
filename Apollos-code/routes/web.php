@@ -91,6 +91,9 @@ Route::post('/uploads/selection/album/step_4/data', [AlbumDataController::class,
 
 Route::post('/uploads/selection/album/step_4', [UploadController::class, 'store_4'])->name('upload.store_4'); // Validación cuarto paso
 
+Route::get('/uploads/selection/album/step_5', [UploadController::class, 'album_5'])->name('upload.album_5'); // Vista - estableciendo género
+Route::post('/uploads/selection/album/step_5', [UploadController::class, 'store_5'])->name('upload.store_5'); // Validación tecer paso
+
 // -
 Route::post('/uploads/selection/album/step_1/img', [ImageController::class, 'store'])->name('image.store'); // Controlador de Imagen
 

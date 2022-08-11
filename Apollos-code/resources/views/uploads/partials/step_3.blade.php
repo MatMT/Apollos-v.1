@@ -11,7 +11,7 @@
         <div class="basis-1/5 text-center p-1 @yield('step2')">Titulo</div>
         <div class="basis-1/5 text-center p-1 @yield('step3')">Género</div>
         @yield('song/s')
-        <div class="basis-1/5 text-center p-1 @yield('step4')">Subir</div>
+        <div class="basis-1/5 text-center p-1 @yield('step5')">Subir</div>
     </div> <!-- Progress bar -->
 
     <!-- SUBTITULO -->

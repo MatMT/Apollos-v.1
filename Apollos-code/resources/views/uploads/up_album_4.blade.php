@@ -14,6 +14,6 @@
     Sube tus canciones
 @endsection
 
-@section('placeholder')
+{{-- @section('placeholder')
     Titulo de la canción
-@endsection
+@endsection --}}

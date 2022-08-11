@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\Album;
 use App\Models\Song;
 
 
@@ -29,6 +29,13 @@ class UploadController extends Controller
         $request->validate([
             'imagen' => 'required'
         ]);
+
+        // Registro 2 - Mediante el Usuario accedemos a su relación en su modelo con los albumes
+        $request->user()->albums()->create([
+            'user_id' => auth()->user()->id,
+            'image' => $request->imagen,
+        ]);
+
         // Pasada la validación se envía a la siguiente página
         return redirect()->route('upload.album_2');
     }
@@ -45,6 +52,16 @@ class UploadController extends Controller
         $request->validate([
             'titulo' => 'required|max:30'
         ]);
+
+        // Obtener el último albúm del usuario
+        $album = Album::where('user_id', auth()->user()->id)
+            ->latest()
+            // Obtenes el registro individual
+            ->first();
+
+        // Añadirel nuevo campo y guardar
+        $album->name_album = $request->titulo;
+        $album->save();
 
         // Pasada la validación se envía a la siguiente página
         return redirect()->route('upload.album_3');
@@ -63,55 +80,78 @@ class UploadController extends Controller
         $request->validate([
             'genero' => 'required',
         ]);
+
+        // Obtener el último albúm del usuario
+        $album = Album::where('user_id', auth()->user()->id)
+            ->latest()
+            // Obtenes el registro individual
+            ->first();
+
+        // Añadirel nuevo campo y guardar
+        $album->genre = $request->genero;
+        $album->save();
+
         // Pasada la validación se envía a la siguiente página
         return redirect()->route('upload.album_4');
     }
 
-    public function album_4(User $user, Song $song)
+    // 4° Paso --- GUARDANDO E IMPRIMIENDO CANCIONES
+    public function album_4()
     {
-        $songs = Song::where('user_id', 2)->get(); // Get trae los resultados de la consulta - Paginate elabora una lógica para crear páginas
+        // Obtener el último albúm del usuario
+        $album = Album::where('user_id', auth()->user()->id)
+            ->latest()
+            // Obtenes el registro individual
+            ->first();
 
-        return view('uploads.up_album_4', [
-            'user' => $user,
-            'songs' => $songs
-        ]);
+        // Id del Usuario atenticado
+        $userId = auth()->user()->id;
+
+        $songs = Song::where('album_id', $album->id)->get(); // Get trae los resultados de la consulta
+
+        // Variable contador
+        $i = 0;
+
+        // Vista con 2 variables
+        return view('uploads.up_album_4', ['songs' => $songs, "i" => $i]);
     }
 
-    // 3° Paso --- ESTABLECIENDO GÉNERO
     public function store_4(Request $request)
     {
-        // Validación - campos completos
-        $request->validate([
-            'titulo' => 'required|max:30',
-            'song' => 'required'
-        ]);
-
-        // Registro 1
-        // Song::create([
-        //     'name_song' => $request->titulo,
-        //     'genre' => $request->genero,
-        //     'user_id' => auth()->user()->id, // Usuario autenticado
-        //     'url' => $request->song,
-        //     'image' => $request->imagen,
-        // ]);
-
-        dd('cumplido');
-
-        // Registro 2 - Mediante el Usuario accedemos a su relación en su modelo
-        $request->user()->songs()->create([
-            'name_song' => $request->titulo,
-            'genre' => 'anterior',
-            'user_id' => auth()->user()->id, // Usuario autenticado
-            'url' => $request->song,
-            'image' => 'anterior',
-        ]);
-
-        dd('cumplido');
-
-        // Redirigir - 2 parametros, ruta y variable usuario
-        return redirect()->back()->with('message', 'Operation Successful !');
-        // Pasada la validación se envía a la siguiente página
+        return redirect()->route('upload.album_5');
     }
+
+    // 5° Paso --- CONFIRMACIÓN FINAL
+    public function album_5()
+    {
+        // Obtener el último albúm del usuario
+        $album = Album::where('user_id', auth()->user()->id)
+            ->latest()
+            // Obtenes el registro individual
+            ->first();
+
+        // Id del Usuario atenticado
+        $userId = auth()->user()->id;
+
+        $songs = Song::where('album_id', $album->id)->get(); // Get trae los resultados de la consulta
+
+        // Variable contador
+        $i = 0;
+
+        // Vista con 2 variables
+        return view('uploads.up_album_5', ['songs' => $songs, "i" => $i, 'album' => $album]);
+    }
+
+    public function store_5(Request $request)
+    {
+        // Validación - aceptar terminos y condiciones
+        // $request->validate([
+        //     'check' => 'required',
+        // ]);
+        // Pasada la validación se envía a la siguiente página
+        return redirect()->route('upload.album_4');
+    }
+
 
     // Trabaja en conjunto con ImagenContoller y SongController
     public function store(Request $request)

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Song;
 use App\Models\User;
+use App\Models\Album;
+
 use Illuminate\Http\Request;
 
 class AlbumDataController extends Controller
@@ -17,31 +19,21 @@ class AlbumDataController extends Controller
             'song' => 'required'
         ]);
 
-        // Registro 1
-        // Song::create([
-        //     'name_song' => $request->titulo,
-        //     'genre' => 'anterior',
-        //     'user_id' => auth()->user()->id, // Usuario autenticado
-        //     'url' => $request->song,
-        //     'image' => 'anterior',
-        // ]);
+        // Obtener el último albúm del usuario
+        $album = Album::where('user_id', auth()->user()->id)
+            ->latest()
+            // Obtenes el registro individual
+            ->first();
 
-        // Registro 2 - Mediante el Usuario accedemos a su relación en su modelo
-        $request->user()->songs()->create([
+        // Registro 1
+        Song::create([
             'name_song' => $request->titulo,
-            'genre' => 'anterior',
-            'user_id' => auth()->user()->id, // Usuario autenticado
+            'album_id' => $album->id, // Usuario autenticado
             'url' => $request->song,
-            'image' => 'anterior',
+            'genre' => $album->genre,
+            'image' => $album->image,
         ]);
 
-        // Id del Usuario atenticado
-        $userId = auth()->user()->id;
-
-        $songs = Song::where('user_id', $userId)->get(); // Get trae los resultados de la consulta
-        // Redirigir - 2 parametros, ruta y variable usuario
-
-        return view('uploads.up_album_4', ['songs' => $songs]);
-        // return redirect()->view('posts.index', auth()->user()->name_artist);
+        return redirect()->route('upload.album_4');
     }
 }

@@ -19,7 +19,7 @@ class ProfileController extends Controller
     public function index(User $user)
     {
         // Llamamos al modelo y automáticamente su tabla
-        $songs = Song::where('user_id', $user->id)->paginate(8); // Get trae los resultados de la consulta - Paginate elabora una lógica para crear páginas
+        $songs = Song::where('user_id', $user->id)->paginate(8); // Get trae los resultados de la consulta en colección - Paginate elabora una lógica para crear páginas
 
         // Mostramos vista y devolvemos datos con las llaves 
         return view('profile', [

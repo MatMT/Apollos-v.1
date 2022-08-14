@@ -39,7 +39,7 @@
 
             <div class="main-content text-white anim">
 
-                <h2 class="text-white text-3xl font-bold">Artistas que pueden ser para ti</h2>
+                <h2 class="text-white text-3xl font-bold"> Nuevos Artistas que te gustarán</h2>
 
                 <div class="contenedor-principal slider-1">
 
@@ -70,8 +70,30 @@
                                 </div>
                             @endforeach
 
+
                                                        
-                        </div> 
+                        </div>
+                    </div>
+                    <!--contenedor-carousel --->
+
+                    <button rolle="button" id="flecha-derecha"><i class="fi fi-rr-angle-right"></i></button>
+
+                </div>
+
+            </div>
+            
+
+            <!-- Datos Estáticos -->
+
+            <div class="main-content text-white anim">
+
+                <h2 class="text-white text-3xl font-bold">Artistas que pueden ser para ti</h2>
+
+                <div class="contenedor-principal slider-2">
+
+                    <button rolle="button" id="flecha-izquierda"><i class="fi fi-rr-angle-left"></i></button>
+
+                    <div class="contenedor-carousel">
 
                         <!-- Datos estáticos -->
 
@@ -181,6 +203,7 @@
 
             </div>
 
+
             <div class="main-content text-white anim">
 
                 <h2 class="text-white text-3xl font-bold">Albums para toda la vida</h2>
@@ -191,7 +214,7 @@
 
                     <div class="contenedor-carousel">
 
-                        <div class="carousel">
+                        <div class="carousel albums">
 
                             @foreach ($users as $user)
                                 <div class="card drop-shadow-xl">
@@ -211,41 +234,34 @@
                                     </a>
                                 </div>
                             @endforeach
+                            
+                            <!-- Datos estáticos -->
 
+                            <div class="card drop-shadow-xl">
+                                <a href="">
+                                    <div class="imagen albums">
+                                        <img src="{{ asset('assets/artistas-pic/house.png') }} " alt="Había una Imagen xD">
+                                    </div>
+                                    <div class="title">
+                                        <div class="name font-titulo_2 text-lg desktop_2:text-base">Harry's House</div>
+                                        <div class="type font-cuerpo text-lg font-thin text-slate-300 desktop_2:text-base">Harry Styles</div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="card drop-shadow-xl">
+                                <a href="">
+                                    <div class="imagen albums">
+                                        <img src="{{ asset('assets/artistas-pic/fantasia.jpg') }} " alt="Había una Imagen xD">
+                                    </div>
+                                    <div class="title">
+                                        <div class="name font-titulo_2 text-lg desktop_2:text-base">Fantasía</div>
+                                        <div class="type font-cuerpo text-lg font-thin text-slate-300 desktop_2:text-base">Sebastian Yatra</div>
+                                    </div>
+                                </a>
+                            </div>
                                                        
                         </div> 
-
-                        <!-- Datos estáticos -->
-                        
-                        <div class="carousel albums">
-                                <div class="card drop-shadow-xl">
-                                    <a href="">
-                                        <div class="imagen albums">
-                                            <img src="{{ asset('assets/artistas-pic/house.png') }} " alt="Había una Imagen xD">
-                                        </div>
-                                        <div class="title">
-                                            <div class="name font-titulo_2 text-lg desktop_2:text-base">Harry's House</div>
-                                            <div class="type font-cuerpo text-lg font-thin text-slate-300 desktop_2:text-base">Harry Styles</div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="card drop-shadow-xl">
-                                    <a href="">
-                                        <div class="imagen albums">
-                                            <img src="{{ asset('assets/artistas-pic/fantasia.jpg') }} " alt="Había una Imagen xD">
-                                        </div>
-                                        <div class="title">
-                                            <div class="name font-titulo_2 text-lg desktop_2:text-base">Fantasía</div>
-                                            <div class="type font-cuerpo text-lg font-thin text-slate-300 desktop_2:text-base">Sebastian Yatra</div>
-                                        </div>
-                                    </a>
-                                </div>
-                                
-                                
-                        </div>
-                        
-
                     </div>
                     <!--contenedor-carousel --->
                     <button rolle="button" id="flecha-derecha"><i class="fi fi-rr-angle-right"></i></button>

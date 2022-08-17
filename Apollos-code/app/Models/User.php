@@ -56,9 +56,9 @@ class User extends Authenticatable
         return $this->hasMany(Album::class);
     }
 
-    public function songs()
-    {
-        // Un usuario tiene muchas canciones
-        return $this->hasMany(Song::class);
-    }
+    // public function songs()
+    // {
+    //     // Un usuario tiene muchas canciones
+    //     return $this->hasMany(Song::class);
+    // }
 }

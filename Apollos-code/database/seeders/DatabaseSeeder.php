@@ -35,6 +35,41 @@ class DatabaseSeeder extends Seeder
         $mati->save();
 
         // Usuario Default - 2
+
+        $javi = new User();
+        $javi->name = 'Javier';
+        $javi->last_name = 'Mejía';
+        $javi->rol = 'artist';
+        $javi->email = 'javier@correo.com';
+        $javi->username = 'Javithor69';
+        $javi->status = 'active';
+        $javi->age = '17';
+        $javi->password = Hash::make('1234');
+        $javi->created_at = now();
+        $javi->updated_at = now();
+        $javi->name_artist = 'javithor69';
+        $javi->gender = false;
+        $javi->birth_date = '2004-11-15';
+        $javi->save();
+
+        // Usuario Default - 3
+        $willy = new User();
+        $willy->name = 'William';
+        $willy->last_name = 'Orellana';
+        $willy->rol = 'artist';
+        $willy->email = 'william@correo.com';
+        $willy->username = 'Willito234';
+        $willy->status = 'active';
+        $willy->age = '17';
+        $willy->password = Hash::make('1234');
+        $willy->created_at = now();
+        $willy->updated_at = now();
+        $willy->name_artist = 'willito234';
+        $willy->gender = false;
+        $willy->birth_date = '2004-12-30';
+        $willy->save();
+
+        // Usuario Default - 4
         $aero = new User();
         $aero->name = 'Eleazar';
         $aero->last_name = 'Amaya';

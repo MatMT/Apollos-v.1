@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Album;
 use App\Models\User;
+use App\Models\Song;
 use Illuminate\Http\Request;
 
 class DataSongController extends Controller
@@ -20,8 +22,19 @@ class DataSongController extends Controller
     }
 
     // Trabaja en conjunto con ImagenContoller y SongController
-    public function store(Request $request)
+    public function store(Request $request, Album $album)
     {
+        // Verificar si existe o no albums de solos del usuario
+        $AlbumSolo = Album::where('name_album', ('solos_' . auth()->user()->name_artist))->first();
+
+        if ($AlbumSolo == null) {
+            // Registro 1 - ALBUM - Mediante el Usuario accedemos a su relación en su modelo
+            $request->user()->albums()->create([
+                'user_id' => auth()->user()->id,
+                'name_album' => ('solos_' . auth()->user()->name_artist),
+            ]);
+        }
+
         // Validación - campos completos
         $request->validate([
             'titulo' => 'required|max:30',
@@ -30,20 +43,11 @@ class DataSongController extends Controller
             'song' => 'required'
         ]);
 
-        // Registro 1
-        // Song::create([
-        //     'name_song' => $request->titulo,
-        //     'genre' => $request->genero,
-        //     'user_id' => auth()->user()->id, // Usuario autenticado
-        //     'url' => $request->song,
-        //     'image' => $request->imagen,
-        // ]);
-
-        // Registro 2 - Mediante el Usuario accedemos a su relación en su modelo
-        $request->user()->songs()->create([
+        // Registro 2 - CANCIÓN
+        Song::create([
+            'album_id' => $AlbumSolo->id, // Usuario autenticado
             'name_song' => $request->titulo,
             'genre' => $request->genero,
-            'user_id' => auth()->user()->id, // Usuario autenticado
             'url' => $request->song,
             'image' => $request->imagen,
         ]);

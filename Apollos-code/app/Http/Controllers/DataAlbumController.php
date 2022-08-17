@@ -8,7 +8,7 @@ use App\Models\Album;
 
 use Illuminate\Http\Request;
 
-class AlbumDataController extends Controller
+class DataAlbumController extends Controller
 {
     // Trabaja en conjunto con ImagenContoller y SongController
     public function store(Request $request, User $user)
@@ -28,7 +28,6 @@ class AlbumDataController extends Controller
         // Registro 1
         Song::create([
             'name_song' => $request->titulo,
-            'user_id' => $album->user_id,
             'album_id' => $album->id, // Usuario autenticado
             'url' => $request->song,
             'genre' => $album->genre,

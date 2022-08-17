@@ -1,7 +1,7 @@
 @extends('partials.nav_bar')
 
 @section('titulo')
-    Perfil: {{ $user->name }}
+    Album: {{ $album->name_album }}
 @endsection
 
 @section('contenido')
@@ -24,9 +24,9 @@
                 @endforeach
             </div>
 
-            <div class="my-6">
+            {{-- <div class="my-6">
                 {{ $songs->links() }}
-            </div>
+            </div> --}}
         @else
             @if (auth()->user()->name == $user->name)
                 @if ($user->rol == 'artist')

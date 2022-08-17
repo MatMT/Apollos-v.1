@@ -3,6 +3,7 @@
 @section('title')
     {{ $user->name }}
 @endsection
+
 @section('css')
     @vite('resources/css/profileStyles.css')
 @endsection
@@ -34,8 +35,10 @@
                     <h1 class="followers">0 Seguidores</h1>
 
                     @if ($user->rol == 'artist')
-                        <h1 class="songs inline-block">{{ $songs->count() }} Canciones</h1> | <h1 class="albums inline-block">
-                            {{ $albums->count() }} Álbumes</h1>
+                        <h1 class="songs inline-block"> {{ $CounterSongs }} Canciones</h1> | <h1 class="albums inline-block">
+                            {{-- Se descuenta album por default de solos --}}
+                            {{ $albums->count() }} Álbumes
+                        </h1>
                     @endif
 
                     @if (auth()->user()->name == $user->name)
@@ -78,23 +81,19 @@
 
                     @if ($albums->count())
                         @foreach ($albums as $album)
-                            {{-- Se mapea automaticamente la ruta por cada song en su url --}}
+                            {{-- Se exceptua el albúm de solos --}}
                             <div class="playList">
+                                <!-- IMG -->
                                 <img src="{{ asset('storage') . '/uploads/imagenes/' . $album->image }}"
                                     alt="Imagen del album {{ $album->name_album }}">
                                 <!-- LINK -->
-                                <a href="{{ route('songs.index', ['song' => $album, 'user' => $user]) }}">
-                                    <h2 class="font-cuerpo font-bold mt-4 text-lg">{{ $album->name_album }}</h2>
-                                </a>
+                                {{-- Se mapea automaticamente la ruta por cada song en su url --}}
+                                {{-- <a href="{{ route('albums.index', ['user' => $user, 'album' => $album]) }}">
+                                        <h2 class="font-cuerpo font-bold mt-4 text-lg">{{ $album->name_album }}</h2>
+                                    </a> --}}
 
                                 <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Lorem ipsum dolor
-                                    sit
-                                    amet
-                                    consectetur adipisicing elit. Possimus minima recusandae eaque similique, fuga,
-                                    laboriosam
-                                    adipisci debitis deserunt doloremque vel facilis inventore exercitationem eligendi
-                                    molestiae
-                                    perferendis, atque omnis! Perspiciatis, inventore!</p>
+                                    Nuevas canciones:D</p>
                             </div>
                         @endforeach
                     @endif

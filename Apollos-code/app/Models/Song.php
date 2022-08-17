@@ -11,10 +11,9 @@ class Song extends Model
 
     // Campos a recibir
     protected $fillable = [
+        'album_id',
         'name_song',
         'genre',
-        'user_id',
-        'album_id',
         'url',
         'image',
     ];
@@ -26,10 +25,9 @@ class Song extends Model
         return $this->belongsTo(Album::class);
     }
 
-
-    public function user()
-    {
-        // Una canción pertenece a un usuario
-        return $this->belongsTo(User::class)->select(['name', 'name_artist']); // Select - unicos campos a recibir
-    }
+    // public function user()
+    // {
+    //     // Una canción pertenece a un usuario
+    //     return $this->belongsTo(User::class)->select(['name', 'name_artist']); // Select - unicos campos a recibir
+    // }
 }

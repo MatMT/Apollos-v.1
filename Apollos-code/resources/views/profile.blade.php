@@ -43,10 +43,10 @@
 
                     @if (auth()->user()->name == $user->name)
                         <div class="auth-user flex">
-                            <a href="{{route('NewPassword')}}" class="artist-bttn mt-5 inline-block">
+                            <a href="{{ route('NewPassword') }}" class="artist-bttn mt-5 inline-block">
                                 Editar perfil
                             </a>
-                            
+
                             <a href="{{ route('upload.select') }}" class="artist-bttn mt-5 inline-block ml-5">Subir
                                 contenido</a>
                         </div>
@@ -135,7 +135,7 @@
                 </div>
             </div>
 
-            <div class="box-2 anim2" id="caja-2">
+            <div class="box-2 active anim2" id="caja-2">
                 <div class="content">
                     <div class="info albums">
                         <img src="{{ asset('assets/artistas-pic/house.png') }}" alt="Había una Imagen xD">

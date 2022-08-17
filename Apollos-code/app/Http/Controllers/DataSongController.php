@@ -45,6 +45,7 @@ class DataSongController extends Controller
 
         // Registro 2 - CANCIÓN
         Song::create([
+            'solo' => true,
             'album_id' => $AlbumSolo->id, // Usuario autenticado
             'name_song' => $request->titulo,
             'genre' => $request->genero,

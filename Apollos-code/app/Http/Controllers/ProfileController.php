@@ -20,22 +20,40 @@ class ProfileController extends Controller
     // PERFIL ==========
     public function index(User $user)
     {
-        // Álbumes
+        // ÁLBUMES ===
         $albums = DB::table('albums')
             ->where('user_id', $user->id)
             // Se excluye el álbum default de solos
             ->whereNotIn('name_album', [('solos_' . $user->name_artist)])
             ->get(); // Get trae los resultados de la consulta en colección 
 
-        // Todas las canciones (Álbumes + Solos)
+        // TODAS LAS CANCIONES (Álbumes + Solos) ===
         $albumSolo =  DB::table('albums')
-            ->where('user_id', $user->id)
+            ->where([['user_id', $user->id]])
             ->get();
 
-        // Definimos un array propio
+        // Todas las canciones (Álbumes + Solos) - 1° Array Propio
         $songs = array();
 
-        // Por cada álbum
+        // Canciones (Solos) - 2° Array Propio
+        $songsSolos = array();
+
+
+        // Solos
+        $soloSongs = DB::table('songs')
+            ->where(['solo', true])
+            ->get();
+
+        // UNIÓN DE TODAS LAS CANCIONES DE SOLOS ====
+        foreach ($songsSolos as $soloSong) {
+            $songs_array = Song::where('album_id', $soloSong->id)->get();
+            //Sumamos cada canción al arreglo
+            foreach ($songs_array as $song) {
+                array_push($songs, $song);
+            }
+        }
+
+        // UNIÓN DE TODAS LAS CANCIONES ====
         foreach ($albumSolo as $album) {
             $songs_array = Song::where('album_id', $album->id)->get();
             //Sumamos cada canción al arreglo
@@ -44,13 +62,12 @@ class ProfileController extends Controller
             }
         }
 
+        // CONTADOR DE CANCIONES TOTALES ===
         $counterSongs = (count($songs));
-
-        // // Llamamos al modelo y automáticamente su tabla
-        // $songs = Song::where([['album_id', $album], ['']])->get(); // Paginate elabora una lógica para crear páginas
 
         // Mostramos vista y devolvemos datos con las llaves 
         return view('profile', [
+            // VARIABLES ====
             'user' => $user,
             'CounterSongs' => $counterSongs,
             'albums' => $albums

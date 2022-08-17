@@ -11,8 +11,6 @@
     <x-header></x-header>
 @endsection
 
-
-
 @section('content')
     <div class="center-user-section flex items-center justify-center font-titulo">
         <div class="user-section rounded-bl-3xl rounded-br-3xl px-20">
@@ -42,9 +40,10 @@
 
                     @if (auth()->user()->name == $user->name)
                         <div class="auth-user flex">
-                            <div class="artist-bttn mt-5 inline-block">
+                            <a href="{{route('NewPassword')}}" class="artist-bttn mt-5 inline-block">
                                 Editar perfil
-                            </div>
+                            </a>
+                            
                             <a href="{{ route('upload.select') }}" class="artist-bttn mt-5 inline-block ml-5">Subir
                                 contenido</a>
                         </div>

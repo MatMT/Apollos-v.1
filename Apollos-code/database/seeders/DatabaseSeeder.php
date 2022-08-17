@@ -35,6 +35,21 @@ class DatabaseSeeder extends Seeder
         $mati->save();
 
         // Usuario Default - 2
+        $aero = new User();
+        $aero->name = 'Eleazar';
+        $aero->last_name = 'Amaya';
+        $aero->rol = 'artist';
+        $aero->email = 'aero@correo.com';
+        $aero->username = 'Aerium';
+        $aero->status = 'active';
+        $aero->age = '17';
+        $aero->password = Hash::make('1234');
+        $aero->created_at = now();
+        $aero->updated_at = now();
+        $aero->name_artist = 'aerium';
+        $aero->gender = false;
+        $aero->birth_date = '2004-08-31';
+        $aero->save();
 
         // Fábricas
         User::factory(10)->create();

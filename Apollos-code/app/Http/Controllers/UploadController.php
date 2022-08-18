@@ -35,6 +35,7 @@ class UploadController extends Controller
         $request->user()->albums()->create([
             'user_id' => auth()->user()->id,
             'image' => $request->imagen,
+            'sencillo' => false
         ]);
 
         // Pasada la validación se envía a la siguiente página

@@ -36,7 +36,6 @@
 
                     @if ($user->rol == 'artist')
                         <h1 class="songs inline-block"> {{ $CounterSongs }} Canciones</h1> | <h1 class="albums inline-block">
-                            {{-- Se descuenta album por default de solos --}}
                             {{ $albums->count() }} Álbumes
                         </h1>
                     @endif
@@ -81,67 +80,50 @@
 
                     @if ($albums->count())
                         @foreach ($albums as $album)
-                            {{-- Se exceptua el albúm de solos --}}
                             <div class="playList">
                                 <!-- IMG -->
                                 <img src="{{ asset('storage') . '/uploads/imagenes/' . $album->image }}"
                                     alt="Imagen del album {{ $album->name_album }}">
+
                                 <!-- LINK -->
                                 {{-- Se mapea automaticamente la ruta por cada song en su url --}}
-                                {{-- <a href="{{ route('albums.index', ['user' => $user, 'album' => $album]) }}">
-                                        <h2 class="font-cuerpo font-bold mt-4 text-lg">{{ $album->name_album }}</h2>
-                                    </a> --}}
+                                <a href="{{ route('albums.index', ['user' => $user, 'album' => $album->id]) }}">
+                                    <h2 class="font-cuerpo font-bold mt-4 text-lg">{{ $album->name_album }}</h2>
+                                </a>
 
-                                <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Lorem ipsum dolor
-                                    Nuevas canciones:D</p>
+                                <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Nuevos álbumes:D
+                                </p>
                             </div>
                         @endforeach
                     @endif
-
-
-                    <div class="playList">
-                        <img src="{{ asset('assets/artistas-pic/spider.jpg') }} " alt="Había una Imagen xD">
-                        <h2 class="font-cuerpo font-bold mt-4 text-lg">SpiderLove</h2>
-                        <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Lorem ipsum dolor sit amet
-                            consectetur adipisicing elit. Possimus minima recusandae eaque similique, fuga, laboriosam
-                            adipisci debitis deserunt doloremque vel facilis inventore exercitationem eligendi molestiae
-                            perferendis, atque omnis! Perspiciatis, inventore!</p>
-                    </div>
-                    <div class="playList">
-                        <img src="{{ asset('assets/artistas-pic/spider.jpg') }} " alt="Había una Imagen xD">
-                        <h2 class="font-cuerpo font-bold mt-4 text-lg">SpiderLove</h2>
-                        <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Lorem ipsum dolor sit amet
-                            consectetur adipisicing elit. Possimus minima recusandae eaque similique, fuga, laboriosam
-                            adipisci debitis deserunt doloremque vel facilis inventore exercitationem eligendi molestiae
-                            perferendis, atque omnis! Perspiciatis, inventore!</p>
-                    </div>
-                    <div class="playList">
-                        <img src="{{ asset('assets/artistas-pic/spider.jpg') }} " alt="Había una Imagen xD">
-                        <h2 class="font-cuerpo font-bold mt-4 text-lg">SpiderLove</h2>
-                        <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Lorem ipsum dolor sit amet
-                            consectetur adipisicing elit. Possimus minima recusandae eaque similique, fuga, laboriosam
-                            adipisci debitis deserunt doloremque vel facilis inventore exercitationem eligendi molestiae
-                            perferendis, atque omnis! Perspiciatis, inventore!</p>
-                    </div>
-                    <div class="playList">
-                        <img src="{{ asset('assets/artistas-pic/spider.jpg') }} " alt="Había una Imagen xD">
-                        <h2 class="font-cuerpo font-bold mt-4 text-lg">SpiderLove</h2>
-                        <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Lorem ipsum dolor sit amet
-                            consectetur adipisicing elit. Possimus minima recusandae eaque similique, fuga, laboriosam
-                            adipisci debitis deserunt doloremque vel facilis inventore exercitationem eligendi molestiae
-                            perferendis, atque omnis! Perspiciatis, inventore!</p>
-                    </div>
-
                 </div>
             </div>
 
+            <!-- ============================================================================== -->
+            <h2 class=" font-titulo text-center font-bold text-white anim2"> Canciones </h2>
+
             <div class="box-2 active anim2" id="caja-2">
                 <div class="content">
-                    <div class="info albums">
-                        <img src="{{ asset('assets/artistas-pic/house.png') }}" alt="Había una Imagen xD">
-                        <h2 class="font-cuerpo font-bold mt-4 text-lg">Ed Sheeran</h2>
-                        <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Artista</p>
-                    </div>
+
+                    @if ($sencillos->count())
+                        @foreach ($sencillos as $sencillo)
+                            {{-- Se mapea automaticamente la ruta por cada song en su url --}}
+
+                            <div class="playList">
+                                <!-- IMG -->
+                                <img src="{{ asset('storage') . '/uploads/imagenes/' . $sencillo->image }}"
+                                    alt="Imagen del album {{ $sencillo->name_album }}">
+
+                                <a href="{{ route('song.show', ['user' => $user, 'song' => $sencillo]) }}">
+                                    <h2 class="font-cuerpo font-bold mt-4 text-lg">{{ $sencillo->name_song }}</h2>
+                                </a>
+
+
+                                <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Nuevas canciones:D
+                                </p>
+                            </div>
+                        @endforeach
+                    @endif
 
                 </div>
             </div>

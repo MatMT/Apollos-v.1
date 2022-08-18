@@ -24,16 +24,12 @@ class DataSongController extends Controller
     // Trabaja en conjunto con ImagenContoller y SongController
     public function store(Request $request, Album $album)
     {
-        // Verificar si existe o no albums de solos del usuario
-        $AlbumSolo = Album::where('name_album', ('solos_' . auth()->user()->name_artist))->first();
-
-        if ($AlbumSolo == null) {
-            // Registro 1 - ALBUM - Mediante el Usuario accedemos a su relación en su modelo
-            $request->user()->albums()->create([
-                'user_id' => auth()->user()->id,
-                'name_album' => ('solos_' . auth()->user()->name_artist),
-            ]);
-        }
+        // Verificar si existe, en caso de no, se crea el registro
+        $CollecionSencillos = Album::firstOrCreate(['name_album' => ('sencillos_' . auth()->user()->name_artist)], [
+            'user_id' => auth()->user()->id,
+            'name_album' => ('sencillos_' . auth()->user()->name_artist),
+            'sencillo' => true,
+        ]);
 
         // Validación - campos completos
         $request->validate([
@@ -43,10 +39,10 @@ class DataSongController extends Controller
             'song' => 'required'
         ]);
 
-        // Registro 2 - CANCIÓN
+        // Registro - CANCIÓN
         Song::create([
-            'solo' => true,
-            'album_id' => $AlbumSolo->id, // Usuario autenticado
+            'sencillo' => true,
+            'album_id' => $CollecionSencillos->id, // Usuario autenticado
             'name_song' => $request->titulo,
             'genre' => $request->genero,
             'url' => $request->song,

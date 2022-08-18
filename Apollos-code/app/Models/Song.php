@@ -12,6 +12,7 @@ class Song extends Model
     // Campos a recibir
     protected $fillable = [
         'album_id',
+        'sencillo',
         'name_song',
         'genre',
         'url',

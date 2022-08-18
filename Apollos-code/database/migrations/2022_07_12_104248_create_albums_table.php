@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('name_album', 30)->nullable();
             $table->string('genre', 15)->nullable();
             $table->string('image', 40)->nullable();
+            $table->boolean('sencillo');
             $table->timestamps();
         });
     }

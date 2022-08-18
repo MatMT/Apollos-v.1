@@ -11,11 +11,11 @@ class Album extends Model
 
     // Campos a recibir
     protected $fillable = [
-        'name_album',
         'user_id',
+        'name_album',
+        'genre',
         'image',
-        'url',
-        'image',
+        'sencillo',
     ];
 
     // Relación ---

@@ -30,9 +30,11 @@ const DropzoneMp3 = new Dropzone('#dropzone_audio', {
 // Asigna el valor de la canción al input hiden
 DropzoneMp3.on('success', function (file, response) {
     document.querySelector('[name="song"]').value = response.song;
+    document.querySelector('[name="time"]').value = response.time;
 });
 
 // Remueve el valor de la canción al input hiden
 DropzoneMp3.on('removedfile', function () {
     document.querySelector('[name="song"]').value = '';
+    document.querySelector('[name="time"]').value = '';
 });

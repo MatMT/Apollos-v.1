@@ -118,4 +118,4 @@ Route::view('/Artista', 'Artist')->name('artista');
 
 // --- UserSettings
 Route::get('/NewPassword',  [SettingsController::class, 'NewPassword'])->name('NewPassword')->middleware('auth');
-Route::post('/change/password',  [SettingsController::class, 'changePassword'])->name('changePassword');
+Route::post('/change/password',  [SettingsController::class, 'changeData'])->name('changeData');

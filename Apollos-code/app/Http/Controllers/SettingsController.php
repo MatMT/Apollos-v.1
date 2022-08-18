@@ -8,15 +8,14 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 
-class SettingsController extends Controller
-{
+class SettingsController extends Controller{
     public function NewPassword()
     {
         return view('configure_user_profile');
     }
 
 
-    public function changePassword(Request $request)
+    public function changeData(Request $request)
     {
 
         $user           = Auth::user();
@@ -24,6 +23,14 @@ class SettingsController extends Controller
         $userEmail      = $user->email;
         $userPassword   = $user->password;
 
+    
+        if($request->new_name !="") {
+            $name       = $request->new_name;
+            $sqlBDUpdateName = DB::table('users')
+                ->where('id', $user->id)
+                ->update(['name' => $name]);
+             redirect()->back()->with('name', 'El nombre fue cambiado correctamente.');;
+        }
         if ($request->password_actual != "") {
             $NuewPass   = $request->password;
             $confirPass = $request->confirm_password;
@@ -41,43 +48,20 @@ class SettingsController extends Controller
                             ->where('id', $user->id)
                             ->update(['password' => $user->password], ['name' => $user->name]);
 
-                        return redirect()->back()->with('updateClave', 'La clave fue cambiada correctamente.');
+                        redirect()->back()->with('updateClave', 'La clave fue cambiada correctamente.');
                     } else {
-                        return redirect()->back()->with('clavemenor', 'Recuerde la clave debe ser mayor a 6 digitos.');
+                         redirect()->back()->with('clavemenor', 'Recuerde la clave debe ser mayor a 6 digitos.');
                     }
                 } else {
-                    return redirect()->back()->with('claveIncorrecta', 'Por favor verifique las claves no coinciden.');
+                     redirect()->back()->with('claveIncorrecta', 'Por favor verifique las claves no coinciden.');
                 }
             } else {
-                return back()->withErrors(['password_actual' => 'La Clave no Coinciden']);
+                back()->withErrors(['password_actual' => 'La Clave no Coinciden']);
             }
-        } else {
-            $name       = $request->name;
-            $sqlBDUpdateName = DB::table('users')
-                ->where('id', $user->id)
-                ->update(['name' => $name]);
-            return redirect()->back()->with('name', 'El nombre fue cambiado correctamente.');;
-        }
+        } 
+
     }
-
-
-    //
-    //public function NewName()
-   // {
-   //     return view('configure_user_profile');
-   // }
     
-   // public function changeName(Request $request)
-   // {
-    //    if ($request->actual_name != "") {
-   //         $NewName   = $request->name;
-//
-    //        //Verifico si el nombre  es igual a la clave del usuario en session
-    //if (Hash::check($request->actual_name, $userName)){
-        //             $sqlBD = DB::table('users')
-         //            ->where('id', $user->id)
-           //          ->update(['name' => $user->name]);
-        //         }
-     
-        // }
+
+
 }

@@ -9,9 +9,18 @@
     </h2>
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <form action="{{ route('changePassword') }}" method="POST" class="needs-validation" novalidate>
+            <form action="{{ route('changeData') }}" method="POST" class="needs-validation" novalidate>
                 @csrf
 
+                   {{-- Intento Foto de Perfil --}}
+                <div class="row mb-3">
+                    <div class="form-group mt-3">
+                        <label  for="avatar"> Profile Pic
+                            <input type="file" name="avatar">
+                        </label>
+                    </div>
+                </div>
+                   {{-- Intento Foto de Perfil --}}
                 <div class="row mb-3">
                     <div class="form-group mt-3">
                         <label for="name">Nombre de Usuario</label>
@@ -29,10 +38,10 @@
    {{-- Intento new name --}}
                 <div class="row mb-3">
                     <div class="form-group mt-3">
-                        <label for="new_name ">Nueva Nombre</label>
-                        <input type="name" name="name"
-                            class="form-control @error('name') is-invalid @enderror" required>
-                        @error('name')
+                        <label for="new_name">Actualiza Nombre</label>
+                        <input type="text" name="new_name"
+                            class="form-control @error('new_name') is-invalid @enderror" required>
+                        @error('new_name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>

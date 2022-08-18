@@ -29,7 +29,7 @@
                     </h1>
 
                     <h1 class="username first-letter:uppercase font-titulo text-7xl font-bold">
-                        {{ $user->name_artist }}
+                        {{ $user->username }}
                     </h1>
 
                     <h1 class="followers">0 Seguidores</h1>

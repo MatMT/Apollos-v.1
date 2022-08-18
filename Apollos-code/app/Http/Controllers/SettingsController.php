@@ -29,8 +29,30 @@ class SettingsController extends Controller{
             $sqlBDUpdateName = DB::table('users')
                 ->where('id', $user->id)
                 ->update(['name' => $name]);
-             redirect()->back()->with('name', 'El nombre fue cambiado correctamente.');;
+                return redirect()->route('NewPassword')->with('name', 'Nombre de usuario  fue cambiado correctamente.');
         }
+
+        //apellido
+        if($request->new_lastname !="") {
+            $last_name       = $request->new_lastname;
+            $sqlBDUpdateName = DB::table('users')
+                ->where('id', $user->id)
+                ->update(['last_name' => $last_name]);
+                return redirect()->route('NewPassword')->with('last_name', 'Apellido fue cambiado correctamente.');
+        }
+
+        
+        //Artista de Name
+        if($request->new_artname !="") {
+            $username       = $request->new_artname;
+            $sqlBDUpdateName = DB::table('users')   
+                ->where('id', $user->id)
+                ->update(['username' => $username]);
+                return redirect()->route('NewPassword')->with('username', 'Username fue cambiado correctamente.');
+        }
+
+
+
         if ($request->password_actual != "") {
             $NuewPass   = $request->password;
             $confirPass = $request->confirm_password;
@@ -48,6 +70,7 @@ class SettingsController extends Controller{
                             ->where('id', $user->id)
                             ->update(['password' => $user->password], ['name' => $user->name]);
 
+                            return redirect()->route('configure_user_profile') -> with('vagina');
                         redirect()->back()->with('updateClave', 'La clave fue cambiada correctamente.');
                     } else {
                          redirect()->back()->with('clavemenor', 'Recuerde la clave debe ser mayor a 6 digitos.');
@@ -59,8 +82,9 @@ class SettingsController extends Controller{
                 back()->withErrors(['password_actual' => 'La Clave no Coinciden']);
             }
         } 
-
     }
+        
+
     
 
 

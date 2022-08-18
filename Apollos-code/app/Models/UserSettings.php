@@ -13,6 +13,9 @@ class UserSettings extends Model
         'password_actual',
         'password',
         'confirm_password',
-        'new_name'
+        'new_name',
+        'new_lastname',
+        'new_username',
+        'new_artname'
     ];
 }

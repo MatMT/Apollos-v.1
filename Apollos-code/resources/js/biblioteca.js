@@ -7,8 +7,6 @@ var contenedor_3 = document.getElementById("caja-3");
 var contenedor_4 = document.getElementById("caja-4");
 
 
-
-
 //Opciones
 var opcion1 = document.getElementById("op1");
 var opcion2 = document.getElementById("op2");

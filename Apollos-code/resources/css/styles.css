@@ -1,10 +1,9 @@
-*{
+* {
     margin: 0%;
     padding: 0%;
 }
 
-
-body{
+body {
     position: relative;
     width: 100%;
     scrollbar-width: none;
@@ -15,12 +14,17 @@ body{
     
 }*/
 
-body::before{
+body::before {
     content: "";
     width: 100%;
     height: 100vh;
-    background: rgb(255,255,255);
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 10%, rgba(0,0,0,0.05085784313725494) 20%, rgba(0,0,0,1) 80%);
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0) 10%,
+        rgba(0, 0, 0, 0.05085784313725494) 20%,
+        rgba(0, 0, 0, 1) 80%
+    );
     position: absolute;
     left: 0%;
     top: 0%;
@@ -29,7 +33,7 @@ body::before{
 
 /*Fondo de pantalla*/
 
-.background{
+.background {
     width: 100%;
     height: 100vh;
     background-image: url(../images/fondo_1.jpg);
@@ -43,46 +47,42 @@ body::before{
     z-index: -6;
 }
 
-
-
-
 /* Barra de navegación */
-header ul li{
+header ul li {
     display: flex;
     align-items: center;
     transition: 0.5s ease-in-out;
     color: rgb(196, 196, 196);
 }
 
-header li a i{
+header li a i {
     margin-right: 15px;
     margin-top: 7px;
     font-size: 18px;
 }
 
-header ul .this{
+header ul .this {
     color: white;
     padding: 7px 25px;
-    background-color: #FF5677;
+    background-color: #ff5677;
     border-radius: 9999px;
     filter: drop-shadow(0 25px 25px rgb(0 0 0 / 0.15));
     transition: 0.5s ease-in-out;
 }
-header .this:hover{
+header .this:hover {
     transform: translateY(-5px);
 }
 
-
-header .class-active{
+header .class-active {
     color: white;
 }
 
-header ul li:hover{
+header ul li:hover {
     color: white;
 }
 
 /*-------  -------  ----- Profile ---------  ------  ----*/
-.profile{
+.profile {
     padding: 0px 20px;
     border-radius: 12px;
     cursor: pointer;
@@ -94,20 +94,19 @@ header ul li:hover{
     background-color: rgba(0, 0, 0, 0.233) ;
 }*/
 
-
-header .contenido-menu{
+header .contenido-menu {
     width: 260px;
     border-radius: 12px;
     padding: 10px 20px;
-    
-    background: rgb(45,44,45);
-    background: linear-gradient(180deg, rgba(45,44,45,1) 12%, rgba(255,255,255,0) 100%);
-    
+
+    background: rgba(20, 20, 20, 0.479);
+
     -webkit-backdrop-filter: blur(10px);
     -moz-backdrop-filter: blur(10px);
     backdrop-filter: blur(8px);
-    
-    filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+
+    filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04))
+        drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
     transition: all 0.5s ease-in-out;
 
     position: absolute;
@@ -117,12 +116,12 @@ header .contenido-menu{
     display: none;
 }
 
-header .contenido-menu.active{
+header .contenido-menu.active {
     display: block;
     transition: all 0.5s ease-in-out;
 }
 
-header .options li{
+header .options li {
     margin-top: 7px;
     margin: 7px 10px;
     transition: all 0.5s ease-in-out;
@@ -130,10 +129,9 @@ header .options li{
     color: rgba(255, 255, 255, 0.863);
 }
 
-header .Logout{
+header .Logout {
     margin: 20px 0px;
 }
-
 
 /*
 .options,
@@ -148,15 +146,15 @@ header .Logout{
 */
 @keyframes bottom {
     0% {
-     transform: translateY(-50px);
-     opacity: 0;
+        transform: translateY(-50px);
+        opacity: 0;
     }
-   
+
     100% {
-     opacity: 1;
-     transform: none;
+        opacity: 1;
+        transform: none;
     }
-   }
+}
 
 .anim {
     animation: bottom 0.8s 0s both;
@@ -164,49 +162,52 @@ header .Logout{
 
 @keyframes bottom2 {
     0% {
-     transform: translateY(100px);
-     opacity: 0;
+        transform: translateY(100px);
+        opacity: 0;
     }
-   
+
     100% {
-     opacity: 1;
-     transform: none;
+        opacity: 1;
+        transform: none;
     }
-   }
+}
 
 .anim2 {
     animation: bottom2 0.8s 0s both;
 }
 
 /*--- ---- ---- ----- ---- ---- Sticky header ---- ---- ---- ---- */
-header{
-    position: fixed;
+header {
+    position: sticky;
     left: 0%;
     top: 0%;
     transition: 0.5s ease-in-out all;
     z-index: 50;
 }
 
-header.sticky{
-    background-color: #282828ec;
-    border-radius: 0px 0px 40px 40px;
+header.sticky {
+    /*background-color: rgb(43, 43, 43);*/
+    padding: 0rem;
+    height: 5.8rem;
+    background-color: #0a0a0aec;
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.555);
     color: white;
     position: fixed;
 }
 
+.box-header.sticky2 {
+    height: 5.8rem;
+}
 
 /*-------  -------  ----- Reproductor ---------  ------  ----*/
 
-.reproductor{
+.reproductor {
     position: absolute;
 }
 
-
-
 /*------ -------  ------ Buscador ------ -------- -------  */
 
-.overway_2{
+.overway_2 {
     background-color: rgba(29, 29, 29, 0.4);
     backdrop-filter: blur(2px);
     position: fixed;
@@ -219,19 +220,18 @@ header.sticky{
     align-items: flex-start;
     justify-content: center;
     color: white;
-    
+
     transition: 0.6s all ease-in-out;
     opacity: 0;
     visibility: hidden;
 }
 
-.overway_2.active{
+.overway_2.active {
     opacity: 1;
     visibility: visible;
-
 }
 
-.buscador{
+.buscador {
     background-color: rgb(22, 22, 22);
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.555);
     border-radius: 10px;
@@ -245,8 +245,7 @@ header.sticky{
     opacity: 0;
 }
 
-
-.buscador .btn-close{
+.buscador .btn-close {
     font-size: 16px;
     display: block;
     text-align: right;
@@ -255,12 +254,11 @@ header.sticky{
     cursor: pointer;
 }
 
-.buscador .btn-close:hover{
+.buscador .btn-close:hover {
     color: rgba(255, 255, 255, 0.863);
 }
 
-
-.buscador form .contenedor-input{
+.buscador form .contenedor-input {
     background-color: rgb(41, 40, 40);
     padding: 15px;
     margin: 7px;
@@ -268,34 +266,32 @@ header.sticky{
     display: flex;
 }
 
-.buscador form .contenedor-input input{
+.buscador form .contenedor-input input {
     width: 100%;
     background-color: transparent;
     border: none;
     outline: none;
 }
 
-.buscador .resultados{
+.buscador .resultados {
     width: 100%;
     margin: 25px 10px;
 }
 
 /*---- ------  Animaciones Buscador ---- ------ -----*/
 
-.buscador.active{
+.buscador.active {
     opacity: 1;
     transform: scale(1);
 }
 
-
-
 /*---  ----------- ----- Menu  -------- -------- --------- ---- */
 
-.box-header{
+.box-header {
     position: relative;
 }
 
-.menu{
+.menu {
     width: 200px;
     height: 350px;
     padding: 20px;
@@ -310,11 +306,10 @@ header.sticky{
     transition: all 0.5s ease-in-out;
 
     display: none;
-
 }
 
 /*--- ---- ----- Reproductor ---- ----- -----*/
-
+/*
 .overway{
     position: fixed;
     background-color: rgb(48, 48, 48);
@@ -323,13 +318,36 @@ header.sticky{
     bottom: 40px;
     right: 100px;
     border-radius: 20px;
+}*/
+
+footer {
+    position: sticky;
+    left: 0%;
+    bottom: 0%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 90px;
+}
+
+.player {
+    height: 90px;
+    width: 98%;
+    border-top: rgba(167, 165, 165, 0.397) 1px solid;
+    border-left: rgba(167, 165, 165, 0.397) 1px solid;
+    border-right: rgba(167, 165, 165, 0.397) 1px solid;
+    border-radius: 30px 30px 0px 0px;
+    background-color: #131313;
+
+    filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04))
+        drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
 }
 
 /*-------  -------  ----- Querys ---------  ------  ----*/
 
 @media screen and (max-width: 921px) {
-    
-    li a i{
+    li a i {
         margin-right: 0px;
         font-size: 20px;
         margin-top: 2px;

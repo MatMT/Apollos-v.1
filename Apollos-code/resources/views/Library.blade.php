@@ -10,12 +10,12 @@
 
 @section('content')
     
-    <main class="w-10/12 p-6 mt-40 mx-auto">
+    <main class="w-10/12 p-6 mt-2 mx-auto">
         
         <!--- Tttulo de Biblioteca  -->    
         <div class="title">
             <h2 class="font-titulo text-6xl font-bold text-white text-left my-3">Biblioteca</h2>
-            <h4 class="font-titulo text-white opacity-80 text-3xl text-left">Hecha un vistazo a tu colección</h4>
+            <h4 class="font-titulo text-white opacity-80 text-3xl text-left desktop_2:text-2xl">Hecha un vistazo a tu colección</h4>
         </div>
 
 
@@ -24,7 +24,7 @@
         <div class="contenido">
             <div class="pestanias">
 
-                <ul class="opciones text-2xl font-cuerpo">
+                <ul class="opciones text-2xl font-cuerpo desktop_2:text-xl">
                     <li class="opcion active-opcion" id="op1">Listas</li>
                     <li class="opcion albums-opcion remove" id="op2">Albums</li>
                     <li class="opcion artistas-opcion remove" id="op3">Artistas</li>

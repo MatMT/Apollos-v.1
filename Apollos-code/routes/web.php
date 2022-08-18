@@ -13,6 +13,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\SongsShowController;
 use App\Http\Controllers\AlbumsShowController;
+use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\Route;
 
@@ -92,21 +93,21 @@ Route::get('/uploads/selection', [UploadController::class, 'index'])->name('uplo
 Route::post('/uploads/create/imagen', [ImageController::class, 'store'])->name('image.store'); // Controlador - Imagen 
 Route::post('/uploads/create/audio', [SongController::class, 'store'])->name('audio.store'); // Controlador - Mp3 
 
-Route::get('/uploads/selection/album/step_1', [UploadController::class, 'album_1'])->name('upload.album_1'); // Vista - subida de album
-Route::post('/uploads/selection/album/create', [UploadController::class, 'store_1'])->name('upload.store_1'); // Validación primer paso
+Route::get('/uploads/selection/album/step_1', [AlbumController::class, 'album_1'])->name('upload.album_1'); // Vista - subida de album
+Route::post('/uploads/selection/album/create', [AlbumController::class, 'store_1'])->name('upload.store_1'); // Validación primer paso
 
-Route::get('/uploads/selection/album/step_2', [UploadController::class, 'album_2'])->name('upload.album_2'); // Vista - estableciendo titulo
-Route::post('/uploads/selection/album/step_2', [UploadController::class, 'store_2'])->name('upload.store_2'); // Validación segundo paso
+Route::get('/uploads/selection/album/step_2', [AlbumController::class, 'album_2'])->name('upload.album_2'); // Vista - Estableciendo Titulo
+Route::post('/uploads/selection/album/step_2', [AlbumController::class, 'store_2'])->name('upload.store_2'); // Validación segundo paso
 
-Route::get('/uploads/selection/album/step_3', [UploadController::class, 'album_3'])->name('upload.album_3'); // Vista - estableciendo género
-Route::post('/uploads/selection/album/step_3', [UploadController::class, 'store_3'])->name('upload.store_3'); // Validación tecer paso
+Route::get('/uploads/selection/album/step_3', [AlbumController::class, 'album_3'])->name('upload.album_3'); // Vista - Estableciendo Género
+Route::post('/uploads/selection/album/step_3', [AlbumController::class, 'store_3'])->name('upload.store_3'); // Validación tecer paso
 
-Route::get('/uploads/selection/album/step_4', [UploadController::class, 'album_4'])->name('upload.album_4'); // Vista - estableciendo género
+Route::get('/uploads/selection/album/step_4', [AlbumController::class, 'album_4'])->name('upload.album_4'); // Vista - Subiendo Canciones
 Route::post('/uploads/selection/album/step_4/data', [DataAlbumController::class, 'store'])->name('album_data.store'); // Lógica de albúm
-Route::post('/uploads/selection/album/step_4', [UploadController::class, 'store_4'])->name('upload.store_4'); // Validación cuarto paso
+Route::post('/uploads/selection/album/step_4', [AlbumController::class, 'store_4'])->name('upload.store_4'); // Validación cuarto paso
 
-Route::get('/uploads/selection/album/step_5', [UploadController::class, 'album_5'])->name('upload.album_5'); // Vista - estableciendo género
-Route::post('/uploads/selection/album/step_5', [UploadController::class, 'store_5'])->name('upload.store_5'); // Validación tecer paso
+Route::get('/uploads/selection/album/step_5', [AlbumController::class, 'album_5'])->name('upload.album_5'); // Vista - Confirmación
+Route::post('/uploads/selection/album/step_5', [AlbumController::class, 'store_5'])->name('upload.store_5'); // Validación tecer paso
 
 
 // ==============================

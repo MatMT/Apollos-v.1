@@ -9,10 +9,7 @@
     100% {top: 4.25rem;}
 }
 
-.box-views{
-    margin-top: 150px;
 
-}
 /*------------------- Contenedor Principal y Flechas -------------------*/
 
 .main-content{
@@ -48,6 +45,7 @@
     display: flex;
     flex-wrap: nowrap;
     padding: 5px;
+    width: 100%;
 }
 
 /*----   ------   ---  Cards ---  ------   -------*/
@@ -56,14 +54,13 @@
     /**/
     border-radius: 20px;
     min-width: 16.66%;
+    max-width: 259.26px;
     padding: 25px;
     transition: 0.3s ease-in-out all;
 }
-
-.imagen{
-    width: 100%;
-    border-radius: 50%;
+.artistas .imagen{
     overflow: hidden;
+    border-radius: 50%;
 }
 
 .imagen img{
@@ -73,14 +70,24 @@
     transition: all .5s cubic-bezier(.45,.05,.55,.95);
 }
 
+.albums .card a .imagen {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.albums .card a .imagen img{
+    border-radius: 10px;
+}
+
 .imagen img:hover{
     transform:scale(1.1); /*cuando nos posicionamos sobre la imagen con esta propiedad aumentamos su escala y ademas la giramos*/
 }
 
 .title{
     width: 100%;
-    text-align: center;
+    text-align: left;
     margin-top: 10px;
+    margin-left: 10px;
 }
 
 

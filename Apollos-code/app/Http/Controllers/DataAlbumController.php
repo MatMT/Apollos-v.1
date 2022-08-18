@@ -28,8 +28,9 @@ class DataAlbumController extends Controller
         // Registro 1
         Song::create([
             'sencillo' => false,
+            'album_id' => $album->id,
             'name_song' => $request->titulo,
-            'album_id' => $album->id, // Usuario autenticado
+            'time' => $request->time,
             'url' => $request->song,
             'genre' => $album->genre,
             'image' => $album->image,

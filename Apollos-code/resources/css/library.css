@@ -73,7 +73,10 @@
     display: none;
 }
 
-.active{
+.box-1.active,
+.box-2.active,
+.box-3.active,
+.box-4.active{
     display: block;
 }
 

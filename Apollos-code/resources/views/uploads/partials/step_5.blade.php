@@ -46,7 +46,9 @@
                             <th scope="col" class="py-3 px-6">
                                 Titulo
                             </th>
-
+                            <th scope="col" class="py-3 px-6">
+                                ⏱️
+                            </th>
                         </tr>
                     </thead>
 
@@ -59,6 +61,9 @@
                                     </th> <!-- id -->
                                     <td class="py-4 px-6">
                                         {{ $song->name_song }}
+                                    </td>
+                                    <td class="py-4 px-6">
+                                        {{ $song->time }}
                                     </td>
                                 </tr>
                             @endforeach

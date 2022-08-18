@@ -1,8 +1,13 @@
+@extends('layouts.shape1')
 
-<x-layouts.layout title="Artista">
+@section('title', 'Artista')
 
-<h1 class="text-3xl font-bold underline text-white">
-    Artista
-</h1>
+@section('header')
+    <x-header title="Artista"></x-header>
+@endsection
 
-</x-layouts>
+
+@section('content')
+    <main></main>
+
+@endsection

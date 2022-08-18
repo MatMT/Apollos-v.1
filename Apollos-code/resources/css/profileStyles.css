@@ -7,10 +7,11 @@
     filter: blur(3px) !important;
 }
 
+
 .user-section{
     width: 1302px;
-    min-height: 400px;
-    max-height: 400px;
+    min-height: 435px;
+    max-height: 435px;
     background: rgba(53, 59, 72,0.97);
     box-shadow: 0px 31px 0px 0px rgba(30,39,46);
 }
@@ -26,7 +27,7 @@
 .user-info{
     box-sizing: border-box;
     margin-top: 15px;
-    min-height: 237px;
+    min-height: 250px;
 }
 
 .artist-bttn, .follow{

@@ -24,6 +24,25 @@
                         @enderror
                     </div>
                 </div>
+
+
+   {{-- Intento new name --}}
+                <div class="row mb-3">
+                    <div class="form-group mt-3">
+                        <label for="new_name ">Nueva Nombre</label>
+                        <input type="name" name="name"
+                            class="form-control @error('name') is-invalid @enderror" required>
+                        @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>--
+                </div>
+   {{-- Intento new name --}}
+
+
+
                 <div class="row mb-3">
                     <div class="form-group mt-3">
                         <label for="password_actual">Clave Actual</label>

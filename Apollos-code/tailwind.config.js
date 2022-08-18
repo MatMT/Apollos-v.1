@@ -7,6 +7,15 @@ module.exports = {
   ],
   theme: {
 
+    fontSize: {
+      '3xl': '1.875rem',
+      '4xl': '2.25rem',
+      '4xl': '2.25rem',
+      '5xl': '3rem',
+      '6xl': '4rem',
+      '7xl': '5rem',
+    },
+
     fontFamily: {
       'logo': ['Righteous', "cursive"],
       'titulo': ['Montserrat Alternates', "sans-serif"],
@@ -74,3 +83,5 @@ module.exports = {
   },
   plugins: [],
 }
+
+// my-0 mx-auto  == Margin 0 auto

@@ -49,10 +49,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    // Relación 
-    public function songs()
+    // Relaciónes ---
+    public function albums()
     {
-        // Un usuario tiene muchas canciones
-        return $this->hasMany(Song::class);
+        // Un usuario tiene muchos albumes
+        return $this->hasMany(Album::class);
     }
+
+    // public function songs()
+    // {
+    //     // Un usuario tiene muchas canciones
+    //     return $this->hasMany(Song::class);
+    // }
 }

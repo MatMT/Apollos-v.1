@@ -20,7 +20,7 @@
             @auth
                 <nav class="flex gap-2 items-center">
                     @if (auth()->user()->rol == 'artist')
-                        <a href="{{ route('posts.create') }}" class="font-bold uppercase text-gray-600 text-sm">Subir</a>
+                        <a href="{{ route('upload.select') }}" class="font-bold uppercase text-gray-600 text-sm">Subir</a>
                     @endif
 
                     <a href="{{ route('posts.index', auth()->user()) }}"
@@ -42,7 +42,6 @@
                     <a class="font-bold uppercase text-gray-600 text-sm" href="/">Welcome</a>
                     <a class="font-bold uppercase text-gray-600 text-sm" href="{{ route('login') }}">Login</a>
                     <a class="font-bold uppercase text-gray-600 text-sm" href="{{ route('signup') }}">Crear cuenta</a>
-                    <a class="font-bold uppercase text-gray-600 text-sm" href="{{ route('signup') }}">Crear cuenta</a>
                 </nav>
             @endguest
 
@@ -51,7 +50,7 @@
 
 
     <main class="container mx-auto mt-10">
-        <h2 class="font-black text-center text-3xl mb-10">
+        <h2 class="font-black text-center text-5xl mb-10">
             @yield('titulo')
         </h2>
         @yield('contenido')

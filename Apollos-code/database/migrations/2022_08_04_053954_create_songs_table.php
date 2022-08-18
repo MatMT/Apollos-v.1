@@ -15,11 +15,12 @@ return new class extends Migration
     {
         Schema::create('songs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('album_id')->constrained()->onDelete('cascade');
+            $table->boolean('sencillo');
             $table->string('name_song', 30);
-            $table->string('genre', 15);
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('genre', 15)->nullable();
             $table->string('url', 40);
-            $table->string('image', 40);
+            $table->string('image', 40)->nullable();
             $table->timestamps();
         });
     }

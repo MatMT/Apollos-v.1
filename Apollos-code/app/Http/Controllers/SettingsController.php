@@ -59,4 +59,25 @@ class SettingsController extends Controller
             return redirect()->back()->with('name', 'El nombre fue cambiado correctamente.');;
         }
     }
+
+
+    //
+    //public function NewName()
+   // {
+   //     return view('configure_user_profile');
+   // }
+    
+   // public function changeName(Request $request)
+   // {
+    //    if ($request->actual_name != "") {
+   //         $NewName   = $request->name;
+//
+    //        //Verifico si el nombre  es igual a la clave del usuario en session
+    //if (Hash::check($request->actual_name, $userName)){
+        //             $sqlBD = DB::table('users')
+         //            ->where('id', $user->id)
+           //          ->update(['name' => $user->name]);
+        //         }
+     
+        // }
 }

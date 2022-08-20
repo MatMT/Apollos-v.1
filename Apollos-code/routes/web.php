@@ -14,6 +14,7 @@ use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\SongsShowController;
 use App\Http\Controllers\AlbumsShowController;
 use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\Route;
 
@@ -88,10 +89,6 @@ Route::get('/usuario/{user:name_artist}/canciones/{song}/', [SongsShowController
 Route::get('/uploads/selection/song/', [DataSongController::class, 'create'])->name('data.create'); // Vista
 Route::post('/uploads/selection/song/data', [DataSongController::class, 'store'])->name('data.store'); // Info
 
-// ============================== ELIMINAR CANCIÓN
-
-Route::delete('/usuario/{user:name_artist}/canciones/{song}/', [SongsShowController::class, 'destroy'])->name('song.destroy');
-
 // ============================== SUBIR ÁLBUM
 
 Route::get('/uploads/selection', [UploadController::class, 'index'])->name('upload.select'); // Vista - Selección
@@ -115,7 +112,13 @@ Route::post('/uploads/selection/album/step_4', [AlbumController::class, 'store_4
 Route::get('/uploads/selection/album/step_5', [AlbumController::class, 'album_5'])->name('upload.album_5'); // Vista - Confirmación
 Route::post('/uploads/selection/album/step_5', [AlbumController::class, 'store_5'])->name('upload.store_5'); // Validación tecer paso
 
-// ==============================
+// ============================== ELIMINAR CANCIÓN
+
+Route::delete('/usuario/{user:name_artist}/canciones/{song}/', [SongsShowController::class, 'destroy'])->name('song.destroy');
+
+// ============================== FAVORITOS
+Route::post('/canciones/{song}/likes/', [LikeController::class, 'store'])->name('song.likes.store');
+Route::delete('/canciones/{song}/likes/', [LikeController::class, 'destroy'])->name('song.likes.destroy');
 
 // --- UserSettings
 Route::get('/NewPassword',  [SettingsController::class, 'NewPassword'])->name('NewPassword')->middleware('auth');

@@ -17,7 +17,7 @@
         </div>
     </div>
 
-    <!-- Barra -->
+    <!-- ================== Barra ========================== -->
 
     <div class="p-1.5 md:flex justify-center items-center">
         <div class="w-full md:w-1/6">
@@ -26,14 +26,50 @@
             <p class="text-sm text-center text-gray-500"> {{ $song->created_at->diffForHumans() }}</p>
         </div> <!-- Información -->
 
-        <div class="w-full md:w-4/6 flex">
-            <audio controls class="w-full md:w-3/4">
-                <source src="{{ asset('storage') . '/uploads/canciones/' . $song->url }}">
-            </audio>
-            <div class="p-3 w-1/4">
-                <p class=" text-center text-sm">0 Likes</p>
-            </div>
-        </div> <!-- Información -->
+        <div class="flex flex-wrap md:flex-nowrap w-full md:w-4/6 gap-1 justify-center items-center">
+            <div class="w-full md:w-3/4">
+                <audio controls class="w-full">
+                    <source src="{{ asset('storage') . '/uploads/canciones/' . $song->url }}">
+                </audio>
+            </div> <!-- Audio -->
+            <div class="p-3 w-full md:w-1/4 flex justify-center items-center gap-3">
+                @auth
+
+                    @if ($song->checkLike(auth()->user()))
+                        <form action="{{ route('song.likes.destroy', $song) }}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <div class="my-4">
+                                <button type="submit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="black" viewBox="0 0 24 24"
+                                        stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                    </svg>
+                                </button>
+                            </div> <!-- Botón -->
+                        </form> <!-- YA en favoritos -->
+                    @else
+                        <form action="{{ route('song.likes.store', $song) }}" method="POST">
+                            @csrf
+                            <div class="my-4">
+                                <button type="submit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                    </svg>
+                                </button>
+                            </div> <!-- Botón -->
+                        </form> <!-- Agregar a favoritos -->
+                    @endif
+                @endauth
+
+                <p class="font-bold text-center text-sm">
+                    {{ $song->likes->count() }} <span class="font-normal"> Likes </span>
+                </p>
+            </div> <!-- Favoritos -->
+        </div> <!-- Reproductor -->
 
         <!-- Edición/Eliminación -->
 

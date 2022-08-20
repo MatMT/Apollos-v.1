@@ -46,9 +46,11 @@ class ProfileController extends Controller
         }
 
         if ($CollecionSencillos != null) {
-            $Sencillos = Song::where([['album_id', $CollecionSencillos->id], ['sencillo', true]])->get();
+            $IfSencillos = true;
+            $sencillos = Song::where([['album_id', $CollecionSencillos->id], ['sencillo', true]])->get();
         } else {
-            $Sencillos = $albums;
+            $IfSencillos = false;
+            $sencillos = array();
         }
 
         // CONTADOR DE CANCIONES TOTALES ===
@@ -60,7 +62,8 @@ class ProfileController extends Controller
             'user' => $user,
             'albums' => $albums,
             'CounterSongs' => $counterSongs,
-            'sencillos' => $Sencillos
+            'sencillos' => $sencillos,
+            'HaySencillos' => $IfSencillos
         ]);
     }
 

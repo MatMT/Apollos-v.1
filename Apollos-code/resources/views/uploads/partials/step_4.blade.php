@@ -119,6 +119,9 @@
                                         <td class="py-4 px-6">
                                             Titulo {{ $i }}
                                         </td>
+                                        <td class="py-4 px-6">
+
+                                        </td>
                                     </tr>
                                 @endfor
                             @endif

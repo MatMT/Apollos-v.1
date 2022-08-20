@@ -105,7 +105,7 @@
             <div class="box-2 active anim2" id="caja-2">
                 <div class="content">
 
-                    @if ($sencillos->count())
+                    @if ('HaySencillos')
                         @foreach ($sencillos as $sencillo)
                             {{-- Se mapea automaticamente la ruta por cada song en su url --}}
 

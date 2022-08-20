@@ -56,8 +56,7 @@ class AlbumController extends Controller
         // Obtener el último albúm del usuario
         $album = Album::where('user_id', auth()->user()->id)
             ->latest()
-            // Obtenes el registro individual
-            ->first();
+            ->first(); // Obtener el registro individual
 
         // Añadirel nuevo campo y guardar
         $album->name_album = $request->titulo;
@@ -84,8 +83,7 @@ class AlbumController extends Controller
         // Obtener el último albúm del usuario
         $album = Album::where('user_id', auth()->user()->id)
             ->latest()
-            // Obtenes el registro individual
-            ->first();
+            ->first(); // Obtener el registro individual
 
         // Añadirel nuevo campo y guardar
         $album->genre = $request->genero;

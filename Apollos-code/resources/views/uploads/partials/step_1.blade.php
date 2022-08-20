@@ -48,10 +48,14 @@
                 <div class="mb-5">
                     <input type="hidden" name="imagen" value="{{ old('imagen') }}" />
                 </div>
+                <p class="mb-5 text-center md:text-right block text-gray-500 text-sm">Al darle siguiente ya no podras editar
+                    la
+                    foto*</p>
 
                 <input type="submit" value="Siguiente"
                     class=" bg-teal-500 transition-colors cursor-pointer uppercase font-bold w-full p-3  text-white rounded-lg" />
             </form>
+
         </div> <!-- Envío de input -->
 
     </div> <!-- Imagen -->

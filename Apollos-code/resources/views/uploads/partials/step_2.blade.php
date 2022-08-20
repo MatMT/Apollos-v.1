@@ -4,8 +4,13 @@
     Subiendo un Álbum
 @endsection
 
+@push('noBack')
+    @vite(['resources/js/noBack.js'])
+@endpush
+
 @section('contenido')
-    <div class="flex my-0 mx-auto  sm:w-full sm:flex-row flex-col w-3/4 bg-white rounded-lg shadow p-3">
+    <div class="flex my-0 mx-auto sm:w-full sm:flex-row
+    flex-col w-3/4 bg-white rounded-lg shadow p-3">
         <div class="basis-1/5 text-center p-1 @yield('step1')">Imagen</div>
         {{-- @yield('step') --}}
         <div class="basis-1/5 text-center p-1 @yield('step2')">Titulo</div>

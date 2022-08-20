@@ -23,7 +23,7 @@
                         <a href="{{ route('upload.select') }}" class="font-bold uppercase text-gray-600 text-sm">Subir</a>
                     @endif
 
-                    <a href="{{ route('posts.index', auth()->user()) }}"
+                    <a href="{{ route('profile.index', auth()->user()) }}"
                         class="font-bold uppercase text-gray-800 text-sm">{{ auth()->user()->name }}</a>
 
                     <a href="{{ route('main') }}" class="font-bold uppercase text-gray-600 text-sm">Home</a>

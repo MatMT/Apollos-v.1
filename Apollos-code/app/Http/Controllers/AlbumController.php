@@ -149,7 +149,7 @@ class AlbumController extends Controller
 
 
         // Pasada la validación se envía a la siguiente página
-        return redirect()->route('posts.index', auth()->user()->name_artist);
+        return redirect()->route('profile.index', auth()->user()->name_artist);
     }
 
 

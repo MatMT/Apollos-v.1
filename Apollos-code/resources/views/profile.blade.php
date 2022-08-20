@@ -118,7 +118,6 @@
                                     <h2 class="font-cuerpo font-bold mt-4 text-lg">{{ $sencillo->name_song }}</h2>
                                 </a>
 
-
                                 <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Nuevas canciones:D
                                 </p>
                             </div>

@@ -76,7 +76,7 @@
                     <ul class="anim options" id="opciones">
                         <li><a href="/">Welcome</a></li>
                         <li>
-                            <a href="{{ route('posts.index', auth()->user()) }}">Perfil</a>
+                            <a href="{{ route('profile.index', auth()->user()) }}">Perfil</a>
                         </li>
                         {{-- Utilizamos esta directiva para mostrar a los usuarios no autenticados --}}
                         @auth

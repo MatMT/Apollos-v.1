@@ -51,6 +51,6 @@ class DataSongController extends Controller
         ]);
 
         // Redirigir - 2 parametros, ruta y variable usuario
-        return redirect()->route('posts.index', auth()->user()->name_artist);
+        return redirect()->route('profile.index', auth()->user()->name_artist);
     }
 }

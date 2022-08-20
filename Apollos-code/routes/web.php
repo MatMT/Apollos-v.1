@@ -53,7 +53,7 @@ Route::view('/', 'welcome');
 Route::get('/inicio', [LoginController::class, 'index'])->name('login')->middleware('guest'); // Inicio de sesión
 Route::post('/inicio', [LoginController::class, 'store'])->name('login.store');
 
-// ==============================
+// ============================== SESIÓN
 
 // Registro de usuarios ---
 Route::get('/registro', [RegisterController::class, 'index'])->name('signup')->middleware('guest'); // Autentificación de invitado
@@ -61,15 +61,21 @@ Route::post('/registro', [RegisterController::class, 'store'])->name('signup.sto
 // Cerrar sesión ---
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout'); // Cerrar sesión
 
-// ==============================
+// ============================== NAVEGACIÓN
 
 // Home ---
 Route::get('/home', [MainController::class, 'index'])->name('main');
 
 // Perfil --- Gracias al Route model binding
-Route::get('/usuario/{user:name_artist}', [ProfileController::class, 'index'])->name('posts.index');
+Route::get('/usuario/{user:name_artist}', [ProfileController::class, 'index'])->name('profile.index');
 
-// ==============================
+// Biblioteca ---
+Route::view('/biblioteca', 'Library')->name('biblioteca');
+
+// Artista ---
+Route::view('/Artista', 'Artist')->name('artista');
+
+// ============================== PERFIL
 
 // Álbumes --- Imprimir
 Route::get('/usuario/{user:name_artist}/album/{album}/', [AlbumsShowController::class, 'index'])->name('albums.index');
@@ -77,16 +83,16 @@ Route::get('/usuario/{user:name_artist}/album/{album}/', [AlbumsShowController::
 // Canciones --- Imprimir
 Route::get('/usuario/{user:name_artist}/canciones/{song}/', [SongsShowController::class, 'show'])->name('song.show');
 
-// ==============================
+// ============================== SUBIR CANCIÓN
 
-// Subir --- 1.0
-// Route::get('/uploads/create', [DataSongController::class, 'create'])->name('posts.create'); // Vista
-// Route::post('/uploads/create/data', [DataSongController::class, 'store'])->name('data.store'); // Info
-
-Route::get('/uploads/selection/song/', [DataSongController::class, 'create'])->name('posts.create'); // Vista
+Route::get('/uploads/selection/song/', [DataSongController::class, 'create'])->name('data.create'); // Vista
 Route::post('/uploads/selection/song/data', [DataSongController::class, 'store'])->name('data.store'); // Info
 
-// ==============================
+// ============================== ELIMINAR CANCIÓN
+
+Route::delete('/usuario/{user:name_artist}/canciones/{song}/', [SongsShowController::class, 'destroy'])->name('song.destroy');
+
+// ============================== SUBIR ÁLBUM
 
 Route::get('/uploads/selection', [UploadController::class, 'index'])->name('upload.select'); // Vista - Selección
 
@@ -109,13 +115,7 @@ Route::post('/uploads/selection/album/step_4', [AlbumController::class, 'store_4
 Route::get('/uploads/selection/album/step_5', [AlbumController::class, 'album_5'])->name('upload.album_5'); // Vista - Confirmación
 Route::post('/uploads/selection/album/step_5', [AlbumController::class, 'store_5'])->name('upload.store_5'); // Validación tecer paso
 
-
 // ==============================
-
-
-// --- Nuevas vistas
-Route::view('/biblioteca', 'Library')->name('biblioteca');
-Route::view('/Artista', 'Artist')->name('artista');
 
 // --- UserSettings
 Route::get('/NewPassword',  [SettingsController::class, 'NewPassword'])->name('NewPassword')->middleware('auth');

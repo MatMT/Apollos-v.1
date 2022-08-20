@@ -43,10 +43,12 @@ class SongsShowController extends Controller
         // Eliminar registro
         $song->delete();
 
-        // Eliminar imagen
-        $imagen_path = storage_path('app/public/uploads/imagenes/' . $song->image);
-        if (File::exists($imagen_path)) { // Facades propio de Laravel
-            unlink($imagen_path);
+        // Eliminar imagen - sencillos
+        if ($song->sencillo == true) {
+            $imagen_path = storage_path('app/public/uploads/imagenes/' . $song->image);
+            if (File::exists($imagen_path)) { // Facades propio de Laravel
+                unlink($imagen_path);
+            }
         }
 
         // Eliminar archivo .mp3

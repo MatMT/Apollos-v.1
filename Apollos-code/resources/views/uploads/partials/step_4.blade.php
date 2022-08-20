@@ -66,9 +66,11 @@
                             <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }}</p>
                         @enderror
                     </div>
+                    <p class="mb-5 text-center md:text-right block text-gray-500 text-sm">Al agregarla ya no podras retirar
+                        la canción del registro*</p>
 
                     <input type="submit" value="Agregar"
-                        class="bg-sky-600 transition-colors cursor-pointer uppercase font-bold w-full p-3  text-white rounded-lg" />
+                        class="bg-sky-600 transition-colors cursor-pointer uppercase font-bold w-full p-3 mb-5 md:mb-0 text-white rounded-lg" />
                 </form>
             </div> <!-- .Mp3 -->
         </div> <!-- MITAD -->

@@ -83,10 +83,13 @@ class SettingsController extends Controller{
             }
         } 
 
-        $image       = $request->imagen;
+       if( $request -> imagen !=""){
+        $image = $request->imagen;    
             $sqlBDUpdateName = DB::table('users')
             ->where('id', $user->id)
             ->update(['image' => $image]);
+            return redirect()->route('NewPassword')->with('imgmessage', 'Profile Pic fue cambiado correctamente.');
+       }
     }
         
 

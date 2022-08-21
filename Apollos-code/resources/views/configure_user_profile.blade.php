@@ -21,6 +21,10 @@
     @if(session()->has('username') )
             {{ session()->get('username')}}
     @endif
+
+        @if(session()->has('imgmessage') )
+            {{ session()->get('imgmessage')}}
+    @endif
  
 
     <h2 class="text-center">Actualizar mi datos

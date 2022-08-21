@@ -27,7 +27,7 @@
             <div id="profile" class="profile mx-4 ">
                 <div class="image w-full flex justify-end items-center">
                     <a class="font-titulo mr-5 h-6 text-right laptop:hidden">{{ Auth::user()->username }}</a>
-                    <img src="{{ asset('assets/img/profile.jpg') }}"
+                    <img src="{{ asset('storage') . '/uploads/pfp/' . Auth::user()->image }}"
                         alt="img"class="h-11 min-w-[44px]  rounded-full border-slate-400">
                 </div>
             </div>
@@ -38,7 +38,7 @@
 
                 <div class="image perfil w-full flex justify-center items-center anim my-2 mx-2" id="perfil">
 
-                    <img src="{{ asset('assets/img/profile.jpg') }}"
+                    <img src="{{ asset('storage') . '/uploads/pfp/' . Auth::user()->image }}"
                         alt="img"class="h-16  rounded-full border-slate-400">
                     <div class="name-user p-5">
                         <span

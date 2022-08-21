@@ -123,3 +123,4 @@ Route::delete('/canciones/{song}/likes/', [LikeController::class, 'destroy'])->n
 // --- UserSettings
 Route::get('/NewPassword',  [SettingsController::class, 'NewPassword'])->name('NewPassword')->middleware('auth');
 Route::post('/change/password',  [SettingsController::class, 'changeData'])->name('changeData');
+Route::post('/uploads/create/imagen', [ImageController::class, 'store_2'])->name('image.store');

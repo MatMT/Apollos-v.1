@@ -1,3 +1,9 @@
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+    @vite(['resources/js/app.js'])
+    {{-- @vite('resources/css/app.css') --}}
+</head>
+
 <div class="container mb-5" style="background-color: #fff;">
 
     <!--- Mensajes -->
@@ -22,17 +28,30 @@
     </h2>
     <div class="row justify-content-center">
         <div class="col-md-8">
+
+            <div class="md:h-1/2 px-10">
+
+                <form action="{{ route('image.store') }}" method="POST" enctype="multipart/form-data" id="dropzone_img"
+                    class="dropzone md:h-1/2 border-dashed border-2 @error('imagen') border-red-500 @enderror w-full h-96 rounded flex flex-col justify-center items-center">
+                    @csrf
+                </form>
+
+                @error('imagen')
+                    <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
+                        La imagen es obligatoria.</p>
+                @enderror
+
+            </div>
+
+            
+
             <form action="{{ route('changeData') }}" method="POST" class="needs-validation" novalidate>
                 @csrf
 
                    {{-- Intento Foto de Perfil --}}
-                <div class="row mb-3">
-                    <div class="form-group mt-3">
-                        <label  for="avatar"> Profile Pic
-                            <input type="file" name="avatar">
-                        </label>
+                   <div class="mb-5">
+                        <input type="hidden" name="imagen" value="{{ old('imagen') }}" />
                     </div>
-                </div>
                    {{-- Intento Foto de Perfil --}}
                 <div class="row mb-3">
                     <div class="form-group mt-3">

@@ -82,6 +82,11 @@ class SettingsController extends Controller{
                 back()->withErrors(['password_actual' => 'La Clave no Coinciden']);
             }
         } 
+
+        $image       = $request->imagen;
+            $sqlBDUpdateName = DB::table('users')
+            ->where('id', $user->id)
+            ->update(['image' => $image]);
     }
         
 

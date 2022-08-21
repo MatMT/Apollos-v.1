@@ -59,7 +59,7 @@
                 </div>
 
                 <div class="user-photo float-right rounded-full overflow-hidden"">
-                    <img src="{{ asset('assets/img/user.jpg') }}" alt="Imagen de usuario">
+                    <img src="{{ asset('storage') . '/uploads/pfp/' . $user->image }}" alt="Imagen de usuario">
                 </div>
 
             </div>

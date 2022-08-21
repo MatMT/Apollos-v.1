@@ -58,8 +58,7 @@ Route::post('/inicio', [LoginController::class, 'store'])->name('login.store');
 
 // Registro de usuarios ---
 Route::get('/registro', [RegisterController::class, 'index'])->name('signup')->middleware('guest'); // Autentificación de invitado
-Route::post('/registro', [RegisterController::class, 'store'])->name('signup.store');;
-// Cerrar sesión ---
+Route::post('/registro', [RegisterController::class, 'store'])->name('signup.store'); // Cerrar sesión
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout'); // Cerrar sesión
 
 // ============================== NAVEGACIÓN
@@ -121,6 +120,6 @@ Route::post('/canciones/{song}/likes/', [LikeController::class, 'store'])->name(
 Route::delete('/canciones/{song}/likes/', [LikeController::class, 'destroy'])->name('song.likes.destroy');
 
 // --- UserSettings
-Route::get('/NewPassword',  [SettingsController::class, 'NewPassword'])->name('NewPassword')->middleware('auth');
-Route::post('/change/password',  [SettingsController::class, 'changeData'])->name('changeData');
-Route::post('/uploads/create/imagen', [ImageController::class, 'store_2'])->name('image.store');
+Route::get('/usuario/{user:name_artist}/settings/change/',  [SettingsController::class, 'index'])->name('settings.index');
+Route::post('/usuario/{user:name_artist}/settings/change/',  [SettingsController::class, 'store'])->name('settings.store');
+Route::post('/settings/uploads/create/imagen', [ImageController::class, 'store_2'])->name('image.pfp.store');

@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 
-class SettingsController extends Controller{
+class SettingsController extends Controller
+{
     public function NewPassword()
     {
         return view('configure_user_profile');
@@ -23,32 +24,32 @@ class SettingsController extends Controller{
         $userEmail      = $user->email;
         $userPassword   = $user->password;
 
-    
-        if($request->new_name !="") {
+
+        if ($request->new_name != "") {
             $name       = $request->new_name;
             $sqlBDUpdateName = DB::table('users')
                 ->where('id', $user->id)
                 ->update(['name' => $name]);
-                return redirect()->route('NewPassword')->with('name', 'Nombre de usuario  fue cambiado correctamente.');
+            return redirect()->route('NewPassword')->with('name', 'Nombre de usuario  fue cambiado correctamente.');
         }
 
         //apellido
-        if($request->new_lastname !="") {
+        if ($request->new_lastname != "") {
             $last_name       = $request->new_lastname;
             $sqlBDUpdateName = DB::table('users')
                 ->where('id', $user->id)
                 ->update(['last_name' => $last_name]);
-                return redirect()->route('NewPassword')->with('last_name', 'Apellido fue cambiado correctamente.');
+            return redirect()->route('NewPassword')->with('last_name', 'Apellido fue cambiado correctamente.');
         }
 
-        
+
         //Artista de Name
-        if($request->new_artname !="") {
+        if ($request->new_artname != "") {
             $username       = $request->new_artname;
-            $sqlBDUpdateName = DB::table('users')   
+            $sqlBDUpdateName = DB::table('users')
                 ->where('id', $user->id)
                 ->update(['username' => $username]);
-                return redirect()->route('NewPassword')->with('username', 'Username fue cambiado correctamente.');
+            return redirect()->route('NewPassword')->with('username', 'Username fue cambiado correctamente.');
         }
 
 
@@ -70,30 +71,25 @@ class SettingsController extends Controller{
                             ->where('id', $user->id)
                             ->update(['password' => $user->password], ['name' => $user->name]);
 
-                            return redirect()->route('configure_user_profile') -> with('vagina');
+                        return redirect()->route('configure_user_profile')->with('vagina');
                         redirect()->back()->with('updateClave', 'La clave fue cambiada correctamente.');
                     } else {
-                         redirect()->back()->with('clavemenor', 'Recuerde la clave debe ser mayor a 6 digitos.');
+                        redirect()->back()->with('clavemenor', 'Recuerde la clave debe ser mayor a 6 digitos.');
                     }
                 } else {
-                     redirect()->back()->with('claveIncorrecta', 'Por favor verifique las claves no coinciden.');
+                    redirect()->back()->with('claveIncorrecta', 'Por favor verifique las claves no coinciden.');
                 }
             } else {
                 back()->withErrors(['password_actual' => 'La Clave no Coinciden']);
             }
-        } 
+        }
 
-       if( $request -> imagen !=""){
-        $image = $request->imagen;    
+        if ($request->imagen != "") {
+            $image = $request->imagen;
             $sqlBDUpdateName = DB::table('users')
-            ->where('id', $user->id)
-            ->update(['image' => $image]);
+                ->where('id', $user->id)
+                ->update(['image' => $image]);
             return redirect()->route('NewPassword')->with('imgmessage', 'Profile Pic fue cambiado correctamente.');
-       }
+        }
     }
-        
-
-    
-
-
 }

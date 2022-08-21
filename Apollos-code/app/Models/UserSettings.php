@@ -9,6 +9,8 @@ class UserSettings extends Model
 {
     use HasFactory;
 
+    // INPUTS ó Campos a recibir ================
+
     public $fillable = [
         'password_actual',
         'password',

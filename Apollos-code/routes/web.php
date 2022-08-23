@@ -11,6 +11,7 @@ use App\Http\Controllers\ImageController;
 use App\Http\Controllers\DataSongController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\SongSettingsController;
 use App\Http\Controllers\SongsShowController;
 use App\Http\Controllers\AlbumsShowController;
 use App\Http\Controllers\AlbumController;
@@ -123,3 +124,6 @@ Route::delete('/canciones/{song}/likes/', [LikeController::class, 'destroy'])->n
 Route::get('/usuario/{user:name_artist}/settings/change/',  [SettingsController::class, 'index'])->name('settings.index');
 Route::post('/usuario/{user:name_artist}/settings/change/',  [SettingsController::class, 'store'])->name('settings.store');
 Route::post('/settings/uploads/create/imagen', [ImageController::class, 'store_2'])->name('image.pfp.store');
+
+Route::post('/usuario/user/settings/album/change',  [SongSettingsController::class, 'changeDataAlbums'])->name('album.settings');
+Route::get('/usuario/user/settings/album',  [SongSettingsController::class, 'index'])->name('album.settings.index');

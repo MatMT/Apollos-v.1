@@ -17,6 +17,7 @@ class Album extends Model
         'genre',
         'image',
         'sencillo',
+        'new_name_album'
     ];
 
     // RELACIÓNES ===============================

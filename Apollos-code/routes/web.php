@@ -123,3 +123,9 @@ Route::delete('/canciones/{song}/likes/', [LikeController::class, 'destroy'])->n
 Route::get('/usuario/{user:name_artist}/settings/change/',  [SettingsController::class, 'index'])->name('settings.index');
 Route::post('/usuario/{user:name_artist}/settings/change/',  [SettingsController::class, 'store'])->name('settings.store');
 Route::post('/settings/uploads/create/imagen', [ImageController::class, 'store_2'])->name('image.pfp.store');
+
+
+
+Route::post('/usuario/{user:name_artist}/settings/{album:name_album}/change',  [SongSettingsController::class, 'changeDataAlbums'])->name('album.settings');
+Route::get('/usuario/{user:name_artist}/settings/{album:name_album}',  [SongSettingsController::class, 'index'])->name('album.settings.index');
+    

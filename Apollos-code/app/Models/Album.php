@@ -9,7 +9,8 @@ class Album extends Model
 {
     use HasFactory;
 
-    // Campos a recibir
+    // INPUTS ó Campos a recibir ================
+
     protected $fillable = [
         'user_id',
         'name_album',
@@ -17,6 +18,8 @@ class Album extends Model
         'image',
         'sencillo',
     ];
+
+    // RELACIÓNES ===============================
 
     // Relación ---
     public function songs()

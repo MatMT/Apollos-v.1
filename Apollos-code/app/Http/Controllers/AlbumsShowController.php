@@ -17,13 +17,9 @@ class AlbumsShowController extends Controller
     // Extraer canciones del album ==========
     public function index(User $user, Album $album)
     {
-        // Llamamos al modelo y automáticamente su tabla
-        $songs = Song::where('album_id', $album->id)->get(); // Paginate elabora una lógica para crear páginas
-
         // Mostramos vista y devolvemos datos con las llaves 
         return view('songs', [
             'user' => $user,
-            'songs' => $songs,
             'album' => $album
         ]);
     }

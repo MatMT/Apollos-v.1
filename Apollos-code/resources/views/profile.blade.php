@@ -29,7 +29,7 @@
                     </h1>
 
                     <h1 class="username first-letter:uppercase font-titulo text-7xl font-bold">
-                        {{ $user->name_artist }}
+                        {{ $user->username }}
                     </h1>
 
                     <h1 class="followers">0 Seguidores</h1>
@@ -42,7 +42,7 @@
 
                     @if (auth()->user()->name == $user->name)
                         <div class="auth-user flex">
-                            <a href="{{ route('NewPassword') }}" class="artist-bttn mt-5 inline-block">
+                            <a href="{{ route('settings.index', $user) }}" class="artist-bttn mt-5 inline-block">
                                 Editar perfil
                             </a>
 
@@ -59,7 +59,7 @@
                 </div>
 
                 <div class="user-photo float-right rounded-full overflow-hidden"">
-                    <img src="{{ asset('assets/img/user.jpg') }}" alt="Imagen de usuario">
+                    <img src="{{ asset('storage') . '/uploads/pfp/' . $user->image }}" alt="Imagen de usuario">
                 </div>
 
             </div>
@@ -100,31 +100,46 @@
             </div>
 
             <!-- ============================================================================== -->
-            <h2 class=" font-titulo text-center font-bold text-white anim2"> Canciones </h2>
+            <h1 class='public-songs text-white font-titulo text-3xl font-bold mb-5 anim2'>Canciones publicadas</h1>
 
             <div class="box-2 active anim2" id="caja-2">
                 <div class="content">
+                    <div class="song-list-container ">
 
-                    @if ($sencillos->count())
-                        @foreach ($sencillos as $sencillo)
-                            {{-- Se mapea automaticamente la ruta por cada song en su url --}}
-
-                            <div class="playList">
-                                <!-- IMG -->
-                                <img src="{{ asset('storage') . '/uploads/imagenes/' . $sencillo->image }}"
-                                    alt="Imagen del album {{ $sencillo->name_album }}">
-
-                                <a href="{{ route('song.show', ['user' => $user, 'song' => $sencillo]) }}">
-                                    <h2 class="font-cuerpo font-bold mt-4 text-lg">{{ $sencillo->name_song }}</h2>
-                                </a>
-
-
-                                <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Nuevas canciones:D
-                                </p>
+                        <div class="song-container-tabs flex items-center justify-center mt-2 mb-5 ">
+                            <div class="song-info-tab inline-flex items-center justify-center pb-2 border-b border-white">
+                                <h1 class="id-song-tab"> # </h1>
+                                <span class="song-pic-tab"><img src='{{ asset('assets/icons/imageIconWht.png') }}'></span>
+                                <span class="title-author-tab">
+                                    <h1 class="song-title text-center">Nombre de la canción</h1>
+                                </span>
+                                <h1 class='counter-time-tab text-center'><img
+                                        src='{{ asset('assets/icons/timerIconWht.png') }}'></h1>
+                                <h1 class='likes-tab text-center'>Me gusta</h1>
                             </div>
-                        @endforeach
-                    @endif
+                        </div>
 
+                        @if ('HaySencillos')
+                            @foreach ($sencillos as $sencillo)
+                                {{-- Se mapea automaticamente la ruta por cada song en su url --}}
+
+                                <div class="song-container flex items-center justify-center mt-2">
+                                    <div class="song-info inline-flex items-center justify-center">
+                                        <h1 class="id-song">{{ $sencillo->id }}</h1>
+                                        <span class="song-pic"><img
+                                                src="{{ asset('storage') . '/uploads/imagenes/' . $sencillo->image }}"></span>
+                                        <span class="title-author">
+                                            <h1 class="song-title font-bold text-center">{{ $sencillo->name_song }}</h1>
+                                        </span>
+                                        <h1 class='counter-time text-center'>{{ $sencillo->time }}</h1>
+                                        <h1 class='likes text-center'>999 Me gusta</h1>
+                                        <span class="like-ico"><img src='{{ asset('assets/icons/likedIcon.png') }}'
+                                                class="like-icon liked"></span>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @endif
+                    </div>
                 </div>
             </div>
 

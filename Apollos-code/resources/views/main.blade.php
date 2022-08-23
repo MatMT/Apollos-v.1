@@ -28,9 +28,9 @@
                 </div>
 
                 <!-- <div class="w-2/5 bg-planetas h-9/10 bg-cover mx-16 relative">
-                                <div class="austronauta bg-austro h-56 w-60 bg-cover absolute top-9 left-20"
-                                    style="animation: 2s ease-in-out 0s infinite alternate none running flotaraustro;"></div>
-                            </div> -->
+                                    <div class="austronauta bg-austro h-56 w-60 bg-cover absolute top-9 left-20"
+                                        style="animation: 2s ease-in-out 0s infinite alternate none running flotaraustro;"></div>
+                                </div> -->
 
             </div>
 
@@ -54,7 +54,7 @@
 
                             @foreach ($users as $user)
                                 <div class="card drop-shadow-xl">
-                                    <a href="{{ route('posts.index', $user->name_artist) }}">
+                                    <a href="{{ route('profile.index', $user->name_artist) }}">
                                         <div class="imagen">
                                             <img src="{{ asset('assets/img/usuario.svg') }}"
                                                 alt="Imagen de {{ $user->name }}">
@@ -221,7 +221,7 @@
 
                                 @foreach ($users as $user)
                                     <div class="card drop-shadow-xl">
-                                        <a href="{{ route('posts.index', $user->name_artist) }}">
+                                        <a href="{{ route('profile.index', $user->name_artist) }}">
                                             <div class="imagen">
                                                 <img src="{{ asset('assets/img/usuario.svg') }}"
                                                     alt="Imagen de {{ $user->name }}">

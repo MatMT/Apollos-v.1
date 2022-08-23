@@ -23,12 +23,14 @@
                         <a href="{{ route('upload.select') }}" class="font-bold uppercase text-gray-600 text-sm">Subir</a>
                     @endif
 
-                    <a href="{{ route('posts.index', auth()->user()) }}"
+                    <a href="{{ route('profile.index', auth()->user()) }}"
                         class="font-bold uppercase text-gray-800 text-sm">{{ auth()->user()->name }}</a>
 
                     <a href="{{ route('main') }}" class="font-bold uppercase text-gray-600 text-sm">Home</a>
 
-                    <a href="{{ route('NewPassword') }}" class="font-bold uppercase text-gray-600 text-sm">Editar Perfil</a>
+                    <a href="{{ route('settings.index', ['user' => Auth()->user()]) }}"
+                        class="font-bold uppercase text-gray-600 text-sm">Editar
+                        Perfil</a>
 
 
                     <form action="{{ route('logout') }}" class="font-bold uppercase text-gray-600 text-sm" method="POST">
@@ -59,6 +61,9 @@
     <footer class="mt-10 text-center p-5 text-gray-500 font-bold uppercase ">
         Apollo's - Todos los derechos reservados {{ now()->year }}
     </footer>
+
+    @stack('noBack')
+
 </body>
 
 </html>

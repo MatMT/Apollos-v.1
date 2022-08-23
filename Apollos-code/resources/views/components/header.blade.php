@@ -4,7 +4,7 @@
 
         <a href="#" class="font-logo mx-8 text-3xl tablet_5:mx-5 tablet_5:text-2xl">Apollo's</a>
 
-         <!-- Navegador de páginas  -->
+        <!-- Navegador de páginas  -->
 
         <ul class="flex my-10 mx-10 text-base items-center font-cuerpo text-center tablet_5:mx-auto">
 
@@ -18,8 +18,8 @@
             <li class="mx-8 cursor-pointer" id="buscar"><a><i class="fi fi-rs-search"></i><span
                         class="tablet_3:hidden">Buscar</span></a></li>
         </ul>
-        
-         <!-- Profile picture -->
+
+        <!-- Profile picture -->
 
         <div class="user h-11 relative">
 
@@ -27,30 +27,34 @@
             <div id="profile" class="profile mx-4 ">
                 <div class="image w-full flex justify-end items-center">
                     <a class="font-titulo mr-5 h-6 text-right laptop:hidden">{{ Auth::user()->username }}</a>
-                    <img src="{{ asset('assets/img/profile.jpg') }}" alt="img"class="h-11 min-w-[44px]  rounded-full border-slate-400">
+                    <img src="{{ asset('storage') . '/uploads/pfp/' . Auth::user()->image }}"
+                        alt="img"class="h-11 min-w-[44px]  rounded-full border-slate-400">
                 </div>
             </div>
 
             <!-- Menu Toogle -->
 
             <div class="contenido-menu my-5 anim" id="menu">
-                
+
                 <div class="image perfil w-full flex justify-center items-center anim my-2 mx-2" id="perfil">
 
-                    <img src="{{ asset('assets/img/profile.jpg') }}" alt="img"class="h-16  rounded-full border-slate-400">
+                    <img src="{{ asset('storage') . '/uploads/pfp/' . Auth::user()->image }}"
+                        alt="img"class="h-16  rounded-full border-slate-400">
                     <div class="name-user p-5">
-                        <span class="font-titulo h-6 text-right font-bold text-lg truncatetruncate ">{{ Auth::user()->name }}</span><br>
-                        <span class="text-base text-slate-300">{{ Auth::user()->rol == 'artist' ? 'Artista' : 'Usuario' }}</span>
+                        <span
+                            class="font-titulo h-6 text-right font-bold text-lg truncatetruncate ">{{ Auth::user()->name }}</span><br>
+                        <span
+                            class="text-base text-slate-300">{{ Auth::user()->rol == 'artist' ? 'Artista' : 'Usuario' }}</span>
                     </div>
                 </div>
 
                 <div class="line h-px w-full bg-white opacity-25 rounded"></div>
 
                 <ul class="anim options p-3" id="opciones">
-                    
+
                     <li><a href="/">Welcome</a></li>
                     <li>
-                        <a href="{{ route('posts.index', auth()->user()) }}">Perfil</a>
+                        <a href="{{ route('profile.index', auth()->user()) }}">Perfil</a>
                     </li>
                     {{-- Utilizamos esta directiva para mostrar a los usuarios no autenticados --}}
                     @auth

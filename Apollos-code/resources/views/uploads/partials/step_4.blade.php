@@ -51,6 +51,11 @@
                         <input type="hidden" name="song" value="{{ old('song') }}" />
                     </div>
 
+                    <!-- Token de duración -->
+                    <div class="mb-5">
+                        <input type="hidden" name="time" value="{{ old('time') }}" />
+                    </div>
+
                     <!-- Campos -->
                     <div class="mb-5">
                         <label for="titulo" class="mb-2 block uppercase text-gray-500 font-bold">Titulo</label>
@@ -61,9 +66,11 @@
                             <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }}</p>
                         @enderror
                     </div>
+                    <p class="mb-5 text-center md:text-right block text-gray-500 text-sm">Al agregarla ya no podras retirar
+                        la canción del registro*</p>
 
                     <input type="submit" value="Agregar"
-                        class="bg-sky-600 transition-colors cursor-pointer uppercase font-bold w-full p-3  text-white rounded-lg" />
+                        class="bg-sky-600 transition-colors cursor-pointer uppercase font-bold w-full p-3 mb-5 md:mb-0 text-white rounded-lg" />
                 </form>
             </div> <!-- .Mp3 -->
         </div> <!-- MITAD -->
@@ -84,7 +91,9 @@
                                 <th scope="col" class="py-3 px-6">
                                     Titulo
                                 </th>
-
+                                <th scope="col" class="py-3 px-6">
+                                    ⏱️
+                                </th>
                             </tr>
                         </thead>
 
@@ -98,6 +107,9 @@
                                         <td class="py-4 px-6">
                                             {{ $song->name_song }}
                                         </td>
+                                        <td class="py-4 px-6">
+                                            {{ $song->time }}
+                                        </td>
                                     </tr>
                                 @endforeach
                             @else
@@ -108,6 +120,9 @@
                                         </th> <!-- id -->
                                         <td class="py-4 px-6">
                                             Titulo {{ $i }}
+                                        </td>
+                                        <td class="py-4 px-6">
+
                                         </td>
                                     </tr>
                                 @endfor

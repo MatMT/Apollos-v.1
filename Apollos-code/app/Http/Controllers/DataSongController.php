@@ -42,14 +42,15 @@ class DataSongController extends Controller
         // Registro - CANCIÓN
         Song::create([
             'sencillo' => true,
-            'album_id' => $CollecionSencillos->id, // Usuario autenticado
+            'album_id' => $CollecionSencillos->id,
             'name_song' => $request->titulo,
+            'time' => $request->time,
             'genre' => $request->genero,
             'url' => $request->song,
             'image' => $request->imagen,
         ]);
 
         // Redirigir - 2 parametros, ruta y variable usuario
-        return redirect()->route('posts.index', auth()->user()->name_artist);
+        return redirect()->route('profile.index', auth()->user()->name_artist);
     }
 }

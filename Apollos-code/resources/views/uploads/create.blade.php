@@ -60,6 +60,11 @@
                     <input type="hidden" name="song" value="{{ old('song') }}" />
                 </div>
 
+                <!-- Token de duración -->
+                <div class="mb-5">
+                    <input type="hidden" name="time" value="{{ old('time') }}" />
+                </div>
+
                 <!-- Campos -->
                 <div class="mb-5">
                     <label for="titulo" class="mb-2 block uppercase text-gray-500 font-bold">Titulo</label>

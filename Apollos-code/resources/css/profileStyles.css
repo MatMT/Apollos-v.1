@@ -7,6 +7,7 @@
     filter: blur(3px) !important;
 }
 
+*{ color: white;}
 
 .user-section{
     width: 1302px;
@@ -78,4 +79,123 @@
 .user-photo img{
     height: 300px;
     width: 300px;
+}
+
+.song-pic-tab img, .counter-time-tab img{
+  min-width: 30px;
+  max-width: 30px;
+
+  min-height: 30px;
+  max-height: 30px;
+}
+
+span.song-pic-tab{
+  min-width: 70px;
+  max-width: 70px;
+}
+
+.song-pic img{
+  border-radius: 10px;
+  min-width: 70px;
+  max-width: 70px;
+
+  min-height: 70px;
+  max-height: 70px;
+}
+
+.like-icon{
+  min-width: 20px;
+  max-width: 20px;
+  filter: grayscale(100%) brightness(200%);
+}
+
+.songs-list{
+  display: block;
+  padding-bottom: 20px;
+  min-height: 100px;
+}
+
+.public-songs{
+  border-bottom: 2px white solid; 
+  display: inline-block;
+  padding-right: 40px;
+}
+
+.song-container, .song-info, .song-container-tabs, .song-info-tabs{
+  min-width: 1140px !important;
+  max-width: 1140px !important;
+}
+
+.song-info  h1, .song-info span, .song-container-tabs h1, .song-container-tabs span{
+  margin-right: 50px;
+  margin-left: 50px;
+  
+}
+
+.song-info span.like-ico, .song-info span.type-icon{
+  margin-left: 20px !important;
+  margin-right: 20px !important;
+}
+
+.song-info{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 20px;
+  box-sizing: border-box;
+  transition: all 200ms ease-in-out;
+}
+
+.song-info:hover{
+  background-color: rgba(116, 125, 140,0.5);
+  transition: all 200ms ease-in-out;
+}
+
+span.title-author, span.song-title-tab{
+  min-width: 250px;
+  max-width: 250px;
+}
+
+.title-author h1, .title-author-tab h1{
+  min-width: 250px;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+h1.counter-time, h1.counter-time-tab{
+  margin-left: 20px !important;
+  margin-right: 20px !important;
+
+  min-width: 40px;
+  max-width: 40px;
+}
+
+.likes-tab{
+  min-width: 145px;
+  max-width: 145px;
+
+  margin-left: 70px !important;
+  margin-right: 70px !important;
+}
+
+.song-type{
+  min-width: 105px;
+  max-width: 105px;
+}
+
+h1.counter-time, h1.song-title, h1.id-song, h1.likes{
+  font-size: 1.3em;
+}
+
+h1.counter-time-tab, h1.song-title-tab, h1.id-song-tab, h1.likes-tab{
+  font-size: 1.3em;
+  
+}
+
+h1.author{
+  margin-top: -5px;
+}
+
+.song-container-tabs img{
+  margin-left: auto;
+  margin-right: auto;
 }

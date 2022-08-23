@@ -206,7 +206,7 @@ header .Logout {
 
 /*--- ---- ---- ----- ---- ---- Sticky header ---- ---- ---- ---- */
 header {
-    position: sticky;
+    position: fixed;
     left: 0%;
     top: 0%;
     transition: 0.5s ease-in-out all;

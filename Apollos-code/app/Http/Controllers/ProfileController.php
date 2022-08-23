@@ -14,7 +14,7 @@ class ProfileController extends Controller
     public function __construct()
     {
         // Autentificación exceptuada para los métodos show(canción) e index(perfil)
-        $this->middleware('auth')->except(['show', 'index']);
+        $this->middleware('auth');
     }
 
     // PERFIL ==========

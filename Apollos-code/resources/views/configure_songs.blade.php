@@ -35,7 +35,7 @@
                     @enderror
             
                     <div>
-                        <form action="{{ route('upload.store_1') }}" method="POST" id="song_up" novalidate>
+                        <form action="{{ route('album.settings') }}" method="POST" id="song_up" novalidate>
                             @csrf
         {{-- Portada de album actualiza no sirve xD --}}
         <div class="mb-5">
@@ -50,7 +50,7 @@
             <div class="row mb-3">
                 <div class="form-group mt-3">
                     <label for="new_name_album">Actualiza Nombre de tu Album</label>
-                    <input type="text" name="new_name_album" value="{{ Auth::user()->name_añbum }}"
+                    <input type="text" name="new_name_album" value="{{ Auth::user()->name_album }}"
                         class="form-control @error('new_name_album') is-invalid @enderror" required>
                     @error('new_name_album')
                         <span class="invalid-feedback" role="alert">
@@ -58,9 +58,15 @@
                         </span>
                     @enderror
                 </div>
+                
             </div>
             {{-- Intento new name album--}}
-
+            <div class="row text-center mb-4 mt-5">
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary" id="formSubmit">Guardar Cambios</button>
+                    <a href="{{ route('main') }}" class="btn btn-secondary">Cancelar</a>
+                </div>
+            </div>
 
 @endsection
 

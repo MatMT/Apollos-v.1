@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\Album;
 
-class SettingsController extends Controller{
+class SongSettingsController extends Controller{
     public function index()
     {
         return view('configure_songs');
@@ -18,25 +18,27 @@ class SettingsController extends Controller{
     
     public function changeDataAlbums(Request $request)
     {
-
         $user           = Auth::user();
-        $userId         = $user->id;
 
        // if( $request ->imagen !=""){
           //  $image = $request->imagen;    
             //    $sqlBDUpdateName = DB::table('users')
             //    ->where('id', $user->id)
             //    ->update(['image' => $image]);
-            //    return redirect()->route('NewAlmbusData')->with('imgmessage', 'Profile Pic fue cambiado correctamente.');
+            //    return redirect()->route('album.settings.index')->with('imgmessage', 'Profile Pic fue cambiado correctamente.');
           // }
 
            if($request->new_name_album !="") {
             $name_album       = $request->new_name_album;
             $sqlBDUpdateName = DB::table('albums')
-                ->where('id', $user->id)
+                ->where('user_id', $user->id)
                 ->update(['name_album' => $name_album]);
-                return redirect()->route('NewAlmbusData')->with('nameal', 'Nombre de album  fue cambiado correctamente.');
-        }
+
+            $sqlBDUpdateName = DB::table('albums')
+                ->where('user_id', $user->id)
+                ->update(['name_album' => $name_album]);
+                return redirect()->route('album.settings.index')->with('nameal', 'Nombre de album  fue cambiado correctamente.');
+         }
 
         
     }

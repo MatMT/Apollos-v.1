@@ -56,6 +56,9 @@ class ProfileController extends Controller
         // CONTADOR DE CANCIONES TOTALES ===
         $counterSongs = (count($AllSongs));
 
+        // CONTADOR DISPLAYLIST ===
+        $displayList = 0;
+
         // Mostramos vista y devolvemos datos con las llaves 
         return view('profile', [
             // VARIABLES ====
@@ -63,7 +66,8 @@ class ProfileController extends Controller
             'albums' => $albums,
             'CounterSongs' => $counterSongs,
             'sencillos' => $sencillos,
-            'HaySencillos' => $IfSencillos
+            'HaySencillos' => $IfSencillos,
+            'displayList' => $displayList
         ]);
     }
 

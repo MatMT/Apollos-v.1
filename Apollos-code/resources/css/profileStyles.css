@@ -11,6 +11,10 @@
     color: white;
 }
 
+header{
+    position: fixed;
+}
+
 .user-section {
     width: 1302px;
     min-height: 435px;
@@ -122,7 +126,7 @@ span.song-pic-tab {
     min-height: 100px;
 }
 
-.public-songs {
+.public-songs, .public-albums {
     border-bottom: 2px white solid;
     display: inline-block;
     padding-right: 40px;
@@ -131,9 +135,20 @@ span.song-pic-tab {
 .song-container,
 .song-info,
 .song-container-tabs,
-.song-info-tabs {
+.song-info-tabs,
+.content{
     min-width: 1140px !important;
     max-width: 1140px !important;
+
+}
+
+.content{
+    min-height: 270px;
+}
+
+span.disc-ico img{
+    height: 50px;
+    width: 50px;
 }
 
 .song-info h1,
@@ -220,3 +235,7 @@ h1.author {
     margin-left: auto;
     margin-right: auto;
 }
+
+.if-subtitle{
+    font-size: 1.7em;
+  }

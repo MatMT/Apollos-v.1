@@ -72,10 +72,9 @@
                             @endforeach
                         </div>
                         <!--contenedor-carousel --->
-
-                        <button rolle="button" id="flecha-derecha"><i class="fi fi-rr-angle-right"></i></button>
-
                     </div>
+
+                    <button rolle="button" id="flecha-derecha"><i class="fi fi-rr-angle-right"></i></button>
 
                 </div>
 

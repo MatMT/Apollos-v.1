@@ -30,6 +30,7 @@ module.exports = {
       // => @media (min-width: 640px) { ... }
 
       'laptop': { 'max': '1280px' },
+
       'laptop_2': { 'max': '1380px' },
       // => @media (min-width: 1024px) { ... }
 
@@ -74,6 +75,7 @@ module.exports = {
         '6/7': '85%',
         '9/10': '90%',
         '1/10': '10%',
+        '22/25': '88%',
 
       },
       height: {

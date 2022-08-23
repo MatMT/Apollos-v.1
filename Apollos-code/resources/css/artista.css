@@ -190,18 +190,31 @@ main.contenedor{
 /*-------------------------------- Canciones Favoritas*/
 
 .extra-info{
-    padding: 0px 50px;
+    padding: 0px auto;
+    margin-left: 10px;
+}
+.list-favoritos{
+    margin: 0px 30px;
 }
 
 .list-songs-fav{
     width: 100%;
-    padding: 25px 0px;
+    max-height: 320px;
+    overflow-y: scroll;
+    margin: 25px auto;
+    transition: 0.5s all ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+
+.list-songs-fav::-webkit-scrollbar{
+    -webkit-appearance: none;
 }
 
 .song-fv{
     width: 90%;
     margin: 0% auto;
-    padding: 14px;
+    padding: 10px;
     color: white;
     display: flex;
     align-items: center;
@@ -219,13 +232,49 @@ main.contenedor{
     min-width: 45px;
     max-width: 80px;
     border-radius: 5px;
+    margin: 5px;
 }
-
+.info-song{
+    width: 65%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 .song-fv .info-song p{
+    max-width: 114px;
+    min-width: 110px;
+    max-height: 56px;
     text-overflow: ellipsis;
     overflow: hidden;
 }
 
 .song-fv .info-song{
     width: 50%;
+}
+
+/*------------ Responsive */
+@media screen and (max-width: 1200px) {
+    
+    /*CAhora los elementos se orden vertcalmente*/
+    .section_1{
+        flex-wrap: wrap;
+    }
+    .popular-songs-artist {
+        width: 100%;
+    }
+    .extra-info{
+        width: 100%;
+        margin-top: 50px;
+        padding: 0px;
+    }
+
+    /*Los elmentos se orden a la par de otro en el contenedor de los favoritos*/
+
+    .list-songs-fav{
+        flex-direction: row;
+        overflow-y: auto;
+        scroll-behavior: smooth;
+    }
+    .list-songs-fav .song-fv{
+        min-width: 25%;
+    }
 }

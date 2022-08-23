@@ -66,6 +66,8 @@
                     </div>
                 </div>
 
+                <!--- Contenido Albums --> 
+
                 <div class="box-2 anim2" id="caja-2">
                     <div class="content">
                         <div class="info albums">
@@ -76,6 +78,8 @@
                         
                     </div>
                 </div>
+
+                <!--- Contenido Artistas --> 
 
                 <div class="box-3 anim2" id="caja-3">
                     <div class="content">
@@ -88,6 +92,8 @@
                         
                     </div>
                 </div>
+
+                <!--- Contenido Favoritos --> 
 
                 <div class="box-4 anim2" id="caja-4">
                     <div class="content">

@@ -36,11 +36,11 @@
 
         </div>
 
-        <main class="principal w-6/7 m-auto mt-9 pt-5 font-cuerpo">
+        <main class="principal w-6/7 m-auto mt-12 pt-5 font-cuerpo">
 
             <div class="main-content text-white anim">
 
-                <h2 class="text-white text-3xl font-bold"> Nuevos Artistas que te gustarán</h2>
+                <h2 class="text-white text-2xl font-bold"> Nuevos Artistas que te gustarán</h2>
 
                 <div class="contenedor-principal slider-1">
 
@@ -60,19 +60,16 @@
                                                 alt="Imagen de {{ $user->name }}">
                                         </div>
                                         <div class="title">
-                                            <div class="name font-titulo_2 text-lg desktop_2:text-base">
+                                            <div class="name font-titulo text-base desktop_2:text-base">
                                                 {{ $user->name }}
                                             </div>
-                                            <div class="type text-lg font-thin text-slate-300 desktop_2:text-base">
+                                            <div class="type text-base font-thin text-slate-300 desktop_2:text-base">
                                                 Artista
                                             </div>
                                         </div>
                                     </a>
                                 </div>
                             @endforeach
-
-
-                            <<<<<<< HEAD </div>
                         </div>
                         <!--contenedor-carousel --->
 
@@ -87,13 +84,13 @@
 
                 <div class="main-content text-white anim">
 
-                    <h2 class="text-white text-3xl font-bold">Artistas que pueden ser para ti</h2>
+                    <h2 class="text-white text-2xl font-bold">Artistas que pueden ser para ti</h2>
 
                     <div class="contenedor-principal slider-2">
 
                         <button rolle="button" id="flecha-izquierda"><i class="fi fi-rr-angle-left"></i></button>
 
-                        <div class="contenedor-carousel">
+                        <div class="contenedor-carousel artistas">
 
                             <!-- Datos estáticos -->
                             <div class="card drop-shadow-xl">
@@ -109,7 +106,7 @@
                                 </a>
                             </div>
                             <div class="card drop-shadow-xl">
-                                <a href="">
+                                <a href="{{ route('artista') }}">
                                     <div class="imagen">
                                         <img src="{{ asset('assets/artistas-pic/Shawn_Mendez.jpg') }} "
                                             alt="Había una Imagen xD">
@@ -212,7 +209,7 @@
 
                 <div class="main-content text-white anim">
 
-                    <h2 class="text-white text-3xl font-bold">Albums para toda la vida</h2>
+                    <h2 class="text-white text-2xl font-bold">Albums para toda la vida</h2>
 
                     <div class="contenedor-principal slider-2">
 
@@ -230,7 +227,7 @@
                                                     alt="Imagen de {{ $user->name }}">
                                             </div>
                                             <div class="title">
-                                                <div class="name font-titulo_2 text-lg desktop_2:text-base">
+                                                <div class="name font-titulo text-lg desktop_2:text-base">
                                                     {{ $user->name }}
                                                 </div>
                                                 <div class="type text-lg font-thin text-slate-300 desktop_2:text-base">
@@ -250,7 +247,7 @@
                                                 alt="Había una Imagen xD">
                                         </div>
                                         <div class="title">
-                                            <div class="name font-titulo_2 text-lg desktop_2:text-base">Harry's House</div>
+                                            <div class="name font-titulofont-bold text-lg desktop_2:text-base">Harry's House</div>
                                             <div
                                                 class="type font-cuerpo text-lg font-thin text-slate-300 desktop_2:text-base">
                                                 Harry Styles</div>
@@ -265,7 +262,7 @@
                                                 alt="Había una Imagen xD">
                                         </div>
                                         <div class="title">
-                                            <div class="name font-titulo_2 text-lg desktop_2:text-base">Fantasía</div>
+                                            <div class="name font-titulo font-bold text-lg desktop_2:text-base">Fantasía</div>
                                             <div
                                                 class="type font-cuerpo text-lg font-thin text-slate-300 desktop_2:text-base">
                                                 Sebastian Yatra</div>

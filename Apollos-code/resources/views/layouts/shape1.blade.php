@@ -24,9 +24,9 @@
 
         <title>@yield('title')| Apollo's</title>
     </head>
-    <body class="bg-black absolute" id="section-scroll">
+    <body class="bg-black" id="section-scroll">
         
-        <div class="background"></div>
+        <div class= "@yield('fondo', 'background')"></div>
 
         {{-- Se incluirá la Barra del MENU --}}
         
@@ -57,7 +57,7 @@
                         <input type="text" name="" id="" placeholder="Buscar Artista, canción, álbum">
                     </div>
                 </form>
-                <div class="resultados">No se ha obtenido ningun resultado</div>
+                <div class="resultados">No se han obtenido resultados</div>
             </div>
         </div>
 

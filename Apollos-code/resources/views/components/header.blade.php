@@ -13,7 +13,7 @@
             </li>
             <li class="mx-8  {{ $activeli ?? '' }} "><a href="{{ route('biblioteca') }}"><i class="fi fi-rs-apps"></i></i><span
                         class="tablet_3:hidden">Tu Biblioteca</span></a></li>
-            <li class="mx-8 "><a href=""><i class="fi fi-rs-music"></i><span
+            <li class="mx-8 "><a href="{{ route('artista') }}"><i class="fi fi-rs-music"></i><span
                         class="tablet_3:hidden">Crear PlayList</span></a></li>
             <li class="mx-8 cursor-pointer" id="buscar"><a><i class="fi fi-rs-search"></i><span
                         class="tablet_3:hidden">Buscar</span></a></li>

@@ -119,7 +119,6 @@ Route::delete('/usuario/{user:name_artist}/canciones/{song}/', [SongsShowControl
 Route::post('/canciones/{song}/likes/', [LikeController::class, 'store'])->name('song.likes.store');
 Route::delete('/canciones/{song}/likes/', [LikeController::class, 'destroy'])->name('song.likes.destroy');
 
-// --- UserSettings
+// ============================== EDITAR PERFIL
 Route::get('/usuario/{user:name_artist}/settings/change/',  [SettingsController::class, 'index'])->name('settings.index');
 Route::post('/usuario/{user:name_artist}/settings/change/',  [SettingsController::class, 'store'])->name('settings.store');
-Route::post('/settings/uploads/create/imagen', [ImageController::class, 'store_2'])->name('image.pfp.store');

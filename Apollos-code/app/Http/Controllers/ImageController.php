@@ -29,28 +29,6 @@ class ImageController extends Controller
         // Respuesta obtenida del app.js (dropzone.on)
         return response()->json(['imagen' => $nombreImagen]);
     }
-
-    public function store_2(Request $request)
-    {
-        // Imagen en memoria
-        $imagen = $request->file('file');
-
-        // Str::uuid() - Genera un id único para cada archivo
-        $nombreImagen = Str::uuid() . '.' . $imagen->extension();
-
-        // Imagen de Intervetion/Image
-        $imagenServidor = Image::make($imagen);
-        $imagenServidor->fit(1000, 1000);
-
-        // Ruta de la imagen - storage_path() - apunta hacia la carpeta storage
-        $imagenStorage = storage_path('app') . '/public/uploads/pfp/' . $nombreImagen;
-
-        // Guardando en storage
-        $imagenServidor->save($imagenStorage);
-
-        // Respuesta obtenida del app.js (dropzone.on)
-        return response()->json(['imagen' => $nombreImagen]);
-    }
 }
 
 

@@ -1,6 +1,5 @@
 
 // Contenedores
-
 var contenedor_1 = document.getElementById("caja-1");
 var contenedor_2 = document.getElementById("caja-2");
 var contenedor_3 = document.getElementById("caja-3");
@@ -14,9 +13,7 @@ var opcion3 = document.getElementById("op3");
 var opcion4 = document.getElementById("op4");
 
 
-opcion1.addEventListener('click', () =>{
-    
-
+opcion1.addEventListener('click', () => {
     opcion2.classList.add("remove");
     opcion3.classList.add("remove");
     opcion4.classList.add("remove");
@@ -30,8 +27,8 @@ opcion1.addEventListener('click', () =>{
     contenedor_1.classList.add("active");
 })
 
-opcion2.addEventListener('click', () =>{
-    
+opcion2.addEventListener('click', () => {
+
 
     opcion1.classList.add("remove");
     opcion3.classList.add("remove");
@@ -43,13 +40,13 @@ opcion2.addEventListener('click', () =>{
     contenedor_1.classList.remove("active");
     contenedor_3.classList.remove("active");
     contenedor_4.classList.remove("active");
-    
+
     contenedor_2.classList.add("active");
 
 })
 
-opcion3.addEventListener('click', () =>{
-    
+opcion3.addEventListener('click', () => {
+
 
     opcion1.classList.add("remove");
     opcion2.classList.add("remove");
@@ -65,8 +62,8 @@ opcion3.addEventListener('click', () =>{
 
 })
 
-opcion4.addEventListener('click', () =>{
-    
+opcion4.addEventListener('click', () => {
+
 
     opcion1.classList.add("remove");
     opcion2.classList.add("remove");

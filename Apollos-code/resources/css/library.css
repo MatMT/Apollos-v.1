@@ -21,7 +21,8 @@
 
     border-radius: 5px;
     cursor: pointer;
-    transition: 0.1s;
+    transition: 0.2s;
+    
 }
 
 .opciones li:hover{
@@ -58,6 +59,7 @@
 
 .remove{
     background-color: transparent;
+    color: rgba(255, 255, 255, 0.774);
 }
 
 

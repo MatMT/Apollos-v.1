@@ -11,10 +11,10 @@
             <li class="mx-8 {{ $active ?? '' }} ">
                 <a href="{{ route('main') }}"><i class="fi fi-rs-home"></i><span class="tablet_3:hidden">Home</span></a>
             </li>
-            <li class="mx-8  {{ $activeli ?? '' }} "><a href="{{ route('biblioteca') }}"><i
-                        class="fi fi-rs-apps"></i></i><span class="tablet_3:hidden">Tu Biblioteca</span></a></li>
-            <li class="mx-8 "><a href=""><i class="fi fi-rs-music"></i><span class="tablet_3:hidden">Crear
-                        PlayList</span></a></li>
+            <li class="mx-8  {{ $activeli ?? '' }} "><a href="{{ route('biblioteca') }}"><i class="fi fi-rs-apps"></i></i><span
+                        class="tablet_3:hidden">Tu Biblioteca</span></a></li>
+            <li class="mx-8 "><a href="{{ route('artista') }}"><i class="fi fi-rs-music"></i><span
+                        class="tablet_3:hidden">Crear PlayList</span></a></li>
             <li class="mx-8 cursor-pointer" id="buscar"><a><i class="fi fi-rs-search"></i><span
                         class="tablet_3:hidden">Buscar</span></a></li>
         </ul>
@@ -55,7 +55,8 @@
                         <a href="{{ route('profile.index', auth()->user()) }}">Perfil</a>
                     </li>
                     <li>
-                        <a href="{{ route('settings.index', auth()->user()) }}">Editar perfil
+                        <a href="{{ route('settings.index', auth()->user()) }}" class="flex gap-2 items-center">
+                            <p>Editar perfil</p>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
                                 fill="currentColor">
                                 <path
@@ -63,16 +64,18 @@
                             </svg>
                         </a>
                     </li>
-                    <li>
-                        <a href="{{ route('upload.select') }}">Subir</a>
-                    </li>
+                    @if (Auth()->user()->rol == 'artist')
+                        <li>
+                            <a href="{{ route('upload.select') }}">Subir</a>
+                        </li>
+                    @endif
                     <li>
                         <a href="{{ route('main') }}">Main</a>
                     </li>
                     <li>
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
-                            <a href="#" class="Logout" onclick="this.closest('form').submit()">Logout</a>
+                            <a href="#" class="Logout" onclick="this.closest('form').submit()">Cerrar sesión</a>
                         </form>
                     </li>
                 </ul>

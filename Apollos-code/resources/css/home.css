@@ -22,8 +22,8 @@
 }
 
 .contenedor-principal button{
-    color: rgba(255, 255, 255, 0.336);
-    transition: all 0.3s ease-in;
+    color: rgba(255, 255, 255, 0.466);
+    transition: all 0.2s ease-in;
     margin: 0px 5px;
 }
 
@@ -53,7 +53,7 @@
 .card{
     /**/
     border-radius: 20px;
-    min-width: 16.66%;
+    min-width: 14.285%;
     max-width: 259.26px;
     padding: 25px;
     transition: 0.3s ease-in-out all;

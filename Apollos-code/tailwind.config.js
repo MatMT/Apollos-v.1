@@ -7,14 +7,14 @@ module.exports = {
   ],
   theme: {
 
-    fontSize: {
+    /*fontSize: {
       '3xl': '1.875rem',
       '4xl': '2.25rem',
       '4xl': '2.25rem',
       '5xl': '3rem',
       '6xl': '4rem',
       '7xl': '5rem',
-    },
+    },*/
 
     fontFamily: {
       'logo': ['Righteous', "cursive"],
@@ -30,6 +30,7 @@ module.exports = {
       // => @media (min-width: 640px) { ... }
 
       'laptop': { 'max': '1280px' },
+
       'laptop_2': { 'max': '1380px' },
       // => @media (min-width: 1024px) { ... }
 
@@ -73,6 +74,8 @@ module.exports = {
         '102': '29rem',
         '6/7': '85%',
         '9/10': '90%',
+        '1/10': '10%',
+        '22/25': '88%',
 
       },
       height: {

@@ -16,9 +16,17 @@ class DataSongController extends Controller
 
     public function create(User $user)
     {
-        return view('uploads.create', [
-            'user' => $user,
-        ]);
+        // Usuario logeado
+        $Usuario = Auth()->user();
+
+        // Autentificación de artista
+        if ($Usuario->rol == 'artist') {
+            return view('uploads.create', [
+                'user' => $user,
+            ]);
+        } else {
+            return redirect(route('profile.index', $Usuario));
+        }
     }
 
     // Trabaja en conjunto con ImagenContoller y SongController

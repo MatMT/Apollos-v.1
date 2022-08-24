@@ -7,11 +7,20 @@ module.exports = {
   ],
   theme: {
 
+    /*fontSize: {
+      '3xl': '1.875rem',
+      '4xl': '2.25rem',
+      '4xl': '2.25rem',
+      '5xl': '3rem',
+      '6xl': '4rem',
+      '7xl': '5rem',
+    },*/
+
     fontFamily: {
       'logo': ['Righteous', "cursive"],
       'titulo': ['Montserrat Alternates', "sans-serif"],
       'titulo_2': ['Paytone One', 'sans-serif'],
-      'cuerpo': ['DM+Sans', "sans-serif"],
+      'cuerpo': ['Urbanist', "sans-serif"],
     },
 
     screens: {
@@ -21,12 +30,13 @@ module.exports = {
       // => @media (min-width: 640px) { ... }
 
       'laptop': { 'max': '1280px' },
+
       'laptop_2': { 'max': '1380px' },
       // => @media (min-width: 1024px) { ... }
 
       'desktop': { 'max': '1600px' },
       // => @media (min-width: 1280px) { ... }
-      'desktop_2': { 'max': '1500px' },
+      'desktop_2': { 'max': '1526px' },
 
       'sm': '640px',
       // => @media (min-width: 640px) { ... }
@@ -64,6 +74,8 @@ module.exports = {
         '102': '29rem',
         '6/7': '85%',
         '9/10': '90%',
+        '1/10': '10%',
+        '22/25': '88%',
 
       },
       height: {
@@ -74,3 +86,5 @@ module.exports = {
   },
   plugins: [],
 }
+
+// my-0 mx-auto  == Margin 0 auto

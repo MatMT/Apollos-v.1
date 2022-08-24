@@ -1,3 +1,5 @@
+
+/*Carrucel para Artistas */
 const fila = document.querySelector('.contenedor-carousel');
 const items = document.querySelector('.card');
 
@@ -17,3 +19,7 @@ fecha_izquierda.addEventListener('click', () =>{
     fila.scrollLeft -= fila.offsetWidth;
 
 })
+
+
+/*-------- Segundo Carrucel -------- */
+

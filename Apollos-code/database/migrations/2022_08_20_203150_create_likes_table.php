@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('songs', function (Blueprint $table) {
+        Schema::create('likes', function (Blueprint $table) {
             $table->id();
-            $table->string('name_song', 30);
-            $table->string('genre', 15);
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('url', 40);
-            $table->string('image', 40);
+            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Usuario que dio like
+            $table->foreignId('song_id')->constrained()->onDelete('cascade'); // Canción a la que le dio like
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('songs');
+        Schema::dropIfExists('likes');
     }
 };

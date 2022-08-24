@@ -9,19 +9,44 @@ class Song extends Model
 {
     use HasFactory;
 
-    // Campos a recibir
+    // INPUTS ó Campos a recibir ================
+
     protected $fillable = [
+        'sencillo',
+        'album_id',
         'name_song',
+        'time',
         'genre',
-        'user_id',
         'url',
         'image',
     ];
 
+    // RELACIÓNES ===============================
+
     // Relación inversa
-    public function user()
+    public function album()
     {
-        // Select - unicos campos a recibir
-        return $this->belongsTo(User::class)->select(['name', 'name_artist']);
+        // Una canción pertenece a un álbum
+        return $this->belongsTo(Album::class);
     }
+
+    // Relación
+    public function likes()
+    {
+        // Una canción tiene muchos likes(favoritos)
+        return $this->hasMany(Like::class);
+    }
+
+    // Válidación
+    public function checkLike(User $user)
+    {
+        // La asociación con la tabla likes, permite verificar el contenido
+        return $this->likes->contains('user_id', $user->id);
+    }
+
+    // public function user()
+    // {
+    //     // Una canción pertenece a un usuario
+    //     return $this->belongsTo(User::class)->select(['name', 'name_artist']); // Select - unicos campos a recibir
+    // }
 }

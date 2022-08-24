@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('name_artist', 25); // Varchar(30 caracteres máx) - Input modificada
             $table->boolean('gender')->nullable(); // True: Femenino - False: Masculino
             $table->date('birth_date'); // Fecha de nacimiento
+            $table->string('image', 40)->default('default-Pfp.png'); // Foto de perfil
         });
     }
 

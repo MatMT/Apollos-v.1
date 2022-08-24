@@ -28,6 +28,7 @@
                 @enderror
 
             </div> <!-- Imagen -->
+
             <div class="md:h-1/2 px-10">
 
                 <form action="{{ route('audio.store') }}" method="POST" enctype="multipart/form-data" id="dropzone_audio"
@@ -57,6 +58,11 @@
                 <!-- Token de audio -->
                 <div class="mb-5">
                     <input type="hidden" name="song" value="{{ old('song') }}" />
+                </div>
+
+                <!-- Token de duración -->
+                <div class="mb-5">
+                    <input type="hidden" name="time" value="{{ old('time') }}" />
                 </div>
 
                 <!-- Campos -->

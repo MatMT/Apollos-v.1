@@ -4,38 +4,76 @@ namespace App\Http\Controllers;
 
 use App\Models\Song;
 use App\Models\User;
+use App\Models\Album;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
+    // AUTENTIFICACIÓN ==========
     public function __construct()
     {
+        // Autentificación exceptuada para los métodos show(canción) e index(perfil)
         $this->middleware('auth');
     }
 
+    // PERFIL ==========
     public function index(User $user)
     {
-        // Llamamos al modelo y automáticamente su tabla
-        $songs = Song::where('user_id', $user->id)->paginate(8); // Get trae los resultados de la consulta - Paginate elabora una lógica para crear páginas
+        // ÁLBUMES ===
+        $albums = DB::table('albums')
+            ->where([['user_id', $user->id], ['sencillo', false]])
+            ->get(); // Get trae los resultados de la consulta en colección 
+
+        // COLECCIÓN DE SENCILLOS ===
+        $CollecionSencillos =  DB::table('albums')
+            ->where([['user_id', $user->id], ['sencillo', true]])
+            ->first();
+
+        // ÁLBUMES + SENCILLOS ===
+        $AllAlbums = Album::where('user_id', $user->id)->get(); // Todos los álbumes - (Álbumes + Sencillos)
+
+        // 1° ARRAY PROPIO - Todas lasa canciones ===
+        $AllSongs = array();
+
+        // Por cada colección obtenida
+        foreach ($AllAlbums as $album) {
+            $songs_array = Song::where('album_id', $album->id)->get();
+            //Por cada canción de cada álbum
+            foreach ($songs_array as $song) {
+                array_push($AllSongs, $song);
+            }
+        }
+
+        if ($CollecionSencillos != null) {
+            $IfSencillos = true;
+            $sencillos = Song::where([['album_id', $CollecionSencillos->id], ['sencillo', true]])->get();
+        } else {
+            $IfSencillos = false;
+            $sencillos = array();
+        }
+
+        // CONTADOR DE CANCIONES TOTALES ===
+        $counterSongs = (count($AllSongs));
+
+        // CONTADOR DISPLAYLIST ===
+        $displayList = 0;
 
         // Mostramos vista y devolvemos datos con las llaves 
         return view('profile', [
+            // VARIABLES ====
             'user' => $user,
-            'songs' => $songs
+            'albums' => $albums,
+            'CounterSongs' => $counterSongs,
+            'sencillos' => $sencillos,
+            'HaySencillos' => $IfSencillos,
+            'displayList' => $displayList
         ]);
     }
 
+    // SUBIR CANCIÓN ==========
     public function create()
     {
         return view('uploads.create');
-    }
-
-    // Importamos vairables de la URL
-    public function show(User $user, Song $song)
-    {
-        return view('uploads.show', [
-            'user' => $user,
-            'song' => $song
-        ]);
     }
 }

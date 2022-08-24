@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\User;
+use App\Models\Album;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -19,9 +20,10 @@ class SongFactory extends Factory
     public function definition()
     {
         return [
+            'user_id' => User::all()->random()->id,
+            // 'album_id' => Album::all()->random()->id,
             'name_song' => Str::ucfirst($this->faker->word()),
             'genre' =>  $this->faker->randomElement(['Pop', 'Rock', 'Electrónica', 'Instrumental']),
-            'user_id' => User::all()->random()->id,
             'url' => 'Sweden-MC.mp3',
             'image' => 'default-song.png',
             'created_at' => now(),

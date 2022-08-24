@@ -1,14 +1,21 @@
 <?php
 
+use App\Http\Controllers\DataAlbumController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PfController;
 use App\Http\Controllers\SongController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\DataSongController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\SongsShowController;
+use App\Http\Controllers\AlbumsShowController;
+use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\LikeController;
+use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,33 +54,75 @@ Route::view('/', 'welcome');
 Route::get('/inicio', [LoginController::class, 'index'])->name('login')->middleware('guest'); // Inicio de sesión
 Route::post('/inicio', [LoginController::class, 'store'])->name('login.store');
 
+// ============================== SESIÓN
+
 // Registro de usuarios ---
 Route::get('/registro', [RegisterController::class, 'index'])->name('signup')->middleware('guest'); // Autentificación de invitado
-Route::post('/registro', [RegisterController::class, 'store'])->name('signup.store');;
-
-// Cerrar sesión ---
+Route::post('/registro', [RegisterController::class, 'store'])->name('signup.store'); // Cerrar sesión
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout'); // Cerrar sesión
+
+// ============================== NAVEGACIÓN
 
 // Home ---
 Route::get('/home', [MainController::class, 'index'])->name('main');
 
 // Perfil --- Gracias al Route model binding
-Route::get('/usuario/{user:name_artist}', [ProfileController::class, 'index'])->name('posts.index');
-// Multimedia ---
-Route::get('/usuario/{user:name_artist}/canciones/{song}', [ProfileController::class, 'show'])->name('songs.show');
+Route::get('/usuario/{user:name_artist}', [ProfileController::class, 'index'])->name('profile.index');
 
-// Subir ---
-Route::get('/uploads/create', [DataSongController::class, 'create'])->name('posts.create'); // Vista
-Route::post('/uploads/create/audio', [SongController::class, 'store'])->name('audio.store'); // .mp3 
-Route::post('/uploads/create/imagen', [ImageController::class, 'store'])->name('image.store'); // Imagen 
-Route::post('/uploads/create/data', [DataSongController::class, 'store'])->name('data.store'); // Info
-
-
-
-// --- nuevas vistas
+// Biblioteca ---
 Route::view('/biblioteca', 'Library')->name('biblioteca');
+
+// Artista ---
 Route::view('/Artista', 'Artist')->name('artista');
 
+// ============================== PERFIL
+
+// Álbumes --- Imprimir
+Route::get('/usuario/{user:name_artist}/album/{album}/', [AlbumsShowController::class, 'index'])->name('albums.index');
+
+// Canciones --- Imprimir
+Route::get('/usuario/{user:name_artist}/canciones/{song}/', [SongsShowController::class, 'show'])->name('song.show');
+
+// ============================== SUBIR CANCIÓN
+
+Route::get('/uploads/selection/song/', [DataSongController::class, 'create'])->name('data.create'); // Vista
+Route::post('/uploads/selection/song/data', [DataSongController::class, 'store'])->name('data.store'); // Info
+
+// ============================== SUBIR ÁLBUM
+
+Route::get('/uploads/selection', [UploadController::class, 'index'])->name('upload.select'); // Vista - Selección
+
+Route::post('/uploads/create/imagen', [ImageController::class, 'store'])->name('image.store'); // Controlador - Imagen 
+Route::post('/uploads/create/audio', [SongController::class, 'store'])->name('audio.store'); // Controlador - Mp3 
+
+Route::get('/uploads/selection/album/step_1', [AlbumController::class, 'album_1'])->name('upload.album_1'); // Vista - subida de album
+Route::post('/uploads/selection/album/create', [AlbumController::class, 'store_1'])->name('upload.store_1'); // Validación primer paso
+
+Route::get('/uploads/selection/album/step_2', [AlbumController::class, 'album_2'])->name('upload.album_2'); // Vista - Estableciendo Titulo
+Route::post('/uploads/selection/album/step_2', [AlbumController::class, 'store_2'])->name('upload.store_2'); // Validación segundo paso
+
+Route::get('/uploads/selection/album/step_3', [AlbumController::class, 'album_3'])->name('upload.album_3'); // Vista - Estableciendo Género
+Route::post('/uploads/selection/album/step_3', [AlbumController::class, 'store_3'])->name('upload.store_3'); // Validación tecer paso
+
+Route::get('/uploads/selection/album/step_4', [AlbumController::class, 'album_4'])->name('upload.album_4'); // Vista - Subiendo Canciones
+Route::post('/uploads/selection/album/step_4/data', [DataAlbumController::class, 'store'])->name('album_data.store'); // Lógica de albúm
+Route::post('/uploads/selection/album/step_4', [AlbumController::class, 'store_4'])->name('upload.store_4'); // Validación cuarto paso
+
+Route::get('/uploads/selection/album/step_5', [AlbumController::class, 'album_5'])->name('upload.album_5'); // Vista - Confirmación
+Route::post('/uploads/selection/album/step_5', [AlbumController::class, 'store_5'])->name('upload.store_5'); // Validación tecer paso
+
+// ============================== ELIMINAR CANCIÓN
+
+Route::delete('/usuario/{user:name_artist}/canciones/{song}/', [SongsShowController::class, 'destroy'])->name('song.destroy');
+
+// ============================== FAVORITOS
+Route::post('/canciones/{song}/likes/', [LikeController::class, 'store'])->name('song.likes.store');
+Route::delete('/canciones/{song}/likes/', [LikeController::class, 'destroy'])->name('song.likes.destroy');
+
 // --- UserSettings
-Route::get('/NewPassword',  [SettingsController::class, 'NewPassword'])->name('NewPassword')->middleware('auth');
-Route::post('/change/password',  [SettingsController::class, 'changePassword'])->name('changePassword');
+Route::get('/usuario/{user:name_artist}/settings/change/',  [SettingsController::class, 'index'])->name('settings.index');
+Route::post('/usuario/{user:name_artist}/settings/change/',  [SettingsController::class, 'store'])->name('settings.store');
+Route::post('/settings/uploads/create/imagen', [ImageController::class, 'store_2'])->name('image.pfp.store');
+
+Route::post('/usuario/{user:name_artist}/settings/{album:name_album}/change',  [SongSettingsController::class, 'changeDataAlbums'])->name('album.settings');
+Route::get('/usuario/{user:name_artist}/settings/{album:name_album}',  [SongSettingsController::class, 'index'])->name('album.settings.index');

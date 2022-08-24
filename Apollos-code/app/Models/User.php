@@ -17,6 +17,9 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    // INPUTS ó Campos a recibir ================
+
     protected $fillable = [
         'name',
         'last_name',
@@ -49,10 +52,25 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    // Relación 
-    public function songs()
+    // RELACIÓNES ===============================
+
+    // Relación
+    public function albums()
     {
-        // Un usuario tiene muchas canciones
-        return $this->hasMany(Song::class);
+        // Un usuario tiene muchos albumes
+        return $this->hasMany(Album::class);
     }
+
+    // Relación
+    public function likes()
+    {
+        // Un usuario puede tener/dar múltiples likes(favoritos)
+        return $this->hasMany(Like::class);
+    }
+
+    // public function songs()
+    // {
+    //     // Un usuario tiene muchas canciones
+    //     return $this->hasMany(Song::class);
+    // }
 }

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Song;
+use App\Models\Album;
 use App\Models\User;
+use App\Models\Song;
 use Illuminate\Http\Request;
 
 class DataSongController extends Controller
@@ -15,14 +16,29 @@ class DataSongController extends Controller
 
     public function create(User $user)
     {
-        return view('uploads.create', [
-            'user' => $user,
-        ]);
+        // Usuario logeado
+        $Usuario = Auth()->user();
+
+        // Autentificación de artista
+        if ($Usuario->rol == 'artist') {
+            return view('uploads.create', [
+                'user' => $user,
+            ]);
+        } else {
+            return redirect(route('profile.index', $Usuario));
+        }
     }
 
     // Trabaja en conjunto con ImagenContoller y SongController
-    public function store(Request $request)
+    public function store(Request $request, Album $album)
     {
+        // Verificar si existe, en caso de no, se crea el registro
+        $CollecionSencillos = Album::firstOrCreate(['name_album' => ('sencillos_' . auth()->user()->name_artist)], [
+            'user_id' => auth()->user()->id,
+            'name_album' => ('sencillos_' . auth()->user()->name_artist),
+            'sencillo' => true,
+        ]);
+
         // Validación - campos completos
         $request->validate([
             'titulo' => 'required|max:30',
@@ -31,25 +47,18 @@ class DataSongController extends Controller
             'song' => 'required'
         ]);
 
-        // Registro 1
-        // Song::create([
-        //     'name_song' => $request->titulo,
-        //     'genre' => $request->genero,
-        //     'user_id' => auth()->user()->id, // Usuario autenticado
-        //     'url' => $request->song,
-        //     'image' => $request->imagen,
-        // ]);
-
-        // Registro 2 - Mediante el Usuario accedemos a su relación en su modelo
-        $request->user()->songs()->create([
+        // Registro - CANCIÓN
+        Song::create([
+            'sencillo' => true,
+            'album_id' => $CollecionSencillos->id,
             'name_song' => $request->titulo,
+            'time' => $request->time,
             'genre' => $request->genero,
-            'user_id' => auth()->user()->id, // Usuario autenticado
             'url' => $request->song,
             'image' => $request->imagen,
         ]);
 
         // Redirigir - 2 parametros, ruta y variable usuario
-        return redirect()->route('posts.index', auth()->user()->name_artist);
+        return redirect()->route('profile.index', auth()->user()->name_artist);
     }
 }

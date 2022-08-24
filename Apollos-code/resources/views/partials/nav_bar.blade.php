@@ -20,15 +20,17 @@
             @auth
                 <nav class="flex gap-2 items-center">
                     @if (auth()->user()->rol == 'artist')
-                        <a href="{{ route('posts.create') }}" class="font-bold uppercase text-gray-600 text-sm">Subir</a>
+                        <a href="{{ route('upload.select') }}" class="font-bold uppercase text-gray-600 text-sm">Subir</a>
                     @endif
 
-                    <a href="{{ route('posts.index', auth()->user()) }}"
+                    <a href="{{ route('profile.index', auth()->user()) }}"
                         class="font-bold uppercase text-gray-800 text-sm">{{ auth()->user()->name }}</a>
 
                     <a href="{{ route('main') }}" class="font-bold uppercase text-gray-600 text-sm">Home</a>
 
-                    <a href="{{ route('NewPassword') }}" class="font-bold uppercase text-gray-600 text-sm">Editar Perfil</a>
+                    <a href="{{ route('settings.index', ['user' => Auth()->user()]) }}"
+                        class="font-bold uppercase text-gray-600 text-sm">Editar
+                        Perfil</a>
 
 
                     <form action="{{ route('logout') }}" class="font-bold uppercase text-gray-600 text-sm" method="POST">
@@ -42,7 +44,6 @@
                     <a class="font-bold uppercase text-gray-600 text-sm" href="/">Welcome</a>
                     <a class="font-bold uppercase text-gray-600 text-sm" href="{{ route('login') }}">Login</a>
                     <a class="font-bold uppercase text-gray-600 text-sm" href="{{ route('signup') }}">Crear cuenta</a>
-                    <a class="font-bold uppercase text-gray-600 text-sm" href="{{ route('signup') }}">Crear cuenta</a>
                 </nav>
             @endguest
 
@@ -51,7 +52,7 @@
 
 
     <main class="container mx-auto mt-10">
-        <h2 class="font-black text-center text-3xl mb-10">
+        <h2 class="font-black text-center text-5xl mb-10">
             @yield('titulo')
         </h2>
         @yield('contenido')
@@ -60,6 +61,9 @@
     <footer class="mt-10 text-center p-5 text-gray-500 font-bold uppercase ">
         Apollo's - Todos los derechos reservados {{ now()->year }}
     </footer>
+
+    @stack('noBack')
+
 </body>
 
 </html>

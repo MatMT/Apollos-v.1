@@ -35,33 +35,6 @@ class SettingsController extends Controller
     public function store(Request $request)
     {
         $userAuth = Auth::user();
-        $userPassword = $userAuth->password;
-
-        // Nombre - Si el campo no esta vació y es diferente al ya registrado
-        if ($request->new_name != "" && $userAuth->name != $request->new_name) {
-            // Validación
-            $this->validate($request, [
-                'new_name' => 'min:2|max:20',
-            ]);
-            $name       = $request->new_name;
-            $sqlBDUpdateName = DB::table('users')
-                ->where('id', $userAuth->id)
-                ->update(['name' => $name]);
-            return Redirect::back()->with('message');
-        }
-
-        // Apellido
-        if ($request->new_lastname != "" && $userAuth->last_name != $request->new_lastname) {
-            // Validación
-            $this->validate($request, [
-                'new_lastname' => 'min:4|max:25',
-            ]);
-            $last_name       = $request->new_lastname;
-            $sqlBDUpdateName = DB::table('users')
-                ->where('id', $userAuth->id)
-                ->update(['last_name' => $last_name]);
-            return Redirect::back()->with('message');
-        }
 
         // Nombre artístico
         if ($request->username != "" && $userAuth->username != $request->username) {
@@ -74,11 +47,38 @@ class SettingsController extends Controller
             $sqlBDUpdateName = DB::table('users')
                 ->where('id', $userAuth->id)
                 ->update(['username' => $username]);
-            return Redirect::back()->with('message');
+            return Redirect::back()->with('cambios');
+        }
+
+        // Nombre - Si el campo no esta vació y es diferente al ya registrado
+        if ($request->new_name != "" && $userAuth->name != $request->new_name) {
+            // Validación
+            $this->validate($request, [
+                'new_name' => 'min:2|max:20',
+            ]);
+            $name       = $request->new_name;
+            $sqlBDUpdateName = DB::table('users')
+                ->where('id', $userAuth->id)
+                ->update(['name' => $name]);
+            return Redirect::back()->with('cambios');
+        }
+
+        // Apellido
+        if ($request->new_lastname != "" && $userAuth->last_name != $request->new_lastname) {
+            // Validación
+            $this->validate($request, [
+                'new_lastname' => 'min:4|max:25',
+            ]);
+            $last_name       = $request->new_lastname;
+            $sqlBDUpdateName = DB::table('users')
+                ->where('id', $userAuth->id)
+                ->update(['last_name' => $last_name]);
+            return Redirect::back()->with('cambios');
         }
 
         // Imagen de perfil
         if ($request->image) {
+
             // GUARDAR ARCHIVO ================
             // Imagen en memoria
             $imagen = $request->file('image');
@@ -93,40 +93,43 @@ class SettingsController extends Controller
             $imagenServidor->save($imagenStorage);
 
             // GUARDAR REGISTRO ==============
-            $image = $request->image;
             $sqlBDUpdateName = DB::table('users')
                 ->where('id', $userAuth->id)
                 ->update(['image' => $nombreImagen]);
-            return Redirect::back()->with('message');
+            return Redirect::back()->with('cambios');
         }
 
+        $userPassword = $userAuth->password;
 
         // Contraseña
         if ($request->password_actual != "") {
-            $NuewPass   = $request->password;
+            $NewPass = $request->password;
             $confirmPass = $request->confirm_password;
-            $name       = $request->name;
+            $name = $request->name;
 
-            //Verifico si la clave actual es igual a la clave del usuario en session
+            // Verificar si la clave actual es igual a la clave del usuario en session
             if (Hash::check($request->password_actual, $userPassword)) {
 
                 //Valido que tanto la 1 como 2 clave sean iguales
-                if ($NuewPass == $confirmPass) {
+                if ($NewPass == $confirmPass) {
                     //Valido que la clave no sea Menor a 6 digitos
-                    if (strlen($NuewPass) >= 6) {
-                        $userAuth->password = Hash::make($request->password);
+                    if (strlen($NewPass) >= 4) {
+                        $changePass = Hash::make($NewPass);
+
                         $sqlBD = DB::table('users')
                             ->where('id', $userAuth->id)
-                            ->update(['password' => $userAuth->password], ['name' => $userAuth->name]);
+                            ->update(['password' => $changePass]);
 
-                        return Redirect::back()->with('message', 'La clave fue cambiada correctamente.');
+                        return Redirect::back()->with('cambios');
                     } else {
-                        Redirect::back()->with('message', 'Recuerde la clave debe ser mayor a 6 digitos.');
+                        Redirect::back()->with('cambios');
                     }
                 } else {
-                    Redirect::back()->with('message', 'Por favor verifique las claves no coinciden.');
+                    dd('contraseña no igual o igual a la anterior');
+                    Redirect::back()->with('cambios');
                 }
             } else {
+                // Contraseña actual incorrecta
                 Redirect::back()->withErrors(['password_actual' => 'La Clave no Coinciden']);
             }
         }

@@ -9,16 +9,18 @@ use App\Models\User;
 
 class AlbumController extends Controller
 {
-    // Vistas de selección
-    public function index()
-    {
-        return view('uploads.upload');
-    }
-
     // Redirección a sección de álbum
     public function album_1()
     {
-        return view('uploads.up_album_1');
+        // Usuario logeado
+        $Usuario = Auth()->user();
+
+        // Autentificación de artista
+        if ($Usuario->rol == 'artist') {
+            return view('uploads.up_album_1');
+        } else {
+            return redirect(route('profile.index', $Usuario));
+        }
     }
 
     // 1° Paso --- SUBIDA DE IMAGÉN
@@ -42,7 +44,15 @@ class AlbumController extends Controller
 
     public function album_2()
     {
-        return view('uploads.up_album_2');
+        // Usuario logeado
+        $Usuario = Auth()->user();
+
+        // Autentificación de artista
+        if ($Usuario->rol == 'artist') {
+            return view('uploads.up_album_2');
+        } else {
+            return redirect(route('profile.index', $Usuario));
+        }
     }
 
     // 2° Paso --- ESTABLECIENDO TITULO
@@ -69,7 +79,15 @@ class AlbumController extends Controller
 
     public function album_3()
     {
-        return view('uploads.up_album_3');
+        // Usuario logeado
+        $Usuario = Auth()->user();
+
+        // Autentificación de artista
+        if ($Usuario->rol == 'artist') {
+            return view('uploads.up_album_3');
+        } else {
+            return redirect(route('profile.index', $Usuario));
+        }
     }
 
     // 3° Paso --- ESTABLECIENDO GÉNERO
@@ -96,22 +114,30 @@ class AlbumController extends Controller
     // 4° Paso --- GUARDANDO E IMPRIMIENDO CANCIONES
     public function album_4()
     {
-        // Obtener el último albúm del usuario
-        $album = Album::where('user_id', auth()->user()->id)
-            ->latest()
-            // Obtenes el registro individual
-            ->first();
+        // Usuario logeado
+        $Usuario = Auth()->user();
 
-        // Id del Usuario atenticado
-        $userId = auth()->user()->id;
+        // Autentificación de artista
+        if ($Usuario->rol == 'artist') {
+            // Obtener el último albúm del usuario
+            $album = Album::where('user_id', auth()->user()->id)
+                ->latest()
+                // Obtenes el registro individual
+                ->first();
 
-        $songs = Song::where('album_id', $album->id)->get(); // Get trae los resultados de la consulta
+            // Id del Usuario atenticado
+            $userId = auth()->user()->id;
 
-        // Variable contador
-        $i = 0;
+            $songs = Song::where('album_id', $album->id)->get(); // Get trae los resultados de la consulta
 
-        // Vista con 2 variables
-        return view('uploads.up_album_4', ['songs' => $songs, "i" => $i]);
+            // Variable contador
+            $i = 0;
+
+            // Vista con 2 variables
+            return view('uploads.up_album_4', ['songs' => $songs, "i" => $i]);
+        } else {
+            return redirect(route('profile.index', $Usuario));
+        }
     }
 
     public function store_4(Request $request)
@@ -122,67 +148,35 @@ class AlbumController extends Controller
     // 5° Paso --- CONFIRMACIÓN FINAL
     public function album_5()
     {
-        // Obtener el último albúm del usuario
-        $album = Album::where('user_id', auth()->user()->id)
-            ->latest()
-            // Obtenes el registro individual
-            ->first();
+        // Usuario logeado
+        $Usuario = Auth()->user();
 
-        // Id del Usuario atenticado
-        $userId = auth()->user()->id;
+        // Autentificación de artista
+        if ($Usuario->rol == 'artist') {
+            // Obtener el último albúm del usuario
+            $album = Album::where('user_id', auth()->user()->id)
+                ->latest()
+                // Obtenes el registro individual
+                ->first();
 
-        $songs = Song::where('album_id', $album->id)->get(); // Get trae los resultados de la consulta
+            // Id del Usuario atenticado
+            $userId = auth()->user()->id;
 
-        // Variable contador
-        $i = 0;
+            $songs = Song::where('album_id', $album->id)->get(); // Get trae los resultados de la consulta
 
-        // Vista con 2 variables
-        return view('uploads.up_album_5', ['songs' => $songs, "i" => $i, 'album' => $album]);
+            // Variable contador
+            $i = 0;
+
+            // Vista con 2 variables
+            return view('uploads.up_album_5', ['songs' => $songs, "i" => $i, 'album' => $album]);
+        } else {
+            return redirect(route('profile.index', $Usuario));
+        }
     }
 
     public function store_5(User $user)
     {
-        // Validación - aceptar terminos y condiciones
-        // $request->validate([
-        //     'check' => 'required',
-        // ]);
-
-
         // Pasada la validación se envía a la siguiente página
         return redirect()->route('profile.index', auth()->user()->name_artist);
-    }
-
-
-    // Trabaja en conjunto con ImagenContoller y SongController
-    public function store(Request $request)
-    {
-        // Validación - campos completos
-        // $request->validate([
-        //     'titulo' => 'required|max:30',
-        //     'genero' => 'required',
-        //     'imagen' => 'required',
-        //     'song' => 'required'
-        // ]);
-
-        // Registro 1
-        // Song::create([
-        //     'name_song' => $request->titulo,
-        //     'genre' => $request->genero,
-        //     'user_id' => auth()->user()->id, // Usuario autenticado
-        //     'url' => $request->song,
-        //     'image' => $request->imagen,
-        // ]);
-
-        // Registro 2 - Mediante el Usuario accedemos a su relación en su modelo
-        // $request->user()->songs()->create([
-        //     'name_song' => $request->titulo,
-        //     'genre' => $request->genero,
-        //     'user_id' => auth()->user()->id, // Usuario autenticado
-        //     'url' => $request->song,
-        //     'image' => $request->imagen,
-        // ]);
-
-        // // Redirigir - 2 parametros, ruta y variable usuario
-        // return redirect()->route('uploads.store', auth()->user()->name_artist);
     }
 }

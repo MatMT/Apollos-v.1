@@ -47,18 +47,18 @@ body::before {
     z-index: -6;
 }
 
-.muralArtist{
+.muralArtist {
     width: 100%;
     position: absolute;
     left: 0%;
     top: 0%;
     z-index: -7;
 }
-.muralArtist img{
+.muralArtist img {
     width: 100%;
 }
 
-.muralArtist::after{
+.muralArtist::after {
     content: "";
     width: 100%;
     height: calc(100% + 10px);
@@ -206,7 +206,7 @@ header .Logout {
 
 /*--- ---- ---- ----- ---- ---- Sticky header ---- ---- ---- ---- */
 header {
-    position: sticky;
+    /* position: fixed; */
     left: 0%;
     top: 0%;
     transition: 0.5s ease-in-out all;

@@ -77,7 +77,8 @@
             @if ($user->id == auth()->user()->id)
                 {{-- Artista dueño de la canción --}}
                 <div class="1/6 flex justify-center items-center gap-2">
-                    <form action="">
+                             {{-- Editar album --}}
+                    <form action="{{ route('album.settings.index', $user) }}">
                         <input type="submit" value="Editar canción" name="" id=""
                             class="bg-blue-500 hover:bg-blue-600 p-2 rounded text-white font-bold cursor-pointer">
                     </form>

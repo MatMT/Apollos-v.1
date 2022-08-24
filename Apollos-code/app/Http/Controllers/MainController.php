@@ -22,7 +22,7 @@ class MainController extends Controller
             ->get();
 
         return view('main', [
-            'users' => $users
+            'users' => $users,
         ]);
     }
 }

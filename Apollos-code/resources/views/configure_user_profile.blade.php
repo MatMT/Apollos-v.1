@@ -9,12 +9,11 @@
 @endpush
 
 @section('titulo')
-    Actualizar mi datos
+    Editar Perfil: {{ auth()->user()->name_artist }}
 @endsection
 
 @section('contenido')
     <div class="container mb-5" style="background-color: #fff;">
-
         <!--- Mensajes -->
         @if (session()->has('name'))
             {{ session()->get('name') }}
@@ -90,10 +89,10 @@
             {{-- Intento new Artist Name --}}
             <div class="row mb-3">
                 <div class="form-group mt-3">
-                    <label for="new_artname">Actualiza tu Nombre de Artista</label>
-                    <input type="text" name="new_artname" value="{{ Auth::user()->username }}"
-                        class="form-control @error('new_artname') is-invalid @enderror" required>
-                    @error('new_artname')
+                    <label for="username">Actualiza tu Nombre de Artista</label>
+                    <input type="text" name="username" value="{{ Auth::user()->username }}"
+                        class="form-control @error('username') is-invalid @enderror" required>
+                    @error('username')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>

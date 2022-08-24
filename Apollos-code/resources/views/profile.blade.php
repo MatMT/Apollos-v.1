@@ -35,24 +35,55 @@
                     <h1 class="followers">0 Seguidores</h1>
 
                     @if ($user->rol == 'artist')
-                        <h1 class="songs inline-block"> {{ $CounterSongs }} Canciones</h1> | <h1 class="albums inline-block">
-                            {{ $albums->count() }} Álbumes
+                        <h1 class="songs inline-block"> {{ $CounterSongs }}
+                            {{ $CounterSongs === 1 ? 'Canción' : 'Canciones' }}</h1> | <h1 class="albums inline-block">
+                            {{ $albums->count() }} {{ $albums->count() === 1 ? 'Álbum' : 'Álbumes' }}
                         </h1>
                     @endif
 
                     @if (auth()->user()->name == $user->name)
-                        <div class="auth-user flex">
-                            <a href="{{ route('settings.index', $user) }}" class="artist-bttn mt-5 inline-block">
-                                Editar perfil
+                        <div class="auth-user flex gap-2">
+                            <a href="{{ route('settings.index', $user) }}" class="artist-bttn mt-5 ">
+                                <div class="flex gap-1 items-center">
+                                    <p>Editar perfil</p>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                        fill="currentColor">
+                                        <path
+                                            d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                                    </svg>
+                                </div>
                             </a>
-
-                            <a href="{{ route('upload.select') }}" class="artist-bttn mt-5 inline-block ml-5">Subir
-                                contenido</a>
+                            @if (auth()->user()->rol == 'artist')
+                                <a href="{{ route('upload.select') }}" class="artist-bttn mt-5">
+                                    <div class="flex gap-1 items-center">
+                                        <p>Subir contenido</p>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                            fill="currentColor">
+                                            <path
+                                                d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z" />
+                                        </svg>
+                                    </div>
+                                </a>
+                            @endif
                         </div>
                     @else
                         <div class="user-follow flex">
-                            <div class="follow mt-5">
+                            {{-- FUTURO IF SEGUIR --}}
+                            <div class="follow mt-5 flex items-center gap-2 mr-2">
                                 Seguir
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+                                </svg>
+                            </div>
+                            <div class="follow mt-5 flex items-center gap-2">
+                                Siguiendo
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
                             </div>
                         </div>
                     @endif
@@ -73,28 +104,39 @@
     <br>
     <br>
 
+
     <div class="flex justify-around">
+
         <div class="contenedores">
+            <h1 class='public-albums text-white font-titulo text-3xl font-bold mb-5 anim2'>Álbumes publicados</h1>
             <div class="box-1 active anim2" id="caja-1">
-                <div class="content">
+                <div class="content flex items-center justify-center">
 
                     @if ($albums->count())
                         @foreach ($albums as $album)
                             <div class="playList">
-                                <!-- IMG -->
-                                <img src="{{ asset('storage') . '/uploads/imagenes/' . $album->image }}"
-                                    alt="Imagen del album {{ $album->name_album }}">
-
                                 <!-- LINK -->
                                 {{-- Se mapea automaticamente la ruta por cada song en su url --}}
                                 <a href="{{ route('albums.index', ['user' => $user, 'album' => $album->id]) }}">
-                                    <h2 class="font-cuerpo font-bold mt-4 text-lg">{{ $album->name_album }}</h2>
-                                </a>
+                                    <!-- IMG -->
+                                    <img src="{{ asset('storage') . '/uploads/imagenes/' . $album->image }}"
+                                        alt="Imagen del album {{ $album->name_album }}">
 
-                                <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Nuevos álbumes:D
-                                </p>
+                                    <h2 class="font-cuerpo font-bold mt-4 text-lg text-center">{{ $album->name_album }}
+                                    </h2>
+                                </a>
                             </div>
                         @endforeach
+                    @else
+                        <div class="song-container-tabs mt-2 mb-5 leading-3">
+                            <span class="disc-ico"><img src="{{ asset('assets/icons/discIconWht.png') }}"></span>
+                            <h1 class='text-white font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>
+                                {{ auth()->user()->name == $user->name ? '¡Sube tu primer álbum!' : 'Todavía no sube contenido...' }}
+                            </h1>
+                            <h1 class='if-subtitle text-slate-500 font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>
+                                {{ auth()->user()->name == $user->name ? 'Y muestra tu talento ' : '¡Espera su primer álbum!' }}
+                            </h1>
+                        </div>
                     @endif
                 </div>
             </div>
@@ -106,26 +148,27 @@
                 <div class="content">
                     <div class="song-list-container ">
 
-                        <div class="song-container-tabs flex items-center justify-center mt-2 mb-5 ">
-                            <div class="song-info-tab inline-flex items-center justify-center pb-2 border-b border-white">
-                                <h1 class="id-song-tab"> # </h1>
-                                <span class="song-pic-tab"><img src='{{ asset('assets/icons/imageIconWht.png') }}'></span>
-                                <span class="title-author-tab">
-                                    <h1 class="song-title text-center">Nombre de la canción</h1>
-                                </span>
-                                <h1 class='counter-time-tab text-center'><img
-                                        src='{{ asset('assets/icons/timerIconWht.png') }}'></h1>
-                                <h1 class='likes-tab text-center'>Me gusta</h1>
+                        @if ($HaySencillos)
+                            <div class="song-container-tabs flex items-center justify-center mt-2 mb-5 ">
+                                <div
+                                    class="song-info-tab inline-flex items-center justify-center pb-2 border-b border-white">
+                                    <h1 class="id-song-tab"> # </h1>
+                                    <span class="song-pic-tab"><img
+                                            src='{{ asset('assets/icons/imageIconWht.png') }}'></span>
+                                    <span class="title-author-tab">
+                                        <h1 class="song-title text-center">Nombre de la canción</h1>
+                                    </span>
+                                    <h1 class='counter-time-tab text-center'><img
+                                            src='{{ asset('assets/icons/timerIconWht.png') }}'></h1>
+                                    <h1 class='likes-tab text-center'>Me gusta</h1>
+                                </div>
                             </div>
-                        </div>
-
-                        @if ('HaySencillos')
                             @foreach ($sencillos as $sencillo)
                                 {{-- Se mapea automaticamente la ruta por cada song en su url --}}
 
                                 <div class="song-container flex items-center justify-center mt-2">
                                     <div class="song-info inline-flex items-center justify-center">
-                                        <h1 class="id-song">{{ $sencillo->id }}</h1>
+                                        <h1 class="id-song">{{ $displayList = $displayList + 1 }}</h1>
                                         <span class="song-pic"><img
                                                 src="{{ asset('storage') . '/uploads/imagenes/' . $sencillo->image }}"></span>
                                         <span class="title-author">
@@ -138,38 +181,23 @@
                                     </div>
                                 </div>
                             @endforeach
+                        @else
+                            <div class="content flex items-center justify-center">
+                                <div class="song-container-tabs mt-2 mb-5 leading-3">
+                                    <span class="disc-ico"><img src="{{ asset('assets/icons/discIconWht.png') }}"></span>
+                                    <h1 class='text-white font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>
+                                        {{ auth()->user()->name == $user->name ? '¡Sube tu primera canción!' : 'Todavía no sube contenido...' }}
+                                    </h1>
+                                    <h1
+                                        class='if-subtitle text-slate-500 font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>
+                                        {{ auth()->user()->name == $user->name ? 'Y muestra tu talento ' : '¡Espera su primera canción!' }}
+                                    </h1>
+                                </div>
+                            </div>
                         @endif
                     </div>
                 </div>
             </div>
-
-            <div class="box-3 anim2" id="caja-3">
-                <div class="content">
-                    <div class="info artista">
-                        <img src="{{ asset('assets/artistas-pic/ed_sheeran.jpg') }} " class="rounded-full"
-                            alt="Había una Imagen xD">
-                        <h2 class="font-cuerpo font-bold mt-4 text-lg">Ed Sheeran</h2>
-                        <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Artista</p>
-                    </div>
-
-
-                </div>
-            </div>
-
-            <div class="box-4 anim2" id="caja-4">
-                <div class="content">
-                    <div class="info favoritos">
-                        <img src="{{ asset('assets/artistas-pic/ed_sheeran.jpg') }} " class="rounded-full"
-                            alt="Había una Imagen xD">
-                        <h2 class="font-cuerpo font-bold mt-4 text-lg">Ed Sheeran</h2>
-                        <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Artista</p>
-                    </div>
-
-
-                </div>
-            </div>
         </div>
-
     </div>
-
 @endsection

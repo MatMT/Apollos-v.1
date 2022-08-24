@@ -55,7 +55,8 @@
                         <a href="{{ route('profile.index', auth()->user()) }}">Perfil</a>
                     </li>
                     <li>
-                        <a href="{{ route('settings.index', auth()->user()) }}">Editar perfil
+                        <a href="{{ route('settings.index', auth()->user()) }}" class="flex gap-2 items-center">
+                            <p>Editar perfil</p>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
                                 fill="currentColor">
                                 <path
@@ -63,16 +64,18 @@
                             </svg>
                         </a>
                     </li>
-                    <li>
-                        <a href="{{ route('upload.select') }}">Subir</a>
-                    </li>
+                    @if (Auth()->user()->rol == 'artist')
+                        <li>
+                            <a href="{{ route('upload.select') }}">Subir</a>
+                        </li>
+                    @endif
                     <li>
                         <a href="{{ route('main') }}">Main</a>
                     </li>
                     <li>
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
-                            <a href="#" class="Logout" onclick="this.closest('form').submit()">Logout</a>
+                            <a href="#" class="Logout" onclick="this.closest('form').submit()">Cerrar sesión</a>
                         </form>
                     </li>
                 </ul>

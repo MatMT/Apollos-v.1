@@ -68,9 +68,22 @@ class User extends Authenticatable
         return $this->hasMany(Like::class);
     }
 
-    // public function songs()
-    // {
-    //     // Un usuario tiene muchas canciones
-    //     return $this->hasMany(Song::class);
-    // }
+    // Relación inversa - Seguidores de un usuario
+    public function followers()
+    {
+        return $this->belongsToMany(User::class, 'followers', 'user_id', 'follower_id');
+    }
+
+    // Relación - Seguidos de un usuario
+    public function followings()
+    {
+        return $this->belongsToMany(User::class, 'followers', 'follower_id', 'user_id');
+    }
+
+    // Comprobrar si un usuario ya sigue a otro
+    public function siguiendo(User $user)
+    {
+        // Acceder al método followers y comprobar si ya esta el registro en toda su colección
+        return $this->followers->contains($user->id);
+    }
 }

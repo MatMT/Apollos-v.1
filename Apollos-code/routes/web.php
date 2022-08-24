@@ -5,7 +5,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\PfController;
+use App\Http\Controllers\SongSettingController;
 use App\Http\Controllers\SongController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\DataSongController;
@@ -14,6 +14,7 @@ use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\SongsShowController;
 use App\Http\Controllers\AlbumsShowController;
 use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\FollowerController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\Route;
@@ -50,15 +51,16 @@ use Illuminate\Support\Facades\Route;
 // Método simple "view" responde como peticiones de tipo "get" y "head"
 Route::view('/', 'welcome');
 
-// Registro de usuarios ---
-Route::get('/inicio', [LoginController::class, 'index'])->name('login')->middleware('guest'); // Inicio de sesión
-Route::post('/inicio', [LoginController::class, 'store'])->name('login.store');
-
-// ============================== SESIÓN
+// ============================== REGISTRO
 
 // Registro de usuarios ---
 Route::get('/registro', [RegisterController::class, 'index'])->name('signup')->middleware('guest'); // Autentificación de invitado
 Route::post('/registro', [RegisterController::class, 'store'])->name('signup.store'); // Cerrar sesión
+
+// ============================== INICIO SESIÓN
+
+Route::get('/inicio', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/inicio', [LoginController::class, 'store'])->name('login.store');
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout'); // Cerrar sesión
 
 // ============================== NAVEGACIÓN
@@ -115,14 +117,22 @@ Route::post('/uploads/selection/album/step_5', [AlbumController::class, 'store_5
 
 Route::delete('/usuario/{user:name_artist}/canciones/{song}/', [SongsShowController::class, 'destroy'])->name('song.destroy');
 
+// ============================== FOLLOW
+
+Route::post('/usuario/{user:name_artist}/follow/', [FollowerController::class, 'store'])->name('users.follow');
+Route::delete('/usuario/{user:name_artist}/unfollow/', [FollowerController::class, 'destroy'])->name('users.unfollow');
+
 // ============================== FAVORITOS
+
 Route::post('/canciones/{song}/likes/', [LikeController::class, 'store'])->name('song.likes.store');
 Route::delete('/canciones/{song}/likes/', [LikeController::class, 'destroy'])->name('song.likes.destroy');
 
-// --- UserSettings
+// ============================== EDITAR PERFIL
+
 Route::get('/usuario/{user:name_artist}/settings/change/',  [SettingsController::class, 'index'])->name('settings.index');
 Route::post('/usuario/{user:name_artist}/settings/change/',  [SettingsController::class, 'store'])->name('settings.store');
-Route::post('/settings/uploads/create/imagen', [ImageController::class, 'store_2'])->name('image.pfp.store');
 
-Route::post('/usuario/{user:name_artist}/settings/{album:name_album}/change',  [SongSettingsController::class, 'changeDataAlbums'])->name('album.settings');
-Route::get('/usuario/{user:name_artist}/settings/{album:name_album}',  [SongSettingsController::class, 'index'])->name('album.settings.index');
+// ============================== EDITAR ÁLBUMES
+
+Route::post('/usuario/{user:name_artist}/settings/{album:name_album}/change',  [SongSettingController::class, 'changeDataAlbums'])->name('album.settings');
+Route::get('/usuario/{user:name_artist}/settings/{album:name_album}',  [SongSettingController::class, 'index'])->name('album.settings.index');

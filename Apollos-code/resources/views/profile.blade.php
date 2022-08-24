@@ -32,7 +32,12 @@
                         {{ $user->username }}
                     </h1>
 
-                    <h1 class="followers">0 Seguidores</h1>
+                    <p class="followers">
+                        {{ $user->followers->count() }} @choice('Seguidor|Seguidores', $user->followers->count())
+                    </p>
+                    <p>
+                        {{ $user->followings->count() }} Siguiendo
+                    </p>
 
                     @if ($user->rol == 'artist')
                         <h1 class="songs inline-block"> {{ $CounterSongs }}
@@ -69,22 +74,37 @@
                     @else
                         <div class="user-follow flex">
                             {{-- FUTURO IF SEGUIR --}}
-                            <div class="follow mt-5 flex items-center gap-2 mr-2">
-                                Seguir
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
-                                </svg>
-                            </div>
-                            <div class="follow mt-5 flex items-center gap-2">
-                                Siguiendo
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                            </div>
+
+                            {{-- $user = Perfil | Auth = Persona logeada --}}
+                            @if (!$user->siguiendo(auth()->user()))
+                                <form action="{{ route('users.follow', $user) }}" method="POST">
+                                    @csrf
+
+                                    <div class="follow mt-5 flex items-center gap-2 mr-2">
+                                        <input type="submit" value="Seguir">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+                                        </svg>
+                                    </div>
+                                </form>
+                            @else
+                                <form action="{{ route('users.unfollow', $user) }}" method="POST">
+                                    @method('DELETE')
+                                    @csrf
+
+                                    <div class="follow mt-5 flex items-center gap-2">
+                                        <input type="submit" value="Siguiendo">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                    </div>
+                                </form>
+                            @endif
+
                         </div>
                     @endif
                 </div>

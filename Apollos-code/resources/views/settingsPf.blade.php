@@ -10,6 +10,14 @@
             display: none;
         }
 
+        .IMPORTANTactive {
+            display: inline !important;
+        }
+
+        .IMPORTANTnormal {
+            font-weight: normal !important;
+        }
+
         li {
             cursor: pointer;
         }
@@ -26,15 +34,14 @@
 
 @section('contenido')
     <div class="md:flex md:justify-center">
-        <div class=" w-full justify-center md:w-3/4 flex bg-white shadow minH">
+        <div class="  justify-center md:w-3/4 flex bg-white shadow minH">
             <!-- Barra lateral | ESTÁTICA -->
             <aside class="w-1/4" aria-label="Sidebar md:w-1/4">
-                <div class="h-full py-4 px-3 bg-gray-50 rounded dark:bg-gray-800">
+                <div class="h-full py-4 px-3 rounded bg-gray-800">
                     <ul class="space-y-2">
-                        <!-- Mensaje -->
-                        @if (!session()->has('cambios'))
-                            <li class="flex p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800"
-                                role="alert">
+                        <!-- Mensajes -->
+                        @if (session()->has('NoCambios'))
+                            <li class="flex p-4 mb-4 text-sm rounded-lg bg-red-200 text-red-800" role="alert">
                                 <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor"
                                     viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
@@ -43,9 +50,9 @@
                                 </svg>
                                 <p class="font-medium">Campos inválidos!</p>
                             </li>
-
-                            <li class="flex p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800"
-                                role="alert">
+                        @endif
+                        @if (session()->has('cambios'))
+                            <li class="flex p-4 mb-4 text-sm rounded-lg bg-green-200 text-green-800" role="alert">
                                 <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor"
                                     viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
@@ -55,30 +62,30 @@
                                 <p class="font-medium">Campos actualizados!</p>
                             </li>
                         @endif
-                        <li id="opcion1">
-                            <p
-                                class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                    class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                                    fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                <span class="ml-3 font-bold" id="TitleSect1">Información de perfil</span>
-                            </p>
+                        <li id="opcion1"
+                            class="flex items-center p-2 text-base font-normal rounded-lg text-white hover:bg-gray-700">
+                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                class="flex-shrink-0 w-6 h-6 transition duration-75 text-gray-400 group-hover:text-white"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="flex-1 ml-3 @if (!session()->has('NoCambios')) font-bold @endif "
+                                id="TitleSect1">Información de
+                                perfil</span>
                         </li>
-                        <li id="opcion2">
-                            <p
-                                class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                    class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                                    viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                        d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                                <span class="flex-1 ml-3 whitespace-nowrap" id="TitleSect2">Contraseña</span>
-                            </p>
+                        <li id="opcion2"
+                            class="flex items-center p-2 text-base font-normal rounded-lg text-white hover:bg-gray-700">
+
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class=" flex-shrink-0 w-6 h-6 transition duration-75 text-gray-400 group-hover:text-white"
+                                viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span class="flex-1 ml-3 @if (session()->has('NoCambios')) font-bold @endif"
+                                id="TitleSect2">Contraseña</span>
                         </li>
                     </ul>
                 </div>
@@ -87,7 +94,7 @@
             <!-- Contenido | DINÁMICO -->
             <div class="md:w-3/4 p-12">
                 <!-- Contraseña -->
-                <div id="password" class="desactive">
+                <div id="password" class=" @if (!session()->has('NoCambios')) desactive @endif ">
                     <form action="{{ route('settings.store', $user) }}" class="mt-10 md:mt-0" method="POST">
                         @csrf
                         <!-- Contraseña actual -->
@@ -140,7 +147,7 @@
                     </form>
                 </div>
                 <!-- Datos de perfil -->
-                <div id="info">
+                <div id="info" class="@if (session()->has('NoCambios')) desactive @endif">
                     <form action="{{ route('settings.store', $user) }}" class="mt-10 md:mt-0" method="POST"
                         enctype="multipart/form-data">
                         @csrf

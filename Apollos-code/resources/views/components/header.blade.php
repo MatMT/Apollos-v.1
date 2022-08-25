@@ -50,7 +50,7 @@
 
                 <div class="line h-px w-full bg-white opacity-25 rounded"></div>
 
-                <ul class="anim options p-3" id="opciones">
+                <ul class="anim options font-cuerpo p-3" id="opciones">
                     <li>
                         <a href="{{ route('profile.index', auth()->user()) }}">Perfil</a>
                     </li>

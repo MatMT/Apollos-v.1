@@ -59,8 +59,9 @@
     <div class="overway_2" id="overlay_2">
         <div class="buscador" id="popup_2">
             <div class="btn-close"><i class="fi fi-rr-cross" id="btn-close"></i> </div>
-            <h2 class="text-xl font-cuerpo font-bold mb-7">Busca Algo</h2>
-            <form action="">
+            <h2 class="text-xl font-cuerpo font-bold mb-7">Busca algo pepe</h2>
+            {{-- en este form action se agregara la ruta de web donde establezcamos el que buscar --}}
+            <form action=""> 
                 <div class="contenedor-input">
                     <i class="fi fi-rs-search text-xl mx-2 mr-4"></i>
                     <input type="text" name="" id="" placeholder="Buscar Artista, canción, álbum">

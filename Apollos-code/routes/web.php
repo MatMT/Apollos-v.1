@@ -18,7 +18,6 @@ use App\Http\Controllers\FollowerController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\Route;
-use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -141,7 +140,3 @@ Route::post('/usuario/{user:name_artist}/settings/change/',  [SettingsController
 
 Route::post('/usuario/{user:name_artist}/settings/album/change',  [SongSettingController::class, 'changeDataAlbums'])->name('album.settings');
 Route::get('/usuario/{user:name_artist}/settings/album',  [SongSettingController::class, 'index'])->name('album.settings.index');
-
-// ============================== Busqueda
-
-Route::post('/search/', [SearchController::class, 'index'])->name('a');

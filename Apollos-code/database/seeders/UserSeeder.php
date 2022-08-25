@@ -32,6 +32,7 @@ class UserSeeder extends Seeder
         $mati->name_artist = 'elias_mt';
         $mati->gender = false;
         $mati->birth_date = '2004-10-23';
+        $mati->image = '324aecfb-ab22-49de-8c1b-d24df475d3ca.jpg';
         $mati->save();
 
         // Usuario Default - 2
@@ -119,6 +120,24 @@ class UserSeeder extends Seeder
         $vini->gender = false;
         $vini->birth_date = '2005-08-16';
         $vini->image = 'b59ebcf0-af5f-4d07-ac15-82908ee86f1e.jpg';
+        $vini->save();
+
+        // Usuario Default - 6
+        $vini = new User();
+        $vini->name = 'Marcelo';
+        $vini->last_name = 'Cruz';
+        $vini->rol = 'artist';
+        $vini->email = 'floppa@correo.com';
+        $vini->username = 'Floppenko';
+        $vini->status = 'active';
+        $vini->age = '16';
+        $vini->password = Hash::make('1234');
+        $vini->created_at = now();
+        $vini->updated_at = now();
+        $vini->name_artist = 'floppenko';
+        $vini->gender = false;
+        $vini->birth_date = '2006-08-19';
+        $vini->image = '3526eb1d-501a-4245-b33e-23823a3eee97.jpg';
         $vini->save();
     }
 }

@@ -25,7 +25,10 @@
         </div>
         <div class="md:w-1/2 p-2">
             <div class="shadow bg-white p-3 mb- rounded">
-                <p class="text-xl font-bold text-center">Lista de reproducción</p>
+                <p class="text-xl font-bold text-center font-cuerpo">Lista de reproducción</p>
+            </div>
+            <div class="lista-canciones w-full">
+
             </div>
         </div>
     </div>
@@ -36,7 +39,7 @@
         <div class="w-full md:w-1/6">
             <span class="font-bold block text-center">{{ $user->name }}</span>
             {{-- Librería "Carbon" que formatea fechas --}}
-            <p class="text-sm text-center text-gray-500"> {{ $song->created_at->diffForHumans() }}</p>
+            <p class="text-sm text-center text-gray-500 font-cuerpo"> {{ $song->created_at->diffForHumans() }}</p>
         </div> <!-- Información -->
 
         <div class="flex flex-col flex-wrap md:flex-nowrap w-full md:w-4/6 gap-1 justify-around items-center ">

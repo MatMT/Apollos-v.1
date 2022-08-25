@@ -86,6 +86,42 @@ class DatabaseSeeder extends Seeder
         $aero->birth_date = '2004-08-31';
         $aero->save();
 
+        // Usuario Default - 5
+
+        $album = new User();
+        $album->name = 'Alvin';
+        $album->last_name = 'Meléndez';
+        $album->rol = 'artist';
+        $album->email = 'album@correo.com';
+        $album->username = 'Albumneitor';
+        $album->status = 'active';
+        $album->age = '16';
+        $album->password = Hash::make('1234');
+        $album->created_at = now();
+        $album->updated_at = now();
+        $album->name_artist = 'albumneitor';
+        $album->gender = false;
+        $album->birth_date = '2005-11-9';
+        $album->save();
+
+        // Usuario Default - 6
+
+        $vini = new User();
+        $vini->name = 'Victor';
+        $vini->last_name = 'García';
+        $vini->rol = 'artist';
+        $vini->email = 'vini@correo.com';
+        $vini->username = 'Vinilo';
+        $vini->status = 'active';
+        $vini->age = '16';
+        $vini->password = Hash::make('1234');
+        $vini->created_at = now();
+        $vini->updated_at = now();
+        $vini->name_artist = 'vinilo';
+        $vini->gender = false;
+        $vini->birth_date = '2005-08-16';
+        $vini->save();
+
         // Fábricas
         User::factory(10)->create();
         // Song::factory(50)->create();

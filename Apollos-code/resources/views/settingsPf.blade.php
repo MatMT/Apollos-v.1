@@ -1,11 +1,23 @@
-@extends('partials.nav_bar')
+@extends('layouts.shape1')
 
-@push('js')
+@section('js')
     @vite(['resources/js/configPrfl.js'])
-@endpush
+@endsection
 
-@push('styles')
+@section('header')
+    <x-header></x-header>
+@endsection
+
+@section('css')
     <style>
+        body{
+            min-height: 125vh;
+        }
+
+        header.sticky, header{
+            position: fixed !important;
+        }
+
         .desactive {
             display: none;
         }
@@ -25,20 +37,42 @@
         .minH {
             min-height: 558px;
         }
-    </style>
-@endpush
 
-@section('titulo')
-    Editar Perfil: {{ auth()->user()->name_artist }}
+        .full-container{
+            -webkit-box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
+            box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+        }
+
+        input:focus{
+            outline: none;
+            background-color: rgb(229 229 229);
+            transition: all 0.5s ease-out;
+        }
+
+        .aside-div, .submit-bttn{
+            background-color: #131313;
+
+            filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04))
+            drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+        }
+
+        .player{
+            display: none;
+        }
+    </style>
 @endsection
 
-@section('contenido')
-    <div class="md:flex md:justify-center">
-        <div class="  justify-center md:w-3/4 flex bg-white shadow minH">
+@section('title')
+    Editar perfil
+@endsection
+
+@section('content')
+    <div class=" md:flex md:justify-center pt-40 pb-48 overflow-hidden">
+        <div class=" full-container justify-center md:w-3/4 flex shadow minH rounded-3xl overflow-hidden">
             <!-- Barra lateral | ESTÁTICA -->
             <aside class="w-1/4" aria-label="Sidebar md:w-1/4">
-                <div class="h-full py-4 px-3 rounded bg-gray-800">
-                    <ul class="space-y-2">
+                <div class="aside-div h-full py-4 px-3 bg-gray-800">
+                    <ul class="space-y-2 mt-5">
                         <!-- Mensajes -->
                         @if (session()->has('NoCambios'))
                             <li class="flex p-4 mb-4 text-sm rounded-lg bg-red-200 text-red-800" role="alert">
@@ -48,7 +82,7 @@
                                         d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
                                         clip-rule="evenodd"></path>
                                 </svg>
-                                <p class="font-medium">Campos inválidos!</p>
+                                <p class="font-medium">¡Campos inválidos!</p>
                             </li>
                         @endif
                         @if (session()->has('cambios'))
@@ -59,7 +93,7 @@
                                         d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
                                         clip-rule="evenodd"></path>
                                 </svg>
-                                <p class="font-medium">Campos actualizados!</p>
+                                <p class="font-medium">¡Campos actualizados!</p>
                             </li>
                         @endif
                         <li id="opcion1"
@@ -92,7 +126,7 @@
             </aside>
 
             <!-- Contenido | DINÁMICO -->
-            <div class="md:w-3/4 p-12">
+            <div class="md:w-3/4 p-12 bg-slate-300">
                 <!-- Contraseña -->
                 <div id="password" class=" @if (!session()->has('NoCambios')) desactive @endif ">
                     <form action="{{ route('settings.store', $user) }}" class="mt-10 md:mt-0" method="POST">
@@ -195,7 +229,7 @@
 
                         <!-- Enviar -->
                         <input type="submit" value="Guardar Cambios"
-                            class="bg-slate-800 transition-colors cursor-pointer uppercase font-bold w-full p-3  text-white rounded-lg" />
+                            class="submit-bttn bg-slate-800 transition-colors cursor-pointer uppercase font-bold w-full p-3  text-white rounded-lg" />
                     </form>
                 </div>
             </div>

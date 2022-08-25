@@ -25,6 +25,7 @@
     @vite('resources/js/header.js')
 
     @yield('css', '')
+    @yield('js', '')
 
 
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>

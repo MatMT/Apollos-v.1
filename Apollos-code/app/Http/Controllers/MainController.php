@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Album;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MainController extends Controller
 {
@@ -15,14 +17,32 @@ class MainController extends Controller
 
     public function index(User $users)
     {
-        // Extraemos la collección de artistas
-        $users = User::where('rol', 'artist')
+        // Extraer la collección de artistas ===
+        $artists = User::where('rol', 'artist')
             ->inRandomOrder()
             ->limit(15)
             ->get();
 
+        // Obtener id de a quienes seguimos ===
+        $ids = auth()->user()->followings->pluck('id')->toArray();
+        // Objeto convertido a arreglo obtenido por medio del modelo 
+        // Pluck = Traer campos seleccionados
+
+        // Extraer la collección de mis artistas ===
+        $Myartistas = DB::table('users')
+            ->where('rol', 'artist')
+            ->where('id', $ids)
+            ->inRandomOrder()
+            ->limit(15)
+            ->get();
+
+        // Filtrar álbumes
+        $Myalbums = Album::whereIn('user_id', $ids)->get();
+
         return view('main', [
-            'users' => $users,
+            'F_artists' => $Myartistas,
+            'F_Albums' => $Myalbums,
+            'artists' => $artists
         ]);
     }
 }

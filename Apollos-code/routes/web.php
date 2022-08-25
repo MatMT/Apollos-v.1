@@ -49,7 +49,11 @@ use Illuminate\Support\Facades\Route;
 
 
 // Método simple "view" responde como peticiones de tipo "get" y "head"
-Route::view('/', 'welcome');
+
+// Routinh tipo closures
+Route::get('/', function () {
+    return view('welcome');
+});
 
 // ============================== REGISTRO
 

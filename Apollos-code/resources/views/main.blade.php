@@ -28,9 +28,9 @@
                 </div>
 
                 <!-- <div class="w-2/5 bg-planetas h-9/10 bg-cover mx-16 relative">
-                                    <div class="austronauta bg-austro h-56 w-60 bg-cover absolute top-9 left-20"
-                                        style="animation: 2s ease-in-out 0s infinite alternate none running flotaraustro;"></div>
-                                </div> -->
+                                                <div class="austronauta bg-austro h-56 w-60 bg-cover absolute top-9 left-20"
+                                                    style="animation: 2s ease-in-out 0s infinite alternate none running flotaraustro;"></div>
+                                            </div> -->
 
             </div>
 
@@ -52,7 +52,7 @@
 
                         <div class="carousel">
 
-                            @foreach ($users as $user)
+                            @foreach ($F_artists as $user)
                                 <div class="card drop-shadow-xl">
                                     <a href="{{ route('profile.index', $user->name_artist) }}">
                                         <div class="imagen">
@@ -218,7 +218,7 @@
 
                             <div class="carousel albums">
 
-                                @foreach ($users as $user)
+                                @foreach ($F_artists as $user)
                                     <div class="card drop-shadow-xl">
                                         <a href="{{ route('profile.index', $user->name_artist) }}">
                                             <div class="imagen">
@@ -246,7 +246,8 @@
                                                 alt="Había una Imagen xD">
                                         </div>
                                         <div class="title">
-                                            <div class="name font-titulofont-bold text-lg desktop_2:text-base">Harry's House</div>
+                                            <div class="name font-titulofont-bold text-lg desktop_2:text-base">Harry's
+                                                House</div>
                                             <div
                                                 class="type font-cuerpo text-lg font-thin text-slate-300 desktop_2:text-base">
                                                 Harry Styles</div>
@@ -261,7 +262,8 @@
                                                 alt="Había una Imagen xD">
                                         </div>
                                         <div class="title">
-                                            <div class="name font-titulo font-bold text-lg desktop_2:text-base">Fantasía</div>
+                                            <div class="name font-titulo font-bold text-lg desktop_2:text-base">Fantasía
+                                            </div>
                                             <div
                                                 class="type font-cuerpo text-lg font-thin text-slate-300 desktop_2:text-base">
                                                 Sebastian Yatra</div>

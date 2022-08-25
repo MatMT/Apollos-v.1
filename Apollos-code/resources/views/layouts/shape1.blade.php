@@ -33,14 +33,15 @@
     <title>@yield('title')| Apollo's</title>
 </head>
 
-<body class="bg-black" id="section-scroll">
+<body class="" id="section-scroll">
 
     <div class="@yield('fondo', 'background')"></div>
+
+    <div class="@yield('fondonegro', 'black-cover')"></div>
 
     {{-- Se incluirá la Barra del MENU --}}
 
     @yield('header')
-
 
     {{-- Se incluirá el contenido de la página en particular --}}
 

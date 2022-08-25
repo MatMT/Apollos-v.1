@@ -54,19 +54,37 @@ class User extends Authenticatable
 
     // CAMPOS ===================================
 
-    public static function obtenerName($id)
+    public function obtenerName($id)
     {
         // Obtener nombre mediante id
         $nombre = User::find($id);
         return  $nombre->name;
     }
 
-    public static function obtenerArtistName($id)
+    public function obtenerArtistName($id)
     {
         // Obtener nombre mediante id
         $nombre = User::find($id);
         return  $nombre->username;
     }
+
+    public function obtenerFavs($u_id){
+        $favs = Like::where('user_id', $u_id)->get();
+        return $favs;
+    }
+
+    public function obtenerSong($u_song){
+        $fSong = Song::where('id', $u_song)->first();
+        return $fSong;
+    }
+
+    public function obtenerNameArtistSong($u_song){
+        $AlbumId = $this->obtenerSong($u_song)->album_id;
+        $ArtistAlbum = Album::where('user_id',$AlbumId);
+        
+        return $AlbumId;
+    }
+
 
     // RELACIÓNES ===============================
 

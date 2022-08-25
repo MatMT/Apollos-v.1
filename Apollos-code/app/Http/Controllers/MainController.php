@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Album;
+use App\Models\Song;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -56,7 +57,7 @@ class MainController extends Controller
         ]);
     }
 
-    public function index_2(User $user)
+    public function index_2(Song $song)
     {
         // Obtener id del usuario logeado
         $UserLog = Auth()->user();
@@ -89,7 +90,8 @@ class MainController extends Controller
             ->get();
 
         return view('Library', [
-            'name' => $user,
+            'userLikes' => $UserLog,
+            'songsLikes' => $song,
             'F_artists' => $Myartistas,
             'F_Albums' => $Myalbums,
             'artists' => $artists

@@ -1,19 +1,32 @@
-@extends('partials.nav_bar')
+{{-- @extends('partials.nav_bar') --}}
 
-@section('titulo')
-    {{ $song->name_song }}
+@extends('layouts.shape1')
+
+@section('title', '{{ $song->name_song }}')
+
+{{-- @section('titulo', '{{ $song->name_song }}') --}}
+
+@section('header')
+    <x-header title="Artista"></x-header>
 @endsection
 
-@section('contenido')
-    <div class="container mx-auto md:flex">
-        <div class="md:w-1/2 p-2">
-            <div class="shadow bg-white p-5 mb-5">
-                <p class="text-xl font-bold text-center mb-4">Lista de reproducción</p>
-            </div>
-        </div>
-        <div class="md:w-1/2 p-3">
-            <img class="w-full" src="{{ asset('storage') . '/uploads/imagenes/' . $song->image }}"
+
+@section('content')
+
+    <main class="w-11/12 mx-auto">
+
+    </main>
+
+    <div class="mt-7 container mx-auto md:flex justify-center ">
+
+        <div class="md:max-w-[400px] p-3 max-w-">
+            <img class="w-full rounded-xl" src="{{ asset('storage') . '/uploads/imagenes/' . $song->image }}"
                 alt="Imagen de la canción {{ $song->name_song }}">
+        </div>
+        <div class="md:w-1/2 p-2">
+            <div class="shadow bg-white p-3 mb- rounded">
+                <p class="text-xl font-bold text-center">Lista de reproducción</p>
+            </div>
         </div>
     </div>
 
@@ -26,13 +39,21 @@
             <p class="text-sm text-center text-gray-500"> {{ $song->created_at->diffForHumans() }}</p>
         </div> <!-- Información -->
 
-        <div class="flex flex-wrap md:flex-nowrap w-full md:w-4/6 gap-1 justify-center items-center">
+        <div class="flex flex-col flex-wrap md:flex-nowrap w-full md:w-4/6 gap-1 justify-around items-center ">
+            <div class="name-song flex w-full md:w-3/4 mb-4">
+                <h2 class="text-white font-bold font-cuerpo text-xl text-left">{{ $song->name_song }}</h2>
+                <h3 class="text-white font-light ml-6">Album</h3>
+            </div>
+
+            <!-- Audio -->
             <div class="w-full md:w-3/4">
                 <audio controls class="w-full">
                     <source src="{{ asset('storage') . '/uploads/canciones/' . $song->url }}">
                 </audio>
-            </div> <!-- Audio -->
-            <div class="p-3 w-full md:w-1/4 flex justify-center items-center gap-3">
+            </div>
+
+
+            <div class="p-3 w-full hidden md:w-1/4 justify-center items-center gap-3">
                 @auth
 
                     @if ($song->checkLike(auth()->user()))
@@ -77,7 +98,7 @@
             @if ($user->id == auth()->user()->id)
                 {{-- Artista dueño de la canción --}}
                 <div class="1/6 flex justify-center items-center gap-2">
-                             {{-- Editar album --}}
+                    {{-- Editar album --}}
                     <form action="{{ route('album.settings.index', $user) }}">
                         <input type="submit" value="Editar canción" name="" id=""
                             class="bg-blue-500 hover:bg-blue-600 p-2 rounded text-white font-bold cursor-pointer">

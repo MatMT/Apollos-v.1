@@ -6,6 +6,8 @@
     <x-header title="Home" active="this"></x-header>
 @endsection
 
+@section('fondonegro', 'no')
+
 @section('content')
 
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>

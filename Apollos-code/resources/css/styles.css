@@ -8,6 +8,7 @@ body {
     width: 100%;
     height: 100vh;
     scrollbar-width: none;
+    background-color: rgb(12, 12, 12);
 }
 
 /*body::after{
@@ -23,8 +24,8 @@ body::before {
     background: linear-gradient(
         180deg,
         rgba(255, 255, 255, 0) 10%,
-        rgba(0, 0, 0, 0.05085784313725494) 40%,
-        rgba(0, 0, 0, 1) 70%
+        rgba(12, 12, 12, 0.5) 35%,
+        rgba(12, 12, 12, 1) 70%
     );
     position: absolute;
     left: 0%;
@@ -73,6 +74,16 @@ body::before {
     left: 0%;
     top: 0%;
     z-index: 0;
+}
+
+/* ---- Cover black ----*/
+
+.black-cover {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.473);
+    z-index: -1;
 }
 
 /* Barra de navegación */

@@ -34,6 +34,24 @@
                 <div class="line-1"></div>
             </div>
 
+            <div class="content">
+
+        @foreach( ($userLikes->obtenerFavs($userLikes->id)) as $like)
+        <!-- <a href="{{ route('song.show', ['user' =>  $userLikes->obtenerSong($like->song_id)->url, 'song' =>  $userLikes->obtenerSong($like->song_id)->url]) }}"> -->
+                        <div class="info favoritos">
+                            <img src="
+                            {{ asset('storage') . '/uploads/imagenes/' .  $userLikes->obtenerSong($like->song_id)->image }}" class="rounded-full"
+                                alt="Había una Imagen xD">
+                            <h2 class="font-cuerpo font-bold mt-4 text-lg">{{ $userLikes->obtenerSong($like->song_id)->name_song }}</h2>
+                            <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">
+                                {{ $userLikes->obtenerNameArtistSong($like->song_id) }}
+                            {{ $userLikes->obtenerSong($like->song_id)->time }} | {{ $userLikes->obtenerArtistName(1) }}</p>
+
+                        </div>
+                        <!-- </a> -->
+        @endforeach
+        </div>
+
             <div class="contenedores">
                 <div class="box-1 active anim2" id="caja-1">
                     <div class="content">
@@ -129,8 +147,6 @@
                             <h2 class="font-cuerpo font-bold mt-4 text-lg">Ed Sheeran</h2>
                             <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Artista</p>
                         </div>
-
-
                     </div>
                 </div>
             </div>

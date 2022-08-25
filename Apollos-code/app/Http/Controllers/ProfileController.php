@@ -22,7 +22,7 @@ class ProfileController extends Controller
     {
         // ÁLBUMES ===
         $albums = DB::table('albums')
-            ->where([['user_id', $user->id], ['sencillo', false]])
+            ->where([['user_id', $user->id], ['sencillo', false], ['confirm', true]])
             ->get(); // Get trae los resultados de la consulta en colección 
 
         // COLECCIÓN DE SENCILLOS ===

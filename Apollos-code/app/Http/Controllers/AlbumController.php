@@ -174,8 +174,22 @@ class AlbumController extends Controller
         }
     }
 
-    public function store_5(User $user)
+    public function store_5(Request $request)
     {
+        // Validación - confirmación de publicación
+        $request->validate([
+            'confirm' => 'accepted'
+        ]);
+
+        // Obtener el último albúm del usuario
+        $album = Album::where('user_id', auth()->user()->id)
+            ->latest()
+            ->first(); // Obtener el registro individual
+
+        // Añadirel nuevo campo y guardar
+        $album->confirm = true;
+        $album->save();
+
         // Pasada la validación se envía a la siguiente página
         return redirect()->route('profile.index', auth()->user()->name_artist);
     }

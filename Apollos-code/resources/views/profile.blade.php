@@ -175,7 +175,7 @@
                 <div class="content">
                     <div class="song-list-container ">
 
-                        @if ($HaySencillos)
+                        @if ($HaySencillos && $sencillos->count())
                             <div class="song-container-tabs flex items-center justify-center mt-2 mb-5">
                                 <div
                                     class="song-info-tab inline-flex items-center justify-center pb-2 border-b border-white">
@@ -193,8 +193,8 @@
                             @foreach ($sencillos as $sencillo)
                                 <div class="song-container flex items-center justify-center mt-2">
                                     {{-- Se mapea automaticamente la ruta por cada song en su url --}}
-                                    {{-- <a class="song-info inline-flex items-center justify-center"
-                                        href="{{ route('song.show', ['song' => $song, 'user' => $user]) }}"> --}}
+                                    <a class="song-info inline-flex items-center justify-center"
+                                                href="{{ route('song.show', ['song' => $sencillo, 'user' => $user]) }}">
                                     <div class="song-info inline-flex items-center justify-center">
                                         <h1 class="id-song">{{ $displayList = $displayList + 1 }}</h1>
                                         <span class="song-pic"><img
@@ -208,7 +208,7 @@
                                         <span class="like-ico"><img src='{{ asset('assets/icons/likedIcon.png') }}'
                                                 class="like-icon liked"></span>
                                     </div>
-                                    {{-- </a> --}}
+                                    </a> 
                                 </div>
                             @endforeach
                         @else

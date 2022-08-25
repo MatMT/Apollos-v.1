@@ -61,6 +61,13 @@ class User extends Authenticatable
         return  $nombre->name;
     }
 
+    public static function obtenerArtistName($id)
+    {
+        // Obtener nombre mediante id
+        $nombre = User::find($id);
+        return  $nombre->username;
+    }
+
     // RELACIÓNES ===============================
 
     // Relación

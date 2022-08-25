@@ -191,21 +191,24 @@
                                 </div>
                             </div>
                             @foreach ($sencillos as $sencillo)
-                                {{-- Se mapea automaticamente la ruta por cada song en su url --}}
-
                                 <div class="song-container flex items-center justify-center mt-2">
+                                    {{-- Se mapea automaticamente la ruta por cada song en su url --}}
+                                    {{-- <a class="song-info inline-flex items-center justify-center"
+                                        href="{{ route('song.show', ['song' => $song, 'user' => $user]) }}"> --}}
                                     <div class="song-info inline-flex items-center justify-center">
                                         <h1 class="id-song">{{ $displayList = $displayList + 1 }}</h1>
                                         <span class="song-pic"><img
                                                 src="{{ asset('storage') . '/uploads/imagenes/' . $sencillo->image }}"></span>
                                         <span class="title-author">
-                                            <h1 class="song-title font-bold text-center">{{ $sencillo->name_song }}</h1>
+                                            <h1 class="song-title font-bold text-center">{{ $sencillo->name_song }}
+                                            </h1>
                                         </span>
                                         <h1 class='counter-time text-center'>{{ $sencillo->time }}</h1>
                                         <h1 class='likes text-center'>999 Me gusta</h1>
                                         <span class="like-ico"><img src='{{ asset('assets/icons/likedIcon.png') }}'
                                                 class="like-icon liked"></span>
                                     </div>
+                                    {{-- </a> --}}
                                 </div>
                             @endforeach
                         @else

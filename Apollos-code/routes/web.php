@@ -76,7 +76,7 @@ Route::get('/home', [MainController::class, 'index'])->name('main');
 Route::get('/usuario/{user:name_artist}', [ProfileController::class, 'index'])->name('profile.index');
 
 // Biblioteca ---
-Route::view('/biblioteca', 'Library')->name('biblioteca');
+Route::get('/biblioteca', [MainController::class, 'index_2'])->name('biblioteca');
 
 // Artista ---
 Route::view('/Artista', 'Artist')->name('artista');

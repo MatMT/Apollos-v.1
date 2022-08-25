@@ -8,14 +8,14 @@
 
 @section('title')
     {{ $album->name_album }}
-    
 @endsection
 
 @section('css')
     @vite('resources/css/profileStyles.css')
     @vite('resources/css/listDisplayStyles.css')
     <style>
-        header, header.sticky{
+        header,
+        header.sticky {
             position: sticky !important;
         }
     </style>
@@ -27,53 +27,54 @@
 
 @section('content')
 
-<div class="center-list-section flex items-center justify-center font-titulo anim2">
-    <div class="list-section px-20 ">
-        <div class="list-section-content mt-8 text-white flex items-center justify-center">
+    <div class="center-list-section flex items-center justify-center font-titulo anim2">
+        <div class="list-section px-20 ">
+            <div class="list-section-content mt-8 text-white flex items-center justify-center">
 
-            <div class="list-pic float-left rounded-3xl overflow-hidden mr-5 ml-5">
-                <img src="{{ asset('storage') . '/uploads/imagenes/' . $album->image }}" alt="Imagen de la canción {{ $album->name_album }}">
-            </div>
-
-            <div class="list-info text-lg ml-5">
-                <h1 class="list-type">
-                    Álbum
-                </h1>
-
-                <h1 class="name-album first-letter:uppercase font-titulo text-7xl font-bold">
-                    {{$album->name_album}}
-                </h1>
-
-                <div class="list-author-date flex">
-                    <span class="author mr-1">
-                        <h1>{{$user->username}}</h1>
-                    </span>
-                    <span class="text-center point">⚬</span>
-                    <span class="date ml-1">
-                        <h1>2022</h1>
-                    </span>
+                <div class="list-pic float-left rounded-3xl overflow-hidden mr-5 ml-5">
+                    <img src="{{ asset('storage') . '/uploads/imagenes/' . $album->image }}"
+                        alt="Imagen de la canción {{ $album->name_album }}">
                 </div>
 
-                <div class="timer-songs flex ">
-                    <span class="timer mr-1">
-                        <h1>1 hora</h1>
-                    </span>
-                    <span class="text-center point">⚬</span>
-                    <span class="counter ml-1">
-                        <h1>{{$album->songs->count()}} canciones</h1>
-                    </span>
+                <div class="list-info text-lg ml-5">
+                    <h1 class="list-type">
+                        Álbum
+                    </h1>
+
+                    <h1 class="name-album first-letter:uppercase font-titulo text-7xl font-bold">
+                        {{ $album->name_album }}
+                    </h1>
+
+                    <div class="list-author-date flex">
+                        <span class="author mr-1">
+                            <h1>{{ $user->username }}</h1>
+                        </span>
+                        <span class="text-center point">⚬</span>
+                        <span class="date ml-1">
+                            <h1>2022</h1>
+                        </span>
+                    </div>
+
+                    <div class="timer-songs flex ">
+                        <span class="timer mr-1">
+                            <h1>1 hora</h1>
+                        </span>
+                        <span class="text-center point">⚬</span>
+                        <span class="counter ml-1">
+                            <h1>{{ $album->songs->count() }} canciones</h1>
+                        </span>
+                    </div>
+
                 </div>
 
             </div>
-
-        </div>
-    </div> <!-- HEADER PERFIL -->
-</div>
+        </div> <!-- HEADER PERFIL -->
+    </div>
 
     <div class="flex justify-around pb-20">
         <div class="contenedores">
             {{-- <h1 class='public-albums text-white font-titulo text-3xl font-bold mb-5 anim2'>Contenido</h1> --}}
-        
+
             <div class="box-2 active anim2" id="caja-1">
                 <div class="content flex items-center justify-center">
                     @if ($album->songs->count())
@@ -93,18 +94,11 @@
                                         </div>
                                     </div>
                                     @foreach ($album->songs as $song)
-                                        {{-- <div> --}}
-                                            {{-- Se mapea automaticamente la ruta por cada song en su url --}}
-                                            {{-- <a href="{{ route('song.show', ['song' => $song, 'user' => $user]) }}">
-                                                <img src="{{ asset('storage') . '/uploads/imagenes/' . $song->image }}"
-                                                    alt="Imagen de la canción {{ $song->name_song }}">
-                                            </a>
-                                            <p class="text-gray-600 uppercase text-center font-bold">{{ $song->name_song }}</p>
-                    
-                                        </div> --}}
-                    
                                         <div class="song-container flex items-center justify-center mt-2">
-                                            <a class="song-info inline-flex items-center justify-center" href="{{ route('song.show', ['song' => $song, 'user' => $user]) }}">
+                                            {{-- Se mapea automaticamente la ruta por cada song en su url --}}
+
+                                            <a class="song-info inline-flex items-center justify-center"
+                                                href="{{ route('song.show', ['song' => $song, 'user' => $user]) }}">
                                                 <h1 class="id-song">{{ $displayList = $displayList + 1 }}</h1>
                                                 <span class="title-author">
                                                     <h1 class="song-title font-bold text-center">{{ $song->name_song }}</h1>
@@ -116,7 +110,7 @@
                                             </a>
                                         </div>
                                     @endforeach
-                                </div> 
+                                </div>
                             </div>
                         </div>
                     @endif

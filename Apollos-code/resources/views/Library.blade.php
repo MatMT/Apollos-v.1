@@ -105,8 +105,7 @@
 
                     @if ($F_Albums->count())
                         @foreach ($F_Albums as $album)
-                            <a
-                                href="{{ route('albums.index', ['user' => $name->obtenerArtistName($album->user_id), 'album' => $album->id]) }}">
+                             
                                 <div class="content">
                                     <div class="info albums">
                                         <img src="{{ asset('storage') . '/uploads/imagenes/' . $album->image }}"
@@ -116,7 +115,6 @@
                                             {{ $name->obtenerName($album->user_id) }}</p>
                                     </div>
                                 </div>
-                            </a>
                         @endforeach
                     @endif
 

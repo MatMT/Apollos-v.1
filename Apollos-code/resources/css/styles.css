@@ -9,6 +9,8 @@ body {
     height: 100vh;
     scrollbar-width: none;
     background-color: rgb(12, 12, 12);
+    --bg-pseudo     : linear-gradient(180deg,rgba(255, 255, 255, 0) 10%,rgba(12, 12, 12, 0.3) 60%,rgba(12, 12, 12, 1) 90%); /* Variable que almacena el color de fondo del pseudoelemento */
+    --bg-new        : linear-gradient( 180deg, rgba(255, 255, 255, 0) 0%, rgba(12, 12, 12, 0.5) 25%, rgba(12, 12, 12, 0.95) 80%, rgba(12,12,12,1) 90% );
 }
 
 /*body::after{
@@ -21,12 +23,7 @@ body::before {
     width: 100%;
     height: 101%;
     background: rgb(255, 255, 255);
-    background: linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0) 10%,
-        rgba(12, 12, 12, 0.5) 35%,
-        rgba(12, 12, 12, 1) 70%
-    );
+    background: var(--bg-new);
     position: absolute;
     left: 0%;
     top: 0%;
@@ -58,6 +55,8 @@ body::before {
 .muralArtist img {
     width: 100%;
 }
+
+
 
 .muralArtist::after {
     content: "";

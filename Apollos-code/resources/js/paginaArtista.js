@@ -44,3 +44,12 @@ hide.addEventListener("click", function(){
 var corazonV = document.getElementById("fav");
 
 
+/* --- Cambiar fondo de degradado */
+
+
+var container = document.getElementById("section-scroll");
+var bg = "linear-gradient(180deg,rgba(255, 255, 255, 0) 10%,rgba(12, 12, 12, 0.3) 60%,rgba(12, 12, 12, 1) 90%)";
+
+container.style.setProperty('--bg-new', bg)
+
+

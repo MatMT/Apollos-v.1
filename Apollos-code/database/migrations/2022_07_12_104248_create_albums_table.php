@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('genre', 15)->nullable();
             $table->string('image', 40)->nullable();
             $table->boolean('sencillo');
+            $table->boolean('confirm')->nullable();
             $table->timestamps();
         });
     }

@@ -45,8 +45,7 @@ class MainController extends Controller
 
         // Filtrar álbumes
         $Myalbums = DB::table('albums')
-            ->whereIn('user_id', $ids)
-            ->where('sencillo', false)
+            ->where([['user_id', $ids], ['sencillo', false], ['confirm', true]])
             ->get();
 
         return view('main', [
@@ -86,8 +85,7 @@ class MainController extends Controller
 
         // Filtrar álbumes
         $Myalbums = DB::table('albums')
-            ->whereIn('user_id', $ids)
-            ->where('sencillo', false)
+            ->where([['user_id', $ids], ['sencillo', false], ['confirm', true]])
             ->get();
 
         return view('Library', [

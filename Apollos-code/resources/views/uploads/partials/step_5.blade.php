@@ -84,15 +84,24 @@
                 </table>
             </div> <!-- Tabla -->
             <br>
+            <div>
+                <!-- Confirmar públicación -->
+                <form action="{{ route('upload.store_5') }}" method="POST" id="song_up" novalidate>
+                    @csrf
+
+                    <div class="mb-5 p-2 @error('confirm') border-dashed border-2 border-red-500 @enderror">
+                        <input type="checkbox" value="1" name="confirm">
+                        <label for="confirm">Confirmo que todo contenido súbido es de mi autoría.</label>
+                    </div>
+
+                    <input type="submit" value="Publicar"
+                        class=" bg-teal-500 transition-colors cursor-pointer uppercase font-bold w-full p-3  text-white rounded-lg" />
+                </form>
+            </div>
         </div>
         <div class="md:w-1/2">
             <img class=" p-14" src="{{ asset('storage') . '/uploads/imagenes/' . $album->image }}"
                 alt="Imagen de la canción {{ $album->name_song }}">
         </div>
     </div> <!-- Contenedor principal -->
-    <form action="{{ route('upload.store_5') }}" method="POST" id="song_up" novalidate>
-        @csrf
-        <input type="submit" value="Publicar"
-            class=" bg-teal-500 transition-colors cursor-pointer uppercase font-bold w-full p-3  text-white rounded-lg" />
-    </form>
 @endsection

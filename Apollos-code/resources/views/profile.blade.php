@@ -125,7 +125,7 @@
     <br>
 
 
-    <div class="flex justify-around">
+    <div class="flex justify-around pb-20">
 
         <div class="contenedores">
             <h1 class='public-albums text-white font-titulo text-3xl font-bold mb-5 anim2'>Álbumes publicados</h1>
@@ -149,7 +149,7 @@
                         @endforeach
                     @else
                         <div class="song-container-tabs mt-2 mb-5 leading-3">
-                            <span class="disc-ico"><img src="{{ asset('assets/icons/discIconWht.png') }}"></span>
+                            <span class="disc-ico"><img src="{{ asset('assets/icons/discBrokenWht.png') }}"></span>
                             <h1 class='text-white font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>
                                 {{ auth()->user()->name == $user->name ? '¡Sube tu primer álbum!' : 'Todavía no sube contenido...' }}
                             </h1>
@@ -204,7 +204,7 @@
                         @else
                             <div class="content flex items-center justify-center">
                                 <div class="song-container-tabs mt-2 mb-5 leading-3">
-                                    <span class="disc-ico"><img src="{{ asset('assets/icons/discIconWht.png') }}"></span>
+                                    <span class="disc-ico"><img src="{{ asset('assets/icons/discBrokenWht.png') }}"></span>
                                     <h1 class='text-white font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>
                                         {{ auth()->user()->name == $user->name ? '¡Sube tu primera canción!' : 'Todavía no sube contenido...' }}
                                     </h1>

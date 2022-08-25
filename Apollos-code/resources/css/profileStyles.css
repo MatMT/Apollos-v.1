@@ -11,8 +11,16 @@
     color: white;
 }
 
+body{
+    min-height: 100vh;
+}
+
 header{
     position: fixed;
+}
+
+header.sticky{
+    position: fixed !important;
 }
 
 .user-section {
@@ -238,4 +246,5 @@ h1.author {
 
 .if-subtitle{
     font-size: 1.7em;
-  }
+    margin-top: -20px;
+}

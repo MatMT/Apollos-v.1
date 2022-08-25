@@ -28,21 +28,9 @@
                 @csrf
 
                 <div class="mb-5">
-                    <label for="genero" class="mb-2 block uppercase text-gray-500 font-bold">
-                        <select name="genero" id="genero" form="song_up"
-                            class="border p-3 w-full rounded-lg text-gray-600 @error('genero') border-red-500 @enderror">
-                            <option value="" selected disabled> -- Selecciona el género de tu canción --
-                            </option>
-                            {{-- Operador ternario para antiguo select --}}
-                            <option value="pop" {{ old('genero') == 'pop' ? 'selected' : '' }}>Pop</option>
-                            <option value="rock" {{ old('genero') == 'rock' ? 'selected' : '' }}>Rock</option>
-                            <option value="electronic" {{ old('genero') == 'electronic' ? 'selected' : '' }}>Electrónica
-                            </option>
-                            <option value="instrumental"{{ old('genero') == 'instrumental' ? 'selected' : '' }}>
-                                Instrumental
-                            </option>
-                        </select>
-                    </label>
+                    
+                    <x-gender-select></x-gender-select>
+
                     @error('genero')
                         <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
                             {{ $message }}</p>

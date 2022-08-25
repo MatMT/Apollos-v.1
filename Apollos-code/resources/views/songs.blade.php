@@ -41,7 +41,7 @@
                         Álbum
                     </h1>
 
-                    <h1 class="name-album first-letter:uppercase font-titulo text-7xl font-bold">
+                    <h1 class="name-album first-letter:uppercase font-titulo_2 text-7xl ">
                         {{ $album->name_album }}
                     </h1>
 
@@ -84,13 +84,13 @@
                                     <div class="song-container-tabs flex items-center justify-center mt-2 mb-5 ">
                                         <div
                                             class="song-info-tab inline-flex items-center justify-center pb-2 border-b border-white">
-                                            <h1 class="id-song-tab"> # </h1>
+                                            <h1 class="id-song-tab opacity-70"> # </h1>
                                             <span class="title-author-tab">
-                                                <h1 class="song-title text-center">Nombre de la canción</h1>
+                                                <h1 class="song-title text-center opacity-70">Nombre de la canción</h1>
                                             </span>
-                                            <h1 class='counter-time-tab text-center'><img
+                                            <h1 class='counter-time-tab text-center opacity-70'><img
                                                     src='{{ asset('assets/icons/timerIconWht.png') }}'></h1>
-                                            <h1 class='likes-tab text-center'>Me gusta</h1>
+                                            <h1 class='likes-tab text-center opacity-70'>Me gusta</h1>
                                         </div>
                                     </div>
                                     @foreach ($album->songs as $song)

@@ -1,6 +1,6 @@
-<label for="genero" class="mb-2 block uppercase text-gray-500 font-bold">Género</label>
+<label for="genero" class="mb-2 block uppercase text-gray-800 font-bold">Género</label>
     <select name="genero" id="genero" form="song_up"
-        class="border p-3 w-full rounded-lg text-gray-600 @error('genero') border-red-500 @enderror">
+        class="border p-3 w-full rounded-lg text-gray-800 @error('genero') border-red-500  @enderror">
         <option value="" selected disabled> -- Selecciona el género de tu canción --
         </option>
         {{-- Operador ternario para antiguo select --}}

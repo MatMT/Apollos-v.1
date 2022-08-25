@@ -53,5 +53,40 @@ class ArtistSeeder extends Seeder
         $weeknd->image = '8e17d442-457f-4324-99e3-b8afcff89a6c.jpg';
         $weeknd->save();
 
+        // Artist Default - 3
+        $tylercreat = new User();
+        $tylercreat->name = 'Tyler';
+        $tylercreat->last_name = 'Okonma';
+        $tylercreat->rol = 'artist';
+        $tylercreat->email = 'creator@correo.com';
+        $tylercreat->username = 'Tyler the Creator';
+        $tylercreat->status = 'active';
+        $tylercreat->age = '31';
+        $tylercreat->password = Hash::make('1234');
+        $tylercreat->created_at = now();
+        $tylercreat->updated_at = now();
+        $tylercreat->name_artist = 'tyler-the-creator';
+        $tylercreat->gender = false;
+        $tylercreat->birth_date = '1991-03-06';
+        $tylercreat->image = 'd90a2013-a0d6-4775-b8e4-b63c245bc6cd.jpg';
+        $tylercreat->save();
+    
+        // Artist Default - 3
+        $kanyewest = new User();
+        $kanyewest->name = 'YE';
+        $kanyewest->last_name = 'WEST';
+        $kanyewest->rol = 'artist';
+        $kanyewest->email = 'kanyew@correo.com';
+        $kanyewest->username = 'Kanye West';
+        $kanyewest->status = 'active';
+        $kanyewest->age = '45';
+        $kanyewest->password = Hash::make('1234');
+        $kanyewest->created_at = now();
+        $kanyewest->updated_at = now();
+        $kanyewest->name_artist = 'kanye-west';
+        $kanyewest->gender = false;
+        $kanyewest->birth_date = '1977-06-05';
+        $kanyewest->image = 'cb75620d-ba57-4178-be07-9b24cef9cd49.jpg';
+        $kanyewest->save();
     }
 }

@@ -118,6 +118,7 @@ class UserSeeder extends Seeder
         $vini->name_artist = 'vinilo';
         $vini->gender = false;
         $vini->birth_date = '2005-08-16';
+        $vini->image = 'b59ebcf0-af5f-4d07-ac15-82908ee86f1e.jpg';
         $vini->save();
     }
 }

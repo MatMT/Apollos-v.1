@@ -31,7 +31,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
 
-    // INPUTS ó Campos a recibir ================
+    // INPUTS ó Campos a recibir ===================
 
     protected $fillable = [
         'name',
@@ -64,6 +64,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // CAMPOS ===================================
+
+    public static function obtenerName($id)
+    {
+        // Obtener nombre mediante id
+        $nombre = User::find($id);
+        return  $nombre->name;
+    }
 
     // RELACIÓNES ===============================
 

@@ -10,11 +10,12 @@
 
 @section('css')
     <style>
-        body{
+        body {
             min-height: 125vh;
         }
 
-        header.sticky, header{
+        header.sticky,
+        header {
             position: fixed !important;
         }
 
@@ -38,25 +39,25 @@
             min-height: 558px;
         }
 
-        .full-container{
-            -webkit-box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
-            box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+        .full-container {
+            -webkit-box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+            box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
         }
 
-        input:focus{
+        input:focus {
             outline: none;
             background-color: rgb(229 229 229);
             transition: all 0.5s ease-out;
         }
 
-        .aside-div, .submit-bttn{
+        .aside-div,
+        .submit-bttn {
             background-color: #131313;
 
-            filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04))
-            drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+            filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
         }
 
-        .player{
+        .player {
             display: none;
         }
     </style>
@@ -68,7 +69,7 @@
 
 @section('content')
     <div class=" md:flex md:justify-center pt-40 pb-48 overflow-hidden">
-        <div class=" full-container justify-center md:w-3/4 flex shadow minH rounded-3xl overflow-hidden">
+        <div class=" full-container justify-center md:w-3/4 flex shadow minH rounded-2xl overflow-hidden">
             <!-- Barra lateral | ESTÁTICA -->
             <aside class="w-1/4" aria-label="Sidebar md:w-1/4">
                 <div class="aside-div h-full py-4 px-3 bg-gray-800">
@@ -126,7 +127,7 @@
             </aside>
 
             <!-- Contenido | DINÁMICO -->
-            <div class="md:w-3/4 p-12 bg-slate-300">
+            <div class="md:w-3/4 p-12 bg-slate-100">
                 <!-- Contraseña -->
                 <div id="password" class=" @if (!session()->has('NoCambios')) desactive @endif ">
                     <form action="{{ route('settings.store', $user) }}" class="mt-10 md:mt-0" method="POST">

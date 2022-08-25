@@ -32,12 +32,19 @@
                         {{ $user->username }}
                     </h1>
 
+                    @if (auth()->user()->name != $user->name)
+                        <br>
+                    @endif
                     <p class="followers">
                         {{ $user->followers->count() }} @choice('Seguidor|Seguidores', $user->followers->count())
                     </p>
-                    <p>
-                        {{ $user->followings->count() }} Siguiendo
-                    </p>
+
+                    @if (auth()->user()->name == $user->name)
+                        <p>
+                            {{ $user->followings->count() }} Siguiendo
+                        </p>
+                    @endif
+
 
                     @if ($user->rol == 'artist')
                         <h1 class="songs inline-block"> {{ $CounterSongs }}
@@ -204,7 +211,8 @@
                         @else
                             <div class="content flex items-center justify-center">
                                 <div class="song-container-tabs mt-2 mb-5 leading-3">
-                                    <span class="disc-ico"><img src="{{ asset('assets/icons/discBrokenWht.png') }}"></span>
+                                    <span class="disc-ico"><img
+                                            src="{{ asset('assets/icons/discBrokenWht.png') }}"></span>
                                     <h1 class='text-white font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>
                                         {{ auth()->user()->name == $user->name ? '¡Sube tu primera canción!' : 'Todavía no sube contenido...' }}
                                     </h1>

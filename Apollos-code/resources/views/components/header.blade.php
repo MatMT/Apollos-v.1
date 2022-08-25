@@ -11,8 +11,8 @@
             <li class="mx-8 {{ $active ?? '' }} ">
                 <a href="{{ route('main') }}"><i class="fi fi-rs-home"></i><span class="tablet_3:hidden">Home</span></a>
             </li>
-            <li class="mx-8  {{ $activeli ?? '' }} "><a href="{{ route('biblioteca') }}"><i class="fi fi-rs-apps"></i></i><span
-                        class="tablet_3:hidden">Tu Biblioteca</span></a></li>
+            <li class="mx-8  {{ $activeli ?? '' }} "><a href="{{ route('biblioteca') }}"><i
+                        class="fi fi-rs-apps"></i></i><span class="tablet_3:hidden">Tu Biblioteca</span></a></li>
             <li class="mx-8 "><a href="{{ route('artista') }}"><i class="fi fi-rs-music"></i><span
                         class="tablet_3:hidden">Crear PlayList</span></a></li>
             <li class="mx-8 cursor-pointer" id="buscar"><a><i class="fi fi-rs-search"></i><span
@@ -54,7 +54,7 @@
                     <li>
                         <a href="{{ route('profile.index', auth()->user()) }}">Perfil</a>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a href="{{ route('settings.index', auth()->user()) }}" class="flex gap-2 items-center">
                             <p>Editar perfil</p>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
@@ -63,7 +63,7 @@
                                     d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
                             </svg>
                         </a>
-                    </li>
+                    </li> --}}
                     @if (Auth()->user()->rol == 'artist')
                         <li>
                             <a href="{{ route('upload.select') }}">Subir</a>

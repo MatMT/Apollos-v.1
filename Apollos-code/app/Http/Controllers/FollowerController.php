@@ -12,7 +12,9 @@ class FollowerController extends Controller
         // Attach - para relaciones de una misma tabla || Muchos a muchos
         $user->followers()->attach(auth()->user()->id);
         // Al usuario visitado , se le agrega la persona autentificada que lo esta siguiendo
+
         return back();
+        // return redirect(route('profile.index', $user));
     }
 
     public function destroy(User $user)
@@ -21,5 +23,6 @@ class FollowerController extends Controller
         $user->followers()->detach(auth()->user()->id);
 
         return back();
+        // return redirect(route('profile.index', $user));
     }
 }

@@ -1,0 +1,17 @@
+.list-pic img{
+    height: 250px;
+    width: 250px;
+}
+
+.list-section{
+    min-width: 1150px;
+}
+
+.list-info{
+    min-width: 700px;
+    max-width: 700px;
+}
+
+.list-info h1, span.point{
+    margin-top: 10px;
+}

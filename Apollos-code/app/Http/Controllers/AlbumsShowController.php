@@ -20,7 +20,8 @@ class AlbumsShowController extends Controller
         // Mostramos vista y devolvemos datos con las llaves 
         return view('songs', [
             'user' => $user,
-            'album' => $album
+            'album' => $album,
+            'displayList' => 0
         ]);
     }
 }

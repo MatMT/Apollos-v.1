@@ -1,42 +1,127 @@
-@extends('partials.nav_bar')
+{{-- @extends('partials.nav_bar')
 
 @section('titulo')
-    Album: {{ $album->name_album }}
+    Album: 
+@endsection --}}
+
+@extends('layouts.shape1')
+
+@section('title')
+    {{ $album->name_album }}
+    
 @endsection
 
-@section('contenido')
-    <section class="container mx-auto mt-10">
-        <h2 class="text-4xl text-center font-black my-10">Contenido</h2>
+@section('css')
+    @vite('resources/css/profileStyles.css')
+    @vite('resources/css/listDisplayStyles.css')
+    <style>
+        header, header.sticky{
+            position: sticky !important;
+        }
+    </style>
+@endsection
 
-        {{-- Imprimir canciones según el arreglo obtenido gracias al MODELO --}}
-        @if ($album->songs->count())
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                @foreach ($album->songs as $song)
-                    <div>
-                        {{-- Se mapea automaticamente la ruta por cada song en su url --}}
-                        <a href="{{ route('song.show', ['song' => $song, 'user' => $user]) }}">
-                            <img src="{{ asset('storage') . '/uploads/imagenes/' . $song->image }}"
-                                alt="Imagen de la canción {{ $song->name_song }}">
-                        </a>
-                        <p class="text-gray-600 uppercase text-center font-bold">{{ $song->name_song }}</p>
+@section('header')
+    <x-header></x-header>
+@endsection
 
-                    </div>
-                @endforeach
+@section('content')
+
+<div class="center-list-section flex items-center justify-center font-titulo anim2">
+    <div class="list-section px-20 ">
+        <div class="list-section-content mt-8 text-white flex items-center justify-center">
+
+            <div class="list-pic float-left rounded-3xl overflow-hidden mr-5 ml-5">
+                <img src="{{ asset('storage') . '/uploads/imagenes/' . $album->image }}" alt="Imagen de la canción {{ $album->name_album }}">
             </div>
-        @else
-            @if (auth()->user()->name == $user->name)
-                @if ($user->rol == 'artist')
-                    <p class="text-gray-600 uppercase text-center font-bold">¡Sube tu primera canción!</p>
-                @else
-                    <p class="text-gray-600 uppercase text-center font-bold">Busca nuevo contenido</p>
-                @endif
-            @else
-                @if ($user->rol == 'user')
-                    <p class="text-gray-600 uppercase text-center font-bold">Espera su próxima canción...</p>
-                @else
-                    <p class="text-gray-600 uppercase text-center font-bold">Aún no sigue contenido</p>
-                @endif
-            @endif
-        @endif
-    </section>
+
+            <div class="list-info text-lg ml-5">
+                <h1 class="list-type">
+                    Álbum
+                </h1>
+
+                <h1 class="name-album first-letter:uppercase font-titulo text-7xl font-bold">
+                    {{$album->name_album}}
+                </h1>
+
+                <div class="list-author-date flex">
+                    <span class="author mr-1">
+                        <h1>{{$user->username}}</h1>
+                    </span>
+                    <span class="text-center point">⚬</span>
+                    <span class="date ml-1">
+                        <h1>2022</h1>
+                    </span>
+                </div>
+
+                <div class="timer-songs flex ">
+                    <span class="timer mr-1">
+                        <h1>1 hora</h1>
+                    </span>
+                    <span class="text-center point">⚬</span>
+                    <span class="counter ml-1">
+                        <h1>{{$album->songs->count()}} canciones</h1>
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+    </div> <!-- HEADER PERFIL -->
+</div>
+
+    <div class="flex justify-around pb-20">
+        <div class="contenedores">
+            {{-- <h1 class='public-albums text-white font-titulo text-3xl font-bold mb-5 anim2'>Contenido</h1> --}}
+        
+            <div class="box-2 active anim2" id="caja-1">
+                <div class="content flex items-center justify-center">
+                    @if ($album->songs->count())
+                        <div class="box-2 active anim2" id='caja-2'>
+                            <div class="content">
+                                <div class="song-list-container">
+                                    <div class="song-container-tabs flex items-center justify-center mt-2 mb-5 ">
+                                        <div
+                                            class="song-info-tab inline-flex items-center justify-center pb-2 border-b border-white">
+                                            <h1 class="id-song-tab"> # </h1>
+                                            <span class="title-author-tab">
+                                                <h1 class="song-title text-center">Nombre de la canción</h1>
+                                            </span>
+                                            <h1 class='counter-time-tab text-center'><img
+                                                    src='{{ asset('assets/icons/timerIconWht.png') }}'></h1>
+                                            <h1 class='likes-tab text-center'>Me gusta</h1>
+                                        </div>
+                                    </div>
+                                    @foreach ($album->songs as $song)
+                                        {{-- <div> --}}
+                                            {{-- Se mapea automaticamente la ruta por cada song en su url --}}
+                                            {{-- <a href="{{ route('song.show', ['song' => $song, 'user' => $user]) }}">
+                                                <img src="{{ asset('storage') . '/uploads/imagenes/' . $song->image }}"
+                                                    alt="Imagen de la canción {{ $song->name_song }}">
+                                            </a>
+                                            <p class="text-gray-600 uppercase text-center font-bold">{{ $song->name_song }}</p>
+                    
+                                        </div> --}}
+                    
+                                        <div class="song-container flex items-center justify-center mt-2">
+                                            <a class="song-info inline-flex items-center justify-center" href="{{ route('song.show', ['song' => $song, 'user' => $user]) }}">
+                                                <h1 class="id-song">{{ $displayList = $displayList + 1 }}</h1>
+                                                <span class="title-author">
+                                                    <h1 class="song-title font-bold text-center">{{ $song->name_song }}</h1>
+                                                </span>
+                                                <h1 class='counter-time text-center'>999</h1>
+                                                <h1 class='likes text-center'>999 Me gusta</h1>
+                                                <span class="like-ico"><img src='{{ asset('assets/icons/likedIcon.png') }}'
+                                                        class="like-icon liked"></span>
+                                            </a>
+                                        </div>
+                                    @endforeach
+                                </div> 
+                            </div>
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

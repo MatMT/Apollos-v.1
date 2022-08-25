@@ -358,20 +358,20 @@ header.sticky {
     border-radius: 20px;
 }*/
 
-footer {
-    position: fixed;
+footer{
+    position: sticky;
     left: 0%;
-    bottom: 0%;
+    bottom: 10px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: end;
     width: 100%;
     height: 90px;
 }
 
 .player {
     height: 90px;
-    width: 98%;
+    width: 25%;
     border-top: rgba(167, 165, 165, 0.397) 1px solid;
     border-left: rgba(167, 165, 165, 0.397) 1px solid;
     border-right: rgba(167, 165, 165, 0.397) 1px solid;
@@ -385,7 +385,7 @@ footer {
 /*-------  -------  ----- Querys ---------  ------  ----*/
 
 @media screen and (max-width: 921px) {
-    li a i {
+    header li a i {
         margin-right: 0px;
         font-size: 20px;
         margin-top: 2px;

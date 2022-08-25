@@ -49,13 +49,13 @@
 
     {{-- Mi reproductor de música --}}
 
-    {{-- <footer>
+    <footer>
         <div class="player">
             <div class="cancion"></div>
             <div class="reproductor"></div>
             <div class="controles"></div>
         </div>
-    </footer> --}}
+    </footer>
 
     <div class="overway_2" id="overlay_2">
         <div class="buscador" id="popup_2">

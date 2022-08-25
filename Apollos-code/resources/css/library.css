@@ -87,7 +87,7 @@
     display: flex;
     flex-wrap: wrap;
 }
-.content .playList{
+.content .playList, .upload-div .playList{
     width: 20%;
     max-width: 209.28px;
     padding: 20px;
@@ -95,19 +95,24 @@
     color: white;
     border-radius: 10px;
     cursor: pointer;
-    transition: 0.1s ease all;
-    
+    transition: 0.1s ease all;   
 }
+
+.upload-div .playList{
+    min-width: 25% !important;
+    width: 25% !important;
+}
+
 .content .playList:hover{
     background-color: #70707050;
 }
 
-.content .playList img{
+.content .playList img, .upload-div .playList img{
     width: 100%;
     border-radius: 10px;
 }
 
-.content .playList .description{
+.content .playList .description, .upload-div .playList .description{
     height: 20px;
     white-space: nowrap;
     overflow: hidden;

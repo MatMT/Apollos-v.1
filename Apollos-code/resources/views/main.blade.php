@@ -56,7 +56,7 @@
                                 <div class="card drop-shadow-xl">
                                     <a href="{{ route('profile.index', $user->name_artist) }}">
                                         <div class="imagen">
-                                            <img src="{{ asset('assets/img/usuario.svg') }}"
+                                            <img src="{{ asset('storage') . '/uploads/pfp/' . $user->image }}"
                                                 alt="Imagen de {{ $user->name }}">
                                         </div>
                                         <div class="title">
@@ -222,7 +222,7 @@
                                     <div class="card drop-shadow-xl">
                                         <a href="{{ route('profile.index', $user->name_artist) }}">
                                             <div class="imagen">
-                                                <img src="{{ asset('assets/img/usuario.svg') }}"
+                                                <img src="{{ asset('storage') . '/uploads/pfp/' . $user->image }}"
                                                     alt="Imagen de {{ $user->name }}">
                                             </div>
                                             <div class="title">

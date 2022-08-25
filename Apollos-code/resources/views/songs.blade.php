@@ -96,18 +96,19 @@
                                     @foreach ($album->songs as $song)
                                         <div class="song-container flex items-center justify-center mt-2">
                                             {{-- Se mapea automaticamente la ruta por cada song en su url --}}
+                                            <a class="song-info inline-flex items-center justify-center"
+                                                href="{{ route('song.show', ['song' => $song->id, 'user' => $user]) }}">
 
-                                            <!-- <a class="song-info inline-flex items-center justify-center"
-                                                href="{{ route('song.show', ['song' => $song->id, 'user' => $user->id]) }}"> -->
                                                 <h1 class="id-song">{{ $displayList = $displayList + 1 }}</h1>
                                                 <span class="title-author">
                                                     <h1 class="song-title font-bold text-center">{{ $song->name_song }}</h1>
                                                 </span>
-                                                <h1 class='counter-time text-center'>999</h1>
-                                                <h1 class='likes text-center'>999 Me gusta</h1>
+                                                <h1 class='counter-time text-center'>99</h1>
+                                                <h1 class='likes text-center'>99 Me gusta</h1>
                                                 <span class="like-ico"><img src='{{ asset('assets/icons/likedIcon.png') }}'
                                                         class="like-icon liked"></span>
-                                            <!-- </a> -->
+
+                                            </a>
                                         </div>
                                     @endforeach
                                 </div>

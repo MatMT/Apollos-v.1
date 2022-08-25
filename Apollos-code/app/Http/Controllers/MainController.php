@@ -38,8 +38,8 @@ class MainController extends Controller
 
         // Extraer la collección de mis artistas ===
         $Myartistas = DB::table('users')
+            ->whereIn('id', $ids)
             ->where('rol', 'artist')
-            ->where('id', $ids)
             ->inRandomOrder()
             ->limit(15)
             ->get();
@@ -79,7 +79,7 @@ class MainController extends Controller
         // Extraer la collección de mis artistas ===
         $Myartistas = DB::table('users')
             ->where('rol', 'artist')
-            ->where('id', $ids)
+            ->whereIn('id', $ids)
             ->inRandomOrder()
             ->limit(15)
             ->get();

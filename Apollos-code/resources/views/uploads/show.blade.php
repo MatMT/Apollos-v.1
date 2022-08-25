@@ -56,9 +56,8 @@
             </div>
 
 
-            <div class="p-3 w-full hidden md:w-1/4 justify-center items-center gap-3">
+            <div class="p-3 w-full md:w-1/4 justify-center items-center gap-3 bg-white">
                 @auth
-
                     @if ($song->checkLike(auth()->user()))
                         <form action="{{ route('song.likes.destroy', $song) }}" method="POST">
                             @method('DELETE')

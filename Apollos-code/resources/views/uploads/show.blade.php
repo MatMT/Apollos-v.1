@@ -2,9 +2,9 @@
 
 @extends('layouts.shape1')
 
-@section('title', '{{ $song->name_song }}')
-
-{{-- @section('titulo', '{{ $song->name_song }}') --}}
+@section('title')
+    {{ $song->name_song }}
+@endsection
 
 @section('header')
     <x-header title="Artista"></x-header>
@@ -12,7 +12,6 @@
 
 
 @section('content')
-
     <main class="w-11/12 mx-auto">
 
     </main>

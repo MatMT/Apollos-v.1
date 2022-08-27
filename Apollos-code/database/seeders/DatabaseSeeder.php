@@ -2,11 +2,7 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\User;
-use App\Models\Song;
-use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,12 +13,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        
         $this->call(UserSeeder::class);
         $this->call(ArtistSeeder::class);
+        $this->call(AlbumMatiSeeder::class);
+        $this->call(SongMatiSeeder::class);
 
         // Fábricas
-        User::factory(10)->create();
+        // User::factory(10)->create();
         // Song::factory(50)->create();
     }
 }

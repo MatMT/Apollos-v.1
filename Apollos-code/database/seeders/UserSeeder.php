@@ -3,9 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Song;
 use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
@@ -32,7 +30,8 @@ class UserSeeder extends Seeder
         $mati->name_artist = 'elias_mt';
         $mati->gender = false;
         $mati->birth_date = '2004-10-23';
-        $mati->image = '324aecfb-ab22-49de-8c1b-d24df475d3ca.jpg';
+        $mati->image = 'dbebb47d-ffd1-4f56-8217-d112f0ee49a4.png';
+        // $mati->image = '324aecfb-ab22-49de-8c1b-d24df475d3ca.jpg';
         $mati->save();
 
         // Usuario Default - 2
@@ -122,7 +121,7 @@ class UserSeeder extends Seeder
         $vini->image = 'b59ebcf0-af5f-4d07-ac15-82908ee86f1e.jpg';
         $vini->save();
 
-        // Usuario Default - 6
+        // Usuario Default - 7
         $vini = new User();
         $vini->name = 'Marcelo';
         $vini->last_name = 'Cruz';

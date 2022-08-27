@@ -5,7 +5,7 @@ Dropzone.autoDiscover = false;
 // Espacio para canción
 const DropzoneMp3 = new Dropzone('#dropzone_audio', {
     dictDefaultMessage: 'Sube tu <b>canción</b> aquí',
-    acceptedFiles: '.mp3',
+    acceptedFiles: '.mp3, .m4a',
     addRemoveLinks: true,
     dictRemoveFile: 'Borrar Archivo',
     maxFiles: 1,

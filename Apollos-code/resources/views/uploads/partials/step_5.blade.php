@@ -94,6 +94,10 @@
                         <label for="confirm">Confirmo que todo contenido súbido es de mi autoría.</label>
                     </div>
 
+                    <div>
+                        <input type="hidden" name="total" value="{{ $total }}" />
+                    </div>
+
                     <input type="submit" value="Publicar"
                         class=" bg-teal-500 transition-colors cursor-pointer uppercase font-bold w-full p-3  text-white rounded-lg" />
                 </form>

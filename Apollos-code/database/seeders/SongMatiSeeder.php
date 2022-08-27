@@ -50,6 +50,7 @@ class SongMatiSeeder extends Seeder
         $bbnoAlbum1->genre = 'hip hop';
         $bbnoAlbum1->url = '26c944eb-84f4-441f-a3f2-28b0d8559b15.m4a';
         $bbnoAlbum1->image = '53806cbc-650a-458d-a9ee-614725b5a427.jpg';
+        $bbnoAlbum1->total = 164.47;
         $bbnoAlbum1->created_at = now();
         $bbnoAlbum1->updated_at = now();
         $bbnoAlbum1->save();
@@ -63,6 +64,7 @@ class SongMatiSeeder extends Seeder
         $bbnoAlbum2->genre = 'hip hop';
         $bbnoAlbum2->url = 'f6f39231-3a0e-4406-b676-918f3fa1c20f.m4a';
         $bbnoAlbum2->image = '53806cbc-650a-458d-a9ee-614725b5a427.jpg';
+        $bbnoAlbum2->total = 134.65;
         $bbnoAlbum2->created_at = now();
         $bbnoAlbum2->updated_at = now();
         $bbnoAlbum2->save();
@@ -76,6 +78,7 @@ class SongMatiSeeder extends Seeder
         $bbnoAlbum3->genre = 'hip hop';
         $bbnoAlbum3->url = 'dcd29a23-016a-4db2-bbed-76e315625c38.m4a';
         $bbnoAlbum3->image = '53806cbc-650a-458d-a9ee-614725b5a427.jpg';
+        $bbnoAlbum3->total = 158.43;
         $bbnoAlbum3->created_at = now();
         $bbnoAlbum3->updated_at = now();
         $bbnoAlbum3->save();
@@ -109,42 +112,45 @@ class SongMatiSeeder extends Seeder
         $CucoSencillo1->save();
 
         // Álbum Cuco - 2_1 - MATI
-        $bbnoAlbum1 = new Song();
-        $bbnoAlbum1->album_id = 4;
-        $bbnoAlbum1->sencillo = false;
-        $bbnoAlbum1->name_song = 'Caution';
-        $bbnoAlbum1->time = '2:57';
-        $bbnoAlbum1->genre = 'indie';
-        $bbnoAlbum1->url = '56e6c937-8417-4bfa-ae68-40d1806ec834.mp3';
-        $bbnoAlbum1->image = '05a926af-5cda-4800-8138-441ae5bae12b.jpg';
-        $bbnoAlbum1->created_at = now();
-        $bbnoAlbum1->updated_at = now();
-        $bbnoAlbum1->save();
+        $CucoAlbum1 = new Song();
+        $CucoAlbum1->album_id = 4;
+        $CucoAlbum1->sencillo = false;
+        $CucoAlbum1->name_song = 'Caution';
+        $CucoAlbum1->time = '2:57';
+        $CucoAlbum1->genre = 'indie';
+        $CucoAlbum1->url = '56e6c937-8417-4bfa-ae68-40d1806ec834.mp3';
+        $CucoAlbum1->image = '05a926af-5cda-4800-8138-441ae5bae12b.jpg';
+        $CucoAlbum1->total = 177.42;
+        $CucoAlbum1->created_at = now();
+        $CucoAlbum1->updated_at = now();
+        $CucoAlbum1->save();
 
         // Álbum Cuco - 2_2 - MATI
-        $bbnoAlbum2 = new Song();
-        $bbnoAlbum2->album_id = 4;
-        $bbnoAlbum2->sencillo = false;
-        $bbnoAlbum2->name_song = 'Fin Del Mundo';
-        $bbnoAlbum2->time = '2:54';
-        $bbnoAlbum2->genre = 'indie';
-        $bbnoAlbum2->url = '6d89c9a8-7224-4890-a9c4-8a35d7456cd9.mp3';
-        $bbnoAlbum2->image = '05a926af-5cda-4800-8138-441ae5bae12b.jpg';
-        $bbnoAlbum2->created_at = now();
-        $bbnoAlbum2->updated_at = now();
-        $bbnoAlbum2->save();
+        $CucoAlbum2 = new Song();
+        $CucoAlbum2->album_id = 4;
+        $CucoAlbum2->sencillo = false;
+        $CucoAlbum2->name_song = 'Fin Del Mundo';
+        $CucoAlbum2->time = '2:54';
+        $CucoAlbum2->genre = 'indie';
+        $CucoAlbum2->url = '6d89c9a8-7224-4890-a9c4-8a35d7456cd9.mp3';
+        $CucoAlbum2->image = '05a926af-5cda-4800-8138-441ae5bae12b.jpg';
+        $CucoAlbum2->total = 174.16;
+        $CucoAlbum2->created_at = now();
+        $CucoAlbum2->updated_at = now();
+        $CucoAlbum2->save();
 
         // Álbum Cuco - 2_3 - MATI
-        $bbnoAlbum3 = new Song();
-        $bbnoAlbum3->album_id = 4;
-        $bbnoAlbum3->sencillo = false;
-        $bbnoAlbum3->name_song = 'Sitting In The Corner';
-        $bbnoAlbum3->time = '3:52';
-        $bbnoAlbum3->genre = 'indie';
-        $bbnoAlbum3->url = 'ffa7d712-a8b9-456e-8acd-41467021f89c.mp3';
-        $bbnoAlbum3->image = '05a926af-5cda-4800-8138-441ae5bae12b.jpg';
-        $bbnoAlbum3->created_at = now();
-        $bbnoAlbum3->updated_at = now();
-        $bbnoAlbum3->save();
+        $CucoAlbum3 = new Song();
+        $CucoAlbum3->album_id = 4;
+        $CucoAlbum3->sencillo = false;
+        $CucoAlbum3->name_song = 'Sitting In The Corner';
+        $CucoAlbum3->time = '3:52';
+        $CucoAlbum3->genre = 'indie';
+        $CucoAlbum3->url = 'ffa7d712-a8b9-456e-8acd-41467021f89c.mp3';
+        $CucoAlbum3->image = '05a926af-5cda-4800-8138-441ae5bae12b.jpg';
+        $CucoAlbum3->total = 232.33;
+        $CucoAlbum3->created_at = now();
+        $CucoAlbum3->updated_at = now();
+        $CucoAlbum3->save();
     }
 }

@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('genre', 15)->nullable();
             $table->string('url', 40);
             $table->string('image', 40)->nullable();
+            $table->float('total')->nullable();
             $table->timestamps();
         });
     }

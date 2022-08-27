@@ -28,8 +28,9 @@ class SongController extends Controller
         // Obteniendo duración
         $track = new GetId3(request()->file('file'));
         $time = $track->getPlaytime();
+        $duration = $track->getPlaytimeSeconds();
 
         // Respuesta al Js (dropzone.on)
-        return response()->json(['song' => $nombreCancion, 'time' => $time]);
+        return response()->json(['song' => $nombreCancion, 'time' => $time, 'total' => $duration]);
     }
 }

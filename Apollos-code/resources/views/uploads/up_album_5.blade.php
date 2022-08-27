@@ -12,7 +12,9 @@
 @section('subtitulo')
     Casi todo está listo
     <br>
-    - {{ $album->name_album }} -
+    -- {{ $album->name_album }} --
+    <br>
+    {{ $total }}
 @endsection
 
 @section('placeholder')

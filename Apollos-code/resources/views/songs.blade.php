@@ -47,7 +47,11 @@
 
                     <div class="list-author-date flex">
                         <span class="author mr-1">
-                            <h1>{{ $user->username }}</h1>
+                            <h1>
+                                <a href="{{ route('profile.index', $user->username) }}" class="hover:underline">
+                                    {{ $user->username }}
+                                </a>
+                            </h1>
                         </span>
                         <span class="text-center point">⚬</span>
                         <span class="date ml-1">
@@ -57,7 +61,7 @@
 
                     <div class="timer-songs flex ">
                         <span class="timer mr-1">
-                            <h1>1 hora</h1>
+                            <h1>{{ $album->duration }}</h1>
                         </span>
                         <span class="text-center point">⚬</span>
                         <span class="counter ml-1">
@@ -101,7 +105,8 @@
 
                                                 <h1 class="id-song">{{ $displayList = $displayList + 1 }}</h1>
                                                 <span class="title-author">
-                                                    <h1 class="song-title font-bold text-center">{{ $song->name_song }}</h1>
+                                                    <h1 class="song-title font-bold text-center">{{ $song->name_song }}
+                                                    </h1>
                                                 </span>
                                                 <h1 class='counter-time text-center'>99</h1>
                                                 <h1 class='likes text-center'>99 Me gusta</h1>

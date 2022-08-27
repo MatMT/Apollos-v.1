@@ -19,6 +19,7 @@ class Song extends Model
         'genre',
         'url',
         'image',
+        'total'
     ];
 
     // RELACIÓNES ===============================

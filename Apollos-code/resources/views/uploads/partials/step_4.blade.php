@@ -47,13 +47,18 @@
                     @csrf
 
                     <!-- Token de audio -->
-                    <div class="mb-5">
+                    <div>
                         <input type="hidden" name="song" value="{{ old('song') }}" />
                     </div>
 
                     <!-- Token de duración -->
-                    <div class="mb-5">
+                    <div>
                         <input type="hidden" name="time" value="{{ old('time') }}" />
+                    </div>
+
+                    <!-- Token de duración -->
+                    <div>
+                        <input type="hidden" name="total" value="{{ old('total') }}" />
                     </div>
 
                     <!-- Campos -->

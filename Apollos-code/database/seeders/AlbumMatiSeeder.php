@@ -30,6 +30,7 @@ class AlbumMatiSeeder extends Seeder
         $bbnoAlbum->genre = 'hip hop';
         $bbnoAlbum->image = '53806cbc-650a-458d-a9ee-614725b5a427.jpg';
         $bbnoAlbum->sencillo = false;
+        $bbnoAlbum->duration = '7:37';
         $bbnoAlbum->confirm = true;
         $bbnoAlbum->created_at = now();
         $bbnoAlbum->updated_at = now();
@@ -52,6 +53,7 @@ class AlbumMatiSeeder extends Seeder
         $CucoAlbum->genre = 'indie';
         $CucoAlbum->image = '05a926af-5cda-4800-8138-441ae5bae12b.jpg';
         $CucoAlbum->sencillo = false;
+        $bbnoAlbum->duration = '9:43';
         $CucoAlbum->confirm = true;
         $CucoAlbum->created_at = now();
         $CucoAlbum->updated_at = now();

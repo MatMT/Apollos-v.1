@@ -18,6 +18,9 @@ class DatabaseSeeder extends Seeder
         $this->call(AlbumMatiSeeder::class);
         $this->call(SongMatiSeeder::class);
 
+        $this->call(AlbumAeroSeeder::class);
+        $this->call(SongAeroSeeder::class);
+
         // Fábricas
         // User::factory(10)->create();
         // Song::factory(50)->create();

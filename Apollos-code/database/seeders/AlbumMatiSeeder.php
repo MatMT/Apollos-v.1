@@ -53,7 +53,7 @@ class AlbumMatiSeeder extends Seeder
         $CucoAlbum->genre = 'indie';
         $CucoAlbum->image = '05a926af-5cda-4800-8138-441ae5bae12b.jpg';
         $CucoAlbum->sencillo = false;
-        $bbnoAlbum->duration = '9:43';
+        $CucoAlbum->duration = '9:43';
         $CucoAlbum->confirm = true;
         $CucoAlbum->created_at = now();
         $CucoAlbum->updated_at = now();

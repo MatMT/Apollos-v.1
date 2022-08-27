@@ -51,25 +51,25 @@ class ArtistSeeder extends Seeder
         $Cuco->image = 'a077f7dd-82b0-4671-b000-eb51fb3a3846.jpg';
         $Cuco->save();
 
-        // Artist Default - 10
-        $TwOnPi = new User();
-        $TwOnPi->name = 'Tyler';
-        $TwOnPi->last_name = 'Joseph';
-        $TwOnPi->rol = 'artist';
-        $TwOnPi->email = 'TwOnPi@correo.com';
-        $TwOnPi->username = 'Twenty One Pilots';
-        $TwOnPi->status = 'active';
-        $TwOnPi->age = '33';
-        $TwOnPi->password = Hash::make('4321');
-        $TwOnPi->created_at = now();
-        $TwOnPi->updated_at = now();
-        $TwOnPi->name_artist = 'twenty-one-pilots';
-        $TwOnPi->gender = false;
-        $TwOnPi->birth_date = '1988-12-01';
-        $TwOnPi->image = 'b709b455-25e0-481c-8b48-da1203e2824e.jpg';
-        $TwOnPi->save();
+        // Artist Default - 10 - AERO
+        $TamImp = new User();
+        $TamImp->name = 'Kevin';
+        $TamImp->last_name = 'Parker';
+        $TamImp->rol = 'artist';
+        $TamImp->email = 'TamImp@correo.com';
+        $TamImp->username = 'Tame Impala';
+        $TamImp->status = 'active';
+        $TamImp->age = '36';
+        $TamImp->password = Hash::make('4321');
+        $TamImp->created_at = now();
+        $TamImp->updated_at = now();
+        $TamImp->name_artist = 'tame-impala';
+        $TamImp->gender = false;
+        $TamImp->birth_date = '1986-01-20';
+        $TamImp->image = 'b709b455-25e0-481c-8b48-da1203e2824e.jpg';
+        $TamImp->save();
 
-        // Artist Default - 11
+        // Artist Default - 11 - AERO
         $weeknd = new User();
         $weeknd->name = 'Abel';
         $weeknd->last_name = 'Makkonen';
@@ -87,7 +87,7 @@ class ArtistSeeder extends Seeder
         $weeknd->image = '8e17d442-457f-4324-99e3-b8afcff89a6c.jpg';
         $weeknd->save();
 
-        // Artist Default - 12
+        // Artist Default - 12 - VINI
         $tylercreat = new User();
         $tylercreat->name = 'Tyler';
         $tylercreat->last_name = 'Okonma';
@@ -105,7 +105,7 @@ class ArtistSeeder extends Seeder
         $tylercreat->image = 'd90a2013-a0d6-4775-b8e4-b63c245bc6cd.jpg';
         $tylercreat->save();
 
-        // Artist Default - 13
+        // Artist Default - 13 - VINI
         $kanyewest = new User();
         $kanyewest->name = 'YE';
         $kanyewest->last_name = 'WEST';

@@ -102,7 +102,7 @@
 
                     <!-- Campos -->
                     <div class="mb-5">
-                        <label for="titulo" class="mb-2 block uppercase text-white font-bold mt-5">Título</label>
+                        <label for="titulo" class="mb-2 block uppercase text-white font-bold">Título</label>
                         <input type="text" id="titulo" name="titulo" placeholder="Título de tu canción"
                             class="border p-3 w-full rounded-lg @error('titulo') border-red-500 @enderror"
                             value="{{ old('titulo') }}">
@@ -114,7 +114,7 @@
                         la canción del registro </span></p>
 
                     <input type="submit" value="Agregar"
-                        class="submit-bttn transition-colors cursor-pointer uppercase font-bold w-full p-3 mb-5 md:mb-0 text-white rounded-lg" />
+                        class="submit-bttn bg-sky-600 transition-colors cursor-pointer uppercase font-bold w-full p-3 mb-5 md:mb-0 text-white rounded-lg" />
                 </form>
             </div> <!-- .Mp3 -->
         </div> <!-- MITAD -->
@@ -127,13 +127,13 @@
                 <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
                     <table class="w-full text-sm text-left text-gray-500">
 
-                        <thead class="text-xs blur-bg text-white uppercase">
+                        <thead class="text-xs blur-bg text-white uppercase bg-purple-900">
                             <tr>
                                 <th scope="col" class="py-3 px-6">
                                     #
                                 </th>
                                 <th scope="col" class="py-3 px-6">
-                                    Título
+                                    Titulo
                                 </th>
                                 <th scope="col" class="py-3 px-6">
                                     ⏱️

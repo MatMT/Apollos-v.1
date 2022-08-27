@@ -27,7 +27,7 @@ class ArtistSeeder extends Seeder
         $bbno->password = Hash::make('4321');
         $bbno->created_at = now();
         $bbno->updated_at = now();
-        $bbno->name_artist = 'bbno$';
+        $bbno->name_artist = 'bbno';
         $bbno->gender = false;
         $bbno->birth_date = '1995-06-30';
         $bbno->image = 'a13a928a-5103-4a76-8b6d-96ca2c2d3c42.jpg';

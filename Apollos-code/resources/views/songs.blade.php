@@ -59,7 +59,7 @@
                         </span>
                     </div>
 
-                    <div class="timer-songs flex ">
+                    <div class="timer-songs flex">
                         <span class="timer mr-1">
                             <h1>{{ $album->duration }}</h1>
                         </span>
@@ -69,6 +69,25 @@
                         </span>
                     </div>
 
+                    @auth {{-- Autentificado --}}
+                        @if ($user->id == auth()->user()->id)
+                            {{-- Artista dueño de la canción --}}
+                            <div class="1/6 flex justify-center items-center gap-2">
+                                {{-- Editar album --}}
+                                <form action="{{ route('album.settings.index', $user) }}">
+                                    <input type="submit" value="Editar álbum" name="" id=""
+                                        class="bg-blue-500 hover:bg-blue-600 p-2 rounded text-white font-bold cursor-pointer">
+                                </form>
+                                <form action="{{ route('albums.destroy', [$user, $album]) }}" method="POST">
+                                    {{-- METODO SPOOFING - Laravel permite agregar otro tipo de peticiones --}}
+                                    @method('DELETE')
+                                    @csrf
+                                    <input type="submit" value="Eliminar álbum" name="" id=""
+                                        class="bg-red-500 hover:bg-red-600 p-2 rounded text-white font-bold cursor-pointer">
+                                </form>
+                            </div>
+                        @endif
+                    @endauth
                 </div>
 
             </div>

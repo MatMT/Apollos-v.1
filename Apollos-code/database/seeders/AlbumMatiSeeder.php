@@ -18,7 +18,7 @@ class AlbumMatiSeeder extends Seeder
         // bbno$ - MATI
         $bbnoSencillos = new Album();
         $bbnoSencillos->user_id = 8;
-        $bbnoSencillos->name_album = 'sencillos_bbno$';
+        $bbnoSencillos->name_album = 'sencillos_bbno';
         $bbnoSencillos->sencillo = true;
         $bbnoSencillos->created_at = now();
         $bbnoSencillos->updated_at = now();

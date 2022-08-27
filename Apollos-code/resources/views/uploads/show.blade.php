@@ -104,13 +104,15 @@
                         <input type="submit" value="Editar canción" name="" id=""
                             class="bg-blue-500 hover:bg-blue-600 p-2 rounded text-white font-bold cursor-pointer">
                     </form>
-                    <form action="{{ route('song.destroy', ['user' => $user, 'song' => $song]) }}" method="POST">
-                        {{-- METODO SPOOFING - Laravel permite agregar otro tipo de peticiones --}}
-                        @method('DELETE')
-                        @csrf
-                        <input type="submit" value="Eliminar canción" name="" id=""
-                            class="bg-red-500 hover:bg-red-600 p-2 rounded text-white font-bold cursor-pointer">
-                    </form>
+                    @if ($song->sencillo == true)
+                        <form action="{{ route('song.destroy', ['user' => $user, 'song' => $song]) }}" method="POST">
+                            {{-- METODO SPOOFING - Laravel permite agregar otro tipo de peticiones --}}
+                            @method('DELETE')
+                            @csrf
+                            <input type="submit" value="Eliminar canción" name="" id=""
+                                class="bg-red-500 hover:bg-red-600 p-2 rounded text-white font-bold cursor-pointer">
+                        </form>
+                    @endif
                 </div>
             @endif
         @endauth

@@ -1,33 +1,77 @@
-@extends('partials.nav_bar')
+@extends('layouts.shape1')
 
-@section('titulo')
-    Subiendo un Álbum
+@section('title')
+    Subiendo un álbum
 @endsection
 
-@push('noBack')
+@section('js')
     @vite(['resources/js/noBack.js'])
-@endpush
+@endsection
 
-@section('contenido')
-    <div class="flex my-0 mx-auto sm:w-full sm:flex-row
-    flex-col w-3/4 bg-white rounded-lg shadow p-3">
-        <div class="basis-1/5 text-center p-1 @yield('step1')">Imagen</div>
-        {{-- @yield('step') --}}
-        <div class="basis-1/5 text-center p-1 @yield('step2')">Titulo</div>
-        <div class="basis-1/5 text-center p-1 @yield('step3')">Género</div>
-        @yield('song/s')
-        <div class="basis-1/5 text-center p-1 @yield('step5')">Subir</div>
-    </div> <!-- Progress bar -->
+@section('css')
+    <style>
+        body{
+            max-height: 99vh !important;
+        }
+
+        .dropzone{
+            border-style: dashed !important;
+            border-width: 3px !important;
+            border-color: white !important;
+
+            background: rgba(34, 47, 62, 0.45);
+            backdrop-filter: blur(8px);
+            font-size: 1.5em;
+        }
+
+        .dz-preview{
+            background: transparent !important;
+        }
+
+        .submit-bttn {
+            background-color: #131313;
+
+            filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+        }
+        
+        .submit-bttn:hover{
+            background-color: white;
+            transition: all 0.2s ease-in-out;
+            color:black;
+        }
+
+        .blur-bg{
+            background: rgba(39, 39, 39, 0.5);
+            backdrop-filter: blur(8px);
+        }
+    </style>
+@endsection
+
+@section('header')
+    <x-header></x-header>
+@endsection
+
+@section('content')
+    <div class="p-10 overflow-hidden">
+            <div class="flex my-0 mx-auto  sm:w-full sm:flex-row flex-col w-3/4  rounded-xl shadow overflow-hidden font-semibold">
+            <div class="basis-1/5 text-center py-3 bg-white @yield('step1')">Imagen</div>
+            {{-- @yield('step') --}}
+            <div class="basis-1/5 text-center py-3 bg-white @yield('step2')">Título</div>
+            <div class="basis-1/5 text-center py-3 bg-white @yield('step3')">Género</div>
+            @yield('song/s')
+            <div class="basis-1/5 text-center py-3 bg-white @yield('step5')">Subir</div>
+        </div> <!-- Progress bar -->
+    </div>
 
     <!-- SUBTITULO -->
     <div class="mx-auto mt-8">
-        <h2 class="font-black text-center text-4xl mb-10">
+        <h2 class="text-white font-titulo text-3xl font-bold mb-5 text-center">
             @yield('subtitulo')
         </h2>
     </div>
 
     <!-- CUERPO -->
-    <div class="px-10">
+    <div class="px-96 text-white p-5">
         <div>
             <form action="{{ route('upload.store_2') }}" method="POST" id="song_up" novalidate>
                 @csrf
@@ -44,7 +88,7 @@
                 </div>
 
                 <input type="submit" value="Siguiente"
-                    class=" bg-teal-500 transition-colors cursor-pointer uppercase font-bold w-full p-3  text-white rounded-lg" />
+                    class="submit-bttn bg-teal-500 transition-colors cursor-pointer uppercase font-bold w-full p-3  text-white rounded-lg" />
             </form>
         </div> <!-- Envío de input -->
 

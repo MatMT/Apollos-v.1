@@ -5,32 +5,26 @@ namespace App\Http\Controllers;
 use App\Models\Song;
 use App\Models\User;
 use App\Models\Album;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
 class SongsShowController extends Controller
 {
-    // Canciones ==========
-    public function index(User $user)
+    public function __construct()
     {
-        // Obtener albúmes
-        $album = Album::where('user_id', $user->id)->first(); // Get trae los resultados de la consulta en colección
-
-        // Llamamos al modelo y automáticamente su tabla
-        $songs = Song::where('album_id', $album->id)->paginate(8); // Paginate elabora una lógica para crear páginas
-
-        // Mostramos vista y devolvemos datos con las llaves 
-        return view('uploads.show', [
-            'user' => $user,
-            'songs' => $songs,
-            'albums' => $album
-        ]);
+        $this->middleware('auth');
     }
 
     // REPRODUCTOR ==========
     public function show(User $user, Song $song)
     {
+        // Llamamos al modelo y automáticamente su tabla
+        $songs = Song::where('album_id', $song->album_id)->get(); // Paginate elabora una lógica para crear páginas}
+
+
         return view('uploads.show', [
             'user' => $user,
+            'OtherSongs' => $songs,
             'song' => $song
         ]);
     }

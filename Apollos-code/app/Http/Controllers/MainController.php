@@ -93,8 +93,6 @@ class MainController extends Controller
             ->where([['sencillo', false], ['confirm', true]])
             ->get();
 
-        dd($Myalbums);
-
         return view('Library', [
             'userLikes' => $UserLog,
             'songsLikes' => $song,

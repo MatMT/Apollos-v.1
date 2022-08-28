@@ -16,7 +16,9 @@ use App\Http\Controllers\AlbumsShowController;
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\FollowerController;
 use App\Http\Controllers\LikeController;
+use App\Http\Controllers\LikeAlbumController;
 use App\Http\Controllers\UploadController;
+use App\Http\Controllers\LocaleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,6 +57,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// ============================== CAMBIO DE IDIOMA
+Route::get('/locale/{locale}', [LocaleController::class, 'index'])->name('changeLocale');
+
 // ============================== REGISTRO
 
 // Registro de usuarios ---
@@ -88,9 +93,6 @@ Route::get('/usuario/{user:name_artist}/album/{album}/', [AlbumsShowController::
 
 // Canciones --- Imprimir
 Route::get('/usuario/{user:name_artist}/canciones/{song}/', [SongsShowController::class, 'show'])->name('song.show');
-
-// Route::get('/usuario/{user:name_artist}/canciones/{song}/next', [SongsShowController::class, 'index'])->name('song.index');
-
 
 // ============================== SUBIR CANCIÓN
 
@@ -135,6 +137,9 @@ Route::delete('/usuario/{user:name_artist}/unfollow/', [FollowerController::clas
 
 Route::post('/canciones/{song}/likes/', [LikeController::class, 'store'])->name('song.likes.store');
 Route::delete('/canciones/{song}/likes/', [LikeController::class, 'destroy'])->name('song.likes.destroy');
+
+Route::post('/albumes/{album}/likes/', [LikeAlbumController::class, 'store'])->name('album.likes.store');
+Route::delete('/albumes/{album}/likes/', [LikeAlbumController::class, 'destroy'])->name('album.likes.destroy');
 
 // ============================== EDITAR PERFIL
 

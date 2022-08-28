@@ -28,11 +28,12 @@ class MainController extends Controller
         // Objeto convertido a arreglo obtenido por medio del modelo 
         // Pluck = Traer campos seleccionados
 
+
         // Extraer la collección de artistas ===
         $artists = DB::table('users')
             ->where('rol', 'artist',)
             ->where('id', '<>', $UserLog->id)
-            ->where('id', '<>', $ids)
+            ->wherenotin('id',  $ids)
             ->inRandomOrder()
             ->limit(15)
             ->get();
@@ -88,12 +89,14 @@ class MainController extends Controller
             ->get();
 
         // Filtrar álbumes
+        $MyalbumsId = DB::table('like_albums')
+            ->where('user_id', $UserLog->id)
+            ->pluck('album_id');
+
         $Myalbums = DB::table('albums')
-            ->whereIn('user_id', $ids)
-            ->where([['sencillo', false], ['confirm', true]])
+            ->whereIn('id', $MyalbumsId)
             ->get();
 
-        dd($Myalbums);
 
         return view('Library', [
             'userLikes' => $UserLog,

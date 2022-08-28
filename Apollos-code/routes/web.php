@@ -17,6 +17,7 @@ use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\FollowerController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\UploadController;
+use App\Http\Controllers\LocaleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -54,6 +55,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// ============================== CAMBIO DE IDIOMA
+Route::get('/locale/{locale}', [LocaleController::class, 'index'])->name('changeLocale');
 
 // ============================== REGISTRO
 

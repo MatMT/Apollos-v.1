@@ -1,6 +1,9 @@
 *.png
 *.jpeg
 *.jpg
+
+# Multimedia
+
 !default-Pfp.png
 !.gitignore
 !c3cf38c7-e997-4f50-864c-eb8e4f3e1719.jpg
@@ -11,3 +14,7 @@
 !b59ebcf0-af5f-4d07-ac15-82908ee86f1e.jpg
 !3526eb1d-501a-4245-b33e-23823a3eee97.jpg
 !324aecfb-ab22-49de-8c1b-d24df475d3ca.jpg
+!a13a928a-5103-4a76-8b6d-96ca2c2d3c42.jpg
+!a077f7dd-82b0-4671-b000-eb51fb3a3846.jpg
+!dbebb47d-ffd1-4f56-8217-d112f0ee49a4.png
+!b709b455-25e0-481c-8b48-da1203e2824e.jpg

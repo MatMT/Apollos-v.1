@@ -1,24 +1,56 @@
-@extends('partials.nav_bar')
+@extends('layouts.shape1')
 
-@section('titulo')
+@section('title')
     Subiendo una nueva canción
 @endsection
 
-@push('js')
+@section('js')
     @vite(['resources/js/app.js'])
-@endpush
-
-@push('styles')
+@endsection
+@section('css')
+    {{-- @vite('resources/css/profileStyles.css') --}}
     <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
-@endpush
+    <style>
+        .dropzone{
+            border-style: dashed !important;
+            border-width: 3px !important;
+            border-color: white !important;
 
-@section('contenido')
-    <div class="md:flex md:items-center">
-        <div class="md:w-1/2">
-            <div class="md:h-1/2 px-10">
+            background: rgba(34, 47, 62, 0.45);
+            backdrop-filter: blur(8px);
+        }
+
+        .song-info-inputs{
+            background-color: white;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+        }
+
+        .submit-bttn {
+            background-color: #131313;
+
+            filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+        }
+
+        .dz-preview{
+            background: transparent !important;
+        }
+    </style>
+@endsection
+
+@section('header')
+    <x-header></x-header>
+@endsection
+
+@section('content')
+<h1 class='text-white font-titulo text-3xl font-bold mt-12 mb-2 anim2 w-full text-center px-10'>Sube una canción</h1>
+    <div class="md:flex md:items-center flex justify-center items-center h-4/6 px-10">
+        
+        <div class="md:w-1/2 pt-5 text-white">
+            <div class="md:h-1/2 px-10 mt-5 ">
 
                 <form action="{{ route('image.store') }}" method="POST" enctype="multipart/form-data" id="dropzone_img"
-                    class="dropzone md:h-1/2 border-dashed border-2 @error('imagen') border-red-500 @enderror w-full h-96 rounded flex flex-col justify-center items-center">
+                    class="dropzone md:h-1/2 border-5 border-dashed @error('imagen') border-red-500 @enderror w-full h-96 rounded flex flex-col justify-center items-center">
                     @csrf
                 </form>
 
@@ -29,7 +61,7 @@
 
             </div> <!-- Imagen -->
 
-            <div class="md:h-1/2 px-10">
+            <div class="md:h-1/2 px-10 mt-5">
 
                 <form action="{{ route('audio.store') }}" method="POST" enctype="multipart/form-data" id="dropzone_audio"
                     class="dropzone md:h-1/2  border-dashed border-2 @error('song') border-red-500 @enderror w-full h-96 rounded flex flex-col justify-center items-center">
@@ -40,14 +72,14 @@
                     <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
                         La canción es obligatoria.</p>
                 @enderror
-                <p class="p-2 text-slate-400 text-right">6 Mb máximos por canción*</p>
+                <p class="p-2 text-red-500 text-right font-semibold"><span class="inline"><img src="{{ asset('assets/icons/errorIcon.png') }}" class="h-4 inline m-2"> 6mb máximos por canción </span></p>
             </div> <!-- .Mp3 -->
 
         </div> <!-- Subir archivos -->
 
 
 
-        <div class="md:w-1/2 p-10 bg-white rounded-lg shadow mt-10 md:mt-0">
+        <div class="song-info-inputs md:w-1/2 p-10 bg-white rounded-lg shadow mt-10 md:mt-0 text-gray-800">
             <form action="{{ route('data.store') }}" method="POST" id="song_up" novalidate>
                 @csrf
                 <!-- Token de imagen -->
@@ -67,8 +99,8 @@
 
                 <!-- Campos -->
                 <div class="mb-5">
-                    <label for="titulo" class="mb-2 block uppercase text-gray-500 font-bold">Titulo</label>
-                    <input type="text" id="titulo" name="titulo" placeholder="Titulo de tu canción"
+                    <label for="titulo" class="mb-2 block uppercase text-gray-800 font-bold">Título</label>
+                    <input type="text" id="titulo" name="titulo" placeholder="Título de tu canción"
                         class="border p-3 w-full rounded-lg @error('titulo') border-red-500 @enderror"
                         value="{{ old('titulo') }}">
                     @error('titulo')
@@ -87,7 +119,7 @@
                 </div>
 
                 <input type="submit" value="Publicar"
-                    class="bg-sky-600 transition-colors cursor-pointer uppercase font-bold w-full p-3  text-white rounded-lg" />
+                    class="submit-bttn bg-sky-600 transition-colors cursor-pointer uppercase font-bold w-full p-3  text-white rounded-lg" />
 
             </form>
         </div> <!-- Rellenar información -->

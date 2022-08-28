@@ -84,10 +84,13 @@ Route::view('/Artista', 'Artist')->name('artista');
 // ============================== PERFIL
 
 // Álbumes --- Imprimir
-Route::get('/usuario/{user:name_artist}/album/{album}/', [AlbumsShowController::class, 'index'])->name('albums.index');
+Route::get('/usuario/{user:name_artist}/album/{album}/', [AlbumsShowController::class, 'index'])->name('album.index');
 
 // Canciones --- Imprimir
 Route::get('/usuario/{user:name_artist}/canciones/{song}/', [SongsShowController::class, 'show'])->name('song.show');
+
+// Route::get('/usuario/{user:name_artist}/canciones/{song}/next', [SongsShowController::class, 'index'])->name('song.index');
+
 
 // ============================== SUBIR CANCIÓN
 
@@ -117,9 +120,11 @@ Route::post('/uploads/selection/album/step_4', [AlbumController::class, 'store_4
 Route::get('/uploads/selection/album/step_5', [AlbumController::class, 'album_5'])->name('upload.album_5'); // Vista - Confirmación
 Route::post('/uploads/selection/album/step_5', [AlbumController::class, 'store_5'])->name('upload.store_5'); // Validación tecer paso
 
-// ============================== ELIMINAR CANCIÓN
+// ============================== ELIMINAR CANCIÓN - ÁLBUM
 
-Route::delete('/usuario/{user:name_artist}/canciones/{song}/', [SongsShowController::class, 'destroy'])->name('song.destroy');
+Route::delete('/usuario/{user:name_artist}/canciones/{song}', [SongsShowController::class, 'destroy'])->name('song.destroy');
+// ---
+Route::delete('/usuario/{user:name_artist}/album/{album}', [AlbumsShowController::class, 'destroy'])->name('album.destroy');
 
 // ============================== FOLLOW
 
@@ -138,5 +143,5 @@ Route::post('/usuario/{user:name_artist}/settings/change/',  [SettingsController
 
 // ============================== EDITAR ÁLBUMES
 
-Route::post('/usuario/{user:name_artist}/settings/album/change',  [SongSettingController::class, 'changeDataAlbums'])->name('album.settings');
-Route::get('/usuario/{user:name_artist}/settings/album',  [SongSettingController::class, 'index'])->name('album.settings.index');
+Route::get('/usuario/user/settings/change/album',  [SongSettingController::class, 'index'])->name('album.settings.index');
+Route::post('/usuario/user/settings/change/album',  [SongSettingController::class, 'changeDataAlbums'])->name('album.settings');

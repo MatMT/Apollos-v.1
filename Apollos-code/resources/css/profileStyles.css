@@ -11,15 +11,15 @@
     color: white;
 }
 
-body{
+body {
     min-height: 100vh;
 }
 
-header{
+header {
     position: fixed;
 }
 
-header.sticky{
+header.sticky {
     position: fixed !important;
 }
 
@@ -135,7 +135,8 @@ span.song-pic-tab {
     min-height: 100px;
 }
 
-.public-songs, .public-albums {
+.public-songs,
+.public-albums {
     border-bottom: 2px white solid;
     display: inline-block;
     padding-right: 40px;
@@ -145,17 +146,16 @@ span.song-pic-tab {
 .song-info,
 .song-container-tabs,
 .song-info-tabs,
-.content{
+.content {
     min-width: 1140px !important;
     max-width: 1140px !important;
-
 }
 
-.content{
+.content {
     min-height: 270px;
 }
 
-span.disc-ico img{
+span.disc-ico img {
     height: 50px;
     width: 50px;
 }
@@ -175,9 +175,9 @@ span.disc-ico img{
 }
 
 .song-info {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border-radius: 20px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-radius: 10px;
     box-sizing: border-box;
     transition: all 200ms ease-in-out;
 }
@@ -245,7 +245,7 @@ h1.author {
     margin-right: auto;
 }
 
-.if-subtitle{
+.if-subtitle {
     font-size: 1.7em;
     margin-top: -20px;
 }

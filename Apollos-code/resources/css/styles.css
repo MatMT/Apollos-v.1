@@ -346,41 +346,129 @@ header.sticky {
     display: none;
 }
 
-/*--- ---- ----- Reproductor ---- ----- -----*/
-/*
-.overway{
-    position: fixed;
-    background-color: rgb(48, 48, 48);
-    width: 425px;
-    height: 110px;
-    bottom: 40px;
-    right: 100px;
-    border-radius: 20px;
-}*/
+/*--- ---- ----- ---- ----- ----- Reproductor */
+
 
 footer{
     position: sticky;
-    left: 0%;
-    bottom: 10px;
+    right: 0%;
+    top: 20px;
+    bottom: 20px;
     display: flex;
-    align-items: center;
     justify-content: end;
     width: 100%;
-    height: 90px;
+    height: 110px;
 }
 
 .player {
-    height: 90px;
+    height: 110px;
     width: 25%;
-    border-top: rgba(167, 165, 165, 0.397) 1px solid;
-    border-left: rgba(167, 165, 165, 0.397) 1px solid;
-    border-right: rgba(167, 165, 165, 0.397) 1px solid;
-    border-radius: 30px 30px 0px 0px;
+    min-width: 490px;
+    border: 1px solid rgba(167, 165, 165, 0.3);
+    border-radius: 15px;
+    margin-right: 50px;
     background-color: #131313;
+    background-color: #f1f1f1;
 
     filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04))
         drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+    display: flex;
+    justify-content: space-around;
 }
+
+/*---- Foto de la canción ------*/
+
+.player .cancion{
+    height: 100%;
+    width: 22.68%;
+    padding: 10px;
+    margin-left: 10px;
+    position: relative;
+}
+.player .cancion img{
+    height: 100%;
+    border-radius: 100%;
+}
+
+.player .cancion img.rotar{
+    animation: rotar 6s infinite;
+}
+
+.white-circule{
+    position: absolute;
+    left: 43.975px;
+    top: 43.975px;
+    width: 20px;
+    height: 20px;
+    background-color: #fdfdfd;
+    border-radius: 100%;
+    z-index: 10;
+}
+
+@keyframes rotar {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+
+
+/*------- Infomración de la canción ------*/
+
+
+.player .info-cancion{
+    width: 35%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+
+/*----- Controles del reproductor ------*/
+
+.player .controles{
+    width: 35%;
+    height: 100%;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: space-around;
+    margin-right: 10px;
+}
+
+.player .controles .controladores{
+    display: flex;
+    align-items: center;
+}
+.player .controles i{
+    
+    cursor: pointer;
+}
+
+.rombo{
+    width: 40px; 
+    height: 40px; 
+    background: rgb(14, 109, 187);
+    border-radius: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f1f1f1;
+    transform: rotate(45deg);
+}
+.rombo i{
+    transform: rotate(-45deg);
+}
+
+
 
 /*-------  -------  ----- Querys ---------  ------  ----*/
 

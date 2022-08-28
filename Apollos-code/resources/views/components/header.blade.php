@@ -6,16 +6,16 @@
 
         <!-- Navegador de páginas  -->
 
-        <ul class="flex my-10 mx-10 text-base items-center font-cuerpo text-center tablet_5:mx-auto">
+        <ul class="flex justify-around w-full max-w-2xl my-10 mx-auto text-base items-center font-cuerpo text-center tablet_5:mx-auto">
 
-            <li class="mx-8 {{ $active ?? '' }} ">
+            <li class="{{ $active ?? '' }} ">
                 <a href="{{ route('main') }}"><i class="fi fi-rs-home"></i><span class="tablet_3:hidden">Home</span></a>
             </li>
-            <li class="mx-8  {{ $activeli ?? '' }} "><a href="{{ route('biblioteca') }}"><i
+            <li class="{{ $activeli ?? '' }} "><a href="{{ route('biblioteca') }}"><i
                         class="fi fi-rs-apps"></i></i><span class="tablet_3:hidden">Tu Biblioteca</span></a></li>
-            <li class="mx-8 "><a href="{{ route('artista') }}"><i class="fi fi-rs-music"></i><span
+            <li class=""><a href="{{ route('artista') }}"><i class="fi fi-rs-music"></i><span
                         class="tablet_3:hidden">Crear PlayList</span></a></li>
-            <li class="mx-8 cursor-pointer" id="buscar"><a><i class="fi fi-rs-search"></i><span
+            <li class=" cursor-pointer" id="buscar"><a><i class="fi fi-rs-search"></i><span
                         class="tablet_3:hidden">Buscar</span></a></li>
         </ul>
 

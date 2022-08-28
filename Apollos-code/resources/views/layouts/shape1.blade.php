@@ -18,6 +18,10 @@
     <link href="{{ asset('css/uicons-regular-straight/css/uicons-regular-straight.css') }}" rel="stylesheet">
     <link rel="shortcut icon" href="{{ asset('assets/favicon.png') }}" type="image/x-icon">
 
+
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
     @vite('resources/css/app.css')
     @vite('resources/css/styles.css')
     @vite('resources/css/home.css')
@@ -51,9 +55,30 @@
 
     <footer>
         <div class="player">
-            <div class="cancion"></div>
-            <div class="reproductor"></div>
-            <div class="controles"></div>
+            <div class="cancion">
+                <span class="white-circule"></span>
+                <img src="{{ asset('assets/artistas-pic/house.png') }} " alt="Canción" class="">
+            </div>
+            <div class="info-cancion">
+                <h2 class="font-cuerpo font-bold text-lg">Late Night Talking</h2>
+                <h3 class="font-cuerpo font-light">Harry Styles</h3>
+            </div>
+            <div class="controles">
+                
+                <i class="fi fi-rr-heart text-xl opacity-50 transition-all hover:opacity-100"></i>
+                <i class="fi fi-sr-heart text-xl text-red-400 hidden "></i>
+
+                <!-- PLay and Pause -->
+                <div class="controladores">
+                    <i class="fi fi-rr-angle-double-small-left text-2xl mr-2"></i>
+                    <div class="rombo">
+                        <i class="fi fi-sr-play text-xl"></i>
+                        <i class="fi fi-sr-pause text-2xl hidden"></i>
+                    </div>
+                    <i class="fi fi-rr-angle-double-small-right text-2xl ml-2"></i>
+                </div>
+                
+            </div>
         </div>
     </footer>
 

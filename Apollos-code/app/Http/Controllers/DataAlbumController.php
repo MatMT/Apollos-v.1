@@ -25,6 +25,8 @@ class DataAlbumController extends Controller
             // Obtenes el registro individual
             ->first();
 
+        $total = $request->total;
+
         // Registro 1
         Song::create([
             'sencillo' => false,
@@ -34,6 +36,7 @@ class DataAlbumController extends Controller
             'url' => $request->song,
             'genre' => $album->genre,
             'image' => $album->image,
+            'total' => $total,
         ]);
 
         return redirect()->route('upload.album_4');

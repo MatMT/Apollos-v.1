@@ -17,6 +17,7 @@ class MainController extends Controller
         $this->middleware('auth');
     }
 
+    // MAIN ===============================================================
     public function index(User $user)
     {
         // Obtener id del usuario logeado
@@ -38,15 +39,16 @@ class MainController extends Controller
 
         // Extraer la collección de mis artistas ===
         $Myartistas = DB::table('users')
+            ->whereIn('id', $ids)
             ->where('rol', 'artist')
-            ->where('id', $ids)
             ->inRandomOrder()
             ->limit(15)
             ->get();
 
         // Filtrar álbumes
         $Myalbums = DB::table('albums')
-            ->where([['user_id', $ids], ['sencillo', false], ['confirm', true]])
+            ->whereIn('user_id', $ids)
+            ->where([['sencillo', false], ['confirm', true]])
             ->get();
 
         return view('main', [
@@ -57,6 +59,7 @@ class MainController extends Controller
         ]);
     }
 
+    // BIBLIOTECA ===============================================================
     public function index_2(Song $song)
     {
         // Obtener id del usuario logeado
@@ -79,15 +82,18 @@ class MainController extends Controller
         // Extraer la collección de mis artistas ===
         $Myartistas = DB::table('users')
             ->where('rol', 'artist')
-            ->where('id', $ids)
+            ->whereIn('id', $ids)
             ->inRandomOrder()
             ->limit(15)
             ->get();
 
         // Filtrar álbumes
         $Myalbums = DB::table('albums')
-            ->where([['user_id', $ids], ['sencillo', false], ['confirm', true]])
+            ->whereIn('user_id', $ids)
+            ->where([['sencillo', false], ['confirm', true]])
             ->get();
+
+        dd($Myalbums);
 
         return view('Library', [
             'userLikes' => $UserLog,

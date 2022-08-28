@@ -34,125 +34,129 @@
                 <div class="line-1"></div>
             </div>
 
-            <div class="content">
-
-        @foreach( ($userLikes->obtenerFavs($userLikes->id)) as $like)
-        <!-- <a href="{{ route('song.show', ['user' =>  $userLikes->obtenerSong($like->song_id)->url, 'song' =>  $userLikes->obtenerSong($like->song_id)->url]) }}"> -->
-                        <div class="info favoritos">
-                            <img src="
-                            {{ asset('storage') . '/uploads/imagenes/' .  $userLikes->obtenerSong($like->song_id)->image }}" class="rounded-full"
-                                alt="Había una Imagen xD">
-                            <h2 class="font-cuerpo font-bold mt-4 text-lg">{{ $userLikes->obtenerSong($like->song_id)->name_song }}</h2>
-                            <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">
-                                {{ $userLikes->obtenerNameArtistSong($like->song_id) }}
-                            {{ $userLikes->obtenerSong($like->song_id)->time }} | {{ $userLikes->obtenerArtistName(1) }}</p>
-
-                        </div>
-                        <!-- </a> -->
-        @endforeach
-        </div>
-
             <div class="contenedores">
                 <div class="box-1 active anim2" id="caja-1">
                     <div class="content">
-                        <div class="playList">
-                            <img src="{{ asset('assets/artistas-pic/spider.jpg') }} " alt="Había una Imagen xD">
-                            <h2 class="font-cuerpo font-bold mt-4 text-lg">SpiderLove</h2>
-                            <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Lorem ipsum dolor sit
-                                amet consectetur adipisicing elit. Possimus minima recusandae eaque similique, fuga,
-                                laboriosam adipisci debitis deserunt doloremque vel facilis inventore exercitationem
-                                eligendi molestiae perferendis, atque omnis! Perspiciatis, inventore!</p>
-                        </div>
-                        <div class="playList">
-                            <img src="{{ asset('assets/artistas-pic/spider.jpg') }} " alt="Había una Imagen xD">
-                            <h2 class="font-cuerpo font-bold mt-4 text-lg">SpiderLove</h2>
-                            <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Lorem ipsum dolor sit
-                                amet consectetur adipisicing elit. Possimus minima recusandae eaque similique, fuga,
-                                laboriosam adipisci debitis deserunt doloremque vel facilis inventore exercitationem
-                                eligendi molestiae perferendis, atque omnis! Perspiciatis, inventore!</p>
-                        </div>
-                        <div class="playList">
-                            <img src="{{ asset('assets/artistas-pic/spider.jpg') }} " alt="Había una Imagen xD">
-                            <h2 class="font-cuerpo font-bold mt-4 text-lg">SpiderLove</h2>
-                            <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Lorem ipsum dolor sit
-                                amet consectetur adipisicing elit. Possimus minima recusandae eaque similique, fuga,
-                                laboriosam adipisci debitis deserunt doloremque vel facilis inventore exercitationem
-                                eligendi molestiae perferendis, atque omnis! Perspiciatis, inventore!</p>
-                        </div>
-                        <div class="playList">
-                            <img src="{{ asset('assets/artistas-pic/spider.jpg') }} " alt="Había una Imagen xD">
-                            <h2 class="font-cuerpo font-bold mt-4 text-lg">SpiderLove</h2>
-                            <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Lorem ipsum dolor sit
-                                amet consectetur adipisicing elit. Possimus minima recusandae eaque similique, fuga,
-                                laboriosam adipisci debitis deserunt doloremque vel facilis inventore exercitationem
-                                eligendi molestiae perferendis, atque omnis! Perspiciatis, inventore!</p>
-                        </div>
-                        <div class="playList">
-                            <img src="{{ asset('assets/artistas-pic/spider.jpg') }} " alt="Había una Imagen xD">
-                            <h2 class="font-cuerpo font-bold mt-4 text-lg">SpiderLove</h2>
-                            <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Lorem ipsum dolor sit
-                                amet consectetur adipisicing elit. Possimus minima recusandae eaque similique, fuga,
-                                laboriosam adipisci debitis deserunt doloremque vel facilis inventore exercitationem
-                                eligendi molestiae perferendis, atque omnis! Perspiciatis, inventore!</p>
-                        </div>
 
-                    </div>
-                </div>
-
-                <!--- Contenido Albums -->
-
-                <div class="box-2 anim2" id="caja-2">
-
-                    @if ($F_Albums->count())
-                        @foreach ($F_Albums as $album)
-                             
-                                <div class="content">
-                                    <div class="info albums">
-                                        <img src="{{ asset('storage') . '/uploads/imagenes/' . $album->image }}"
-                                            alt="Imagen de {{ $album->name_album }}">
-                                        <h2 class="font-cuerpo font-bold mt-4 text-lg">{{ $album->name_album }}</h2>
+                        @if ($userLikes->obtenerFavs($userLikes->id)->count())
+                            @foreach ($userLikes->obtenerFavs($userLikes->id) as $like)
+                                <a
+                                    href="{{ route('song.show', ['user' => $userLikes->obtenerArtistName($like->song_id), 'song' => $userLikes->obtenerSong($like->song_id)]) }}">
+                                    <div class="info favoritos">
+                                        <img src="
+                            {{ asset('storage') . '/uploads/imagenes/' . $userLikes->obtenerSong($like->song_id)->image }}"
+                                            class="rounded-full" alt="Había una Imagen xD">
+                                        <h2 class="font-cuerpo font-bold mt-4 text-lg">
+                                            {{ $userLikes->obtenerSong($like->song_id)->name_song }}</h2>
                                         <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">
-                                            {{ $name->obtenerName($album->user_id) }}</p>
+                                            {{ $userLikes->obtenerNameArtistSong($like->song_id) }}
+                                            {{ $userLikes->obtenerSong($like->song_id)->time }} |
+                                            {{ $userLikes->obtenerArtistName(1) }}</p>
                                     </div>
-                                </div>
-                        @endforeach
-                    @endif
+                                </a>
+                            @endforeach
+                        @endif
 
-                </div>
-
-                <!--- Contenido Artistas -->
-
-                <div class="box-3 anim2" id="caja-3">
-                    <div class="content">
-                        <div class="info artista">
-                            <img src="{{ asset('assets/artistas-pic/ed_sheeran.jpg') }} " class="rounded-full"
-                                alt="Había una Imagen xD">
-                            <h2 class="font-cuerpo font-bold mt-4 text-lg">Ed Sheeran</h2>
-                            <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Artista</p>
+                        <div>
+                            {{-- <div class="playList">
+                            <img src="{{ asset('assets/artistas-pic/spider.jpg') }} " alt="Había una Imagen xD">
+                            <h2 class="font-cuerpo font-bold mt-4 text-lg">SpiderLove</h2>
+                            <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Lorem ipsum dolor sit
+                                amet consectetur adipisicing elit. Possimus minima recusandae eaque similique, fuga,
+                                laboriosam adipisci debitis deserunt doloremque vel facilis inventore exercitationem
+                                eligendi molestiae perferendis, atque omnis! Perspiciatis, inventore!</p>
                         </div>
+                        <div class="playList">
+                            <img src="{{ asset('assets/artistas-pic/spider.jpg') }} " alt="Había una Imagen xD">
+                            <h2 class="font-cuerpo font-bold mt-4 text-lg">SpiderLove</h2>
+                            <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Lorem ipsum dolor sit
+                                amet consectetur adipisicing elit. Possimus minima recusandae eaque similique, fuga,
+                                laboriosam adipisci debitis deserunt doloremque vel facilis inventore exercitationem
+                                eligendi molestiae perferendis, atque omnis! Perspiciatis, inventore!</p>
+                        </div>
+                        <div class="playList">
+                            <img src="{{ asset('assets/artistas-pic/spider.jpg') }} " alt="Había una Imagen xD">
+                            <h2 class="font-cuerpo font-bold mt-4 text-lg">SpiderLove</h2>
+                            <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Lorem ipsum dolor sit
+                                amet consectetur adipisicing elit. Possimus minima recusandae eaque similique, fuga,
+                                laboriosam adipisci debitis deserunt doloremque vel facilis inventore exercitationem
+                                eligendi molestiae perferendis, atque omnis! Perspiciatis, inventore!</p>
+                        </div>
+                        <div class="playList">
+                            <img src="{{ asset('assets/artistas-pic/spider.jpg') }} " alt="Había una Imagen xD">
+                            <h2 class="font-cuerpo font-bold mt-4 text-lg">SpiderLove</h2>
+                            <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Lorem ipsum dolor sit
+                                amet consectetur adipisicing elit. Possimus minima recusandae eaque similique, fuga,
+                                laboriosam adipisci debitis deserunt doloremque vel facilis inventore exercitationem
+                                eligendi molestiae perferendis, atque omnis! Perspiciatis, inventore!</p>
+                        </div>
+                        <div class="playList">
+                            <img src="{{ asset('assets/artistas-pic/spider.jpg') }} " alt="Había una Imagen xD">
+                            <h2 class="font-cuerpo font-bold mt-4 text-lg">SpiderLove</h2>
+                            <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Lorem ipsum dolor sit
+                                amet consectetur adipisicing elit. Possimus minima recusandae eaque similique, fuga,
+                                laboriosam adipisci debitis deserunt doloremque vel facilis inventore exercitationem
+                                eligendi molestiae perferendis, atque omnis! Perspiciatis, inventore!</p>
+                        </div> --}}
 
-
-                    </div>
-                </div>
-
-                <!--- Contenido Favoritos -->
-
-                <div class="box-4 anim2" id="caja-4">
-                    <div class="content">
-                        <div class="info favoritos">
-                            <img src="{{ asset('assets/artistas-pic/ed_sheeran.jpg') }} " class="rounded-full"
-                                alt="Había una Imagen xD">
-                            <h2 class="font-cuerpo font-bold mt-4 text-lg">Ed Sheeran</h2>
-                            <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Artista</p>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!--- Contenido Albums -->
+
+            <div class="box-2 anim2" id="caja-2">
+                <div class="content">
+                    @if ($F_Albums->count())
+                        @foreach ($F_Albums as $album)
+                            <a
+                                href="{{ route('album.index', ['user' => $userLikes->obtenerArtistName($album->user_id), 'album' => $album->id]) }}">
+                                <div class="content">
+                                    <div class="info albums">
+                                        <img src="{{ asset('storage') . '/uploads/imagenes/' . $album->image }}"
+                                            alt="Imagen de {{ $album->name_album }}">
+                                        <h2 class="font-cuerpo font-bold mt-4 text-lg">{{ $album->name_album }}
+                                        </h2>
+                                        <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">
+                                            {{ $userLikes->obtenerName($album->user_id) }}</p>
+                                    </div>
+                                </div>
+                            </a>
+                        @endforeach
+                    @else
+                        <p>Hola</p>
+                    @endif
+
+                </div>
+            </div>
+
+            <!--- Contenido Artistas -->
+
+            <div class="box-3 anim2" id="caja-3">
+                <div class="content">
+                    <div class="info artista">
+                        <img src="{{ asset('assets/artistas-pic/ed_sheeran.jpg') }} " class="rounded-full"
+                            alt="Había una Imagen xD">
+                        <h2 class="font-cuerpo font-bold mt-4 text-lg">Ed Sheeran</h2>
+                        <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Artista</p>
+                    </div>
+                </div>
+            </div>
+
+            <!--- Contenido Favoritos -->
+            <div class="box-4 anim2" id="caja-4">
+                <div class="content">
+                    <div class="info favoritos">
+                        <img src="{{ asset('assets/artistas-pic/ed_sheeran.jpg') }} " class="rounded-full"
+                            alt="Había una Imagen xD">
+                        <h2 class="font-cuerpo font-bold mt-4 text-lg">Ed Sheeran</h2>
+                        <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Artista</p>
+                    </div>
+                </div>
+            </div>
         </div>
-
-
-
+        </div>
 
     </main>
     @vite('resources/js/biblioteca.js')

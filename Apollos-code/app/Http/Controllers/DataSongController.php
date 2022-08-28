@@ -53,6 +53,7 @@ class DataSongController extends Controller
             'album_id' => $CollecionSencillos->id,
             'name_song' => $request->titulo,
             'time' => $request->time,
+            'total' => $request->total,
             'genre' => $request->genero,
             'url' => $request->song,
             'image' => $request->imagen,

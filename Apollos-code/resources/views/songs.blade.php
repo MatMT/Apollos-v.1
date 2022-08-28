@@ -47,7 +47,11 @@
 
                     <div class="list-author-date flex">
                         <span class="author mr-1">
-                            <h1>{{ $user->username }}</h1>
+                            <h1>
+                                <a href="{{ route('profile.index', $user->username) }}" class="hover:underline">
+                                    {{ $user->username }}
+                                </a>
+                            </h1>
                         </span>
                         <span class="text-center point">⚬</span>
                         <span class="date ml-1">
@@ -55,9 +59,9 @@
                         </span>
                     </div>
 
-                    <div class="timer-songs flex ">
+                    <div class="timer-songs flex">
                         <span class="timer mr-1">
-                            <h1>1 hora</h1>
+                            <h1>{{ $album->duration }}</h1>
                         </span>
                         <span class="text-center point">⚬</span>
                         <span class="counter ml-1">
@@ -65,6 +69,25 @@
                         </span>
                     </div>
 
+                    @auth {{-- Autentificado --}}
+                        @if ($user->id == auth()->user()->id)
+                            {{-- Artista dueño de la canción --}}
+                            <div class="1/6 flex justify-center items-center gap-2">
+                                {{-- Editar album --}}
+                                <form action="{{ route('album.settings.index', $user) }}">
+                                    <input type="submit" value="Editar álbum" name="" id=""
+                                        class="bg-blue-500 hover:bg-blue-600 p-2 rounded text-white font-bold cursor-pointer">
+                                </form>
+                                <form action="{{ route('album.destroy', [$user, $album]) }}" method="POST">
+                                    {{-- METODO SPOOFING - Laravel permite agregar otro tipo de peticiones --}}
+                                    @method('DELETE')
+                                    @csrf
+                                    <input type="submit" value="Eliminar álbum" name="" id=""
+                                        class="bg-red-500 hover:bg-red-600 p-2 rounded text-white font-bold cursor-pointer">
+                                </form>
+                            </div>
+                        @endif
+                    @endauth
                 </div>
 
             </div>
@@ -94,20 +117,22 @@
                                         </div>
                                     </div>
                                     @foreach ($album->songs as $song)
-                                        <div class="song-container flex items-center justify-center mt-2">
+                                        <div class="song-container flex items-center justify-center mt-1">
                                             {{-- Se mapea automaticamente la ruta por cada song en su url --}}
+                                            <a class="song-info inline-flex items-center justify-center"
+                                                href="{{ route('song.show', ['song' => $song->id, 'user' => $user]) }}">
 
-                                            <!-- <a class="song-info inline-flex items-center justify-center"
-                                                href="{{ route('song.show', ['song' => $song->id, 'user' => $user->id]) }}"> -->
                                                 <h1 class="id-song">{{ $displayList = $displayList + 1 }}</h1>
                                                 <span class="title-author">
-                                                    <h1 class="song-title font-bold text-center">{{ $song->name_song }}</h1>
+                                                    <h1 class="song-title font-bold text-center">{{ $song->name_song }}
+                                                    </h1>
                                                 </span>
-                                                <h1 class='counter-time text-center'>999</h1>
-                                                <h1 class='likes text-center'>999 Me gusta</h1>
+                                                <h1 class='counter-time text-center'>99</h1>
+                                                <h1 class='likes text-center'>99 Me gusta</h1>
                                                 <span class="like-ico"><img src='{{ asset('assets/icons/likedIcon.png') }}'
                                                         class="like-icon liked"></span>
-                                            <!-- </a> -->
+
+                                            </a>
                                         </div>
                                     @endforeach
                                 </div>

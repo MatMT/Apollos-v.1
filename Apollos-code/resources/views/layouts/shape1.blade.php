@@ -30,7 +30,7 @@
 
     @yield('css', '')
     @yield('js', '')
-
+    @stack('script')
 
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
 

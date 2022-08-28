@@ -2,12 +2,12 @@
 
 {{-- Paso en la progress bar --}}
 @section('step1')
-    bg-purple-800 text-white
+    blur-bg text-white
 @endsection
 
 {{-- Variable de la progress bar --}}
 @section('song/s')
-    <div class="basis-1/5 text-center p-1 ">Canciones</div>
+    <div class="basis-1/5 text-center py-3 bg-white">Canciones</div>
 @endsection
 
 @section('subtitulo')

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Album;
-use App\Models\Song;
+use Illuminate\Support\Facades\File;
+
 
 class AlbumsShowController extends Controller
 {
@@ -23,5 +23,21 @@ class AlbumsShowController extends Controller
             'album' => $album,
             'displayList' => 0
         ]);
+    }
+
+    // Eliminar ==========
+    public function destroy(User $user, Album $album)
+
+    {
+        // Eliminar registro
+        $album->delete();
+
+        // Eliminar imagen - sencillos
+        $imagen_path = storage_path('app/public/uploads/imagenes/' . $album->image);
+        if (File::exists($imagen_path)) { // Facades propio de Laravel
+            unlink($imagen_path);
+        }
+
+        return redirect()->route('profile.index', auth()->user()->name_artist);
     }
 }

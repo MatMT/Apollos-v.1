@@ -199,7 +199,71 @@
                 </div>
             </div>
 
-            <div class="albums-artistas"></div>
+             <!-- Otros Carruceles para la página del Artista  -->
+             <div class="albums-artistas mt-20">
+                <div class="main-content text-white anim">
+
+                    <h2 class="text-white text-3xl font-bold">Albums de Shawn Mendez</h2>
+
+                    <div class="contenedor-principal slider-2">
+
+                        <button rolle="button" id="flecha-izquierda"><i class="fi fi-rr-angle-left"></i></button>
+
+                        <div class="contenedor-carousel">
+
+                            <div class="carousel albums">
+
+                                <!-- Datos estáticos -->
+
+                                <div class="card drop-shadow-xl">
+                                    <a href="">
+                                        <div class="imagen albums">
+                                            <img loading="lazy" src="{{ asset('assets/artistas-pic/wonder.jpg') }} " alt="Había una Imagen xD">
+                                        </div>
+                                        <div class="title">
+                                            <div class="name font-titulo_2 font-light text-lg desktop_2:text-base">Wonder</div>
+                                            <div class="type font-cuerpo text-base font-light text-slate-300 desktop_2:text-base">2020 • Album</div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="card drop-shadow-xl">
+                                    <a href="">
+                                        <div class="imagen albums">
+                                            <img loading="lazy" src="{{ asset('assets/artistas-pic/shawn_album.jpg') }} "
+                                                alt="Había una Imagen xD">
+                                        </div>
+                                        <div class="title">
+                                            <div class="name font-titulo_2 font-light text-lg desktop_2:text-base">Shawn Mendez</div>
+                                            <div
+                                                class="type font-cuerpo text-lg font-base text-slate-300 desktop_2:text-base">
+                                                2018 • Album</div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="card drop-shadow-xl">
+                                    <a href="">
+                                        <div class="imagen albums">
+                                            <img loading="lazy" src="{{ asset('assets/artistas-pic/illuminate.jpg') }} " alt="Había una Imagen xD">
+                                        </div>
+                                        <div class="title">
+                                            <div class="name font-titulo_2 font-light text-lg desktop_2:text-base">Illuminate</div>
+                                            <div class="type font-cuerpo text-base font-light text-slate-300 desktop_2:text-base">2017 • Album</div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                
+
+                            </div>
+                        </div>
+                        <!--contenedor-carousel --->
+                        <button rolle="button" id="flecha-derecha"><i class="fi fi-rr-angle-right"></i></button>
+                    </div>
+                </div>
+
+            </div>
             <div class="sencillos-artistas"></div>
 
 

@@ -9,14 +9,14 @@
         <ul class="flex my-10 mx-10 text-base items-center font-cuerpo text-center tablet_5:mx-auto">
 
             <li class="mx-8 {{ $active ?? '' }} ">
-                <a href="{{ route('main') }}"><i class="fi fi-rs-home"></i><span class="tablet_3:hidden">Home</span></a>
+                <a href="{{ route('main') }}"><i class="fi fi-rs-home"></i><span class="tablet_3:hidden">{{__('Home')}}</span></a>
             </li>
             <li class="mx-8  {{ $activeli ?? '' }} "><a href="{{ route('biblioteca') }}"><i
-                        class="fi fi-rs-apps"></i></i><span class="tablet_3:hidden">Tu Biblioteca</span></a></li>
+                        class="fi fi-rs-apps"></i></i><span class="tablet_3:hidden">{{__('Your library')}}</span></a></li>
             <li class="mx-8 "><a href="{{ route('artista') }}"><i class="fi fi-rs-music"></i><span
-                        class="tablet_3:hidden">Crear PlayList</span></a></li>
+                        class="tablet_3:hidden">{{__('Create playlist')}}</span></a></li>
             <li class="mx-8 cursor-pointer" id="buscar"><a><i class="fi fi-rs-search"></i><span
-                        class="tablet_3:hidden">Buscar</span></a></li>
+                        class="tablet_3:hidden">{{__('Search')}}</span></a></li>
         </ul>
 
         <!-- Profile picture -->
@@ -44,7 +44,7 @@
                         <span
                             class="font-titulo h-6 text-right font-bold text-lg truncatetruncate ">{{ Auth::user()->name }}</span><br>
                         <span
-                            class="text-base text-slate-300">{{ Auth::user()->rol == 'artist' ? 'Artista' : 'Usuario' }}</span>
+                            class="text-base text-slate-300">{{ Auth::user()->rol == 'artist' ? __('Artist') : __('User') }}</span>
                     </div>
                 </div>
 
@@ -52,7 +52,7 @@
 
                 <ul class="anim options font-cuerpo p-3" id="opciones">
                     <li>
-                        <a href="{{ route('profile.index', auth()->user()) }}">Perfil</a>
+                        <a href="{{ route('profile.index', auth()->user()) }}">{{__('Profile')}}</a>
                     </li>
                     {{-- <li>
                         <a href="{{ route('settings.index', auth()->user()) }}" class="flex gap-2 items-center">
@@ -66,16 +66,22 @@
                     </li> --}}
                     @if (Auth()->user()->rol == 'artist')
                         <li>
-                            <a href="{{ route('upload.select') }}">Subir</a>
+                            <a href="{{ route('upload.select') }}">{{__('Upload')}}</a>
                         </li>
                     @endif
                     <li>
-                        <a href="{{ route('main') }}">Main</a>
+                        <a href="{{ route('main') }}">{{__('Home')}}</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('changeLocale', $locale = 'es') }}">{{__('Spanish')}}</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('changeLocale', $locale = 'en') }}">{{__('English')}}</a>
                     </li>
                     <li>
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
-                            <a href="#" class="Logout" onclick="this.closest('form').submit()">Cerrar sesión</a>
+                            <a href="#" class="Logout" onclick="this.closest('form').submit()">{{__('Log out')}}</a>
                         </form>
                     </li>
                 </ul>

@@ -3,16 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Album;
-use App\Models\Song;
 use Illuminate\Http\Request;
 
-class LikeController extends Controller
+class LikeAlbumController extends Controller
 {
     // Agregar a favoritos
-    public function store(Request $request, Song $song)
+    public function store(Request $request, Album $album)
     {
-
-        $song->likes()->create([
+        $album->likes()->create([
             'user_id' => $request->user()->id
         ]);
 
@@ -20,10 +18,10 @@ class LikeController extends Controller
     }
 
     // Quitar de favoritos
-    public function destroy(Request $request, Song $song)
+    public function destroy(Request $request, Album $album)
     {
         // Traemos el usuario del request, quien tiene la relación de likes, para por último filtrar coincidencias
-        $request->user()->likes()->where('song_id', $song->id)->delete();
+        $request->user()->likesAlbum()->where('album_id', $album->id)->delete();
 
         return back();
     }

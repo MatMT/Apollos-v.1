@@ -45,29 +45,64 @@
                         {{ $album->name_album }}
                     </h1>
 
-                    <div class="list-author-date flex">
-                        <span class="author mr-1">
-                            <h1>
-                                <a href="{{ route('profile.index', $user->username) }}" class="hover:underline">
-                                    {{ $user->username }}
-                                </a>
-                            </h1>
-                        </span>
-                        <span class="text-center point">⚬</span>
-                        <span class="date ml-1">
-                            <h1>2022</h1>
-                        </span>
+                    <div class="flex">
+                        <div class="w-1/2">
+                            <div class="list-author-date flex">
+                                <span class="author mr-1">
+                                    <h1>
+                                        <a href="{{ route('profile.index', $user->username) }}" class="hover:underline">
+                                            {{ $user->username }}
+                                        </a>
+                                    </h1>
+                                </span>
+                                <span class="text-center point">⚬</span>
+                                <span class="date ml-1">
+                                    <h1>2022</h1>
+                                </span>
+                            </div>
+                            <div class="timer-songs flex">
+                                <span class="timer mr-1">
+                                    <h1>{{ $album->duration }}</h1>
+                                </span>
+                                <span class="text-center point">⚬</span>
+                                <span class="counter ml-1">
+                                    <h1>{{ $album->songs->count() }} canciones</h1>
+                                </span>
+                            </div>
+                        </div> <!-- Información -->
+                        <div class="w-1/2 flex items-center">
+                            @if ($album->checkLike(auth()->user()))
+                                <form action="{{ route('album.likes.destroy', $album) }}" method="POST" class="mt-2">
+                                    @method('DELETE')
+                                    @csrf
+                                    <div>
+                                        <button type="submit">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="white"
+                                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                            </svg>
+                                        </button>
+                                    </div> <!-- Botón -->
+                                </form> <!-- YA en favoritos -->
+                            @else
+                                <form action="{{ route('album.likes.store', $album) }}" method="POST" class="mt-2">
+                                    @csrf
+                                    <div>
+                                        <button type="submit">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                            </svg>
+                                        </button>
+                                    </div> <!-- Botón -->
+                                </form> <!-- Agregar a favoritos -->
+                            @endif
+                        </div> <!-- Like -->
+
                     </div>
 
-                    <div class="timer-songs flex">
-                        <span class="timer mr-1">
-                            <h1>{{ $album->duration }}</h1>
-                        </span>
-                        <span class="text-center point">⚬</span>
-                        <span class="counter ml-1">
-                            <h1>{{ $album->songs->count() }} canciones</h1>
-                        </span>
-                    </div>
 
                     @auth {{-- Autentificado --}}
                         @if ($user->id == auth()->user()->id)
@@ -113,7 +148,7 @@
                                             </span>
                                             <h1 class='counter-time-tab text-center opacity-70'><img
                                                     src='{{ asset('assets/icons/timerIconWht.png') }}'></h1>
-                                            <h1 class='likes-tab text-center opacity-70'>Me gusta</h1>
+                                            <h1 class='likes-tab text-center opacity-70'>Me gustas</h1>
                                         </div>
                                     </div>
                                     @foreach ($album->songs as $song)
@@ -128,9 +163,39 @@
                                                     </h1>
                                                 </span>
                                                 <h1 class='counter-time text-center'>99</h1>
-                                                <h1 class='likes text-center'>99 Me gusta</h1>
-                                                <span class="like-ico"><img src='{{ asset('assets/icons/likedIcon.png') }}'
-                                                        class="like-icon liked"></span>
+                                                <h1 class='likes text-center'>{{ $song->likes->count() }}</h1>
+                                                @if ($song->checkLike(auth()->user()))
+                                                    <form action="{{ route('song.likes.destroy', $song) }}" method="POST">
+                                                        @method('DELETE')
+                                                        @csrf
+                                                        <div class="my-4">
+                                                            <button type="submit">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6"
+                                                                    fill="white" viewBox="0 0 24 24" stroke="currentColor"
+                                                                    stroke-width="2">
+                                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                                                </svg>
+                                                            </button>
+                                                        </div> <!-- Botón -->
+                                                    </form> <!-- YA en favoritos -->
+                                                @else
+                                                    <form action="{{ route('song.likes.store', $song) }}" method="POST">
+                                                        @csrf
+                                                        <div class="my-4">
+                                                            <button type="submit">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6"
+                                                                    fill="none" viewBox="0 0 24 24"
+                                                                    stroke="currentColor" stroke-width="2">
+                                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                                                </svg>
+                                                            </button>
+                                                        </div> <!-- Botón -->
+                                                    </form> <!-- Agregar a favoritos -->
+                                                @endif
+                                                {{-- <span class="like-ico"><img src='{{ asset('assets/icons/likedIcon.png') }}'
+                                                        class="like-icon liked"></span> --}}
 
                                             </a>
                                         </div>

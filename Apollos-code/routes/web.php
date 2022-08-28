@@ -140,5 +140,5 @@ Route::post('/usuario/{user:name_artist}/settings/change/',  [SettingsController
 
 // ============================== EDITAR ÁLBUMES
 
-Route::post('/usuario/{user:name_artist}/settings/album/change',  [SongSettingController::class, 'changeDataAlbums'])->name('album.settings');
-Route::get('/usuario/{user:name_artist}/settings/album',  [SongSettingController::class, 'index'])->name('album.settings.index');
+Route::get('/usuario/user/settings/change/album',  [SongSettingController::class, 'index'])->name('album.settings.index');
+Route::post('/usuario/user/settings/change/album',  [SongSettingController::class, 'changeDataAlbums'])->name('album.settings');

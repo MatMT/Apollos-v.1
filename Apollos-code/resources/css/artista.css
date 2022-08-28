@@ -99,6 +99,7 @@ main.contenedor{
 .fila-hight .name-song{
     padding-left: 10px;
     width: calc(100% - (70px + 35% + 125px + 12%) );
+    
 }
 .fila-hight .artists-song{
     width: 35%;
@@ -144,16 +145,20 @@ main.contenedor{
     display: flex;
     padding-left: 10px;
     width: calc(100% - (70px + 35% + 125px + 12%) );
+
+    min-width: 250px;
+
+    align-items: center;
 }
 
 .fila-content .name-song span{
-    width: 150px;
     display: block;
 }
 .fila-content .name-song i{
     opacity: 0;
     margin-top: 2px;
     transition: 0.2s ease;
+    margin-left: 20px;
 }
 
 .fila-content:hover i{
@@ -276,5 +281,12 @@ main.contenedor{
     }
     .list-songs-fav .song-fv{
         min-width: 25%;
+    }
+
+    .list-favoritos{
+        margin: 0%;
+    }
+    .list-favoritos h3{
+        margin-left: 0%;
     }
 }

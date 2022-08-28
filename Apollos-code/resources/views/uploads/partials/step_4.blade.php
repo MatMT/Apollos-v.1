@@ -10,10 +10,9 @@
 @endsection
 
 @section('css')
-<link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
     <style>
-
-        .dropzone{
+        .dropzone {
             border-style: dashed !important;
             border-width: 3px !important;
             border-color: white !important;
@@ -23,7 +22,7 @@
             font-size: 1.5em;
         }
 
-        .dz-preview{
+        .dz-preview {
             background: transparent !important;
         }
 
@@ -32,14 +31,14 @@
 
             filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
         }
-        
-        .submit-bttn:hover{
+
+        .submit-bttn:hover {
             background-color: white;
             transition: all 0.2s ease-in-out;
-            color:black;
+            color: black;
         }
 
-        .blur-bg{
+        .blur-bg {
             background: rgba(39, 39, 39, 0.5);
             backdrop-filter: blur(8px);
         }
@@ -52,14 +51,15 @@
 
 @section('content')
     <div class="p-10 overflow-hidden">
-        <div class="flex my-0 mx-auto  sm:w-full sm:flex-row flex-col w-3/4  rounded-xl shadow overflow-hidden font-semibold">
-        <div class="basis-1/5 text-center py-3 bg-white @yield('step1')">Imagen</div>
-        {{-- @yield('step') --}}
-        <div class="basis-1/5 text-center py-3 bg-white @yield('step2')">Título</div>
-        <div class="basis-1/5 text-center py-3 bg-white @yield('step3')">Género</div>
-        @yield('song/s')
-        <div class="basis-1/5 text-center py-3 bg-white @yield('step5')">Subir</div>
-    </div> <!-- Progress bar -->
+        <div
+            class="flex my-0 mx-auto  sm:w-full sm:flex-row flex-col w-3/4  rounded-xl shadow overflow-hidden font-semibold">
+            <div class="basis-1/5 text-center py-3 bg-white @yield('step1')">Imagen</div>
+            {{-- @yield('step') --}}
+            <div class="basis-1/5 text-center py-3 bg-white @yield('step2')">Título</div>
+            <div class="basis-1/5 text-center py-3 bg-white @yield('step3')">Género</div>
+            @yield('song/s')
+            <div class="basis-1/5 text-center py-3 bg-white @yield('step5')">Subir</div>
+        </div> <!-- Progress bar -->
     </div>
 
     <!-- SUBTITULO -->
@@ -69,11 +69,13 @@
         </h2>
     </div>
 
-    <div class="md:flex md:items-center p-10">
+    <div class="md:flex md:items-center  justify-center px-16 gap-4">
 
-        <div class="md:w-2/5">
-            <div class="md:h-1/2 px-10">
-                <p class="text-red-500 mb-3 text-center md:text-right block font-semibold text-sm"><span class="inline"><img src="{{ asset('assets/icons/errorIcon.png') }}" class="h-4 inline m-2"> 6mb máximos por canción </span></p>
+        <div class="md:w-2/5 xl:px-16">
+            <div class="md:h-1/2">
+                <p class="text-red-500 mb-3 text-center md:text-right block font-semibold text-sm"><span class="inline"><img
+                            src="{{ asset('assets/icons/errorIcon.png') }}" class="h-4 inline m-2"> 6mb máximos por canción
+                    </span></p>
 
                 <form action="{{ route('audio.store') }}" method="POST" enctype="multipart/form-data" id="dropzone_audio"
                     class="dropzone  border-dashed border-2 @error('song') border-red-500 @enderror w-full text-white rounded flex flex-col justify-center items-center">
@@ -110,8 +112,10 @@
                             <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }}</p>
                         @enderror
                     </div>
-                    <p class="text-red-500 mb-3 text-center md:text-right block font-semibold text-sm"><span class="inline"><img src="{{ asset('assets/icons/errorIcon.png') }}" class="h-4 inline m-2"> Al agregarla ya no podras retirar
-                        la canción del registro </span></p>
+                    <p class="text-red-500 mb-3 text-center md:text-right block font-semibold text-sm"><span
+                            class="inline"><img src="{{ asset('assets/icons/errorIcon.png') }}" class="h-4 inline m-2"> Al
+                            agregarla ya no podras retirar
+                            la canción del registro </span></p>
 
                     <input type="submit" value="Agregar"
                         class="submit-bttn transition-colors cursor-pointer uppercase font-bold w-full p-3 mb-5 md:mb-0 text-white rounded-lg" />
@@ -121,10 +125,10 @@
 
         <!------------------------------------------------------------>
 
-        <div class="md:w-3/5 px-20">
+        <div class="md:w-3/5 px-8 xl:px-16">
             <form action="{{ route('upload.store_4') }}" method="POST" id="song_up" novalidate>
                 @csrf
-                <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+                <div class="overflow-x-auto shadow-md sm:rounded-lg">
                     <table class="w-full text-sm text-left text-gray-500">
 
                         <thead class="text-xs blur-bg text-white uppercase">
@@ -180,7 +184,7 @@
                 @if ($i > 1)
                     @if ($songs->count())
                         <input type="submit" value="Siguiente"
-                            class="submit-bttn bg-teal-500 transition-colors cursor-pointer uppercase font-bold w-full p-3  text-white rounded-lg" />
+                            class="submit-bttn transition-colors cursor-pointer uppercase font-bold w-full p-4 mb-12 text-white rounded-lg" />
                     @endif
                 @endif
             </form>

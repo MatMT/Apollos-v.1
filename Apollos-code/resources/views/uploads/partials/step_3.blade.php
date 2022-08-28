@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
 
     <style>
-        body{
+        body {
             max-height: 99vh !important;
         }
 
-        .dropzone{
+        .dropzone {
             border-style: dashed !important;
             border-width: 3px !important;
             border-color: white !important;
@@ -22,7 +22,7 @@
             font-size: 1.5em;
         }
 
-        .dz-preview{
+        .dz-preview {
             background: transparent !important;
         }
 
@@ -31,19 +31,19 @@
 
             filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
         }
-        
-        .submit-bttn:hover{
+
+        .submit-bttn:hover {
             background-color: white;
             transition: all 0.2s ease-in-out;
-            color:black;
+            color: black;
         }
 
-        .blur-bg{
+        .blur-bg {
             background: rgba(39, 39, 39, 0.5);
             backdrop-filter: blur(8px);
         }
 
-        .genero{
+        .genero {
             color: white !important;
         }
     </style>
@@ -55,7 +55,8 @@
 
 @section('content')
     <div class="p-10 overflow-hidden">
-        <div class="flex my-0 mx-auto  sm:w-full sm:flex-row flex-col w-3/4  rounded-xl shadow overflow-hidden font-semibold">
+        <div
+            class="flex my-0 mx-auto  sm:w-full sm:flex-row flex-col w-3/4  rounded-xl shadow overflow-hidden font-semibold">
             <div class="basis-1/5 text-center py-3 bg-white @yield('step1')">Imagen</div>
             {{-- @yield('step') --}}
             <div class="basis-1/5 text-center py-3 bg-white @yield('step2')">Título</div>
@@ -73,13 +74,13 @@
     </div>
 
     <!-- CUERPO -->
-    <div class="text-white p-5 px-96">
+    <div class="text-white px-16 xl:px-96">
         <div>
             <form action="{{ route('upload.store_3') }}" method="POST" id="song_up" novalidate>
                 @csrf
 
                 <div class="mb-5">
-                    
+
                     <x-gender-select></x-gender-select>
 
                     @error('genero')

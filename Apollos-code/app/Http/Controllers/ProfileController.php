@@ -31,17 +31,19 @@ class ProfileController extends Controller
             ->first();
 
         // ÁLBUMES + SENCILLOS ===
-        $AllAlbums = Album::where('user_id', $user->id)->get(); // Todos los álbumes - (Álbumes + Sencillos)
+        $AllAlbums = Album::where([['user_id', $user->id], ['confirm', true]])->get(); // Todos los álbumes - (Álbumes + Sencillos)
 
         // 1° ARRAY PROPIO - Todas lasa canciones ===
         $AllSongs = array();
 
         // Por cada colección obtenida
-        foreach ($AllAlbums as $album) {
-            $songs_array = Song::where('album_id', $album->id)->get();
-            //Por cada canción de cada álbum
-            foreach ($songs_array as $song) {
-                array_push($AllSongs, $song);
+        if ($AllAlbums->count()) {
+            foreach ($AllAlbums as $album) {
+                $songs_array = Song::where('album_id', $album->id)->get();
+                //Por cada canción de cada álbum
+                foreach ($songs_array as $song) {
+                    array_push($AllSongs, $song);
+                }
             }
         }
 

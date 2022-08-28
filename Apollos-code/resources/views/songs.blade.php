@@ -117,7 +117,7 @@
                                         </div>
                                     </div>
                                     @foreach ($album->songs as $song)
-                                        <div class="song-container flex items-center justify-center mt-2">
+                                        <div class="song-container flex items-center justify-center mt-1">
                                             {{-- Se mapea automaticamente la ruta por cada song en su url --}}
                                             <a class="song-info inline-flex items-center justify-center"
                                                 href="{{ route('song.show', ['song' => $song->id, 'user' => $user]) }}">

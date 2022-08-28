@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
 
     <style>
-        .dropzone{
+        .dropzone {
             border-style: dashed !important;
             border-width: 3px !important;
             border-color: white !important;
@@ -24,7 +24,7 @@
             font-size: 1.5em;
         }
 
-        .dz-preview{
+        .dz-preview {
             background: transparent !important;
         }
 
@@ -33,24 +33,24 @@
 
             filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
         }
-        
-        .submit-bttn:hover{
+
+        .submit-bttn:hover {
             background-color: white;
             transition: all 0.2s ease-in-out;
-            color:black;
+            color: black;
         }
 
-        .blur-bg{
+        .blur-bg {
             background: rgba(39, 39, 39, 0.5);
             backdrop-filter: blur(8px);
         }
 
         /* img.album-pic-pass{
-            max-height: 500px !important;
-            max-width: 500px !important;
+                                                                max-height: 500px !important;
+                                                                max-width: 500px !important;
 
-            border-radius: 20px !important;
-        } */
+                                                                border-radius: 20px !important;
+                                                            } */
     </style>
 @endsection
 
@@ -60,7 +60,8 @@
 
 @section('content')
     <div class="p-10 overflow-hidden">
-        <div class="flex my-0 mx-auto  sm:w-full sm:flex-row flex-col w-3/4  rounded-xl shadow overflow-hidden font-semibold">
+        <div
+            class="flex my-0 mx-auto  sm:w-full sm:flex-row flex-col w-3/4  rounded-xl shadow overflow-hidden font-semibold">
             <div class="basis-1/5 text-center py-3 bg-white @yield('step1')">Imagen</div>
             {{-- @yield('step') --}}
             <div class="basis-1/5 text-center py-3 bg-white @yield('step2')">Título</div>
@@ -77,10 +78,10 @@
         </h2>
     </div>
 
-    <div class="md:flex md:items-center px-10">
+    <div class="md:flex md:items-center px-2 xl:px-28 gap-8">
 
         <!------------------------------------------------------------>
-        <div class="md:w-1/2">
+        <div class="md:w-1/2 px-16">
 
             <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
                 <table class="w-full text-sm text-left text-gray-500">
@@ -138,7 +139,8 @@
 
                     <div class="mb-5 p-2 @error('confirm') border-dashed border-2 border-red-500 @enderror">
                         <input type="checkbox" value="1" name="confirm">
-                        <label for="confirm" class='text-white'>Confirmo que todo contenido súbido es de mi autoría.</label>
+                        <label for="confirm" class='text-white'>Confirmo que todo contenido súbido es de mi
+                            autoría.</label>
                     </div>
 
                     <div>
@@ -146,7 +148,7 @@
                     </div>
 
                     <input type="submit" value="Publicar"
-                        class="submit-bttn bg-teal-500 transition-colors cursor-pointer uppercase font-bold w-full p-3  text-white rounded-lg" />
+                        class="submit-bttn transition-colors cursor-pointer uppercase font-bold w-full p-3  text-white rounded-lg" />
                 </form>
             </div>
         </div>

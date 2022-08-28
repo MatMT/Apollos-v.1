@@ -41,7 +41,7 @@
                         @if ($userLikes->obtenerFavs($userLikes->id)->count())
                             @foreach ($userLikes->obtenerFavs($userLikes->id) as $like)
                                 <a
-                                    href="{{ route('song.show', ['user' => $userLikes->obtenerArtistName($like->song_id), 'song' => $userLikes->obtenerSong($like->song_id)]) }}">
+                                    href="{{ route('song.show', ['user' => $userLikes->obtenerArtistName($like->user_id), 'song' => $userLikes->obtenerSong($like->song_id)]) }}">
                                     <div class="info favoritos">
                                         <img src="
                             {{ asset('storage') . '/uploads/imagenes/' . $userLikes->obtenerSong($like->song_id)->image }}"
@@ -134,12 +134,31 @@
 
                 <div class="box-3 anim2" id="caja-3">
                     <div class="content">
-                        <div class="info artista">
+                        @if ($F_artists->count())
+                            @foreach ($F_artists as $artist)
+                                {{-- <a
+                                href="{{ route('album.index', ['user' => $userLikes->obtenerArtistName($artist->user_id), 'album' => $artist->id]) }}"> --}}
+                                <div class="content">
+                                    <div class="info albums">
+                                        <img src="{{ asset('storage') . '/uploads/pfp/' . $artist->image }}"
+                                            alt="Imagen de {{ $artist->name }}">
+                                        <h2 class="font-cuerpo font-bold mt-4 text-lg">{{ $artist->name }}
+                                        </h2>
+                                        {{-- <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">
+                                            {{ $userLikes->obtenerName($artist->user_id) }}</p> --}}
+                                    </div>
+                                </div>
+                                {{-- </a> --}}
+                            @endforeach
+                        @else
+                            <p>Hola</p>
+                        @endif
+                        {{-- <div class="info artista">
                             <img src="{{ asset('assets/artistas-pic/ed_sheeran.jpg') }} " class="rounded-full"
                                 alt="Había una Imagen xD">
                             <h2 class="font-cuerpo font-bold mt-4 text-lg">Ed Sheeran</h2>
                             <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Artista</p>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
 

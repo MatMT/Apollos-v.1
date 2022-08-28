@@ -15,10 +15,11 @@ class AlbumAeroSeeder extends Seeder
      */
     public function run()
     {
+        //       ====================== Tame Impala < ===========================
         // Tame Impala - AERO
         $TamImpSencillos = new Album();
         $TamImpSencillos->user_id = 10;
-        $TamImpSencillos->name_album = 'sencillos_TamImp';
+        $TamImpSencillos->name_album = 'sencillos_tame-impala';
         $TamImpSencillos->sencillo = true;
         $TamImpSencillos->created_at = now();
         $TamImpSencillos->updated_at = now();
@@ -47,5 +48,27 @@ class AlbumAeroSeeder extends Seeder
         $TamImpAlbum2->created_at = now();
         $TamImpAlbum2->updated_at = now();
         $TamImpAlbum2->save();
+
+        //       ====================== > The Weeknd < ===========================
+        // The Weeknd - AERO
+        $weekndSencillos = new Album();
+        $weekndSencillos->user_id = 11;
+        $weekndSencillos->name_album = 'sencillos_the-weeknd';
+        $weekndSencillos->sencillo = true;
+        $weekndSencillos->created_at = now();
+        $weekndSencillos->updated_at = now();
+        $weekndSencillos->save();
+
+        $weekndAlbum = new Album();
+        $weekndAlbum->user_id = 11;
+        $weekndAlbum->name_album = 'Starboy';
+        $weekndAlbum->genre = 'pop';
+        $weekndAlbum->image = '8307fc43-23a6-4e69-8b35-85fdf88ac1b2.jpg';
+        $weekndAlbum->sencillo = false;
+        $weekndAlbum->duration = '12:01';
+        $weekndAlbum->confirm = true;
+        $weekndAlbum->created_at = now();
+        $weekndAlbum->updated_at = now();
+        $weekndAlbum->save();
     }
 }

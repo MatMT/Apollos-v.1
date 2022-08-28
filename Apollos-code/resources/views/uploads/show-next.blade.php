@@ -41,6 +41,7 @@
     </main>
 
     <div class="mt-7 container mx-auto md:flex justify-center ">
+
         <div class="md:max-w-[400px] p-3 max-w-">
             <img class="w-full rounded-xl" src="{{ asset('storage') . '/uploads/imagenes/' . $song->image }}"
                 alt="Imagen de la canción {{ $song->name_song }}">
@@ -49,8 +50,17 @@
             <div class="shadow bg-white p-3 mb- rounded">
                 <p class="text-xl font-bold text-center font-cuerpo">Lista de reproducción</p>
             </div>
-            {{-- COMPONENTE DE LISTA --}}
-            <x-lista-songs :othersongs="$OtherSongs" :user="$user" />
+            <div class="lista-canciones w-full">
+                @foreach ($OtherSongs as $song)
+                    <a href="{{ route('song.show', ['song' => $song->id, 'user' => $user]) }}">
+                        <div class="lista-canciones w-full flex gris-blur p-2">
+                            <div class="w-1/2">
+                                <p class="text-white">{{ $song->name_song }}</p>
+                            </div>
+                        </div>
+                    </a>
+                @endforeach
+            </div>
         </div>
     </div>
 

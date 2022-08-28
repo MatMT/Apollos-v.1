@@ -78,7 +78,7 @@
                                     <input type="submit" value="Editar álbum" name="" id=""
                                         class="bg-blue-500 hover:bg-blue-600 p-2 rounded text-white font-bold cursor-pointer">
                                 </form>
-                                <form action="{{ route('albums.destroy', [$user, $album]) }}" method="POST">
+                                <form action="{{ route('album.destroy', [$user, $album]) }}" method="POST">
                                     {{-- METODO SPOOFING - Laravel permite agregar otro tipo de peticiones --}}
                                     @method('DELETE')
                                     @csrf

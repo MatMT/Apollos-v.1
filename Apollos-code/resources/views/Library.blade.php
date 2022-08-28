@@ -52,7 +52,6 @@
                                             {{ $userLikes->obtenerNameArtistSong($like->song_id) }}
                                             {{ $userLikes->obtenerSong($like->song_id)->time }} |
                                             {{ $userLikes->obtenerArtistName(1) }}</p>
-
                                     </div>
                                 </a>
                             @endforeach
@@ -111,7 +110,7 @@
                         @if ($F_Albums->count())
                             @foreach ($F_Albums as $album)
                                 <a
-                                    href="{{ route('albums.index', ['user' => $userLikes->obtenerArtistName($album->user_id), 'album' => $album->id]) }}">
+                                    href="{{ route('album.index', ['user' => $userLikes->obtenerArtistName($album->user_id), 'album' => $album->id]) }}">
                                     <div class="content">
                                         <div class="info albums">
                                             <img src="{{ asset('storage') . '/uploads/imagenes/' . $album->image }}"

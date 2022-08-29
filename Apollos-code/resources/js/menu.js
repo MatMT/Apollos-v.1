@@ -17,8 +17,6 @@ function result(){
 
 
 
-
-
 /*profile.addEventListener('click', ()=>{
     menu.style.cssText = 'display: block;';
 })
@@ -26,3 +24,19 @@ function result(){
 pantalla.addEventListener('dblclick', ()=>{
     menu.style.cssText = 'display: none;';
 })*/
+
+
+/*------- ------ Reproductor ----------- ---------*/
+
+const div_player = document.getElementById("player");
+const btn_show = document.getElementById("show");
+const btn_hidde = document.getElementById("hidde");
+
+btn_show.addEventListener('click', function(){
+    div_player.classList.add("activer");
+})
+
+btn_hidde.addEventListener('click', function(){
+    div_player.classList.remove("activer"); 
+       
+})

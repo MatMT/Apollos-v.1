@@ -33,7 +33,7 @@
         <div class="content-music-artist w-full mt-10">
             <div class="section_1 w-full flex">
 
-            <div class="popular-songs-artist w-7/10 mx-1 ">
+            <div class="popular-songs-artist w-7/10 mx-1 anim">
                     <h3 class="font-cuerpo font-bold text-3xl text-white">Populares</h3>
                     <div class="songs-list" id="lista-canciones">
                         

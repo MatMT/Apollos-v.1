@@ -3,6 +3,16 @@
     padding: 0%;
 }
 
+:root{
+    /*Paleta de colores Apollos*/
+
+    --morado-apl: #262455;
+    --fucsia-apl: #700353;
+    --rosado-apl: #ff0054;
+    --naranja-apl: #ff5c0a;
+    --amarillo-apl: #ffce47;
+}
+
 body {
     position: relative;
     width: 100%;
@@ -66,8 +76,8 @@ body::before {
     background: linear-gradient(
         180deg,
         rgba(255, 255, 255, 0) 10%,
-        rgba(0, 0, 0, 0.05085784313725494) 40%,
-        rgba(0, 0, 0, 1) 99%
+        rgba(12, 12, 12, 0.05085784313725494) 40%,
+        rgba(12, 12, 12, 1) 99%
     );
     position: absolute;
     left: 0%;
@@ -150,6 +160,7 @@ header .contenido-menu {
     position: absolute;
     top: 90%;
     right: 35%;
+    z-index: 10;
 
     display: none;
 }
@@ -226,15 +237,15 @@ header {
 header.sticky {
     /*background-color: rgb(43, 43, 43);*/
     padding: 0rem;
-    height: 5.8rem;
     background-color: #0a0a0aec;
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.555);
     color: white;
     position: sticky;
+    backdrop-filter: blur(5px);
 }
 
 .box-header.sticky2 {
-    height: 5.8rem;
+    height: 5rem;
 }
 
 /*-------  -------  ----- Reproductor ---------  ------  ----*/
@@ -351,11 +362,10 @@ header.sticky {
 
 footer{
     position: sticky;
-    right: 0%;
-    top: 20px;
-    bottom: 20px;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
+    right: 0%;
+    bottom: 20px;
     width: 100%;
     height: 110px;
 }
@@ -366,15 +376,79 @@ footer{
     min-width: 490px;
     border: 1px solid rgba(167, 165, 165, 0.3);
     border-radius: 15px;
-    margin-right: 50px;
-    background-color: #131313;
+    margin-right: 40px;
+    
     background-color: #f1f1f1;
 
     filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04))
         drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
     display: flex;
     justify-content: space-around;
+    position: relative;
+
+    transition: 0.5s all ease-in-out;
 }
+
+
+/*Boton*/
+
+.player button{
+    position: absolute;
+    z-index: 10;
+    top: 49px;
+    left: 10px;
+    opacity: 0.6;
+    font-size: 12px;
+    transition: 0.2s all ease;
+}
+
+.player button:hover{
+    opacity: 0.9;
+}
+
+.player.activer .show-list-btn{
+    display: none;
+}
+
+.player.player.activer .hidde-list-btn{
+    display: block;
+}
+
+.player.activer{
+    min-width: none;
+    width: 95%;
+    background-color: #131313;
+    color: #f1f1f1;
+    margin: 0px auto;
+    
+}
+
+.player.activer .line-time-song{
+    display: flex;
+    width: 43.666%;
+}
+
+.player.activer .info-cancion{
+    width: 17.666%;
+}
+.player.activer .controles{
+    width: 22.6666%;
+}
+.player.activer .controles .controladores{
+    width: 35%;
+    justify-content: space-between;
+    min-width: 112px;
+}
+
+.player.activer .cancion{
+    width: 15%;
+}
+
+.player.activer .white-circule{
+    left: 46%;
+    top: 43%;
+}
+
 
 /*---- Foto de la canción ------*/
 
@@ -388,6 +462,7 @@ footer{
 .player .cancion img{
     height: 100%;
     border-radius: 100%;
+    margin: 0% auto;
 }
 
 .player .cancion img.rotar{
@@ -431,6 +506,32 @@ footer{
 
 }
 
+/*----- ----- Linea de Tiempo ---------*/
+
+.line-time-song{
+    height: 100%;
+    display: none;
+    padding: 50px 20px;
+}
+
+
+.player.activer .line-time-song{
+    display: flex;
+    flex-direction: column;
+}
+.line-time-song .line-time{
+    width: 95%;
+    height: 2px;
+    background-color: #ff00555d;
+}
+
+.line-time-song .line-progress{
+    width: 25%;
+    height: 2px;
+    background-color: var(--rosado-apl);
+}
+
+
 
 /*----- Controles del reproductor ------*/
 
@@ -456,7 +557,7 @@ footer{
 .rombo{
     width: 40px; 
     height: 40px; 
-    background: rgb(14, 109, 187);
+    background: rgb(116, 41, 236);
     border-radius: 25%;
     display: flex;
     align-items: center;

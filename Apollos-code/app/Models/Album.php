@@ -15,6 +15,7 @@ class Album extends Model
         'user_id',
         'name_album',
         'genre',
+        'new_genre',
         'image',
         'sencillo',
         'new_name_album',

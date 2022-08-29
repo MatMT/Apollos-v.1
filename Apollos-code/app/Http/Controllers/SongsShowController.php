@@ -21,7 +21,6 @@ class SongsShowController extends Controller
         // Llamamos al modelo y automáticamente su tabla
         $songs = Song::where('album_id', $song->album_id)->get(); // Paginate elabora una lógica para crear páginas}
 
-
         return view('uploads.show', [
             'user' => $user,
             'OtherSongs' => $songs,

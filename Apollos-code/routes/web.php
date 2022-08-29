@@ -19,6 +19,7 @@ use App\Http\Controllers\LikeController;
 use App\Http\Controllers\LikeAlbumController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\LocaleController;
+use App\Http\Controllers\PlaylistController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -85,6 +86,11 @@ Route::get('/biblioteca', [MainController::class, 'index_2'])->name('biblioteca'
 
 // Artista ---
 Route::view('/Artista', 'Artist')->name('artista');
+
+// ============================== Playlist
+
+Route::get('/playlist', [PlaylistController::class, 'index'])->name('playlist.index');
+Route::post('/playlist/add', [PlaylistController::class, 'store'])->name('playlist.store');
 
 // ============================== PERFIL
 

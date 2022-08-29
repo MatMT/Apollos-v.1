@@ -37,20 +37,19 @@
                 <div class="box-1 active anim2" id="caja-1">
                     <div class="content">
 
-                        @if ($userLikes->obtenerFavs($userLikes->id)->count())
-                            @foreach ($userLikes->obtenerFavs($userLikes->id) as $like)
+                        @if ($songsLikes->count())
+                            @foreach ($songsLikes as $song)
                                 <div class="info favoritos">
                                     <a
-                                        href="{{ route('song.show', ['user' => $userLikes->obtenerArtistName($like->user_id), 'song' => $userLikes->obtenerSong($like->song_id)]) }}">
+                                        href="{{ route('song.show', ['user' => $song->InfoArtista($song), 'song' => $song]) }}">
                                         <img src="
-                            {{ asset('storage') . '/uploads/imagenes/' . $userLikes->obtenerSong($like->song_id)->image }}"
+                            {{ asset('storage') . '/uploads/imagenes/' . $song->image }}"
                                             class="rounded-full" alt="Había una Imagen xD">
                                         <h2 class="font-cuerpo font-bold mt-4 text-lg">
-                                            {{ $userLikes->obtenerSong($like->song_id)->name_song }}</h2>
+                                            {{ $song->name_song }}</h2>
                                         <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">
-                                            {{ $userLikes->obtenerSong($like->song_id)->time }} |
-                                            {{ $userLikes->obtenerArtist($like->song_id) }}</p>
-
+                                            {{ $song->time }} |
+                                            {{ $song->InfoArtista($song)->username }}</p>
                                     </a>
                                 </div>
                             @endforeach
@@ -110,15 +109,14 @@
                         @foreach ($F_Albums as $album)
                             <div class="info album">
                                 <a
-                                    href="{{ route('album.index', ['user' => $userLikes->obtenerArtistName($album->user_id), 'album' => $album->id]) }}">
+                                    href="{{ route('album.index', ['user' => $userLikes->obtenerArtist($album->user_id)->name_artist, 'album' => $album->id]) }}">
 
                                     <img src="{{ asset('storage') . '/uploads/imagenes/' . $album->image }}"
                                         alt="Imagen de {{ $album->name_album }}">
                                     <h2 class="font-cuerpo font-bold mt-4 text-lg">{{ $album->name_album }}
                                     </h2>
                                     <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">
-                                        {{ $userLikes->obtenerName($album->user_id) }}</p>
-
+                                        {{ $userLikes->obtenerArtist($album->user_id)->username }}</p>
                                 </a>
                             </div>
                         @endforeach

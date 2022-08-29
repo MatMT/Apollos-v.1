@@ -10,6 +10,11 @@ use App\Traits\TimeTrait;
 
 class AlbumController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     use TimeTrait;
     // Redirección a sección de álbum
     public function album_1()

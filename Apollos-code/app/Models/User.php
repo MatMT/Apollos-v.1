@@ -61,11 +61,11 @@ class User extends Authenticatable
         return  $nombre->name;
     }
 
-    public function obtenerArtistName($id)
+    public function obtenerArtist($id)
     {
         // Obtener nombre mediante id
         $nombre = User::find($id);
-        return  $nombre->name_artist;
+        return  $nombre;
     }
 
     public function obtenerFavs($u_id)
@@ -74,18 +74,16 @@ class User extends Authenticatable
         return $favs;
     }
 
+    public function obtenerFavsAlbum($u_id)
+    {
+        $favsAlbum = LikeAlbum::where('user_id', $u_id)->get();
+        return $favsAlbum;
+    }
+
     public function obtenerSong($u_song)
     {
         $fSong = Song::where('id', $u_song)->first();
         return $fSong;
-    }
-
-    public function obtenerNameArtistSong($u_song)
-    {
-        $AlbumId = $this->obtenerSong($u_song)->album_id;
-        $ArtistAlbum = Album::where('user_id', $AlbumId);
-
-        return $AlbumId;
     }
 
 
@@ -103,6 +101,12 @@ class User extends Authenticatable
     {
         // Un usuario puede tener/dar múltiples likes(favoritos)
         return $this->hasMany(Like::class);
+    }
+
+    public function likesAlbum()
+    {
+        // Un usuario puede tener/dar múltiples likes(favoritos)
+        return $this->hasMany(LikeAlbum::class);
     }
 
     // Relación inversa - Seguidores de un usuario

@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class FollowerController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function store(User $user)
     {
         // Attach - para relaciones de una misma tabla || Muchos a muchos

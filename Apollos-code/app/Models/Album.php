@@ -15,6 +15,7 @@ class Album extends Model
         'user_id',
         'name_album',
         'genre',
+        'new_genre',
         'image',
         'sencillo',
         'new_name_album',
@@ -34,5 +35,19 @@ class Album extends Model
     public function user()
     {
         return $this->belongsTo(User::class)->select(['id', 'name', 'name_artist']);
+    }
+
+    // Relación
+    public function likes()
+    {
+        // Una canción tiene muchos likes(favoritos)
+        return $this->hasMany(LikeAlbum::class);
+    }
+
+    // Válidación
+    public function checkLike(User $user)
+    {
+        // La asociación con la tabla likes, permite verificar el contenido
+        return $this->likes->contains('user_id', $user->id);
     }
 }

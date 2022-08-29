@@ -1,12 +1,12 @@
 /*----- ---- Diseño de la página del artista ------- ------ ----*/
 
-main.contenedor{
+main.contenedor {
     margin-bottom: 150px;
 }
 
 /*Nombre del Artista */
 
-.follow-artist-btm{
+.follow-artist-btm {
     width: 175px;
     height: 46px;
     margin: 20px 5px;
@@ -14,60 +14,57 @@ main.contenedor{
     border-radius: 10px;
     transition: 0.4s all ease;
 }
-.follow-artist-btm:hover{
+.follow-artist-btm:hover {
     background-color: white;
     color: black;
     font-weight: bold;
 }
 
-
 /*----- Contenido de la página del Artista ------*/
-
 
 /*---------------------------- Canciones Pulares*/
 
-.songs-list{
+.songs-list {
     color: white;
     max-height: 380px;
     overflow: hidden;
 }
 
-.songs-list.active{
+.songs-list.active {
     max-height: none;
 }
 
-.see_more p{
+.see_more p {
     opacity: 0.7;
     transition: 0.3s ease-in-out;
     display: none;
 }
 
-.see_more p.active{
+.see_more p.active {
     display: block;
 }
-.see_more p:hover{
+.see_more p:hover {
     opacity: 1;
 }
 
-
 /*Linea dividoras de tablas*/
-.line-table{
+.line-table {
     width: 100%;
     height: 1px;
     background-color: rgba(255, 255, 255, 0.61);
     margin-bottom: 10px;
 }
 
-.title-table{
+.title-table {
     width: 100%;
 }
 
-.content-table{
+.content-table {
     width: 100%;
     margin-top: 10px;
 }
 
-.fila-hight{
+.fila-hight {
     width: 100%;
     height: 42px;
     min-height: 38px;
@@ -76,35 +73,33 @@ main.contenedor{
     transition: 0.1s ease-in-out;
 }
 
-
-.content-table .fila-hight:hover{
+.content-table .fila-hight:hover {
     background-color: rgba(255, 255, 255, 0.158);
     border-radius: 5px;
 }
 
-
 /*----- ----- Columnas ----- ------- -----*/
 
-.fila-hight .num-song{
+.fila-hight .num-song {
     width: 70px;
     text-align: center;
 }
 
-.fila-hight .picture-song{
+.fila-hight .picture-song {
     width: 12%;
     box-sizing: border-box;
     padding: 5px;
 }
 
-.fila-hight .name-song{
+.fila-hight .name-song {
     padding-left: 10px;
-    width: calc(100% - (70px + 35% + 125px + 12%) );
+    width: calc(100% - (70px + 35% + 125px + 12%));
 }
-.fila-hight .artists-song{
+.fila-hight .artists-song {
     width: 35%;
 }
 
-.fila-hight .dur-song{
+.fila-hight .dur-song {
     width: 125px;
     text-align: center;
     font-size: 14px;
@@ -112,7 +107,7 @@ main.contenedor{
 
 /*---- ----- --  Tabla de DIV's ---- ------- */
 
-.fila-content{
+.fila-content {
     width: 100%;
     display: flex;
     align-items: center;
@@ -120,84 +115,81 @@ main.contenedor{
     margin: 5px 0px;
     transition: 0.1s ease-in-out;
 }
-.fila-content:hover{
+.fila-content:hover {
     background-color: rgba(255, 255, 255, 0.158);
 }
 
-.fila-content div{
+.fila-content div {
     cursor: default;
 }
 
-.fila-content .num-song{
+.fila-content .num-song {
     width: 70px;
     text-align: center;
-    color: rgba(255, 255, 255, 0.70);
+    color: rgba(255, 255, 255, 0.7);
 }
 
-.fila-content .picture-song{
+.fila-content .picture-song {
     width: 12%;
     box-sizing: border-box;
     padding: 5px;
 }
 
-.fila-content .name-song{
+.fila-content .name-song {
     display: flex;
     padding-left: 10px;
-    width: calc(100% - (70px + 35% + 125px + 12%) );
+    width: calc(100% - (70px + 35% + 125px + 12%));
 }
 
-.fila-content .name-song span{
+.fila-content .name-song span {
     width: 150px;
     display: block;
 }
-.fila-content .name-song i{
+.fila-content .name-song i {
     opacity: 0;
     margin-top: 2px;
     transition: 0.2s ease;
 }
 
-.fila-content:hover i{
+.fila-content:hover i {
     opacity: 1;
     font-weight: 100;
-    color: rgba(255, 255, 255, 0.70);
-    
+    color: rgba(255, 255, 255, 0.7);
 }
 
-.fila-content .name-song i:hover{
+.fila-content .name-song i:hover {
     color: white;
 }
 
-
-
-
-
-.fila-content .name-song .fi{
+.fila-content .name-song .fi {
     text-align: left;
 }
 
-.fila-content .artists-song{
+.fila-content .artists-song {
     width: 35%;
 }
 
-.fila-content .dur-song{
+.fila-content .dur-song {
     width: 125px;
     text-align: center;
     font-size: 14px;
-    color: rgba(255, 255, 255, 0.70);
+    color: rgba(255, 255, 255, 0.7);
 }
-
 
 /*-------------------------------- Canciones Favoritas*/
 
-.extra-info{
-    padding: 0px auto;
-    margin-left: 10px;
-}
-.list-favoritos{
-    margin: 0px 30px;
+@media (min-width: 795px) {
+    .extra-info {
+        padding: 0px auto;
+        /* margin-left: 10px; */
+    }
+
+    .list-favoritos {
+        margin: 0px 30px;
+    }
 }
 
-.list-songs-fav{
+.list-songs-fav {
     width: 100%;
     max-height: 320px;
     overflow-y: scroll;
@@ -207,11 +199,11 @@ main.contenedor{
     flex-direction: column;
 }
 
-.list-songs-fav::-webkit-scrollbar{
+.list-songs-fav::-webkit-scrollbar {
     -webkit-appearance: none;
 }
 
-.song-fv{
+.song-fv {
     width: 90%;
     margin: 0% auto;
     padding: 10px;
@@ -223,23 +215,23 @@ main.contenedor{
     transition: 0.3s ease-in-out;
 }
 
-.song-fv:hover{
+.song-fv:hover {
     background-color: rgba(255, 255, 255, 0.24);
 }
 
-.song-fv img{
+.song-fv img {
     width: 35%;
     min-width: 45px;
     max-width: 80px;
     border-radius: 5px;
     margin: 5px;
 }
-.info-song{
+.info-song {
     width: 65%;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.song-fv .info-song p{
+.song-fv .info-song p {
     max-width: 114px;
     min-width: 110px;
     max-height: 56px;
@@ -247,21 +239,20 @@ main.contenedor{
     overflow: hidden;
 }
 
-.song-fv .info-song{
+.song-fv .info-song {
     width: 50%;
 }
 
 /*------------ Responsive */
 @media screen and (max-width: 1200px) {
-    
     /*CAhora los elementos se orden vertcalmente*/
-    .section_1{
+    .section_1 {
         flex-wrap: wrap;
     }
     .popular-songs-artist {
         width: 100%;
     }
-    .extra-info{
+    .extra-info {
         width: 100%;
         margin-top: 50px;
         padding: 0px;
@@ -269,12 +260,12 @@ main.contenedor{
 
     /*Los elmentos se orden a la par de otro en el contenedor de los favoritos*/
 
-    .list-songs-fav{
+    .list-songs-fav {
         flex-direction: row;
         overflow-y: auto;
         scroll-behavior: smooth;
     }
-    .list-songs-fav .song-fv{
+    .list-songs-fav .song-fv {
         min-width: 25%;
     }
 }

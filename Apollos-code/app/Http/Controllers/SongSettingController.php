@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Album;
 use Illuminate\Support\Str;
 
@@ -12,6 +13,11 @@ use Illuminate\Support\Facades\Redirect;
 
 class SongSettingController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         return view('configure_songs');
@@ -20,7 +26,7 @@ class SongSettingController extends Controller
     public function changeDataAlbums(Request $request)
     {
         $user = Auth::user();
-        
+
 
         if ($request->new_name_album != "") {
             // Validación
@@ -31,7 +37,7 @@ class SongSettingController extends Controller
             $sqlBDUpdateName = DB::table('albums')
                 ->where('user_id', $user->id)
                 ->update(['name_album' => $name_album]);
-                return redirect()->route('album.settings.index')->with('nameal', 'Nombre de album  fue cambiado correctamente.');
+            return redirect()->route('album.settings.index')->with('nameal', 'Nombre de album  fue cambiado correctamente.');
         }
         // Imagen de perfil
         if ($request->image) {
@@ -51,7 +57,7 @@ class SongSettingController extends Controller
             // GUARDAR REGISTRO ==============
             $sqlBDUpdateName = DB::table('users')
                 ->where('user_id', $user->id)
-                ->update(['image' => $nombreImagen]);                
+                ->update(['image' => $nombreImagen]);
         }
         if ($request->new_genre != "") {
             // Validación

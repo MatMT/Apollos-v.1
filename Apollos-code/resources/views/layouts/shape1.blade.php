@@ -71,6 +71,7 @@
         </div>
     </div>
 
+    @stack('script_end')
 
 
 </body>

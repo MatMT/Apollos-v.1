@@ -13,9 +13,8 @@
 
         <!--- Tttulo de Biblioteca  -->
         <div class="title">
-            <h2 class="font-titulo text-6xl font-bold text-white text-left my-3">Biblioteca</h2>
-            <h4 class="font-titulo text-white opacity-80 text-3xl text-left desktop_2:text-2xl">Hecha un vistazo a tu
-                colección</h4>
+            <h2 class="font-titulo text-6xl font-bold text-white text-left my-3">{{__('Library')}}</h2>
+            <h4 class="font-titulo text-white opacity-80 text-3xl text-left desktop_2:text-2xl">{{__('Check out your collection')}}</h4>
         </div>
 
 
@@ -25,9 +24,9 @@
             <div class="pestanias">
 
                 <ul class="opciones text-2xl font-cuerpo desktop_2:text-xl">
-                    <li class="opcion active-opcion" id="op1">Favoritos</li>
+                    <li class="opcion active-opcion" id="op1">{{__('Favorites')}}</li>
                     <li class="opcion albums-opcion remove" id="op2">Albums</li>
-                    <li class="opcion artistas-opcion remove" id="op3">Artistas</li>
+                    <li class="opcion artistas-opcion remove" id="op3">{{__('Artist')}}</li>
                     <li class="opcion favoritos-opcion remove hidden" id="op4">Favoritos</li>
                 </ul>
 

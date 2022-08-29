@@ -19,8 +19,7 @@
             <div class="post_1 w-full justify-around items-center">
 
                 <div class="title-post w-3/5 laptop:w-4/5 anim">
-                    <h1 class="font-titulo_2 text-7xl my-8 leading-tight text-white desktop:text-6xl">Descubre un mundo nuevo
-                        de Música</h1>
+                    <h1 class="font-titulo_2 text-7xl my-8 leading-tight text-white desktop:text-6xl">{{__('Discover a new world of music')}}</h1>
                     <div class="line w-28 h-0.5 bg-white mb-5"></div>
                     <div class="line w-28 h-0.5 mb-1"></div>
 
@@ -45,7 +44,7 @@
                 {{-- MIS ARTISTAS --}}
                 @if ($F_artists->count())
                     <div>
-                        <h2 class="text-white text-2xl font-bold">Tus Artistas</h2>
+                        <h2 class="text-white text-2xl font-bold">{{__('Your Artists')}}</h2>
 
                         <div class="contenedor-principal slider-1">
 
@@ -69,7 +68,7 @@
                                                     </div>
                                                     <div
                                                         class="type text-base font-thin text-slate-300 desktop_2:text-base">
-                                                        Artista
+                                                            {{__('Artist')}}
                                                     </div>
                                                 </div>
                                             </a>
@@ -91,7 +90,7 @@
 
                 <div class="main-content text-white anim">
 
-                    <h2 class="text-white text-2xl font-bold">Artistas que te gustarán</h2>
+                    <h2 class="text-white text-2xl font-bold">{{__('Artist would you like it')}}</h2>
 
                     <div class="contenedor-principal slider-2">
 
@@ -113,7 +112,7 @@
                                                     {{ $user->name }}
                                                 </div>
                                                 <div class="type text-base font-thin text-slate-300 desktop_2:text-base">
-                                                    Artista
+                                                    {{__('Artist')}}
                                                 </div>
                                             </div>
                                         </a>
@@ -238,7 +237,7 @@
             @if ($F_Albums->count())
                 <div class="main-content text-white anim">
 
-                    <h2 class="text-white text-2xl font-bold">Álbumes como a ti te gustan</h2>
+                    <h2 class="text-white text-2xl font-bold">{{__('Albums as you like them')}}</h2>
 
                     <div class="contenedor-principal slider-2">
 

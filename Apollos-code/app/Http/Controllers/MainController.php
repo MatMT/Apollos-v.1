@@ -61,7 +61,7 @@ class MainController extends Controller
     }
 
     // BIBLIOTECA ===============================================================
-    public function index_2(Song $song)
+    public function index_2()
     {
         // Obtener id del usuario logeado
         $UserLog = Auth()->user();
@@ -70,15 +70,6 @@ class MainController extends Controller
         $ids = auth()->user()->followings->pluck('id')->toArray();
         // Objeto convertido a arreglo obtenido por medio del modelo 
         // Pluck = Traer campos seleccionados
-
-        // Extraer la collección de artistas ===
-        $artists = DB::table('users')
-            ->where('rol', 'artist',)
-            ->where('id', '<>', $UserLog->id)
-            ->where('id', '<>', $ids)
-            ->inRandomOrder()
-            ->limit(15)
-            ->get();
 
         // Extraer la collección de mis artistas ===
         $Myartistas = DB::table('users')
@@ -92,18 +83,22 @@ class MainController extends Controller
         $MyalbumsId = DB::table('like_albums')
             ->where('user_id', $UserLog->id)
             ->pluck('album_id');
-
         $Myalbums = DB::table('albums')
             ->whereIn('id', $MyalbumsId)
             ->get();
 
+        // Extraer canciones favoritas
+        $MySongsId = DB::table('likes')
+            ->where('user_id', $UserLog->id)
+            ->pluck('song_id');
+
+        $MySongs = Song::whereIn('id', $MySongsId)->get();
 
         return view('Library', [
             'userLikes' => $UserLog,
-            'songsLikes' => $song,
+            'songsLikes' => $MySongs,
             'F_artists' => $Myartistas,
             'F_Albums' => $Myalbums,
-            'artists' => $artists
         ]);
     }
 }

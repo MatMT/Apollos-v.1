@@ -372,11 +372,10 @@
                         <div class="contenedor-carousel">
 
                             <div class="carousel albums">
-
                                 @foreach ($F_Albums as $album)
                                     <div class="card drop-shadow-xl">
                                         <a
-                                            href="{{ route('album.index', ['user' => $name->obtenerArtistName($album->user_id), 'album' => $album->id]) }}">
+                                            href="{{ route('album.index', ['user' => $name->obtenerArtist($album->user_id), 'album' => $album->id]) }}">
                                             <div class="imagen albums">
                                                 <img src="{{ asset('storage') . '/uploads/imagenes/' . $album->image }} "
                                                     alt="Imagen de {{ $album->name_album }}">
@@ -386,7 +385,7 @@
                                                     {{ $album->name_album }}</div>
                                                 <div
                                                     class="type font-cuerpo text-lg font-thin text-slate-300 desktop_2:text-base">
-                                                    {{ $name->obtenerName($album->user_id) }}</div>
+                                                    {{ $name->obtenerArtist($album->user_id)->username }}</div>
                                             </div>
                                         </a>
                                     </div>

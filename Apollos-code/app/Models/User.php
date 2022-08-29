@@ -61,21 +61,11 @@ class User extends Authenticatable
         return  $nombre->name;
     }
 
-    public function obtenerArtistName($id)
+    public function obtenerArtist($id)
     {
         // Obtener nombre mediante id
         $nombre = User::find($id);
-        return  $nombre->name_artist;
-    }
-
-    public function obtenerArtist($id)
-    {
-        // Obtener artista
-        $IdAlbum = $this->obtenerSong($id)->album_id;
-        $IdArtist = Album::find($IdAlbum);
-        $Artist = $this->obtenerArtistName($IdArtist->user_id);
-
-        return  $Artist;
+        return  $nombre;
     }
 
     public function obtenerFavs($u_id)
@@ -83,7 +73,6 @@ class User extends Authenticatable
         $favs = Like::where('user_id', $u_id)->get();
         return $favs;
     }
-
 
     public function obtenerFavsAlbum($u_id)
     {
@@ -95,14 +84,6 @@ class User extends Authenticatable
     {
         $fSong = Song::where('id', $u_song)->first();
         return $fSong;
-    }
-
-    public function obtenerNameArtistSong($u_song)
-    {
-        $AlbumId = $this->obtenerSong($u_song)->album_id;
-        $ArtistAlbum = Album::where('user_id', $AlbumId);
-
-        return $AlbumId;
     }
 
 

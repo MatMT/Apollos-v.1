@@ -45,9 +45,11 @@ class Song extends Model
         return $this->likes->contains('user_id', $user->id);
     }
 
-    // public function user()
-    // {
-    //     // Una canción pertenece a un usuario
-    //     return $this->belongsTo(User::class)->select(['name', 'name_artist']); // Select - unicos campos a recibir
-    // }
+    // MÉTODO ===============================
+    public function InfoArtista(Song $song)
+    {
+        $Album = Album::where('id', $song->album_id)->first();
+        $Artista = User::where('id', $Album->user_id)->first();
+        return $Artista;
+    }
 }

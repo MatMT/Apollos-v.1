@@ -16,7 +16,6 @@ class AlbumController extends Controller
     }
 
     use TimeTrait;
-
     // Redirección a sección de álbum
     public function album_1()
     {

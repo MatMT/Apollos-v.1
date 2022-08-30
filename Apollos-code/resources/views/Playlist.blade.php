@@ -36,30 +36,18 @@
     <main class="contenedor w-22/25 tablet_3:w-11/12 my-2 mx-auto p-5">
         <div class="apollos-info-artist mt-20 text-white md:w-1/3">
             <div class="name-artist">
-                <h3 class="font-titulo text-4xl font-light">Tu propia</h3>
+                <h3 class="font-titulo text-4xl font-light">Crea tu</h3>
                 <h2 class="font-titulo_2 text-7xl my-2">Playlist</h2>
             </div>
             <div class="followers-artist flex">
                 <div class="w-1/2">
-                    <h3 class="font-titulo text-3xl font-light">
-                        @if ($MyPlaylist)
-                            {{ $MyPlaylist->duration }}
-                        @endif
-                    </h3>
-                    {{-- REPRODUCCIÓN --}}
-                    @if ($Start)
-                        <form
-                            action="{{ route('song.playlist.show', ['user' => $Start->InfoArtista($Start), 'song' => $Start]) }}"
-                            method="POST">
-                            @csrf
-                            <button type="submit"
-                                class="follow-artist-btm font-titulo font-light text-xl">Reproducir</button>
-                        </form>
-                    @endif
+                    <h3 class="font-titulo text-3xl font-light">Seguidores <span>#</span></h3>
+                    <button class="follow-artist-btm font-titulo font-light text-xl">Guardar</button>
                 </div>
                 <div class="w-1/2 relative">
-                    {{-- <h3 class="font-titulo text-xl text-right font-light absolute top-0 right-0 mt-3">
-                    </h3> --}}
+                    <h3 class="font-titulo text-xl text-right font-light absolute top-0 right-0 mt-3">
+                        8:16
+                    </h3>
                 </div>
             </div>
         </div>
@@ -80,28 +68,19 @@
                             </tr>
                         </table>
                         <section class="line-table"></section>
-                        @php
-                            $i = 1;
-                        @endphp
-                        @if ($MySongs)
-                            @foreach ($MySongs as $song)
-                                {{-- <a href="{{ route('song.show', ['user' => $song->InfoArtista($song), 'song' => $song]) }}"> --}}
-                                <div class="fila-content text-lg">
-                                    <div class="num-song">{{ $i++ }}</div>
-                                    <div class="picture-song">
-                                        <img src="{{ asset('storage') . '/uploads/imagenes/' . $song->image }}"
-                                            alt="Imagen de {{ $song->name_song }}" class="w-[45px] mx-auto rounded">
-                                    </div>
-                                    <div class="name-song">{{ $song->name_song }}
-                                        {{-- <i class="fi fi-rs-heart" id="fav"></i> --}}
-                                    </div>
-                                    <div class="artists-song"></div>
-                                    <div class="dur-song font-titulo">{{ $song->time }}</div>
+                        {{-- @foreach ($songs as $song)
+                            <div class="fila-content text-lg">
+                                <div class="num-song">1</div>
+                                <div class="picture-song"><img
+                                        src="{{ asset('storage') . '/uploads/imagenes/' . $song->image }}"
+                                        alt="Imagen de {{ $song->name_song }}" class="w-[45px] mx-auto rounded"></div>
+                                <div class="name-song">{{ $song->name_song }}</span><i class="fi fi-rs-heart"
+                                        id="fav"></i>
                                 </div>
-                                {{-- </a> --}}
-                            @endforeach
-                        @endif
-
+                                <div class="artists-song"></div>
+                                <div class="dur-song font-titulo">3:42</div>
+                            </div>
+                        @endforeach --}}
 
                     </div>
                     <div class="see_more text-white font-cuerpo font-light cursor-pointer">
@@ -129,8 +108,7 @@
                                 @endphp
 
                                 {{-- AGREGAR PLAYLIST --}}
-                                <form action="{{ route('playlist.store') }}" id="FormId_{{ $i }}"
-                                    method="POST">
+                                <form action="{{ route('playlist.store') }}" id="FormId_{{ $i }}" method="POST">
                                     @csrf
                                     <input type="hidden" name="song_id" value="{{ $song->id }}">
                                 </form>

@@ -34,10 +34,14 @@ class SettingsController extends Controller
 
     public function store(Request $request)
     {
-        // Bandera de cambios
+        // $this->validate($request, [
+        //     'new_name' => "required|min:2|max:20",
+        //     'new_lastname' => "required|min:4|max:25",
+        //     'username' => ['required', 'unique:users,username,' . auth()->user()->id, 'min:3', 'max:30'],
+        // ]);
+
         $Cambios = false;
 
-        // Usuario logeado
         $userAuth = Auth::user();
 
         // Nombre - Si el campo no esta vació y es diferente al ya registrado

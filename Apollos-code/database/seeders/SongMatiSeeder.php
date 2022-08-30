@@ -24,7 +24,6 @@ class SongMatiSeeder extends Seeder
         $bbnoSencillo1->genre = 'hip hop';
         $bbnoSencillo1->url = 'af9d899e-0e53-43e5-a069-49b9e757c8f0.mp3';
         $bbnoSencillo1->image = 'f759a8c5-493e-4d88-be29-278b60ce8553.jpg';
-        $bbnoSencillo1->total = 188.63;
         $bbnoSencillo1->created_at = now();
         $bbnoSencillo1->updated_at = now();
         $bbnoSencillo1->save();
@@ -38,7 +37,6 @@ class SongMatiSeeder extends Seeder
         $bbnoSencillo2->genre = 'hip hop';
         $bbnoSencillo2->url = '77feb4d2-a718-4544-96df-f2353e3e91fd.mp3';
         $bbnoSencillo2->image = '0b4366cb-de55-4a13-99e4-96aae5fc4329.jpg';
-        $bbnoSencillo2->total = 205.01;
         $bbnoSencillo2->created_at = now();
         $bbnoSencillo2->updated_at = now();
         $bbnoSencillo2->save();
@@ -96,7 +94,6 @@ class SongMatiSeeder extends Seeder
         $CucoSencillo1->genre = 'hip hop';
         $CucoSencillo1->url = '5fe9dc65-b9bd-4342-a27f-cca17834f5e7.mp3';
         $CucoSencillo1->image = '50063cf7-7722-4b97-a847-77bfbea2c247.jpg';
-        $CucoSencillo1->total = 218.51;
         $CucoSencillo1->created_at = now();
         $CucoSencillo1->updated_at = now();
         $CucoSencillo1->save();
@@ -110,7 +107,6 @@ class SongMatiSeeder extends Seeder
         $CucoSencillo1->genre = 'indie';
         $CucoSencillo1->url = 'ea7bcf9d-c95f-45c8-a8c3-13b9902c1324.mp3';
         $CucoSencillo1->image = 'ae201b80-c121-4b3d-aeac-b66d7a970c21.jpg';
-        $CucoSencillo1->total = 103.42;
         $CucoSencillo1->created_at = now();
         $CucoSencillo1->updated_at = now();
         $CucoSencillo1->save();

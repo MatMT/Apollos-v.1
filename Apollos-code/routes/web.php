@@ -89,7 +89,7 @@ Route::view('/Artista', 'Artist')->name('artista');
 
 // ============================== Playlist
 
-Route::get('/usuario/{user:name_artist}/playlist/', [PlaylistController::class, 'index'])->name('playlist.index');
+Route::get('/playlist', [PlaylistController::class, 'index'])->name('playlist.index');
 Route::post('/playlist/add', [PlaylistController::class, 'store'])->name('playlist.store');
 
 // ============================== PERFIL
@@ -99,9 +99,6 @@ Route::get('/usuario/{user:name_artist}/album/{album}/', [AlbumsShowController::
 
 // Canciones --- Imprimir
 Route::get('/usuario/{user:name_artist}/canciones/{song}/', [SongsShowController::class, 'show'])->name('song.show');
-
-// Canciones de una Playlist - Imprimir
-Route::post('/usuario/{user:name_artist}/playlist/{song}/', [SongsShowController::class, 'playlist'])->name('song.playlist.show');
 
 // ============================== SUBIR CANCIÓN
 

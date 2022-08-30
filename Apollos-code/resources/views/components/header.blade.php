@@ -9,16 +9,16 @@
         <ul
             class="flex justify-around w-full max-w-2xl my-10 mx-auto text-base items-center font-cuerpo text-center tablet_5:mx-auto">
 
-            <li class="mx-8 {{ $active ?? '' }} ">
+            <li class="{{ $active ?? '' }} ">
                 <a href="{{ route('main') }}"><i class="fi fi-rs-home"></i><span
                         class="tablet_3:hidden">{{ __('Home') }}</span></a>
             </li>
-            <li class="mx-8  {{ $activeli ?? '' }} "><a href="{{ route('biblioteca') }}"><i
+            <li class="{{ $activeli ?? '' }} "><a href="{{ route('biblioteca') }}"><i
                         class="fi fi-rs-apps"></i></i><span class="tablet_3:hidden">{{ __('Your library') }}</span></a>
             </li>
-            <li class="mx-8 "><a href="{{ route('playlist.index') }}"><i class="fi fi-rs-music"></i><span
+            <li class=" "><a href="{{ route('playlist.index') }}"><i class="fi fi-rs-music"></i><span
                         class="tablet_3:hidden">{{ __('Create playlist') }}</span></a></li>
-            <li class="mx-8 cursor-pointer" id="buscar"><a><i class="fi fi-rs-search"></i><span
+            <li class="cursor-pointer" id="buscar"><a><i class="fi fi-rs-search"></i><span
                         class="tablet_3:hidden">{{ __('Search') }}</span></a></li>
         </ul>
 
@@ -39,13 +39,14 @@
 
             <div class="contenido-menu my-5 anim" id="menu">
 
-                <div class="image perfil w-full flex justify-center items-center anim my-2 mx-2" id="perfil">
+                <div class="image perfil w-full flex justify-center items-center anim my-2 mx-2 flex-col" id="perfil">
 
                     <img src="{{ asset('storage') . '/uploads/pfp/' . Auth::user()->image }}"
                         alt="img"class="h-16  rounded-full border-slate-400">
-                    <div class="name-user p-5">
+                    
+                        <div class="name-user px-5 w-full text-center my-2">
                         <span
-                            class="font-titulo h-6 text-right font-bold text-lg truncatetruncate ">{{ Auth::user()->name }}</span><br>
+                            class="font-titulo h-24 font-bold text-lg truncatetruncate ">{{ Auth::user()->name }}</span><br>
                         <span
                             class="text-base text-slate-300">{{ Auth::user()->rol == 'artist' ? __('Artist') : __('User') }}</span>
                     </div>

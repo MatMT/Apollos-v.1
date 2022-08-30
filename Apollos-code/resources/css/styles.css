@@ -173,11 +173,14 @@ header .contenido-menu.active {
 header .options li {
     margin-top: 7px;
     margin: 7px 10px;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.3s ease-in-out;
     font-size: 18px;
-    color: rgba(255, 255, 255, 0.863);
+    color: rgb(255, 255, 255);
+    opacity: 0.6;
 }
-
+header .options li:hover{
+    opacity: 0.9;
+}
 header .Logout {
     margin: 20px 0px;
 }
@@ -571,6 +574,183 @@ footer{
 
 
 
+/*------------------------------- Lista de Reproducción ..*/
+
+
+.lista-reproduccion{
+    width: 92%;
+    height: 78vh;
+    padding: 15px;
+    background-color: #000000ea;
+    border-radius: 15px;
+    backdrop-filter: blur(6px);
+
+    position: absolute;
+    bottom: 105px;
+    left: 4%;
+    right: 4%;
+
+}
+
+/*------ Espacio del contendio de las listas de reproducción -------*/
+.space-content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.song-playing{
+    width: 100%;
+    padding: 15px;
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+}
+
+.song-playing img{
+    margin: 0px auto;
+    min-height: 430px;
+    border-radius: 10px;
+}
+
+/*----- Lista de Reproducción -------*/
+
+.songs-list-then{
+    margin-top: 15px;
+    width: 100%;
+    padding: 15px;
+}
+
+
+.songs-list {
+    color: white;
+    overflow: hidden;
+    max-height: 250px;
+
+    overflow-y: auto;
+}
+
+.title-table{
+    margin: 15px auto;
+}
+
+.fila-hight-r {
+    width: 100%;
+    height: 42px;
+    min-height: 38px;
+    max-height: 50px;
+    padding: 5px;
+    transition: 0.1s ease-in-out;
+
+}
+
+
+
+.fila-hight-r .num-song {
+    width: 70px;
+    text-align: center;
+}
+
+.fila-hight-r .picture-song {
+    width: 12%;
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+.fila-hight-r .name-song {
+    padding-left: 10px;
+    width: calc(100% - (70px + 25% + 125px + 12%));
+}
+.fila-hight-r .artists-song {
+    width: 25%;
+}
+
+.fila-hight-r .dur-song {
+    width: 125px;
+    text-align: center;
+    font-size: 14px;
+}
+
+
+
+/* Canciones lista */
+
+
+.fila-content-l {
+    width: 95%;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    margin: 5px auto;
+    transition: 0.1s ease-in-out;
+}
+.fila-content-l:hover {
+    background-color: rgba(255, 255, 255, 0.158);
+}
+
+
+.fila-content-l div {
+    cursor: default;
+}
+
+.fila-content-l .num-song {
+    width: 70px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.fila-content-l .picture-song {
+    width: 12%;
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+.fila-content-l .name-song {
+    display: flex;
+    padding-left: 20px;
+    width: calc(100% - (70px + 35% + 125px + 12%));
+    min-width: 300px;
+    opacity: 0.8;
+}
+
+.fila-content-l .name-song span {
+    display: block;
+}
+.fila-content-l .name-song i {
+    opacity: 0;
+    margin-top: 2px;
+    transition: 0.2s ease;
+    margin-left: 20px;
+}
+
+.fila-content-l i {
+    opacity: 1;
+    font-weight: 100;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.fila-content-l .name-song i:hover {
+    color: white;
+}
+
+.fila-content-l .name-song .fi {
+    text-align: left;
+}
+
+.fila-content-l .artists-song {
+    width: 35%;
+}
+
+.fila-content-l .dur-song {
+    width: 125px;
+    text-align: center;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
 /*-------  -------  ----- Querys ---------  ------  ----*/
 
 @media screen and (max-width: 921px) {
@@ -580,3 +760,35 @@ footer{
         margin-top: 2px;
     }
 }
+
+@media screen and (min-width: 1078px) {
+    .space-content{
+        flex-direction: row;
+    }
+
+    .song-playing,
+    .songs-list-then{
+        width: 50%;
+    }
+
+    .song-playing img{
+        width: 70%;
+        min-height: fit-content;
+    }
+
+    .song-playing,
+    .space-content{
+        height: 100%;
+    }
+
+    .songs-list-then{
+        padding: 60px 25px;
+        padding-bottom: 25px;
+    }
+
+    .songs-list{
+        max-height: 700px;
+    }
+    
+}
+

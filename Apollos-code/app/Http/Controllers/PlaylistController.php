@@ -31,11 +31,14 @@ class PlaylistController extends Controller
 
         // Si tengo canciones en mi playlist
         if ($MySongs) {
+            // Registros de canciones con mi playlist
+            $RegistsOfMyPlaylist = Playlist_song::where('playlist_id', $MyPlaylist->id)->get();
             $InitialSong = $playlist->MySongsPlaylist(auth()->user())->first();
             $MySongsId = $playlist->MySongsPlaylist(auth()->user())->pluck('id');
             // Canciones aún no presentes en mi playlist
             $songs = Song::whereNotIn('id', $MySongsId)->get();
         } else {
+            $RegistsOfMyPlaylist = null;
             $InitialSong = null;
             $songs = Song::inrandomOrder()->get();
         }
@@ -44,6 +47,7 @@ class PlaylistController extends Controller
         return view('Playlist', [
             'user' => $user,
             'songs' => $songs,
+            'RegistSongs' => $RegistsOfMyPlaylist,
             'MySongs' => $MySongs,
             'MyPlaylist' => $MyPlaylist,
             'Start' => $InitialSong, 'i' => $i
@@ -72,17 +76,38 @@ class PlaylistController extends Controller
         $MySongs = $playlist->MySongsPlaylist(auth()->user());
 
         // Duración total en segundos
+        $duration = 0;
         $total = 0;
         foreach ($MySongs as $song) {
             $total += $song->total;
+            $duration += $song->total;
         }
 
         // Uso de Trait - Similar a una herencia - No repite codigo
-        $total = $this->TimeTotal($total);
+        $duration = $this->TimeTotal($duration);
 
-        Playlist::where('id', $MyPlaylist->id)->update(['duration' => $total]);
+        Playlist::where('id', $MyPlaylist->id)->update(['duration' => $duration, 'total' => $total]);
 
         // Regresar
+        return back();
+    }
+
+    // Eliminar canción de mi playlist ==========
+    public function destroy(Playlist_song $regist, Song $song, Playlist $playlist)
+    {
+        // Extraer playlist para obtener su duración
+        $playlist = Playlist::where('id', $regist->playlist_id)->first();
+
+        // Duración de la canción a restar en el tiempo total de la playlist
+        $restando = $song->total;
+
+        $newTotal =  $playlist->total - $restando;
+
+        $duration = $this->TimeTotal($newTotal);
+
+        Playlist::where('id', $playlist->id)->update(['duration' => $duration, 'total' => $newTotal]);
+
+        $regist->delete();
         return back();
     }
 }

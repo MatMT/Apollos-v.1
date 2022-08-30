@@ -54,8 +54,8 @@
     {{-- Mi reproductor de música --}}
 
     <footer>
-        <div class="lista-reproduccion">
-            <div class="space-content">
+        <div class="lista-reproduccion" id="list">
+            <div class="space-content" id="canciones-lista">
                 <div class="song-playing">
                     <img src="{{ asset('assets/artistas-pic/house.png') }} " alt="Canción" class="">
                 </div>
@@ -163,7 +163,7 @@
                 </div>
             </div>
         </div>
-        <div class="player activer" id="player">
+        <div class="player" id="player">
         
             <button rolle="button" id="show" class="show-list-btn"><i class="fi fi-rr-angle-left"></i></button>
             <button rolle="button" id="hidde" class="hidde-list-btn hidden"><i class="fi fi-rr-angle-right"></i></button>

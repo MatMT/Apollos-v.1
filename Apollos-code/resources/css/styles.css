@@ -381,7 +381,8 @@ footer{
     border-radius: 15px;
     margin-right: 40px;
     
-    background-color: #f1f1f1;
+    background-color: #131313;
+    color: #fdfdfd;
 
     filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04))
         drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
@@ -400,13 +401,13 @@ footer{
     z-index: 10;
     top: 49px;
     left: 10px;
-    opacity: 0.6;
+    opacity: 0.2;
     font-size: 12px;
     transition: 0.2s all ease;
 }
 
 .player button:hover{
-    opacity: 0.9;
+    opacity: 0.6;
 }
 
 .player.activer .show-list-btn{
@@ -458,7 +459,7 @@ footer{
 .player .cancion{
     height: 100%;
     width: 22.68%;
-    padding: 10px;
+    padding: 15px;
     margin-left: 10px;
     position: relative;
 }
@@ -469,15 +470,15 @@ footer{
 }
 
 .player .cancion img.rotar{
-    animation: rotar 6s infinite;
+    animation: rotar 6s linear infinite;
 }
 
 .white-circule{
     position: absolute;
-    left: 43.975px;
-    top: 43.975px;
-    width: 20px;
-    height: 20px;
+    left: 41.3697%;
+    top: 42.5694%;
+    width: 18px;
+    height: 18px;
     background-color: #fdfdfd;
     border-radius: 100%;
     z-index: 10;
@@ -578,8 +579,9 @@ footer{
 
 
 .lista-reproduccion{
-    width: 92%;
-    height: 78vh;
+    width: 22%;
+    min-width: 480px;
+    height: 0vh;
     padding: 15px;
     background-color: #000000ea;
     border-radius: 15px;
@@ -587,18 +589,33 @@ footer{
 
     position: absolute;
     bottom: 105px;
-    left: 4%;
-    right: 4%;
+    right: 45px;
+
+    transition: 0.4s all ease;
 
 }
+
+.lista-reproduccion.active{
+    height: 75vh;
+}
+
+
+.lista-reproduccion.largo{
+    width: 92%;
+    right: 4%;
+}
+
 
 /*------ Espacio del contendio de las listas de reproducción -------*/
 .space-content{
     width: 100%;
-    display: flex;
+    display: none;
     flex-direction: column;
 }
 
+.space-content.active{
+    display: flex;
+}
 
 
 .song-playing{
@@ -762,6 +779,7 @@ footer{
 }
 
 @media screen and (min-width: 1078px) {
+    
     .space-content{
         flex-direction: row;
     }
@@ -772,7 +790,7 @@ footer{
     }
 
     .song-playing img{
-        width: 70%;
+        width: 60%;
         min-height: fit-content;
     }
 

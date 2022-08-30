@@ -20,6 +20,7 @@ class AlbumMatiSeeder extends Seeder
         $bbnoSencillos->user_id = 8;
         $bbnoSencillos->name_album = 'sencillos_bbno';
         $bbnoSencillos->sencillo = true;
+        $bbnoSencillos->confirm = true;
         $bbnoSencillos->created_at = now();
         $bbnoSencillos->updated_at = now();
         $bbnoSencillos->save();
@@ -43,6 +44,7 @@ class AlbumMatiSeeder extends Seeder
         $CucoSencillos->user_id = 9;
         $CucoSencillos->name_album = 'sencillos_cuco';
         $CucoSencillos->sencillo = true;
+        $CucoSencillos->confirm = true;
         $CucoSencillos->created_at = now();
         $CucoSencillos->updated_at = now();
         $CucoSencillos->save();

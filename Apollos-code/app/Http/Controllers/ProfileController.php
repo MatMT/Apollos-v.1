@@ -31,32 +31,20 @@ class ProfileController extends Controller
             ->first();
 
         // ÁLBUMES + SENCILLOS ===
-        $AllAlbums = Album::where([['user_id', $user->id], ['confirm', true]])->get(); // Todos los álbumes - (Álbumes + Sencillos)
-
-        // 1° ARRAY PROPIO - Todas lasa canciones ===
-        $AllSongs = array();
-
-        // Por cada colección obtenida
-        if ($AllAlbums->count()) {
-            foreach ($AllAlbums as $album) {
-                $songs_array = Song::where('album_id', $album->id)->get();
-                //Por cada canción de cada álbum
-                foreach ($songs_array as $song) {
-                    array_push($AllSongs, $song);
-                }
-            }
-        }
+        $MisColecciones = Album::where([['user_id', auth()->user()->id], ['confirm', true]])->get()->pluck('id');
+        // Todas mis canciones
+        $MisCanciones = Song::WhereIn('album_id', $MisColecciones)->get();
 
         if ($CollecionSencillos != null) {
             $IfSencillos = true;
-            $sencillos = Song::where([['album_id', $CollecionSencillos->id], ['sencillo', true]])->get();
+            $sencillos = Song::where([['album_id', $CollecionSencillos->id], ['sencillo', true]])->latest()->get();
         } else {
             $IfSencillos = false;
             $sencillos = array();
         }
 
         // CONTADOR DE CANCIONES TOTALES ===
-        $counterSongs = (count($AllSongs));
+        $counterSongs = (count($MisCanciones));
 
         // CONTADOR DISPLAYLIST ===
         $displayList = 0;

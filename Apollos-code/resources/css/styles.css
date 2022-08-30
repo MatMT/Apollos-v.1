@@ -40,6 +40,11 @@ body::before {
     z-index: -5;
 }
 
+.lib{
+    height: 75vh;
+}
+
+
 /*Fondo de pantalla*/
 
 .background {
@@ -91,7 +96,7 @@ body::before {
     width: 100%;
     height: 100vh;
     position: fixed;
-    background-color: rgba(0, 0, 0, 0.473);
+    background-color: rgba(0, 0, 0, 0.33);
     z-index: -1;
 }
 
@@ -641,7 +646,7 @@ footer{
 }
 
 
-.songs-list {
+.songs-list-r {
     color: white;
     overflow: hidden;
     max-height: 250px;
@@ -804,7 +809,7 @@ footer{
         padding-bottom: 25px;
     }
 
-    .songs-list{
+    .songs-list-r{
         max-height: 700px;
     }
     

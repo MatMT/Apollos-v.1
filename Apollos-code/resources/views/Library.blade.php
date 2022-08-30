@@ -9,7 +9,7 @@
 
 @section('content')
 
-    <main class="w-10/12 p-6 mt-2 mx-auto">
+    <main class="lib w-10/12 p-6 mt-2 mx-auto">
 
         <!--- Tttulo de Biblioteca  -->
         <div class="title">

@@ -8,17 +8,17 @@
 
         <ul class="flex my-10 mx-10 text-base items-center font-cuerpo text-center tablet_5:mx-auto">
 
-            <li class="{{ $active ?? '' }} ">
+            <li class="mx-7 {{ $active ?? '' }} ">
                 <a href="{{ route('main') }}"><i class="fi fi-rs-home"></i><span
                         class="tablet_3:hidden">{{ __('Home') }}</span></a>
             </li>
-            <li class="{{ $activeli ?? '' }} "><a href="{{ route('biblioteca') }}"><i
+            <li class="mx-7 {{ $activeli ?? '' }} "><a href="{{ route('biblioteca') }}"><i
                         class="fi fi-rs-apps"></i></i><span class="tablet_3:hidden">{{ __('Your library') }}</span></a>
             </li>
-            <li class=" "><a href="{{ route('playlist.index', Auth::user()) }}"><i class="fi fi-rs-music"></i><span
+            <li class="mx-7"><a href="{{ route('playlist.index', Auth::user()) }}"><i class="fi fi-rs-music"></i><span
                         class="tablet_3:hidden">{{ __('Create playlist') }}</span></a>
             </li>
-            <li class="cursor-pointer" id="buscar"><a><i class="fi fi-rs-search"></i><span
+            <li class="mx-7 cursor-pointer" id="buscar"><a><i class="fi fi-rs-search"></i><span
                         class="tablet_3:hidden">{{ __('Search') }}</span></a></li>
         </ul>
 

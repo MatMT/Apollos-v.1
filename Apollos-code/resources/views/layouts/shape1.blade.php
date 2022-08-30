@@ -66,7 +66,7 @@
                     
                     <div class="lista-canciones w-full mx-1 anim">
                         
-                        <div class="songs-list" id="lista-canciones">
+                        <div class="songs-list-r">
                             
                             <table class="title-table w-19/20 mt-8">
                                 <tr class="fila-hight-r text-lg opacity-70">
@@ -77,8 +77,6 @@
                                     <td class="dur-song">DURACIÓN</td>
                                 </tr>
                             </table>
-
-                            <section class="line-table"></section>
 
                             <div class="fila-content-l text-lg" href="" id="song">
                                 <div class="num-song font-titulo">1</div>

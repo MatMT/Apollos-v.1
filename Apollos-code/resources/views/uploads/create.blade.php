@@ -11,7 +11,7 @@
     {{-- @vite('resources/css/profileStyles.css') --}}
     <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
     <style>
-        .dropzone{
+        .dropzone {
             border-style: dashed !important;
             border-width: 3px !important;
             border-color: white !important;
@@ -20,7 +20,7 @@
             backdrop-filter: blur(8px);
         }
 
-        .song-info-inputs{
+        .song-info-inputs {
             background-color: white;
             background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(8px);
@@ -32,7 +32,7 @@
             filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
         }
 
-        .dz-preview{
+        .dz-preview {
             background: transparent !important;
         }
     </style>
@@ -43,9 +43,9 @@
 @endsection
 
 @section('content')
-<h1 class='text-white font-titulo text-3xl font-bold mt-12 mb-2 anim2 w-full text-center px-10'>Sube una canción</h1>
+    <h1 class='text-white font-titulo text-3xl font-bold mt-12 mb-2 anim2 w-full text-center px-10'>Sube una canción</h1>
     <div class="md:flex md:items-center flex justify-center items-center h-4/6 px-10">
-        
+
         <div class="md:w-1/2 pt-5 text-white">
             <div class="md:h-1/2 px-10 mt-5 ">
 
@@ -72,12 +72,12 @@
                     <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
                         La canción es obligatoria.</p>
                 @enderror
-                <p class="p-2 text-red-500 text-right font-semibold"><span class="inline"><img src="{{ asset('assets/icons/errorIcon.png') }}" class="h-4 inline m-2"> 6mb máximos por canción </span></p>
+                <p class="p-2 text-red-500 text-right font-semibold"><span class="inline"><img
+                            src="{{ asset('assets/icons/errorIcon.png') }}" class="h-4 inline m-2"> 6mb máximos por canción
+                    </span></p>
             </div> <!-- .Mp3 -->
 
         </div> <!-- Subir archivos -->
-
-
 
         <div class="song-info-inputs md:w-1/2 p-10 bg-white rounded-lg shadow mt-10 md:mt-0 text-gray-800">
             <form action="{{ route('data.store') }}" method="POST" id="song_up" novalidate>
@@ -97,6 +97,11 @@
                     <input type="hidden" name="time" value="{{ old('time') }}" />
                 </div>
 
+                <!-- Token de duración -->
+                <div>
+                    <input type="hidden" name="total" value="{{ old('total') }}" />
+                </div>
+
                 <!-- Campos -->
                 <div class="mb-5">
                     <label for="titulo" class="mb-2 block uppercase text-gray-800 font-bold">Título</label>
@@ -111,7 +116,7 @@
                 <div class="mb-5">
 
                     <x-gender-select></x-gender-select>
-                    
+
                     @error('genero')
                         <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
                             {{ $message }}</p>

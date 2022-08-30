@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Song;
 use App\Models\User;
 use App\Models\Album;
+use App\Models\Playlist;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
@@ -19,11 +20,24 @@ class SongsShowController extends Controller
     public function show(User $user, Song $song)
     {
         // Llamamos al modelo y automáticamente su tabla
-        $songs = Song::where('album_id', $song->album_id)->get(); // Paginate elabora una lógica para crear páginas}
+        $songs = Song::where('album_id', $song->album_id)->get();
 
         return view('uploads.show', [
             'user' => $user,
             'OtherSongs' => $songs,
+            'song' => $song
+        ]);
+    }
+
+    // Playlist ==========
+    public function playlist(User $user, Song $song, Playlist $playlist)
+    {
+        // Extraer mis canciones en la playlist mediante el método del modelo
+        $MySongs = $playlist->MySongsPlaylist(auth()->user());
+
+        return view('uploads.show', [
+            'user' => $user,
+            'OtherSongs' => $MySongs,
             'song' => $song
         ]);
     }

@@ -37,6 +37,7 @@ class DataSongController extends Controller
             'user_id' => auth()->user()->id,
             'name_album' => ('sencillos_' . auth()->user()->name_artist),
             'sencillo' => true,
+            'confirm' => true
         ]);
 
         // Validación - campos completos

@@ -15,8 +15,9 @@
             <li class="mx-8  {{ $activeli ?? '' }} "><a href="{{ route('biblioteca') }}"><i
                         class="fi fi-rs-apps"></i></i><span class="tablet_3:hidden">{{ __('Your library') }}</span></a>
             </li>
-            <li class="mx-8 "><a href="{{ route('playlist.index') }}"><i class="fi fi-rs-music"></i><span
-                        class="tablet_3:hidden">{{ __('Create playlist') }}</span></a></li>
+            <li class="mx-8 "><a href="{{ route('playlist.index', Auth::user()) }}"><i class="fi fi-rs-music"></i><span
+                        class="tablet_3:hidden">{{ __('Create playlist') }}</span></a>
+            </li>
             <li class="mx-8 cursor-pointer" id="buscar"><a><i class="fi fi-rs-search"></i><span
                         class="tablet_3:hidden">{{ __('Search') }}</span></a></li>
         </ul>
@@ -74,12 +75,18 @@
                     <li>
                         <a href="{{ route('main') }}">{{ __('Home') }}</a>
                     </li>
+
+                    <div class="line h-px w-full bg-white opacity-25 rounded"></div>
+
                     <li>
                         <a href="{{ route('changeLocale', $locale = 'es') }}">{{ __('Spanish') }}</a>
                     </li>
                     <li>
                         <a href="{{ route('changeLocale', $locale = 'en') }}">{{ __('English') }}</a>
                     </li>
+
+                    <div class="line h-px w-full bg-white opacity-25 rounded"></div>
+                    {{-- Cerrar sesión --}}
                     <li>
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf

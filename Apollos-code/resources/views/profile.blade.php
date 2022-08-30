@@ -205,9 +205,9 @@
                                                 </h1>
                                             </span>
                                             <h1 class='counter-time text-center'>{{ $sencillo->time }}</h1>
-                                            <h1 class='likes text-center'>999 Me gusta</h1>
-                                            <span class="like-ico"><img src='{{ asset('assets/icons/likedIcon.png') }}'
-                                                    class="like-icon liked"></span>
+                                            <h1 class='likes text-center'>{{ $sencillo->likes->count() }}</h1>
+                                            {{-- <span class="like-ico"><img src='{{ asset('assets/icons/likedIcon.png') }}'
+                                                    class="like-icon liked"></span> --}}
                                         </div>
                                     </a>
                                 </div>

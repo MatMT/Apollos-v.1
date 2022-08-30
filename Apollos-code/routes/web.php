@@ -101,7 +101,7 @@ Route::get('/usuario/{user:name_artist}/album/{album}/', [AlbumsShowController::
 Route::get('/usuario/{user:name_artist}/canciones/{song}/', [SongsShowController::class, 'show'])->name('song.show');
 
 // Canciones de una Playlist - Imprimir
-Route::post('/usuario/{user:name_artist}/playlist/{song}/', [SongsShowController::class, 'playlist'])->name('song.playlist.show');
+Route::get('/playlist/{playlist}/song/{song}/', [SongsShowController::class, 'playlist'])->name('song.playlist.show');
 
 // ============================== SUBIR CANCIÓN
 

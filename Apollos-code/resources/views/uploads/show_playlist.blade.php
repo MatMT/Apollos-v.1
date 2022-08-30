@@ -50,7 +50,7 @@
                 <p class="text-xl font-bold text-center font-cuerpo">Lista de reproducción</p>
             </div>
             {{-- COMPONENTE DE LISTA --}}
-            <x-lista-songs :othersongs="$OtherSongs" :user="$user" />
+            <x-lista-playlist-songs :othersongs="$OtherSongs" :playlist="$MyPlaylist" />
         </div>
     </div>
 
@@ -58,7 +58,9 @@
 
     <div class="p-1.5 md:flex justify-center items-center">
         <div class="w-full md:w-1/6">
-            <span class="font-bold block text-center">{{ $user->name }}</span>
+            <span class="font-bold block text-center">
+                {{ $song->InfoArtista($song)->username }}
+            </span>
             {{-- Librería "Carbon" que formatea fechas --}}
             <p class="text-sm text-center text-gray-500 font-cuerpo"> {{ $song->created_at->diffForHumans() }}</p>
         </div> <!-- Información -->
@@ -66,7 +68,13 @@
         <div class="flex flex-col flex-wrap md:flex-nowrap w-full md:w-4/6 gap-1 justify-around items-center ">
             <div class="name-song flex w-full md:w-3/4 mb-4">
                 <h2 class="text-white font-bold font-cuerpo text-xl text-left">{{ $song->name_song }}</h2>
-                <h3 class="text-white font-light ml-6">Album</h3>
+                <h3 class="text-white font-light ml-6">
+                    @if ($song->sencillo)
+                        Sencillo
+                    @else
+                        Album
+                    @endif
+                </h3>
             </div>
 
             <!-- Audio -->
@@ -118,7 +126,7 @@
         <!-- Edición/Eliminación -->
 
         @auth {{-- Autentificado --}}
-            @if ($user->id == auth()->user()->id)
+            @if ($song->InfoArtista($song)->id == auth()->user()->id)
                 {{-- Artista dueño de la canción --}}
                 <div class="1/6 flex justify-center items-center gap-2">
                     {{-- Editar album --}}
@@ -127,7 +135,8 @@
                             class="bg-blue-500 hover:bg-blue-600 p-2 rounded text-white font-bold cursor-pointer">
                     </form>
                     @if ($song->sencillo == true)
-                        <form action="{{ route('song.destroy', ['user' => $user, 'song' => $song]) }}" method="POST">
+                        <form action="{{ route('song.destroy', ['user' => $song->InfoArtista($song), 'song' => $song]) }}"
+                            method="POST">
                             {{-- METODO SPOOFING - Laravel permite agregar otro tipo de peticiones --}}
                             @method('DELETE')
                             @csrf

@@ -1,25 +1,24 @@
 {
-
     "Home": "Inicio",
-    "Your library":"Tu biblioteca",
-    "Create playlist":"Crear playlist",
-    "Search":"Buscar",
+    "Your library": "Tu biblioteca",
+    "Create playlist": "Crear playlist",
+    "Search": "Buscar",
 
-    "Artist":"Artista",
-    "User":"Usuario",
+    "Artist": "Artista",
+    "User": "Usuario",
 
-    "Profile":"Perfil",
+    "Profile": "Perfil",
     "Upload": "Subir",
     "Spanish": "Español",
     "English": "Inglés",
     "Log out": "Cerrar sesión",
 
-    "Artist would you like it": "Artistas que te gutarian",
+    "Artist would you like it": "Artistas que te gustarán",
     "Discover a new world of music": "Descubre un mundo nuevo de música",
-    "Your Artists":"Tus artistas",
-    "Albums as you like them":"Álbumes como a ti te gustan",
+    "Your Artists": "Tus artistas",
+    "Albums as you like them": "Álbumes como a ti te gustan",
 
-    "Library":"Biblioteca",
-    "Check out your collection":"Hecha un vistazo a tu colección",
-    "Favorites":"Favoritos"
+    "Library": "Biblioteca",
+    "Check out your collection": "Hecha un vistazo a tu colección",
+    "Favorites": "Favoritos"
 }

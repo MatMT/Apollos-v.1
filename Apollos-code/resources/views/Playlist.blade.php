@@ -48,13 +48,9 @@
                     </h3>
                     {{-- REPRODUCCIÓN --}}
                     @if ($Start)
-                        <form
-                            action="{{ route('song.playlist.show', ['user' => $Start->InfoArtista($Start), 'song' => $Start]) }}"
-                            method="POST">
-                            @csrf
-                            <button type="submit"
-                                class="follow-artist-btm font-titulo font-light text-xl">Reproducir</button>
-                        </form>
+                        <a href="{{ route('song.playlist.show', ['playlist' => $MyPlaylist, 'song' => $Start]) }}">
+                            <button class="follow-artist-btm font-titulo font-light text-xl">Reproducir</button>
+                        </a>
                     @endif
                 </div>
                 <div class="w-1/2 relative">

@@ -30,14 +30,14 @@ class SongsShowController extends Controller
     }
 
     // Playlist ==========
-    public function playlist(User $user, Song $song, Playlist $playlist)
+    public function playlist(Playlist $playlist, Song $song)
     {
         // Extraer mis canciones en la playlist mediante el método del modelo
         $MySongs = $playlist->MySongsPlaylist(auth()->user());
 
-        return view('uploads.show', [
-            'user' => $user,
+        return view('uploads.show_playlist', [
             'OtherSongs' => $MySongs,
+            'MyPlaylist' => $playlist,
             'song' => $song
         ]);
     }

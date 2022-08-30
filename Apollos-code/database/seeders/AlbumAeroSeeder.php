@@ -21,6 +21,7 @@ class AlbumAeroSeeder extends Seeder
         $TamImpSencillos->user_id = 10;
         $TamImpSencillos->name_album = 'sencillos_tame-impala';
         $TamImpSencillos->sencillo = true;
+        $TamImpSencillos->confirm = true;
         $TamImpSencillos->created_at = now();
         $TamImpSencillos->updated_at = now();
         $TamImpSencillos->save();
@@ -55,6 +56,7 @@ class AlbumAeroSeeder extends Seeder
         $weekndSencillos->user_id = 11;
         $weekndSencillos->name_album = 'sencillos_the-weeknd';
         $weekndSencillos->sencillo = true;
+        $weekndSencillos->confirm = true;
         $weekndSencillos->created_at = now();
         $weekndSencillos->updated_at = now();
         $weekndSencillos->save();

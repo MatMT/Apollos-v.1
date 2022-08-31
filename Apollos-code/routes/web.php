@@ -20,7 +20,7 @@ use App\Http\Controllers\LikeAlbumController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\PlaylistController;
-use App\Http\Controllers\SingleSettingsController;
+use App\Http\Controllers\SinglesSettingsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -172,5 +172,5 @@ Route::post('/usuario/user/settings/change/album',  [SongSettingController::clas
 
 // ============================== EDITAR SENCILLOS
 
-Route::get('/usuario/user/settings/change/songs',  [SingleSettingsController::class, 'index'])->name('single.settings.index');
-Route::post('/usuario/user/settings/change/songs/update',  [SingleSettingsController::class, 'changeDataSingles'])->name('song.settings');
+Route::get('/usuario/user/settings/change/songs',  [SinglesSettingsController::class, 'index'])->name('single.settings.index');
+Route::post('/usuario/user/settings/change/songs',  [SinglesSettingsController::class, 'changeDataSingles'])->name('song.settings');

@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Redirect;
 
-class SingleSettingsController extends Controller
+class SinglesSettingsController extends Controller
 {
     public function __construct()
     {
@@ -27,18 +27,18 @@ class SingleSettingsController extends Controller
     {
         $user = Auth::user();
 
-
-        if ($request->new_name_sencillo != "") {
+        if ($request->new_name_song != "") {
             // Validación
             $this->validate($request, [
-                'new_name_sencillo' => 'min:4|max:25',
+                'new_name_song' => 'min:4|max:25',
             ]);
-            $name_song      = $request->new_name_sencillo;
+            $name_song      = $request->new_name_song;
             $sqlBDUpdateName = DB::table('songs')
                 ->where('user_id', $user->id)
                 ->update(['name_song' => $name_song]);
-            return redirect()->route('album.settings.index')->with('nameal', 'Nombre de el sencillo fue cambiado correctamente.');
+            return redirect()->route('single.settings.index')->with('namsen', 'Nombre de el sencillo fue cambiado correctamente.');
         }
+
         // Imagen de perfil
         if ($request->image) {
             // GUARDAR ARCHIVO ================

@@ -1,7 +1,7 @@
 @extends('layouts.shape1')
 
 @section('title')
-    Subir contenido
+{{__('Upload content')}}
 @endsection
 
 @section('header')
@@ -47,8 +47,7 @@
 @section('content')
     <div class="center-content flex justify-center items-center anim2 h-screen">
         <div class="content-select rounded-2xl overflow-hidden">
-            <h1 class='text-white font-titulo text-3xl font-bold mt-12 mb-5 anim2 w-full text-center px-10'>¿Qué tipo de
-                contenido deseas subir?</h1>
+            <h1 class='text-white font-titulo text-3xl font-bold mt-12 mb-5 anim2 w-full text-center px-10'>{{__('What type of content do you want to upload?')}}</h1>
             <div class=" upload-div md:flex md:items-center gap-4 flex items-center justify-center">
 
 
@@ -68,7 +67,8 @@
                         <!-- IMG -->
                         <img src="{{ asset('storage/uploads/imagenes/default-song.png') }}" alt="Imagen del album">
 
-                        <h2 class="font-cuerpo font-bold mt-4 text-lg text-center">Sencillo
+                        <h2 class="font-cuerpo font-bold mt-4 text-lg text-center">{{__('Single')}}
+
                         </h2>
                     </a>
                 </div>
@@ -79,7 +79,8 @@
                         <!-- IMG -->
                         <img src="{{ asset('storage/uploads/imagenes/default-album.png') }}" alt="Imagen del album">
 
-                        <h2 class="font-cuerpo font-bold mt-4 text-lg text-center">Álbum
+                        <h2 class="font-cuerpo font-bold mt-4 text-lg text-center">{{__('Album  ')}}
+
                         </h2>
                     </a>
                 </div>

@@ -1,7 +1,7 @@
 @extends('layouts.shape1')
 
 @section('title')
-    Subiendo una nueva canción
+{{__('Uploading an sinlge')}}
 @endsection
 
 @section('js')
@@ -43,7 +43,8 @@
 @endsection
 
 @section('content')
-    <h1 class='text-white font-titulo text-3xl font-bold mt-12 mb-2 anim2 w-full text-center px-10'>Sube una canción</h1>
+    <h1 class='text-white font-titulo text-3xl font-bold mt-12 mb-2 anim2 w-full text-center px-10'>{{__('Upload a Song')}}
+    </h1>
     <div class="md:flex md:items-center flex justify-center items-center h-4/6 px-10">
 
         <div class="md:w-1/2 pt-5 text-white">
@@ -56,7 +57,7 @@
 
                 @error('imagen')
                     <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
-                        La imagen es obligatoria.</p>
+                        {{__('The image is obligatory.')}}</p>
                 @enderror
 
             </div> <!-- Imagen -->
@@ -70,10 +71,11 @@
 
                 @error('song')
                     <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
-                        La canción es obligatoria.</p>
+                        {{__('The song is obligatory.')}}</p>
                 @enderror
                 <p class="p-2 text-red-500 text-right font-semibold"><span class="inline"><img
-                            src="{{ asset('assets/icons/errorIcon.png') }}" class="h-4 inline m-2"> 6mb máximos por canción
+                            src="{{ asset('assets/icons/errorIcon.png') }}" class="h-4 inline m-2"> {{__('6mb per song maximum')}}
+
                     </span></p>
             </div> <!-- .Mp3 -->
 

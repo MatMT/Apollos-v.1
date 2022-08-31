@@ -1,7 +1,7 @@
 @extends('layouts.shape1')
 
 @section('title')
-    Subiendo un álbum
+{{__('Uploading an album')}}
 @endsection
 
 {{-- Se llama al Js y Css encargado de Dropzone --}}
@@ -62,12 +62,12 @@
     <div class="p-10 overflow-hidden">
         <div
             class="flex my-0 mx-auto  sm:w-full sm:flex-row flex-col w-3/4  rounded-xl shadow overflow-hidden font-semibold">
-            <div class="basis-1/5 text-center py-3 bg-white @yield('step1')">Imagen</div>
+            <div class="basis-1/5 text-center py-3 bg-white @yield('step1')">{{__('Image')}}</div>
             {{-- @yield('step') --}}
-            <div class="basis-1/5 text-center py-3 bg-white @yield('step2')">Título</div>
-            <div class="basis-1/5 text-center py-3 bg-white @yield('step3')">Género</div>
+            <div class="basis-1/5 text-center py-3 bg-white @yield('step2')">{{__('Title')}}</div>
+            <div class="basis-1/5 text-center py-3 bg-white @yield('step3')">{{__('Genre')}}</div>
             @yield('song/s')
-            <div class="basis-1/5 text-center py-3 bg-white @yield('step5')">Subir</div>
+            <div class="basis-1/5 text-center py-3 bg-white @yield('step4')">{{__('Upload')}}</div>
         </div> <!-- Progress bar -->
     </div>
 
@@ -92,7 +92,7 @@
                                 #
                             </th>
                             <th scope="col" class="py-3 px-6">
-                                Título
+                                {{__('Title')}}
                             </th>
                             <th scope="col" class="py-3 px-6">
                                 ⏱️
@@ -139,8 +139,7 @@
 
                     <div class="mb-5 p-2 @error('confirm') border-dashed border-2 border-red-500 @enderror">
                         <input type="checkbox" value="1" name="confirm">
-                        <label for="confirm" class='text-white'>Confirmo que todo contenido súbido es de mi
-                            autoría.</label>
+                        <label for="confirm" class='text-white'>{{__('I confirm that all uploaded content is of my authorship.')}}</label>
                     </div>
 
                     <div>

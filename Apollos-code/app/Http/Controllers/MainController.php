@@ -30,7 +30,14 @@ class MainController extends Controller
         // Pluck = Traer campos seleccionados
 
         $favoritos = Like::where('user_id', $UserLog->id)->first();
-        $favoritos = Song::where('id', $favoritos->song_id)->first();
+
+        if ($favoritos) {
+            $favoritos = Song::where('id', $favoritos->song_id)->first();
+        } else {
+            $favoritos = null;
+        }
+
+
 
         // Extraer la collección de artistas ===
         $artists = DB::table('users')

@@ -58,6 +58,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/pruebaplaylist', function () {
+    return view('playListC');
+});
+
 // ============================== CAMBIO DE IDIOMA
 Route::get('/locale/{locale}', [LocaleController::class, 'index'])->name('changeLocale');
 

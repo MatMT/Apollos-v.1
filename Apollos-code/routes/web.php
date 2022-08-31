@@ -177,6 +177,7 @@ Route::post('/usuario/{user:name_artist}/settings/change/',  [SettingsController
 // ============================== EDITAR ÁLBUMES
 
 Route::get('/usuario/{user:name_artist}/settings/change/{album:id}',  [SongSettingController::class, 'index'])->name('album.settings.index');
+
 Route::post('/usuario/{user:name_artist}/settings/change/{album:id}',  [SongSettingController::class, 'store'])->name('album.settings');
 
 // ============================== EDITAR SENCILLOS

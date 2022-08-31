@@ -33,20 +33,21 @@
                 @enderror
             </div>
             <hr>
-            <form action="{{ route('album.settings', ['user' => $user, 'album' => $album->ID], ) }}" method="POST" class="needs-validation" novalidate>
+            <form action="{{ route('album.settings', ['user' => $user, 'album' => $album->id], ) }}" method="POST" class="needs-validation" novalidate>
                 @csrf
                 {{-- Intento Foto de Perfil --}}
                 <div class="mb-5">
                     <input type="hidden" name="imagen" value="{{ old('imagen') }}" />
                 </div>
+            </form>
         </div>
 
             {{-- Intento new name album --}}
             <div class="row mb-3">
                 <div class="form-group mt-3">
                     <label for="new_name_album">Actualiza Nombre de tu Album</label>
-                    <input type="text" name="new_name_album" value=""
-                        class="form-control @error('new_name_album') is-invalid @enderror" required>
+                    <input type="text" name="new_name_album" value="{{$album->name_album}}"
+                        class="form-control @error('new_name_album') is-invalid @enderror" required >
                     @error('new_name_album')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

@@ -27,9 +27,12 @@ class SongSettingController extends Controller
             return Redirect::back();
         }
 
+        // Buscar el albúm por el id recibido
+        $MyAlbum = Album::where('id', $album->id)->first();
+
         return view('configure_songs', [
             'user' => $user,
-            'album' => $album
+            'album' => $MyAlbum
         ]);
     }
 
@@ -37,7 +40,7 @@ class SongSettingController extends Controller
     {
         dd($album);
         $user = Auth::user();
-        
+
 
         if ($request->new_name_album != "") {
             // // Validación
@@ -48,8 +51,8 @@ class SongSettingController extends Controller
             // $sqlBDUpdateName = DB::table('albums')
             //     ->where('id', $idTRON)
             //     ->update(['name_album' => $name_album]);
-            
-            
+
+
             Redirect::back()->with('nameal', $album);
         }
         // Imagen de perfil

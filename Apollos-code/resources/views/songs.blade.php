@@ -109,7 +109,7 @@
                             {{-- Artista dueño de la canción --}}
                             <div class="1/6 flex justify-center items-center gap-2">
                                 {{-- Editar album --}}
-                                <form action="{{ route('album.settings.index', [$user, $album]) }}">
+                                <form action="{{ route('album.settings.index', ['user' => $user, 'album' => $album->id]) }}">
                                     <input type="submit" value="Editar álbum" name="" id=""
                                         class="bg-blue-500 hover:bg-blue-600 p-2 rounded text-white font-bold cursor-pointer">
                                 </form>

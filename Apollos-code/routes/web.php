@@ -20,6 +20,7 @@ use App\Http\Controllers\LikeAlbumController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\PlaylistController;
+use App\Http\Controllers\SingleSettingsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -83,6 +84,9 @@ Route::get('/usuario/{user:name_artist}', [ProfileController::class, 'index'])->
 
 // Biblioteca ---
 Route::get('/biblioteca', [MainController::class, 'index_2'])->name('biblioteca');
+
+//Buscador
+Route::post('/home/biblioteca', [MainController::class, 'store_2'])->name('search');
 
 // Artista ---
 Route::view('/Artista', 'Artist')->name('artista');
@@ -165,3 +169,8 @@ Route::post('/usuario/{user:name_artist}/settings/change/',  [SettingsController
 
 Route::get('/usuario/user/settings/change/album',  [SongSettingController::class, 'index'])->name('album.settings.index');
 Route::post('/usuario/user/settings/change/album',  [SongSettingController::class, 'changeDataAlbums'])->name('album.settings');
+
+// ============================== EDITAR SENCILLOS
+
+Route::get('/usuario/user/settings/change/songs',  [SingleSettingsController::class, 'index'])->name('single.settings.index');
+Route::post('/usuario/user/settings/change/songs/update',  [SingleSettingsController::class, 'changeDataSingles'])->name('song.settings');

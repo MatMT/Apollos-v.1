@@ -1,10 +1,12 @@
 *.png
 *.jpeg
 *.jpg
+*.webp
 !.gitignore
 !default-album.png
 !default-song.png
 !default-Pfp.png
+!favoritos.webp
 
 # Multemedia de prueba
 !f759a8c5-493e-4d88-be29-278b60ce8553.jpg
@@ -22,3 +24,9 @@
 !10a042cc-969d-4615-ab40-9ec4a74cc8d8.jpg
 !ded98a11-052c-4985-bf2a-a04e22211ad1.jpg
 !5cf8dfad-b86b-49a1-831a-825c6a2b0949.jpg
+!c2a57bf7-080b-4947-b7f6-9968d763e496.jpg
+!c02eba96-1652-43e7-b2c0-037c59226522.jpg
+!f8726b22-8466-49e2-97d0-dba48a82d2c7.jpg
+!98d8de88-ca3b-4cd9-a45e-6b1567a577db.jpg
+!bfb9eef1-f637-45aa-9e3d-9efa1560384f.jpg
+!98d69c06-5b4f-477d-825f-f4ed19fb1248.jpg

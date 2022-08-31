@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Album;
+use App\Models\Like;
 use App\Models\Song;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -28,15 +29,34 @@ class MainController extends Controller
         // Objeto convertido a arreglo obtenido por medio del modelo 
         // Pluck = Traer campos seleccionados
 
+        $favoritos = Like::where('user_id', $UserLog->id)->first();
+
+        if ($favoritos) {
+            $favoritos = Song::where('id', $favoritos->song_id)->first();
+        } else {
+            $favoritos = null;
+        }
+
+        // Extraer la collección de artistas nuevos ===
+        $artistsId = DB::table('users')
+            ->where('rol', 'artist',)
+            ->inRandomOrder()
+            ->pluck('id');
+
+        // Artistas que ya han subido un contenido
+        $NewArtistId = Album::whereIn('user_id', $artistsId)->pluck('user_id');
+        $NewArtist = User::whereNotIn('id', $NewArtistId)->get();
 
         // Extraer la collección de artistas ===
         $artists = DB::table('users')
             ->where('rol', 'artist',)
             ->where('id', '<>', $UserLog->id)
+            ->whereIn('id', $NewArtistId)
             ->wherenotin('id',  $ids)
             ->inRandomOrder()
             ->limit(15)
-            ->get();
+            ->get()
+            ->toArray();
 
         // Extraer la collección de mis artistas ===
         $Myartistas = DB::table('users')
@@ -54,9 +74,11 @@ class MainController extends Controller
 
         return view('main', [
             'name' => $user,
+            'Fav' => $favoritos,
             'F_artists' => $Myartistas,
             'F_Albums' => $Myalbums,
-            'artists' => $artists
+            'artists' => $artists,
+            'new_artists' => $NewArtist
         ]);
     }
 
@@ -101,6 +123,14 @@ class MainController extends Controller
             'F_Albums' => $Myalbums,
         ]);
     }
+
+    // public function store_2(Request $request){
+    //     $buscarpor=$request->get('buscarpor');
+    //     $resultados=User::where('name', 'like', '%'.$buscarpor.'%')->get();
+    //     return view('search.index', with('name','buscarpor' ));
+    // }
+
+
 }
 
 // Referencia: https://www.tutsmake.com/how-to-get-random-records-in-laravel/

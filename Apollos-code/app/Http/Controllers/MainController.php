@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Album;
+use App\Models\Like;
 use App\Models\Song;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -28,6 +29,8 @@ class MainController extends Controller
         // Objeto convertido a arreglo obtenido por medio del modelo 
         // Pluck = Traer campos seleccionados
 
+        $favoritos = Like::where('user_id', $UserLog->id)->first();
+        $favoritos = Song::where('id', $favoritos->song_id)->first();
 
         // Extraer la collección de artistas ===
         $artists = DB::table('users')
@@ -54,6 +57,7 @@ class MainController extends Controller
 
         return view('main', [
             'name' => $user,
+            'Fav' => $favoritos,
             'F_artists' => $Myartistas,
             'F_Albums' => $Myalbums,
             'artists' => $artists

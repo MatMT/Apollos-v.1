@@ -49,6 +49,7 @@
             <div class="shadow bg-white p-3 mb- rounded">
                 <p class="text-xl font-bold text-center font-cuerpo">Lista de reproducción</p>
             </div>
+
             {{-- COMPONENTE DE LISTA --}}
             <x-lista-songs :othersongs="$OtherSongs" :user="$user" />
         </div>
@@ -128,10 +129,10 @@
                 {{-- Artista dueño de la canción --}}
                 <div class="1/6 flex justify-center items-center gap-2">
                     {{-- Editar album --}}
-                    <form action="{{ route('single.settings.index') }}">
+                    {{-- <form action="{{ route('single.settings.index') }}">
                         <input type="submit" value="Editar canción" name="" id=""
                             class="bg-blue-500 hover:bg-blue-600 p-2 rounded text-white font-bold cursor-pointer">
-                    </form>
+                    </form> --}}
                     @if ($song->sencillo == true)
                         <form action="{{ route('song.destroy', ['user' => $user, 'song' => $song]) }}" method="POST">
                             {{-- METODO SPOOFING - Laravel permite agregar otro tipo de peticiones --}}

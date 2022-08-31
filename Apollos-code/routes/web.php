@@ -108,8 +108,13 @@ Route::post('/playlist/add', [PlaylistController::class, 'store'])->name('playli
 // Álbumes --- Imprimir
 Route::get('/usuario/{user:name_artist}/album/{album}/', [AlbumsShowController::class, 'index'])->name('album.index');
 
-// Canciones --- Imprimir
+// ============================== REPRODUCCIÓN
+
+// Canciones de un álbum --- Imprimir
 Route::get('/usuario/{user:name_artist}/canciones/{song}/', [SongsShowController::class, 'show'])->name('song.show');
+
+// Canciones de favoritos --- Imprimir
+Route::get('/favoritos/{user:name_artist}/canciones/{song}/', [SongsShowController::class, 'fav'])->name('song.favorites.show');
 
 // Canciones de una Playlist - Imprimir
 Route::get('/playlist/{playlist}/song/{song}/', [SongsShowController::class, 'playlist'])->name('song.playlist.show');
@@ -143,7 +148,7 @@ Route::post('/uploads/selection/album/step_4', [AlbumController::class, 'store_4
 Route::get('/uploads/selection/album/step_5', [AlbumController::class, 'album_5'])->name('upload.album_5'); // Vista - Confirmación
 Route::post('/uploads/selection/album/step_5', [AlbumController::class, 'store_5'])->name('upload.store_5'); // Validación tecer paso
 
-// ============================== ELIMINAR CANCIÓN - ÁLBUM - Playlist
+// ============================== ELIMINAR CANCIÓN - ÁLBUM - PLAYLIST
 
 Route::delete('/usuario/{user:name_artist}/canciones/{song}', [SongsShowController::class, 'destroy'])->name('song.destroy');
 // ---

@@ -51,7 +51,7 @@
             </div>
 
             {{-- COMPONENTE DE LISTA --}}
-            <x-lista-playlist-songs :othersongs="$OtherSongs" :playlist="$MyPlaylist" />
+            <x-lista-fav-songs :othersongs="$OtherSongs" />
         </div>
     </div>
 

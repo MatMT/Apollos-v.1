@@ -15,7 +15,7 @@ class AlbumAeroSeeder extends Seeder
      */
     public function run()
     {
-        //       ====================== Tame Impala < ===========================
+        //       ====================== > Tame Impala < ===========================
         // Tame Impala - AERO
         $TamImpSencillos = new Album();
         $TamImpSencillos->user_id = 10;
@@ -72,5 +72,19 @@ class AlbumAeroSeeder extends Seeder
         $weekndAlbum->created_at = now();
         $weekndAlbum->updated_at = now();
         $weekndAlbum->save();
+
+        //       ====================== > Javithor < ===========================
+        // Javithor - AERO
+        $JavithorAlbum = new Album();
+        $JavithorAlbum->user_id = 12;
+        $JavithorAlbum->name_album = 'Dream Nostalgia';
+        $JavithorAlbum->genre = 'pop';
+        $JavithorAlbum->image = '5cf8dfad-b86b-49a1-831a-825c6a2b0949.jpg';
+        $JavithorAlbum->sencillo = false;
+        $JavithorAlbum->duration = '14:54';
+        $JavithorAlbum->confirm = true;
+        $JavithorAlbum->created_at = now();
+        $JavithorAlbum->updated_at = now();
+        $JavithorAlbum->save();
     }
 }

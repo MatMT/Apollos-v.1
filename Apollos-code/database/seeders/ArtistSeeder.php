@@ -87,7 +87,25 @@ class ArtistSeeder extends Seeder
         $weeknd->image = '8e17d442-457f-4324-99e3-b8afcff89a6c.jpg';
         $weeknd->save();
 
-        // Artist Default - 12 - VINI
+        // Artist Default - 12 - AERO
+        $javithor = new User();
+        $javithor->name = 'Javier';
+        $javithor->last_name = 'Mejía';
+        $javithor->rol = 'artist';
+        $javithor->email = 'javithor@correo.com';
+        $javithor->username = 'Javithor';
+        $javithor->status = 'active';
+        $javithor->age = '17';
+        $javithor->password = Hash::make('MatiOso');
+        $javithor->created_at = now();
+        $javithor->updated_at = now();
+        $javithor->name_artist = 'javithor';
+        $javithor->gender = false;
+        $javithor->image = '468b9316-f27a-40d8-b758-3e1071392ea3.jpg';
+        $javithor->birth_date = '2004-11-15';
+        $javithor->save();
+
+        // Artist Default - 13 - VINI
         $tylercreat = new User();
         $tylercreat->name = 'Tyler';
         $tylercreat->last_name = 'Okonma';
@@ -105,7 +123,7 @@ class ArtistSeeder extends Seeder
         $tylercreat->image = 'd90a2013-a0d6-4775-b8e4-b63c245bc6cd.jpg';
         $tylercreat->save();
 
-        // Artist Default - 13 - VINI
+        // Artist Default - 14 - VINI
         $kanyewest = new User();
         $kanyewest->name = 'YE';
         $kanyewest->last_name = 'WEST';

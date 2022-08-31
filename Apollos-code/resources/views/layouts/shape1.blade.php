@@ -208,7 +208,7 @@
             <form action="">
                 <div class="contenedor-input">
                     <i class="fi fi-rs-search text-xl mx-2 mr-4"></i>
-                    <input type="text" name="" id="" placeholder="Buscar Artista, canción, álbum">
+                    <input type="text" name="buscarpor" id="" placeholder="Buscar Artista, canción, álbum">
                 </div>
             </form>
             <div class="resultados">No se han obtenido resultados</div>
@@ -217,7 +217,7 @@
 
     @stack('script_end')
 
-
+ 
 </body>
 @vite('resources/js/menu.js')
 @vite('resources/js/popup-buscador.js')

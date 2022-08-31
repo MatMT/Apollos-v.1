@@ -66,7 +66,13 @@
         <div class="flex flex-col flex-wrap md:flex-nowrap w-full md:w-4/6 gap-1 justify-around items-center ">
             <div class="name-song flex w-full md:w-3/4 mb-4">
                 <h2 class="text-white font-bold font-cuerpo text-xl text-left">{{ $song->name_song }}</h2>
-                <h3 class="text-white font-light ml-6">Album</h3>
+                <h3 class="text-white font-light ml-6">
+                    @if ($song->sencillo)
+                        Sencillo
+                    @else
+                        Album
+                    @endif
+                </h3>
             </div>
 
             <!-- Audio -->

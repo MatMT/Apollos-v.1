@@ -42,19 +42,15 @@
             <div class="followers-artist flex">
                 <div class="w-1/2">
                     <h3 class="font-titulo text-3xl font-light">
-                        @if ($MyPlaylist)
+                        @if ($MyPlaylist && $MyPlaylist->duration != '0 Segundos')
                             {{ $MyPlaylist->duration }}
                         @endif
                     </h3>
                     {{-- REPRODUCCIÓN --}}
                     @if ($Start)
-                        <form
-                            action="{{ route('song.playlist.show', ['user' => $Start->InfoArtista($Start), 'song' => $Start]) }}"
-                            method="POST">
-                            @csrf
-                            <button type="submit"
-                                class="follow-artist-btm font-titulo font-light text-xl">Reproducir</button>
-                        </form>
+                        <a href="{{ route('song.playlist.show', ['playlist' => $MyPlaylist, 'song' => $Start]) }}">
+                            <button class="follow-artist-btm font-titulo font-light text-xl">Reproducir</button>
+                        </a>
                     @endif
                 </div>
                 <div class="w-1/2 relative">
@@ -79,26 +75,46 @@
                                 <td class="dur-song">DURACIÓN</td>
                             </tr>
                         </table>
-                        <section class="line-table"></section>
+                        <section class="line-table flex"></section>
                         @php
                             $i = 1;
                         @endphp
                         @if ($MySongs)
                             @foreach ($MySongs as $song)
-                                {{-- <a href="{{ route('song.show', ['user' => $song->InfoArtista($song), 'song' => $song]) }}"> --}}
-                                <div class="fila-content text-lg">
-                                    <div class="num-song">{{ $i++ }}</div>
-                                    <div class="picture-song">
-                                        <img src="{{ asset('storage') . '/uploads/imagenes/' . $song->image }}"
-                                            alt="Imagen de {{ $song->name_song }}" class="w-[45px] mx-auto rounded">
-                                    </div>
-                                    <div class="name-song">{{ $song->name_song }}
-                                        {{-- <i class="fi fi-rs-heart" id="fav"></i> --}}
-                                    </div>
-                                    <div class="artists-song"></div>
-                                    <div class="dur-song font-titulo">{{ $song->time }}</div>
+                                <div class="1/2">
+                                    <a
+                                        href="{{ route('song.playlist.show', ['playlist' => $MyPlaylist, 'song' => $song]) }}">
+                                        <div class="fila-content text-lg">
+                                            <div class="num-song">{{ $i++ }}</div>
+                                            <div class="picture-song">
+                                                <img src="{{ asset('storage') . '/uploads/imagenes/' . $song->image }}"
+                                                    alt="Imagen de {{ $song->name_song }}"
+                                                    class="w-[45px] mx-auto rounded">
+                                            </div>
+                                            <div class="name-song">{{ $song->name_song }}
+                                                {{-- <i class="fi fi-rs-heart" id="fav"></i> --}}
+                                            </div>
+                                            <div class="artists-song"></div>
+                                            <div class="dur-song font-titulo">{{ $song->time }}</div>
+                                        </div>
+                                    </a>
                                 </div>
-                                {{-- </a> --}}
+                                <div class="1/2">
+                                    @foreach ($RegistSongs as $regist)
+                                        @if ($regist->song_id == $song->id)
+                                            <form
+                                                action="{{ route('playlist.song.destroy', ['regist' => $regist, 'song' => $song->id]) }}"
+                                                method="POST">
+                                                {{-- METODO SPOOFING - Laravel permite agregar otro tipo de peticiones --}}
+                                                @method('DELETE')
+                                                @csrf
+                                                <input type="submit" value="Eliminar canción" name="" id=""
+                                                    class="bg-red-500 hover:bg-red-600 p-2 rounded text-white font-bold cursor-pointer">
+                                            </form>
+                                        @endif
+                                    @endforeach
+
+                                </div>
                             @endforeach
                         @endif
 

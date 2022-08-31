@@ -6,14 +6,13 @@ use Illuminate\View\Component;
 
 class ListaPlaylistSongs extends Component
 {
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public $othersongs;
+    public $playlist;
+
+    public function __construct($othersongs, $playlist)
     {
-        //
+        $this->othersongs = $othersongs;
+        $this->playlist = $playlist;
     }
 
     /**

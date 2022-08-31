@@ -93,7 +93,10 @@ Route::view('/Artista', 'Artist')->name('artista');
 
 // ============================== Playlist
 
+// Vista ---
 Route::get('/usuario/{user:name_artist}/playlist/', [PlaylistController::class, 'index'])->name('playlist.index');
+
+// Agregar ---
 Route::post('/playlist/add', [PlaylistController::class, 'store'])->name('playlist.store');
 
 // ============================== PERFIL
@@ -105,11 +108,12 @@ Route::get('/usuario/{user:name_artist}/album/{album}/', [AlbumsShowController::
 Route::get('/usuario/{user:name_artist}/canciones/{song}/', [SongsShowController::class, 'show'])->name('song.show');
 
 // Canciones de una Playlist - Imprimir
-Route::post('/usuario/{user:name_artist}/playlist/{song}/', [SongsShowController::class, 'playlist'])->name('song.playlist.show');
+Route::get('/playlist/{playlist}/song/{song}/', [SongsShowController::class, 'playlist'])->name('song.playlist.show');
 
 // ============================== SUBIR CANCIÓN
 
 Route::get('/uploads/selection/song/', [DataSongController::class, 'create'])->name('data.create'); // Vista
+
 Route::post('/uploads/selection/song/data', [DataSongController::class, 'store'])->name('data.store'); // Info
 
 // ============================== SUBIR ÁLBUM
@@ -135,11 +139,13 @@ Route::post('/uploads/selection/album/step_4', [AlbumController::class, 'store_4
 Route::get('/uploads/selection/album/step_5', [AlbumController::class, 'album_5'])->name('upload.album_5'); // Vista - Confirmación
 Route::post('/uploads/selection/album/step_5', [AlbumController::class, 'store_5'])->name('upload.store_5'); // Validación tecer paso
 
-// ============================== ELIMINAR CANCIÓN - ÁLBUM
+// ============================== ELIMINAR CANCIÓN - ÁLBUM - Playlist
 
 Route::delete('/usuario/{user:name_artist}/canciones/{song}', [SongsShowController::class, 'destroy'])->name('song.destroy');
 // ---
 Route::delete('/usuario/{user:name_artist}/album/{album}', [AlbumsShowController::class, 'destroy'])->name('album.destroy');
+// --- 
+Route::delete('/playlist/delete/{regist}/song/{song}', [PlaylistController::class, 'destroy'])->name('playlist.song.destroy');
 
 // ============================== FOLLOW
 

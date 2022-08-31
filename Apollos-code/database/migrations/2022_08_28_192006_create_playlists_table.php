@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Usuario que dio like
             $table->string('name_playlist', 30);
             $table->string('duration')->nullable();
+            $table->float('total')->nullable();
             $table->string('image', 40)->default('default-Pfp.png');
             $table->timestamps();
         });

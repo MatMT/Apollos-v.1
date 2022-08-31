@@ -1,7 +1,7 @@
 @extends('layouts.shape1')
 
 @section('title')
-    Subiendo un álbum
+{{__('Uploading an album')}}
 @endsection
 
 {{-- Se llama al Js y Css encargado de Dropzone --}}
@@ -53,12 +53,12 @@
     <div class="p-10 overflow-hidden">
         <div
             class="flex my-0 mx-auto  sm:w-full sm:flex-row flex-col w-3/4  rounded-xl shadow overflow-hidden font-semibold">
-            <div class="basis-1/5 text-center py-3 bg-white @yield('step1')">Imagen</div>
+            <div class="basis-1/5 text-center py-3 bg-white @yield('step1')">{{__('Image')}}</div>
             {{-- @yield('step') --}}
-            <div class="basis-1/5 text-center py-3 bg-white @yield('step2')">Título</div>
-            <div class="basis-1/5 text-center py-3 bg-white @yield('step3')">Género</div>
+            <div class="basis-1/5 text-center py-3 bg-white @yield('step2')">{{__('Title')}}</div>
+            <div class="basis-1/5 text-center py-3 bg-white @yield('step3')">{{__('Genre')}}</div>
             @yield('song/s')
-            <div class="basis-1/5 text-center py-3 bg-white @yield('step5')">Subir</div>
+            <div class="basis-1/5 text-center py-3 bg-white @yield('step4')">{{__('Upload')}}</div>
         </div> <!-- Progress bar -->
     </div>
 
@@ -74,7 +74,7 @@
         <div class="md:w-2/5 xl:px-16">
             <div class="md:h-1/2">
                 <p class="text-red-500 mb-3 text-center md:text-right block font-semibold text-sm"><span class="inline"><img
-                            src="{{ asset('assets/icons/errorIcon.png') }}" class="h-4 inline m-2"> 6mb máximos por canción
+                            src="{{ asset('assets/icons/errorIcon.png') }}" class="h-4 inline m-2"> {{__('6mb per song maximum')}}
                     </span></p>
 
                 <form action="{{ route('audio.store') }}" method="POST" enctype="multipart/form-data" id="dropzone_audio"
@@ -114,8 +114,7 @@
                     </div>
                     <p class="text-red-500 mb-3 text-center md:text-right block font-semibold text-sm"><span
                             class="inline"><img src="{{ asset('assets/icons/errorIcon.png') }}" class="h-4 inline m-2"> Al
-                            agregarla ya no podras retirar
-                            la canción del registro </span></p>
+                            {{__(' By adding it you will no longer be able to remove the song from the registry.')}} </span></p>
 
                     <input type="submit" value="Agregar"
                         class="submit-bttn transition-colors cursor-pointer uppercase font-bold w-full p-3 mb-5 md:mb-0 text-white rounded-lg" />
@@ -137,7 +136,7 @@
                                     #
                                 </th>
                                 <th scope="col" class="py-3 px-6">
-                                    Título
+                                    {{__('Title')}}
                                 </th>
                                 <th scope="col" class="py-3 px-6">
                                     ⏱️
@@ -167,7 +166,7 @@
                                             {{ $i }}
                                         </th> <!-- id -->
                                         <td class="py-4 px-6">
-                                            Titulo {{ $i }}
+                                            {{__('Title')}} {{ $i }}
                                         </td>
                                         <td class="py-4 px-6">
 

@@ -135,7 +135,7 @@
     <div class="flex justify-around pb-20">
 
         <div class="contenedores">
-            <h1 class='public-albums text-white font-titulo text-3xl font-bold mb-5 anim2'>Álbumes publicados</h1>
+            <h1 class='public-albums text-white font-titulo text-3xl font-bold mb-5 anim2'>{{__('Published albums')}}</h1>
             <div class="box-1 active anim2" id="caja-1">
                 <div class="content flex items-center justify-center">
 
@@ -170,7 +170,7 @@
             </div>
 
             <!-- ============================================================================== -->
-            <h1 class='public-songs text-white font-titulo text-3xl font-bold mb-5 anim2'>Canciones publicadas</h1>
+            <h1 class='public-songs text-white font-titulo text-3xl font-bold mb-5 anim2'>{{__('Published songs')}}</h1>
 
             <div class="box-2 active anim2" id="caja-2">
                 <div class="content">

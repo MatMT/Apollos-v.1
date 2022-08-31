@@ -7,11 +7,11 @@
 
 {{-- Variable de la progress bar + paso en la progress bar --}}
 @section('song/s')
-    <div class="basis-1/5 text-center py-3 blur-bg text-white">Canciones</div>
+    <div class="basis-1/5 text-center py-3 blur-bg text-white">{{__('Songs')}}</div>
 @endsection
 
 @section('subtitulo')
-    Sube tus canciones
+{{__('Upload your Songs')}}
 @endsection
 
 {{-- @section('placeholder')

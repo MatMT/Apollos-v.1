@@ -32,6 +32,7 @@ class ProfileController extends Controller
 
         // ÁLBUMES + SENCILLOS ===
         $MisColecciones = Album::where([['user_id', $user->id], ['confirm', true]])->get()->pluck('id');
+
         // Todas mis canciones
         $MisCanciones = Song::WhereIn('album_id', $MisColecciones)->get();
 

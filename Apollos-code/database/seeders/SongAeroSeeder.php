@@ -25,6 +25,7 @@ class SongAeroSeeder extends Seeder
         $TamImpSencillo1->sencillo = true;
         $TamImpSencillo1->name_song = 'Breathe Deeper ft. Lil Yachty';
         $TamImpSencillo1->time = '4:48';
+        $TamImpSencillo1->total = 288.10;
         $TamImpSencillo1->genre = 'pop';
         $TamImpSencillo1->url = 'c24767e7-15bc-42d2-8a37-b0b356d8ad4d.mp3';
         $TamImpSencillo1->image = '5ea6989d-dbba-4e96-bf26-78c11a374927.jpg';
@@ -38,6 +39,7 @@ class SongAeroSeeder extends Seeder
         $TamImpSencillo2->sencillo = true;
         $TamImpSencillo2->name_song = 'Patience';
         $TamImpSencillo2->time = '4:52';
+        $TamImpSencillo2->total = 292.36;
         $TamImpSencillo2->genre = 'pop';
         $TamImpSencillo2->url = '72bde7d8-ff32-4314-a782-4c07a5808a4d.mp3';
         $TamImpSencillo2->image = 'c82c82f1-9fdf-41ce-a4da-8c2a17c525fb.jpg';
@@ -140,6 +142,7 @@ class SongAeroSeeder extends Seeder
         $weekndSencillo1->sencillo = true;
         $weekndSencillo1->name_song = 'Moth To A Flame';
         $weekndSencillo1->time = '3:54';
+        $weekndSencillo1->total = 234.06;
         $weekndSencillo1->genre = 'pop';
         $weekndSencillo1->url = '5501def9-5c09-4a23-ab34-c77a0b8b3d86.mp3';
         $weekndSencillo1->image = 'ded98a11-052c-4985-bf2a-a04e22211ad1.jpg';
@@ -153,6 +156,7 @@ class SongAeroSeeder extends Seeder
         $weekndSencillo2->sencillo = true;
         $weekndSencillo2->name_song = 'King Of The Fall';
         $weekndSencillo2->time = '5:02';
+        $weekndSencillo2->time = 302.39;
         $weekndSencillo2->genre = 'pop';
         $weekndSencillo2->url = '76a584d4-be43-46ea-9dff-035daeebfe07.mp3';
         $weekndSencillo2->image = '10a042cc-969d-4615-ab40-9ec4a74cc8d8.jpg';

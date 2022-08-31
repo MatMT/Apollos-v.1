@@ -77,7 +77,7 @@
                                     <td class="dur-song">DURACIÓN</td>
                                 </tr>
                             </table>
-
+                            
                             <div class="fila-content-l text-lg" href="" id="song">
                                 <div class="num-song font-titulo">1</div>
                                 <div class="picture-song"><img loading="lazy" src="{{ asset('assets/artistas-pic/illuminate.jpg') }}" alt="No carga imagen" class="w-[45px] mx-auto rounded min-w-[40px]"></div>
@@ -94,7 +94,7 @@
                             </div>
                             <div class="fila-content-l text-lg">
                                 <div class="num-song font-titulo">3</div>
-                                <div class="picture-song"><img loading="lazy" src="{{ asset('assets/artistas-pic/illuminate.jpg') }}" alt="No carga imagen" class="w-[45px] mx-auto rounded min-w-[40px] min-w-[40px]"></div>
+                                <div class="picture-song"><img loading="lazy" src="{{ asset('assets/artistas-pic/illuminate.jpg') }}" alt="No carga imagen" class="w-[45px] mx-auto rounded min-w-[40px]"></div>
                                 <div class="name-song"><span>Treat You better</span><i class="fi fi-rs-heart" id="fav"></i></div>
                                 <div class="artists-song"></div>
                                 <div class="dur-song font-titulo">3:42</div>

@@ -25,6 +25,7 @@ class SongAeroSeeder extends Seeder
         $TamImpSencillo1->sencillo = true;
         $TamImpSencillo1->name_song = 'Breathe Deeper ft. Lil Yachty';
         $TamImpSencillo1->time = '4:48';
+        $TamImpSencillo1->total = 288.10;
         $TamImpSencillo1->genre = 'pop';
         $TamImpSencillo1->url = 'c24767e7-15bc-42d2-8a37-b0b356d8ad4d.mp3';
         $TamImpSencillo1->image = '5ea6989d-dbba-4e96-bf26-78c11a374927.jpg';
@@ -38,6 +39,7 @@ class SongAeroSeeder extends Seeder
         $TamImpSencillo2->sencillo = true;
         $TamImpSencillo2->name_song = 'Patience';
         $TamImpSencillo2->time = '4:52';
+        $TamImpSencillo2->total = 292.36;
         $TamImpSencillo2->genre = 'pop';
         $TamImpSencillo2->url = '72bde7d8-ff32-4314-a782-4c07a5808a4d.mp3';
         $TamImpSencillo2->image = 'c82c82f1-9fdf-41ce-a4da-8c2a17c525fb.jpg';
@@ -140,6 +142,7 @@ class SongAeroSeeder extends Seeder
         $weekndSencillo1->sencillo = true;
         $weekndSencillo1->name_song = 'Moth To A Flame';
         $weekndSencillo1->time = '3:54';
+        $weekndSencillo1->total = 234.06;
         $weekndSencillo1->genre = 'pop';
         $weekndSencillo1->url = '5501def9-5c09-4a23-ab34-c77a0b8b3d86.mp3';
         $weekndSencillo1->image = 'ded98a11-052c-4985-bf2a-a04e22211ad1.jpg';
@@ -153,6 +156,7 @@ class SongAeroSeeder extends Seeder
         $weekndSencillo2->sencillo = true;
         $weekndSencillo2->name_song = 'King Of The Fall';
         $weekndSencillo2->time = '5:02';
+        $weekndSencillo2->total = 302.39;
         $weekndSencillo2->genre = 'pop';
         $weekndSencillo2->url = '76a584d4-be43-46ea-9dff-035daeebfe07.mp3';
         $weekndSencillo2->image = '10a042cc-969d-4615-ab40-9ec4a74cc8d8.jpg';
@@ -203,5 +207,105 @@ class SongAeroSeeder extends Seeder
         $weekndAlbum3->created_at = now();
         $weekndAlbum3->updated_at = now();
         $weekndAlbum3->save();
+
+        //       ====================== > Javithor < ===========================
+        // ====================== > Javithor: Álbum < ===========================
+        // Álbum Javithor - 1_1 - AERO
+        $JavithorAlbum1 = new Song();
+        $JavithorAlbum1->album_id = 10;
+        $JavithorAlbum1->sencillo = false;
+        $JavithorAlbum1->name_song = "Horizons Never Discovered";
+        $JavithorAlbum1->time = '2:02';
+        $JavithorAlbum1->genre = 'pop';
+        $JavithorAlbum1->url = 'b449348b-35a7-4338-864a-ef40323b5697.mp3';
+        $JavithorAlbum1->image = '5cf8dfad-b86b-49a1-831a-825c6a2b0949.jpg';
+        $JavithorAlbum1->total = 121.60;
+        $JavithorAlbum1->created_at = now();
+        $JavithorAlbum1->updated_at = now();
+        $JavithorAlbum1->save();
+
+        // Álbum Javithor - 1_2 - AERO
+        $JavithorAlbum2 = new Song();
+        $JavithorAlbum2->album_id = 10;
+        $JavithorAlbum2->sencillo = false;
+        $JavithorAlbum2->name_song = "Personal Improvement";
+        $JavithorAlbum2->time = '0:17';
+        $JavithorAlbum2->genre = 'pop';
+        $JavithorAlbum2->url = 'fe9e97c6-1504-4c3a-84e3-b03e66f8befe.mp3';
+        $JavithorAlbum2->image = '5cf8dfad-b86b-49a1-831a-825c6a2b0949.jpg';
+        $JavithorAlbum2->total = 17.35;
+        $JavithorAlbum2->created_at = now();
+        $JavithorAlbum2->updated_at = now();
+        $JavithorAlbum2->save();
+
+        // Álbum Javithor - 1_3 - AERO
+        $JavithorAlbum3 = new Song();
+        $JavithorAlbum3->album_id = 10;
+        $JavithorAlbum3->sencillo = false;
+        $JavithorAlbum3->name_song = "National Anthem";
+        $JavithorAlbum3->time = '3:21';
+        $JavithorAlbum3->genre = 'pop';
+        $JavithorAlbum3->url = '8c519ccd-a732-4d3b-b08a-98c2b28c47e8.mp3';
+        $JavithorAlbum3->image = '5cf8dfad-b86b-49a1-831a-825c6a2b0949.jpg';
+        $JavithorAlbum3->total = 200.78;
+        $JavithorAlbum3->created_at = now();
+        $JavithorAlbum3->updated_at = now();
+        $JavithorAlbum3->save();
+
+        // Álbum Javithor - 1_4 - AERO
+        $JavithorAlbum4 = new Song();
+        $JavithorAlbum4->album_id = 10;
+        $JavithorAlbum4->sencillo = false;
+        $JavithorAlbum4->name_song = "World's Last Hope";
+        $JavithorAlbum4->time = '1:44';
+        $JavithorAlbum4->genre = 'pop';
+        $JavithorAlbum4->url = '2abf9cf4-a7f9-434b-b973-46e7aec61e20.mp3';
+        $JavithorAlbum4->image = '5cf8dfad-b86b-49a1-831a-825c6a2b0949.jpg';
+        $JavithorAlbum4->total = 104.41;
+        $JavithorAlbum4->created_at = now();
+        $JavithorAlbum4->updated_at = now();
+        $JavithorAlbum4->save();
+
+        // Álbum Javithor - 1_5 - AERO
+        $JavithorAlbum5 = new Song();
+        $JavithorAlbum5->album_id = 10;
+        $JavithorAlbum5->sencillo = false;
+        $JavithorAlbum5->name_song = "New Normality";
+        $JavithorAlbum5->time = '1:03';
+        $JavithorAlbum5->genre = 'pop';
+        $JavithorAlbum5->url = '61f4ff96-55a1-4797-bafd-a93996a5cc15.mp3';
+        $JavithorAlbum5->image = '5cf8dfad-b86b-49a1-831a-825c6a2b0949.jpg';
+        $JavithorAlbum5->total = 230.50;
+        $JavithorAlbum5->created_at = now();
+        $JavithorAlbum5->updated_at = now();
+        $JavithorAlbum5->save();
+
+        // Álbum Javithor - 1_6 - AERO
+        $JavithorAlbum6 = new Song();
+        $JavithorAlbum6->album_id = 10;
+        $JavithorAlbum6->sencillo = false;
+        $JavithorAlbum6->name_song = "Old Habits Die Hard";
+        $JavithorAlbum6->time = '2:55';
+        $JavithorAlbum6->genre = 'pop';
+        $JavithorAlbum6->url = 'df5141c7-d9e7-4bb1-8f1c-79486c6a1981.mp3';
+        $JavithorAlbum6->image = '5cf8dfad-b86b-49a1-831a-825c6a2b0949.jpg';
+        $JavithorAlbum6->total = 175.31;
+        $JavithorAlbum6->created_at = now();
+        $JavithorAlbum6->updated_at = now();
+        $JavithorAlbum6->save();
+
+        // Álbum Javithor - 1_7 - AERO
+        $JavithorAlbum7 = new Song();
+        $JavithorAlbum7->album_id = 10;
+        $JavithorAlbum7->sencillo = false;
+        $JavithorAlbum7->name_song = "Better Late Than Never";
+        $JavithorAlbum7->time = '3:32';
+        $JavithorAlbum7->genre = 'pop';
+        $JavithorAlbum7->url = '7907b719-8bd3-4fb7-ab7c-1419ba7e3f20.mp3';
+        $JavithorAlbum7->image = '5cf8dfad-b86b-49a1-831a-825c6a2b0949.jpg';
+        $JavithorAlbum7->total = 212.06;
+        $JavithorAlbum7->created_at = now();
+        $JavithorAlbum7->updated_at = now();
+        $JavithorAlbum7->save();
     }
 }

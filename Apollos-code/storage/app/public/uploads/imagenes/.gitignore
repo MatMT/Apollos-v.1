@@ -1,12 +1,10 @@
 *.png
 *.jpeg
 *.jpg
-*.webp
 !.gitignore
 !default-album.png
 !default-song.png
 !default-Pfp.png
-!favoritos.webp
 
 # Multemedia de prueba
 !f759a8c5-493e-4d88-be29-278b60ce8553.jpg

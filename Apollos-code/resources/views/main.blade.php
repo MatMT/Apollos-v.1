@@ -40,62 +40,57 @@
 
         <main class="principal w-6/7 m-auto mt-12 pt-5 font-cuerpo">
 
-            <!--contenedor-carousel ALBUMS FAVORITOS --->
-            @if ($F_Albums->count())
-                <div class="main-content text-white anim">
+            <div class="main-content text-white anim">
 
-                    <h2 class="text-white text-2xl font-bold">{{ __('Albums as you like them') }}</h2>
+                {{-- MIS ARTISTAS --}}
+                @if ($F_artists->count())
+                    <div>
+                        <h2 class="text-white text-2xl font-bold">{{ __('Your Artists') }}</h2>
 
-                    <div class="contenedor-principal slider-2">
+                        <div class="contenedor-principal slider-1">
 
-                        <button rolle="button" id="flecha-izquierda"><i class="fi fi-rr-angle-left"></i></button>
+                            <button rolle="button" id="flecha-izquierda"><i class="fi fi-rr-angle-left"></i></button>
 
-                        <div class="contenedor-carousel">
-                            <div class="carousel albums">
-                                {{-- FAVORITOS --}}
-                                @if ($Fav)
-                                    <div class="card drop-shadow-xl">
-                                        <a
-                                            href="{{ route('song.favorites.show', ['user' => $Fav->InfoArtista($Fav), 'song' => $Fav]) }}">
-                                            <div class="imagen albums">
-                                                <img src="{{ asset('storage/uploads/imagenes/favoritos.webp') }}"
-                                                    alt="Imagen de favoritos">
-                                            </div>
-                                            <div class="title">
-                                                <div class="name font-titulo font-bold text-lg desktop_2:text-base">
-                                                    Favoritos</div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                @endif
+                            <div class="contenedor-carousel artistas">
 
-                                @foreach ($F_Albums as $album)
-                                    <div class="card drop-shadow-xl">
-                                        <a
-                                            href="{{ route('album.index', ['user' => $name->obtenerArtist($album->user_id), 'album' => $album->id]) }}">
-                                            <div class="imagen albums">
-                                                <img src="{{ asset('storage') . '/uploads/imagenes/' . $album->image }} "
-                                                    alt="Imagen de {{ $album->name_album }}">
-                                            </div>
-                                            <div class="title">
-                                                <div class="name font-titulo font-bold text-lg desktop_2:text-base">
-                                                    {{ $album->name_album }}</div>
-                                                <div
-                                                    class="type font-cuerpo text-lg font-thin text-slate-300 desktop_2:text-base">
-                                                    {{ $name->obtenerArtist($album->user_id)->username }}</div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                @endforeach
+                                <!-- carousel con Datos Volatiles-->
+                                <div class="carousel">
+
+                                    @foreach ($F_artists as $user)
+                                        <div class="card drop-shadow-xl">
+                                            <a href="{{ route('profile.index', $user->name_artist) }}">
+                                                <div class="imagen">
+                                                    <img src="{{ asset('storage') . '/uploads/pfp/' . $user->image }}"
+                                                        alt="Imagen de {{ $user->name }}">
+                                                </div>
+                                                <div class="title">
+                                                    <div class="name font-titulo text-base desktop_2:text-base">
+                                                        {{ $user->name }}
+                                                    </div>
+                                                    <div
+                                                        class="type text-base font-thin text-slate-300 desktop_2:text-base">
+                                                        {{ __('Artist') }}
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <!--contenedor-carousel --->
                             </div>
+
+                            <button rolle="button" id="flecha-derecha"><i class="fi fi-rr-angle-right"></i></button>
+
                         </div>
-                        <!--contenedor-carousel --->
-                        <button rolle="button" id="flecha-derecha"><i class="fi fi-rr-angle-right"></i></button>
                     </div>
-                </div>
-            @endif
+                @endif
+
+
+            </div>
 
             <!-- ARTISTAS GENERALES -->
+
+
             <div class="main-content text-white anim">
 
                 <h2 class="text-white text-2xl font-bold">{{ __('Artist would you like it') }}</h2>
@@ -141,54 +136,211 @@
 
             </div>
 
-            <!--contenedor-carousel NUEVOS ARTISTAS --->
+            <!--contenedor-carousel  aRTISTAS eSTÁTICOS --->
+
             <div class="main-content text-white anim">
 
-                {{-- NUEVOS ARTISTAS --}}
-                @if ($new_artists->count())
-                    <div>
-                        <h2 class="text-white text-2xl font-bold">{{ __('Your Artists') }}</h2>
+                <h2 class="text-white text-2xl font-bold">Artistas que te gustarán</h2>
 
-                        <div class="contenedor-principal slider-1">
+                <div class="contenedor-principal slider-2">
 
-                            <button rolle="button" id="flecha-izquierda"><i class="fi fi-rr-angle-left"></i></button>
+                    <button rolle="button" id="flecha-izquierda"><i class="fi fi-rr-angle-left"></i></button>
 
-                            <div class="contenedor-carousel artistas">
+                    <div class="contenedor-carousel artistas">
 
-                                <!-- carousel con Datos Volatiles-->
-                                <div class="carousel">
+                        <!--contenedor-carousel --->
 
-                                    @foreach ($new_artists as $user)
-                                        <div class="card drop-shadow-xl">
-                                            <a href="{{ route('profile.index', $user->name_artist) }}">
-                                                <div class="imagen">
-                                                    <img src="{{ asset('storage') . '/uploads/pfp/' . $user->image }}"
-                                                        alt="Imagen de {{ $user->name }}">
-                                                </div>
-                                                <div class="title">
-                                                    <div class="name font-titulo text-base desktop_2:text-base">
-                                                        {{ $user->name }}
-                                                    </div>
-                                                    <div
-                                                        class="type text-base font-thin text-slate-300 desktop_2:text-base">
-                                                        {{ __('Artist') }}
-                                                    </div>
-                                                </div>
-                                            </a>
+                        <div class="carousel">
+
+                            <div class="card drop-shadow-xl">
+                                <a href="">
+                                    <div class="imagen">
+                                        <img src="{{ asset('assets/artistas-pic/ed_sheeran.jpg') }} "
+                                            alt="Había una Imagen xD">
+                                    </div>
+                                    <div class="title">
+                                        <div class="name font-titulo text-lg desktop_2:text-base">Ed Sheeran</div>
+                                        <div class="type text-base font-light text-slate-300 desktop_2:text-base">Artista
                                         </div>
-                                    @endforeach
-                                </div>
-                                <!--contenedor-carousel --->
+                                    </div>
+                                </a>
                             </div>
-
-                            <button rolle="button" id="flecha-derecha"><i class="fi fi-rr-angle-right"></i></button>
-
+                            <div class="card drop-shadow-xl">
+                                <a href="{{ route('artista') }}">
+                                    <div class="imagen">
+                                        <img src="{{ asset('assets/artistas-pic/Shawn_Mendez.jpg') }} "
+                                            alt="Había una Imagen xD">
+                                    </div>
+                                    <div class="title">
+                                        <div class="name font-titulo text-lg desktop_2:text-base">Shawn Mendez</div>
+                                        <div class="type text-lg font-thin text-slate-300 desktop_2:text-base">Artista
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="card drop-shadow-xl">
+                                <a href="">
+                                    <div class="imagen">
+                                        <img src="{{ asset('assets/artistas-pic/The_weekend.jpg') }} "
+                                            alt="Había una Imagen xD">
+                                    </div>
+                                    <div class="title">
+                                        <div class="name font-titulo text-lg desktop_2:text-base">The Weeknd</div>
+                                        <div class="type text-lg font-thin text-slate-300 desktop_2:text-base">Artista
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="card drop-shadow-xl">
+                                <a href="">
+                                    <div class="imagen">
+                                        <img src="{{ asset('assets/artistas-pic/charlie_p.jpg') }} "
+                                            alt="Había una Imagen xD">
+                                    </div>
+                                    <div class="title">
+                                        <div class="name font-titulo_2 text-lg desktop_2:text-base">Charlie Puth</div>
+                                        <div class="type text-lg font-thin text-slate-300 desktop_2:text-base">Artista
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="card drop-shadow-xl">
+                                <a href="">
+                                    <div class="imagen">
+                                        <img src="{{ asset('assets/artistas-pic/ed_sheeran.jpg') }} "
+                                            alt="Había una Imagen xD">
+                                    </div>
+                                    <div class="title">
+                                        <div class="name font-titulo_2 text-lg desktop_2:text-base">Ed Sheeran</div>
+                                        <div class="type text-lg font-thin text-slate-300 desktop_2:text-base">Artista
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="card drop-shadow-xl">
+                                <a href="">
+                                    <div class="imagen">
+                                        <img src="{{ asset('assets/artistas-pic/Shawn_Mendez.jpg') }} "
+                                            alt="Había una Imagen xD">
+                                    </div>
+                                    <div class="title">
+                                        <div class="name font-titulo_2 text-lg desktop_2:text-base">Shawn Mendez</div>
+                                        <div class="type text-lg font-thin text-slate-300 desktop_2:text-base">Artista
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="card drop-shadow-xl">
+                                <a href="">
+                                    <div class="imagen">
+                                        <img src="{{ asset('assets/artistas-pic/The_weekend.jpg') }} "
+                                            alt="Había una Imagen xD">
+                                    </div>
+                                    <div class="title">
+                                        <div class="name font-titulo_2 text-lg desktop_2:text-base">The Weeknd</div>
+                                        <div class="type text-lg font-thin text-slate-300 desktop_2:text-base">Artista
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="card drop-shadow-xl">
+                                <a href="">
+                                    <div class="imagen">
+                                        <img src="{{ asset('assets/artistas-pic/charlie_p.jpg') }} "
+                                            alt="Había una Imagen xD">
+                                    </div>
+                                    <div class="title">
+                                        <div class="name font-titulo_2 text-lg desktop_2:text-base">Charlie Puth</div>
+                                        <div class="type text-lg font-thin text-slate-300 desktop_2:text-base">Artista
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
+
                     </div>
-                @endif
+
+
+                    <button rolle="button" id="flecha-derecha"><i class="fi fi-rr-angle-right"></i></button>
+
+
+                </div>
+
             </div>
 
-            {{-- <div class="contenedor-principal slider-3"></div> --}}
+            <!--contenedor-carousel ALBUMS FAVORITOS --->
+
+            @if ($F_Albums->count())
+                <div class="main-content text-white anim">
+
+                    <h2 class="text-white text-2xl font-bold">{{ __('Albums as you like them') }}</h2>
+
+                    <div class="contenedor-principal slider-2">
+
+                        <button rolle="button" id="flecha-izquierda"><i class="fi fi-rr-angle-left"></i></button>
+
+                        <div class="contenedor-carousel">
+
+                            <div class="carousel albums">
+                                @foreach ($F_Albums as $album)
+                                    <div class="card drop-shadow-xl">
+                                        <a
+                                            href="{{ route('album.index', ['user' => $name->obtenerArtist($album->user_id), 'album' => $album->id]) }}">
+                                            <div class="imagen albums">
+                                                <img src="{{ asset('storage') . '/uploads/imagenes/' . $album->image }} "
+                                                    alt="Imagen de {{ $album->name_album }}">
+                                            </div>
+                                            <div class="title">
+                                                <div class="name font-titulofont-bold text-lg desktop_2:text-base">
+                                                    {{ $album->name_album }}</div>
+                                                <div
+                                                    class="type font-cuerpo text-lg font-thin text-slate-300 desktop_2:text-base">
+                                                    {{ $name->obtenerArtist($album->user_id)->username }}</div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                @endforeach
+
+                                <!-- Datos estáticos -->
+
+                                {{-- <div class="card drop-shadow-xl">
+                                <a href="">
+                                    <div class="imagen albums">
+                                        <img src="{{ asset('assets/artistas-pic/house.png') }} " alt="Había una Imagen xD">
+                                    </div>
+                                    <div class="title">
+                                        <div class="name font-titulofont-bold text-lg desktop_2:text-base">Harry's
+                                            House</div>
+                                        <div class="type font-cuerpo text-lg font-thin text-slate-300 desktop_2:text-base">
+                                            Harry Styles</div>
+                                    </div>
+                                </a>
+                            </div> --}}
+
+                                {{-- <div class="card drop-shadow-xl">
+                                <a href="">
+                                    <div class="imagen albums">
+                                        <img src="{{ asset('assets/artistas-pic/fantasia.jpg') }} "
+                                            alt="Había una Imagen xD">
+                                    </div>
+                                    <div class="title">
+                                        <div class="name font-titulo font-bold text-lg desktop_2:text-base">Fantasía
+                                        </div>
+                                        <div class="type font-cuerpo text-lg font-thin text-slate-300 desktop_2:text-base">
+                                            Sebastian Yatra</div>
+                                    </div>
+                                </a>
+                            </div> --}}
+
+                            </div>
+                        </div>
+                        <!--contenedor-carousel --->
+                        <button rolle="button" id="flecha-derecha"><i class="fi fi-rr-angle-right"></i></button>
+                    </div>
+                </div>
+            @endif
+
+            <div class="contenedor-principal slider-3"></div>
 
             @vite('resources/js/carrucel.js')
 

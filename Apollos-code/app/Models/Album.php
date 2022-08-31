@@ -18,7 +18,6 @@ class Album extends Model
         'new_genre',
         'image',
         'sencillo',
-        'confirm',
         'new_name_album',
         'duration'
     ];

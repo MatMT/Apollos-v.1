@@ -49,7 +49,6 @@
             <div class="shadow bg-white p-3 mb- rounded">
                 <p class="text-xl font-bold text-center font-cuerpo">Lista de reproducción</p>
             </div>
-
             {{-- COMPONENTE DE LISTA --}}
             <x-lista-playlist-songs :othersongs="$OtherSongs" :playlist="$MyPlaylist" />
         </div>

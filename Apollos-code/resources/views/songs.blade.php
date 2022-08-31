@@ -50,7 +50,7 @@
                             <div class="list-author-date flex">
                                 <span class="author mr-1">
                                     <h1>
-                                        <a href="{{ route('profile.index', $user->name_artist) }}" class="hover:underline">
+                                        <a href="{{ route('profile.index', $user->username) }}" class="hover:underline">
                                             {{ $user->username }}
                                         </a>
                                     </h1>

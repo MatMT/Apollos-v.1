@@ -13,10 +13,10 @@
 
         <!--- Tttulo de Biblioteca  -->
         <div class="title">
-            <h2 class="font-titulo text-6xl font-bold text-white text-left my-3">{{ __('Library') }}</h2>
-            <h4 class="font-titulo text-white opacity-80 text-3xl text-left desktop_2:text-2xl">
-                {{ __('Check out your collection') }}</h4>
+            <h2 class="font-titulo text-6xl font-bold text-white text-left my-3">{{__('Library')}}</h2>
+            <h4 class="font-titulo text-white opacity-80 text-3xl text-left desktop_2:text-2xl">{{__('Check out your collection')}}</h4>
         </div>
+
 
         <!--- Parte del contenido  -->
 
@@ -24,9 +24,9 @@
             <div class="pestanias">
 
                 <ul class="opciones text-2xl font-cuerpo desktop_2:text-xl">
-                    <li class="opcion active-opcion" id="op1">{{ __('Favorites') }}</li>
+                    <li class="opcion active-opcion" id="op1">{{__('Favorites')}}</li>
                     <li class="opcion albums-opcion remove" id="op2">Albums</li>
-                    <li class="opcion artistas-opcion remove" id="op3">{{ __('Artist') }}</li>
+                    <li class="opcion artistas-opcion remove" id="op3">{{__('Artist')}}</li>
                     <li class="opcion favoritos-opcion remove hidden" id="op4">Favoritos</li>
                 </ul>
 
@@ -41,7 +41,7 @@
                             @foreach ($songsLikes as $song)
                                 <div class="info favoritos">
                                     <a
-                                        href="{{ route('song.favorites.show', ['user' => $song->InfoArtista($song), 'song' => $song]) }}">
+                                        href="{{ route('song.show', ['user' => $song->InfoArtista($song), 'song' => $song]) }}">
                                         <img src="
                             {{ asset('storage') . '/uploads/imagenes/' . $song->image }}"
                                             class="rounded-full" alt="Había una Imagen xD">
@@ -54,6 +54,48 @@
                                 </div>
                             @endforeach
                         @endif
+
+
+                        {{-- <div class="playList">
+                            <img src="{{ asset('assets/artistas-pic/spider.jpg') }} " alt="Había una Imagen xD">
+                            <h2 class="font-cuerpo font-bold mt-4 text-lg">SpiderLove</h2>
+                            <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Lorem ipsum dolor sit
+                                amet consectetur adipisicing elit. Possimus minima recusandae eaque similique, fuga,
+                                laboriosam adipisci debitis deserunt doloremque vel facilis inventore exercitationem
+                                eligendi molestiae perferendis, atque omnis! Perspiciatis, inventore!</p>
+                        </div>
+                        <div class="playList">
+                            <img src="{{ asset('assets/artistas-pic/spider.jpg') }} " alt="Había una Imagen xD">
+                            <h2 class="font-cuerpo font-bold mt-4 text-lg">SpiderLove</h2>
+                            <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Lorem ipsum dolor sit
+                                amet consectetur adipisicing elit. Possimus minima recusandae eaque similique, fuga,
+                                laboriosam adipisci debitis deserunt doloremque vel facilis inventore exercitationem
+                                eligendi molestiae perferendis, atque omnis! Perspiciatis, inventore!</p>
+                        </div>
+                        <div class="playList">
+                            <img src="{{ asset('assets/artistas-pic/spider.jpg') }} " alt="Había una Imagen xD">
+                            <h2 class="font-cuerpo font-bold mt-4 text-lg">SpiderLove</h2>
+                            <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Lorem ipsum dolor sit
+                                amet consectetur adipisicing elit. Possimus minima recusandae eaque similique, fuga,
+                                laboriosam adipisci debitis deserunt doloremque vel facilis inventore exercitationem
+                                eligendi molestiae perferendis, atque omnis! Perspiciatis, inventore!</p>
+                        </div>
+                        <div class="playList">
+                            <img src="{{ asset('assets/artistas-pic/spider.jpg') }} " alt="Había una Imagen xD">
+                            <h2 class="font-cuerpo font-bold mt-4 text-lg">SpiderLove</h2>
+                            <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Lorem ipsum dolor sit
+                                amet consectetur adipisicing elit. Possimus minima recusandae eaque similique, fuga,
+                                laboriosam adipisci debitis deserunt doloremque vel facilis inventore exercitationem
+                                eligendi molestiae perferendis, atque omnis! Perspiciatis, inventore!</p>
+                        </div>
+                        <div class="playList">
+                            <img src="{{ asset('assets/artistas-pic/spider.jpg') }} " alt="Había una Imagen xD">
+                            <h2 class="font-cuerpo font-bold mt-4 text-lg">SpiderLove</h2>
+                            <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Lorem ipsum dolor sit
+                                amet consectetur adipisicing elit. Possimus minima recusandae eaque similique, fuga,
+                                laboriosam adipisci debitis deserunt doloremque vel facilis inventore exercitationem
+                                eligendi molestiae perferendis, atque omnis! Perspiciatis, inventore!</p>
+                        </div> --}}
 
                     </div>
                 </div>
@@ -107,7 +149,12 @@
                     @else
                         <p>Hola</p>
                     @endif
-
+                    {{-- <div class="info artista">
+                            <img src="{{ asset('assets/artistas-pic/ed_sheeran.jpg') }} " class="rounded-full"
+                                alt="Había una Imagen xD">
+                            <h2 class="font-cuerpo font-bold mt-4 text-lg">Ed Sheeran</h2>
+                            <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">Artista</p>
+                        </div> --}}
                 </div>
             </div>
 

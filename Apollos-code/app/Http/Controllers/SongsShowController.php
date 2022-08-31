@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Song;
 use App\Models\User;
 use App\Models\Album;
-use App\Models\Like;
 use App\Models\Playlist;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -26,20 +25,6 @@ class SongsShowController extends Controller
         return view('uploads.show', [
             'user' => $user,
             'OtherSongs' => $songs,
-            'song' => $song
-        ]);
-    }
-
-    // Playlist ==========
-    public function fav(User $user, Song $song)
-
-    {
-        // Extraer mis canciones
-        $MyListOfSongs = Like::where('user_id', auth()->user()->id)->pluck('song_id');
-        $MySongs = Song::whereIn('id', $MyListOfSongs)->orderBy('name_song', 'asc')->get();
-
-        return view('uploads.show_fav', [
-            'OtherSongs' => $MySongs,
             'song' => $song
         ]);
     }

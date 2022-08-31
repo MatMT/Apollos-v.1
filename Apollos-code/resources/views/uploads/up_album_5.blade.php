@@ -6,11 +6,11 @@
 @endsection
 
 @section('song/s')
-    <div class="basis-1/5 text-center py-3 bg-white">Canciones</div>
+    <div class="basis-1/5 text-center py-3 bg-white">{{__('Songs')}}</div>
 @endsection
 
 @section('subtitulo')
-    Casi todo está listo
+{{__('Almost all is ready')}}
     <br>
     -- {{ $album->name_album }} --
     <br>
@@ -18,5 +18,5 @@
 @endsection
 
 @section('placeholder')
-    Casi esta todo listo
+{{__('Almost all is ready')}}
 @endsection

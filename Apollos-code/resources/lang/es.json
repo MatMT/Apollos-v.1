@@ -20,5 +20,57 @@
 
     "Library": "Biblioteca",
     "Check out your collection": "Hecha un vistazo a tu colección",
-    "Favorites": "Favoritos"
+    "Favorites": "Favoritos",
+
+    "Published albums": "Álbumes publicados",
+    "Published songs":"Canciones publicadas",
+
+    "Image":"imagen",
+    "Title":"Titulo",
+    "Songs":"Canciones",
+    "Genre":"Género",
+    "Upload":"Subir",
+    "The next time you will not be able to edit the cover":"Al darle siguiente no podras editar la portada",
+    "Upload your Songs":"Sube tus Canciones",
+    "The image is obligatory.":"La Imagen es obligatoria",
+    "The song is obligatory.":"La Canción es obligatoria",
+    "Place cover":"Coloca Portada",
+    "Uploading an album":"Subiendo un álbum",
+    "Uploading an sinlge":"Subiendo un sencillo",
+    "Upload content":"Sube Contenido",
+    "Establishes a title":"Establece un Titulo",
+    "Album Title":"Titulo del Álbum",
+    "Sets the main genre":"Establece el género principal",
+    "6mb per song maximum":"6mb máximos por canción",
+    "By adding it you will no longer be able to remove the song from the registry.":" Al agregarla ya no podrás retirar la canción del registro",
+    "I confirm that all uploaded content is of my authorship.":"Confirmo que todo contenido subido es de mi  autoría.",
+    "Almost all is ready":"Casi todo esta listo",
+
+    "What type of content do you want to upload?":"¿Que tipo de contenido deseas subir?",
+    "Single":"Sencillo",
+    "Album":"Álbum",
+
+    "Upload a Song":"Sube una cancion",
+
+    "Profile Edit":"Editar Perfil",
+    "Invalid fields!":"¡Campos inválidos!",
+    "Upload fields":"¡Campos actualizados!",
+    "Profile Information":"Información del Perfil",
+    "Password":"Contraseña",
+    "Actual Password":"Clave Actual",
+    "New Password":"Nueva Clave",
+    "Confirm New Password":"Confirma nueva Clave",
+    "Name":"Nombre",
+    "Last Name":"Apellido",
+    "Profile Pic":"Imagen de Perfil"
+
+
+
+
+
+
+
+
+
+
 }

@@ -15,9 +15,9 @@ class BuscadorResultados extends Component
     public $albums;
 
     // Escucha al componente hijo al hacer submit
-    protected $listeners = ['terminoBusqueda' => 'buscar'];
+    protected $listeners = ['terminoBusqueda' => 'buscarGeneral'];
 
-    public function buscar($termino, $usuarios, $canciones, $albums)
+    public function buscarGeneral($termino, $usuarios, $canciones, $albums)
     {
         // Valores a enviar a nuestro render
         $this->termino = $termino;

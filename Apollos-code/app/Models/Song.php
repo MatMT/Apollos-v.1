@@ -53,4 +53,13 @@ class Song extends Model
         $Artista = User::where('id', $Album->user_id)->first();
         return $Artista;
     }
+
+    public function AlreadyAdded(Song $song)
+    {
+        $UserLog = auth()->user()->id;
+        $MyPlaylist = Playlist::where('user_id', $UserLog)->pluck('id');
+        $IsOnPlaylist = Playlist_song::where([['playlist_id', $MyPlaylist], ['song_id', $song->id]])->exists();
+
+        return $IsOnPlaylist;
+    }
 }

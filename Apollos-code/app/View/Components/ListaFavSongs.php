@@ -7,10 +7,13 @@ use Illuminate\View\Component;
 class ListaFavSongs extends Component
 {
     public $othersongs;
+    public $actuallysong;
 
-    public function __construct($othersongs)
+
+    public function __construct($othersongs, $actuallysong)
     {
         $this->othersongs = $othersongs;
+        $this->actuallysong = $actuallysong;
     }
 
     /**

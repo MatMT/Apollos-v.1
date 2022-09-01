@@ -36,97 +36,110 @@
 @section('content')
     <main class="w-11/12 mx-auto">
 
-    </main>
 
-    <div class="mt-7 container mx-auto md:flex justify-center ">
-        <div class="md:max-w-[400px] p-3 max-w-">
-            <img class="w-full rounded-xl" src="{{ asset('storage') . '/uploads/imagenes/' . $ActuallySong->image }}"
-                alt="Imagen de la canción {{ $ActuallySong->name_song }}">
+        <div class="mt-7 container mx-auto md:flex justify-center ">
+            <div class="md:max-w-[400px] p-3 max-w-">
+                <img class="w-full rounded-xl" src="{{ asset('storage') . '/uploads/imagenes/' . $ActuallySong->image }}"
+                    alt="Imagen de la canción {{ $ActuallySong->name_song }}">
+            </div>
+            <div class="md:w-1/2 p-2">
+                <div class="shadow bg-white p-3 mb- rounded">
+                    <p class="text-xl font-bold text-center font-cuerpo">Lista de reproducción</p>
+                </div>
+
+                {{-- COMPONENTE DE LISTA --}}
+                @yield('component_player')
+
+            </div>
         </div>
-        <div class="md:w-1/2 p-2">
-            <div class="shadow bg-white p-3 mb- rounded">
-                <p class="text-xl font-bold text-center font-cuerpo">Lista de reproducción</p>
-            </div>
 
-            {{-- COMPONENTE DE LISTA --}}
-            @yield('component_player')
+        <!-- ================== Barra ========================== -->
 
-        </div>
-    </div>
+        <div class="p-1.5 md:flex justify-center items-center">
+            <div class="w-full md:w-1/6">
+                <span class="font-bold block text-center">{{ $ActuallySong->InfoArtista($ActuallySong)->username }}</span>
+                {{-- Librería "Carbon" que formatea fechas --}}
+                <p class="text-sm text-center text-gray-500 font-cuerpo"> {{ $ActuallySong->created_at->diffForHumans() }}
+                </p>
+            </div> <!-- Información -->
 
-    <!-- ================== Barra ========================== -->
+            <div class="flex flex-col flex-wrap md:flex-nowrap w-full md:w-4/6 gap-1 justify-around items-center ">
+                <div class="name-song flex w-full md:w-3/4 mb-4">
+                    <h2 class="text-white font-bold font-cuerpo text-xl text-left">{{ $ActuallySong->name_song }}</h2>
+                    <h3 class="text-white font-light ml-6">
+                        @if ($ActuallySong->sencillo)
+                            Sencillo
+                        @else
+                            Album
+                        @endif
+                    </h3>
+                </div>
 
-    <div class="p-1.5 md:flex justify-center items-center">
-        <div class="w-full md:w-1/6">
-            <span class="font-bold block text-center">{{ $ActuallySong->InfoArtista($ActuallySong)->username }}</span>
-            {{-- Librería "Carbon" que formatea fechas --}}
-            <p class="text-sm text-center text-gray-500 font-cuerpo"> {{ $ActuallySong->created_at->diffForHumans() }}</p>
-        </div> <!-- Información -->
-
-        <div class="flex flex-col flex-wrap md:flex-nowrap w-full md:w-4/6 gap-1 justify-around items-center ">
-            <div class="name-song flex w-full md:w-3/4 mb-4">
-                <h2 class="text-white font-bold font-cuerpo text-xl text-left">{{ $ActuallySong->name_song }}</h2>
-                <h3 class="text-white font-light ml-6">
-                    @if ($ActuallySong->sencillo)
-                        Sencillo
-                    @else
-                        Album
-                    @endif
-                </h3>
-            </div>
-
-            <!-- Audio -->
-            <div class="w-full md:w-3/4">
-                <audio controls class="w-full" id="myAudio" preload="auto" autoplay="yes"
-                    controlsList="nodownload noplaybackrate">
-                    <source src="{{ asset('storage') . '/uploads/canciones/' . $ActuallySong->url }}" type="audio/mpeg">
-                    Tu navegador no soporta la reproducción de audio.
-                </audio>
-            </div>
+                <!-- Audio -->
+                <div class="w-full md:w-3/4">
+                    <audio controls class="w-full" id="myAudio" preload="auto" autoplay="yes"
+                        controlsList="nodownload noplaybackrate">
+                        <source src="{{ asset('storage') . '/uploads/canciones/' . $ActuallySong->url }}" type="audio/mpeg">
+                        Tu navegador no soporta la reproducción de audio.
+                    </audio>
+                </div>
 
 
-            <div class="p-3 w-full md:w-1/4 justify-center items-center gap-3 bg-white">
+                <div class="p-3 w-full md:w-1/4 justify-center items-center gap-3 bg-white">
 
-                {{-- COMPONENTE DE LIVEWIRE --}}
-                <livewire:like-song :song="$ActuallySong" />
-            </div> <!-- Favoritos -->
-        </div> <!-- Reproductor -->
+                    {{-- COMPONENTE DE LIVEWIRE --}}
+                    <livewire:like-song :song="$ActuallySong" />
+                </div> <!-- Favoritos -->
+            </div> <!-- Reproductor -->
 
-        <!-- Edición/Eliminación -->
+            <!-- Edición/Eliminación -->
 
-        @auth {{-- Autentificado --}}
-            @if ($ActuallySong->InfoArtista($ActuallySong)->username == auth()->user()->id)
-                {{-- Artista dueño de la canción --}}
-                <div class="1/6 flex justify-center items-center gap-2">
-                    {{-- Editar album --}}
-                    {{-- <form action="{{ route('single.settings.index') }}">
+            @auth {{-- Autentificado --}}
+                @if ($ActuallySong->InfoArtista($ActuallySong)->username == auth()->user()->id)
+                    {{-- Artista dueño de la canción --}}
+                    <div class="1/6 flex justify-center items-center gap-2">
+                        {{-- Editar album --}}
+                        {{-- <form action="{{ route('single.settings.index') }}">
                         <input type="submit" value="Editar canción" name="" id=""
                             class="bg-blue-500 hover:bg-blue-600 p-2 rounded text-white font-bold cursor-pointer">
                     </form> --}}
-                    @if ($ActuallySong->sencillo == true)
-                        <form action="{{ route('song.destroy', ['user' => $user, 'song' => $ActuallySong]) }}" method="POST">
-                            {{-- METODO SPOOFING - Laravel permite agregar otro tipo de peticiones --}}
-                            @method('DELETE')
-                            @csrf
-                            <input type="submit" value="Eliminar canción" name="" id=""
-                                class="bg-red-500 hover:bg-red-600 p-2 rounded text-white font-bold cursor-pointer">
-                        </form>
-                    @endif
-                </div>
-            @endif
-        @endauth
+                        @if ($ActuallySong->sencillo == true)
+                            <form action="{{ route('song.destroy', ['user' => $user, 'song' => $ActuallySong]) }}"
+                                method="POST">
+                                {{-- METODO SPOOFING - Laravel permite agregar otro tipo de peticiones --}}
+                                @method('DELETE')
+                                @csrf
+                                <input type="submit" value="Eliminar canción" name="" id=""
+                                    class="bg-red-500 hover:bg-red-600 p-2 rounded text-white font-bold cursor-pointer">
+                            </form>
+                        @endif
+                    </div>
+                @endif
+            @endauth
 
-    </div> <!-- Barra inferior -->
+        </div> <!-- Barra inferior -->
+    </main>
 @endsection
 
 @push('script_end')
+    @php
+    $i = 0;
+    @endphp
+
     <script>
         // Rescatar elemento de audio
         var aud = document.getElementById("myAudio");
         // Rescatar link de la canción siguiente
-        var NextS = document.getElementById("song_1");
-        aud.onended = function() {
-            NextS.click();
-        };
+        @foreach ($OtherSongs as $song)
+            @php
+                ++$i;
+            @endphp
+            @if ($song->id > $ActuallySong->id)
+                var {{ 'NextS' . $i }} = document.getElementById({{ 'song_' . $i }});
+                aud.onended = function() {
+                    {{ 'NextS' . $i }}.click();
+                };
+            @endif
+        @endforeach
     </script>
 @endpush

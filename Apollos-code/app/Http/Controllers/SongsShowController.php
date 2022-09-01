@@ -36,11 +36,13 @@ class SongsShowController extends Controller
     {
         // Extraer mis canciones
         $MyListOfSongs = Like::where('user_id', auth()->user()->id)->pluck('song_id');
-        $MySongs = Song::whereIn('id', $MyListOfSongs)->orderBy('name_song', 'asc')->get();
+        $MySongs = Song::whereIn('id', $MyListOfSongs)->orderBy('id')->get();
+
+        // dd($MySongs);
 
         return view('uploads.show_fav', [
             'OtherSongs' => $MySongs,
-            'song' => $song
+            'ActuallySong' => $song
         ]);
     }
 
@@ -53,7 +55,7 @@ class SongsShowController extends Controller
         return view('uploads.show_playlist', [
             'OtherSongs' => $MySongs,
             'MyPlaylist' => $playlist,
-            'song' => $song
+            'ActuallySong' => $song
         ]);
     }
 

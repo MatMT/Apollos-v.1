@@ -3,5 +3,5 @@
 
 @section('component_player')
     {{-- COMPONENTE DE PLAYLIST --}}
-    <x-lista-playlist-songs :othersongs="$OtherSongs" :playlist="$MyPlaylist" />
+    <x-lista-playlist-songs :othersongs="$OtherSongs" :playlist="$MyPlaylist" :actuallysong="$ActuallySong" />
 @endsection

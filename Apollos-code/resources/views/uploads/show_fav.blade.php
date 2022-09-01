@@ -3,5 +3,5 @@
 
 @section('component_player')
     {{-- COMPONENTE DE FAVORITOS LIST --}}
-    <x-lista-fav-songs :othersongs="$OtherSongs" />
+    <x-lista-fav-songs :othersongs="$OtherSongs" :actuallysong="$ActuallySong" />
 @endsection

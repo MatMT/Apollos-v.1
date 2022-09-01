@@ -54,8 +54,7 @@
     @yield('content')
 
     {{-- Mi reproductor de música --}}
-
-    <footer class="hidden">
+    {{-- <footer class="hidden">
         <div class="lista-reproduccion" id="list">
             <div class="space-content" id="canciones-lista">
                 <div class="song-playing">
@@ -235,7 +234,7 @@
 
             </div>
         </div>
-    </footer>
+    </footer> --}}
 
     {{-- BUSCADOR --}}
     <div class="overway_2" id="overlay_2">

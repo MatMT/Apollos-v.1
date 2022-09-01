@@ -1,4 +1,12 @@
+:root{
+    /*Paleta de colores Apollos*/
 
+    --morado-apl: #262455;
+    --fucsia-apl: #700353;
+    --rosado-apl: #ff0054;
+    --naranja-apl: #ff5c0a;
+    --amarillo-apl: #ffce47;
+}
 /*------- -------- ----- ----- titilo de la pLAYLIST*/
 
 .info-play-list{
@@ -306,3 +314,57 @@
         width: 100%;
     }
 }
+
+
+/*Modificadores PLay list y Albums */
+
+.modify-list-a{
+    border-radius: 10px;
+    background-color: rgb(24, 24, 24);
+    padding: 20px;
+}
+
+.modify-list-a form{
+    width: 100%;
+}
+
+.img-send{
+    width: 100%;
+}
+
+.img-send .img-play-list{
+    max-width: 250px;
+    min-width: 200px;
+    max-height: 250px;
+    min-height: 200px;
+
+    margin: 0px auto;
+}
+
+.modify-info{
+    width: 100%;
+}
+
+.modify-info input[type="text"]{
+    margin: 10px auto;
+    padding: 10px;
+    padding-left: 0%;
+    color: var(--amarillo-apl);
+    display: block;
+    background-color: transparent;
+    outline: none;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.modify-info input[type="text"]::placeholder{
+    color: var(--amarillo-apl);
+    font-size: 25px;
+    text-align: center;
+}
+
+.modify-info input[type="text"]:focus{
+    border-bottom: 1px solid var(--amarillo-apl);
+}
+

@@ -190,5 +190,27 @@
 
 
         </div>
+
+        <!-- Popup Modificar PalyList -->
+
+        <div class="overway_2 active">
+            <div class="modify-list-a font-cuerpo
+            ">
+                <form action="" method="post" enctype="multipart/form-data">
+                    <div class="img-send">
+                        <div class="img-play-list">
+                            <img src="{{ asset('assets/icons/music-alt-free-icon-font.svg') }}" alt="">
+                        </div>
+                        <h3 class="font-titulo_2 text-center mt-3">Mi playList</h3>
+                    </div>
+                    <div class="modify-info">
+                        <input type="text" name="" id="" value="Mi PLayList" placeholder="Mi PLayList">
+                        <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png" class="border p-3 w-full rounded-lg">
+                    </div>
+                    <input type="submit" value="Modificar">
+
+                </form>
+            </div>
+        </div>
     </main>
 @endsection

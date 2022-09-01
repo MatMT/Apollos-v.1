@@ -23,6 +23,9 @@ use App\Http\Controllers\PlaylistController;
 use App\Http\Controllers\SinglesSettingsController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ReportController;
+use App\Mail\ReportsongMailable;
+use Illuminate\Support\Facades\Mail;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -184,3 +187,5 @@ Route::post('/usuario/{user:name_artist}/settings/change/{album:id}',  [SongSett
 
 Route::get('/usuario/user/settings/change/songs',  [SinglesSettingsController::class, 'index'])->name('single.settings.index');
 Route::post('/usuario/user/settings/change/songs',  [SinglesSettingsController::class, 'changeDataSingles'])->name('song.settings');
+
+// Route::post('/usuario/user/{user:name_artist}/report', [ReportController::class, 'reporter'])->name('reportsong.index');

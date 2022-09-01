@@ -145,6 +145,11 @@
                 </div>
             @endif
         @endauth
+        {{-- <div class="p-3 w-full md:w-1/4 justify-right items-center gap-3 bg-white">
+           <form action="{{route('reportsong.index') }}" method="POST">
+                <input type="submit" value="Reportar cancion" name="" id="">
+            </form>
+        </div>     --}}
 
     </div> <!-- Barra inferior -->
 @endsection

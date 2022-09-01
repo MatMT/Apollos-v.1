@@ -1,5 +1,5 @@
 {{-- Plantilla de reproductor --}}
-@extends('layouts.music_player')
+{{-- @extends('layouts.music_player') --}}
 
 @extends('layouts.shape1')
 
@@ -125,6 +125,14 @@
 
         <!-- Edición/Eliminación -->
 
+        <div class="p-3 w-full md:w-1/4 justify-right items-center gap-3 bg-white">
+            <form action="{{route('reportsong.index', $user) }}" method="POST">
+                @csrf
+                 <input type="submit" value="Reportar cancion" name="" id="">
+                 
+             </form>
+            </div>  
+
         @auth {{-- Autentificado --}}
             @if ($user->id == auth()->user()->id)
                 {{-- Artista dueño de la canción --}}
@@ -142,10 +150,9 @@
                             <input type="submit" value="Eliminar canción" name="" id=""
                                 class="bg-red-500 hover:bg-red-600 p-2 rounded text-white font-bold cursor-pointer">
                         </form>
-                    @endif
-                </div>
+                    @endif  
             @endif
         @endauth
-
+    </div> 
     </div> <!-- Barra inferior -->
 @endsection

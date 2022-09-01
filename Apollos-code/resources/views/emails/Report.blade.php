@@ -8,12 +8,17 @@
 </head>
 <style>
     h1{
-        color: aqua;
+        color: coral;
         font-family: 'Times New Roman', Times, serif
+    }
+    p{
+        color: navy;
+        text-indent: 30px;
+        text-transform: uppercase;
     }
 </style>
 <body>
-    <h1>Tu Cancion fue Reportada</h1>
+    <h1>Hey Gay</h1>
     <p>Tu cancion fue reportada, tu cancion con el ID:12 del Album: 20</p>
 </body>
-</html>
+</html>                                  

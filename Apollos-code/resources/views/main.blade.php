@@ -10,6 +10,10 @@
 
 @section('content')
 
+   @if(session('message'))
+   <div class="alert alert-success text-white" ba>{{session('message')}}</div>
+   @endif
+
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
 
     <div class="contenido_main">

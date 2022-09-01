@@ -11,7 +11,7 @@ class ReportsongMailable extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $subject = "Tu canción ha sido reportada";
+    public $subject = "Alerta! Han reportado tu canción";
 
     /**
      * Create a new message instance.

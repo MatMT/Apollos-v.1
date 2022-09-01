@@ -58,7 +58,7 @@
 
     <div class="p-1.5 md:flex justify-center items-center">
         <div class="w-full md:w-1/6">
-            <span class="font-bold block text-center">{{ $user->name }}</span>
+            <span class="font-bold block text-center">{{ $song->InfoArtista($song)->username }}</span>
             {{-- Librería "Carbon" que formatea fechas --}}
             <p class="text-sm text-center text-gray-500 font-cuerpo"> {{ $song->created_at->diffForHumans() }}</p>
         </div> <!-- Información -->
@@ -93,7 +93,7 @@
         <!-- Edición/Eliminación -->
 
         @auth {{-- Autentificado --}}
-            @if ($user->id == auth()->user()->id)
+            @if ($song->InfoArtista($song)->username == auth()->user()->id)
                 {{-- Artista dueño de la canción --}}
                 <div class="1/6 flex justify-center items-center gap-2">
                     {{-- Editar album --}}

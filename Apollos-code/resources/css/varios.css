@@ -249,7 +249,7 @@
 
 /*Caciones encontradas */
 .song-found{
-    width: 40%;
+    width: 100%;
     min-width: 280px;
     max-width: 330px;
     display: flex;
@@ -292,6 +292,7 @@
     .list-songs-choose{
         justify-content: space-around;
     }
+
     .song-found{
         width: 80%;
         max-width: 100%;
@@ -313,6 +314,12 @@
     .form-buscador{
         width: 100%;
     }
+
+    .list-songs-choose{
+        max-height: 550px;
+        overflow: hidden;
+        overflow-y: auto;
+    }
 }
 
 
@@ -320,16 +327,27 @@
 
 .modify-list-a{
     border-radius: 10px;
-    background-color: rgb(24, 24, 24);
+    background-color: rgb(41, 40, 40);
     padding: 20px;
+    position: relative;
+    transition: all 0.5s ease;
+    transform: scale(0.7);
+    opacity: 0;
+}
+
+.modify-list-a.active {
+    opacity: 1;
+    transform: scale(1);
 }
 
 .modify-list-a form{
     width: 100%;
 }
 
+
 .img-send{
     width: 100%;
+    margin-top: 10px;
 }
 
 .img-send .img-play-list{
@@ -343,12 +361,13 @@
 
 .modify-info{
     width: 100%;
+    padding: 0% auto;
 }
 
 .modify-info input[type="text"]{
-    margin: 10px auto;
-    padding: 10px;
-    padding-left: 0%;
+    margin: 30px auto;
+    padding: 10px 30px;
+    width: 80%;
     color: var(--amarillo-apl);
     display: block;
     background-color: transparent;
@@ -356,6 +375,7 @@
     text-align: center;
     font-size: 25px;
     font-weight: 600;
+
 }
 
 .modify-info input[type="text"]::placeholder{
@@ -364,7 +384,76 @@
     text-align: center;
 }
 
-.modify-info input[type="text"]:focus{
+.modify-info input[type="text"]:focus {
     border-bottom: 1px solid var(--amarillo-apl);
+}
+
+
+/*Subir carción*/
+
+.modify-info input[type="file"]{
+ display: none;   
+}
+
+.modify-info .subir{
+    padding: 10px;
+    border-radius: 10px;
+    margin: 0px auto;
+    display: flex;
+    justify-content: space-around;
+    width: 150px;
+    background-color: transparent;
+    border: 1px solid white;
+    opacity: 0.8;
+    
+    cursor: pointer;
+    transition: 0.4s all ease;
+}
+
+
+.modify-info .subir:hover{
+    background-color: white;
+    color: black;
+    opacity: 1;
+}
+
+.modify-info .subir:active{
+    background-color: white;
+    color: black;
+    opacity: 1;
+}
+
+.btn-enviar-mod{
+    display: block;
+    margin: 20px auto;
+    padding: 10px 30px;
+    background-color: var(--naranja-apl);
+    border-radius: 30px;
+    transition: 0.4s all ease-in;
+}
+
+
+.btn-enviar-mod:hover{
+    transform: scale(1.05);
+}
+
+.btn-cerrar{
+    opacity: 0.5;
+    text-align: right;
+    display: block;
+    transition: 0.4s all ease-in;
+}
+
+.btn-cerrar:hover{
+    opacity: 0.8;
+}
+
+
+/*Boton modificar la playlist */
+
+.box-icon{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
 }
 

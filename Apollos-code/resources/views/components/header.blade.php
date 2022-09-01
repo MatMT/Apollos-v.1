@@ -15,7 +15,7 @@
             <li class="mx-7 {{ $activeli ?? '' }} "><a href="{{ route('biblioteca') }}"><i
                         class="fi fi-rs-apps"></i></i><span class="tablet_3:hidden">{{ __('Your library') }}</span></a>
             </li>
-            <li class="mx-7"><a href="{{ route('playlist.index', Auth::user()) }}"><i class="fi fi-rs-music"></i><span
+            <li class="mx-7 {{ $activeplay ?? '' }}"><a href="{{ route('playlist.index', Auth::user()) }}"><i class="fi fi-rs-music"></i><span
                         class="tablet_3:hidden">{{ __('Create playlist') }}</span></a>
             </li>
             <li class="mx-7 cursor-pointer" id="buscar"><a><i class="fi fi-rs-search"></i><span

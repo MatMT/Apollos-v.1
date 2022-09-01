@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" id="screen">
+<html lang="es" id="screen">
 
 <head>
     <meta charset="UTF-8">
@@ -237,10 +237,11 @@
         </div>
     </footer>
 
+    {{-- BUSCADOR --}}
     <div class="overway_2" id="overlay_2">
         <div class="buscador" id="popup_2">
             <div class="btn-close"><i class="fi fi-rr-cross" id="btn-close"></i> </div>
-            <h2 class="text-xl font-cuerpo font-bold mb-7">Búsqueda bajo tu término</h2>
+            <h2 class="text-xl font-cuerpo font-bold mb-7 text-center">Búsqueda bajo tu término</h2>
             {{-- Buscador Reactivo --}}
             <livewire:buscador-resultados />
         </div>

@@ -92,7 +92,7 @@
                                     <span class="icon"><img
                                             src="{{ asset('assets/icons/musicIconWht.png') }}"></span>
                                     <input type="text" name="usuario" value="{{ old('usuario') }}"
-                                        class="form-input" placeholder="Nombre artistico" autocomplete="off">
+                                        class="form-input" placeholder="Nombre de usuario" autocomplete="off">
                                 </div> {{-- input-container --}}
 
                                 <div class="input-container">
@@ -124,11 +124,6 @@
                                         <div class="rad-cont">
                                             <input type="radio" name="gender" value="female" class='radio'
                                                 id='F' />
-
-                                            {{-- <input type"radio" name="active" value="1"
-                                                @checked(old('active', $user->active)) />
-                                            <input type"radio" name="active" value="0"
-                                                @checked(!old('active', $user->active)) /> --}}
 
                                             <label class="gender-input rounded-r-md" for="F">
                                                 <span><img src="{{ asset('assets/icons/wIcon.png') }}"></span>

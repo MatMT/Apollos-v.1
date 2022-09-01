@@ -5,7 +5,7 @@
                 <i class="fi fi-rs-search text-xl mx-2 mr-4"></i>
             </button>
             <label for="buscarpor">
-                <input type="text" name="BuscarPor" id="" placeholder="Buscar Artista, canción, álbum"
+                <input type="text" name="BuscarPor" id="" placeholder="Buscar username, canción, álbum"
                     wire:model='termino'>
             </label>
         </div>

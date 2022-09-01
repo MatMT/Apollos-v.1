@@ -51,4 +51,14 @@ class Album extends Model
         // La asociación con la tabla likes, permite verificar el contenido
         return $this->likes->contains('user_id', $user->id);
     }
+
+
+    // Válidación
+    public function checkArtist(Album $Album)
+    {
+        $userId = Album::where('id', $Album->id)->pluck('user_id');
+        $ArtistName = User::where('id', $userId)->first();
+        // La asociación con la tabla likes, permite verificar el contenido $this->user->where('id', $userId)->pluck('name_artist');
+        return $ArtistName;
+    }
 }

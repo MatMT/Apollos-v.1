@@ -26,7 +26,7 @@ class SongsShowController extends Controller
         return view('uploads.show', [
             'user' => $user,
             'OtherSongs' => $songs,
-            'song' => $song
+            'ActuallySong' => $song
         ]);
     }
 

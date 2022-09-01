@@ -86,7 +86,7 @@
             <div class="p-3 w-full md:w-1/4 justify-center items-center gap-3 bg-white">
 
                 {{-- COMPONENTE DE LIVEWIRE --}}
-                <livewire:like-song :song="$song" />
+                {{-- <livewire:like-song :song="$song" /> --}}
             </div> <!-- Favoritos -->
         </div> <!-- Reproductor -->
 

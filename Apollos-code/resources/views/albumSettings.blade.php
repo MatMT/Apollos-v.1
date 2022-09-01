@@ -15,50 +15,40 @@
 @section('contenido')
 
         <!--- Mensajes -->
-        @if (session()->has('nameal'))
-            {{ session()->get('nameal') }}
+        @if (session()->has('cambios'))
+            Campos actualizados
         @endif      
 
-        {{$album}}
         <div class="col-md-8">
-            <div class="md:h-1/2 px-10">
-                <form action="{{ route('image.store') }}" method="POST" enctype="multipart/form-data"
-                    id="dropzone_img"
-                    class="dropzone md:h-1/2 border-dashed border-2 @error('imagen') border-red-500 @enderror w-full h-96 rounded flex flex-col justify-center items-center">
-                    @csrf
-                </form>
-                @error('imagen')
-                    <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
-                        La imagen es obligatoria.</p>
-                @enderror
-            </div>
+        
             <hr>
-            <form action="{{ route('album.config', ['user' => $user, 'album' => $album->id], ) }}" method="POST" class="needs-validation" novalidate>
-                @csrf
-                {{-- Intento Foto de Perfil --}}
-                <div class="mb-5">
-                    <input type="hidden" name="imagen" value="{{ old('imagen') }}" />
-                </div>
-            {{-- </form> --}}
-        </div>
 
-            {{-- Intento new name album --}}
+            <form action="{{route('album.config', ['user'=> $user, 'album' => $album->id])}}" method="POST" enctype="multipart/form-data">
+                @csrf
+
+                <div class="mb-5">
+                    <label for="image" class="mb-2 block uppercase text-gray-500 font-bold">Imagen de
+                        Perfil</label>
+
+                    <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png"
+                        class="border p-3 w-full rounded-lg">
+                </div>
+
             <div class="row mb-3">
                 <div class="form-group mt-3">
-                    <label for="new_name_album">Actualiza Nombre de tu Album</label>
-                    <input type="text" name="new_name_album" value="{{$album->name_album}}"
-                        class="form-control @error('new_name_album') is-invalid @enderror" required >
-                    @error('new_name_album')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+                    <label for="new_name_album">Actualiza el nombre de tu álbum</label>
+                <input type="text" name="new_name_album" id="new_name_album" value='{{$album->name_album}}' class='form-control' @error('new_name_album') is-invalid @enderror" required >
+                
+                @error('new_name_album')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
                 </div>
             </div>
 
-            {{-- Intento Actualizacion genero de album --}}
             <label for="genero" class="genero mb-2 block uppercase text-gray-800 font-bold">Género</label>
-            <select name="genero" id="genero" form="song_up"    
+            <select name="genero" id="genero"    
                 class="border p-3 w-full rounded-lg text-gray-800 @error('genero') border-red-500  @enderror">
                 <option value="" selected disabled> -- Actualiza el género de tu canción --
                 </option>
@@ -78,15 +68,8 @@
                 <option value="rap"         {{ old('genero') == 'rap' ? 'selected' : '' }}>Rap</option>
                 <option value="trap"        {{ old('genero') == 'trap' ? 'selected' : '' }}>Trap</option>
             </select>           
-            {{-- Intento Actualizacion genero de album --}}
-                        
-            {{-- Intento new name album--}}
-            <div class="row text-center mb-4 mt-5">
-                <div class="col-md-12">
-                    <button type="submit" class="btn btn-primary" id="formSubmit">Guardar Cambios</button>
-                    <hr>
-                    <a href="{{ route('main') }}" class="btn btn-secondary">Cancelar o volver</a>
-                </div>
-            </div>
-            </form
+
+            <input type="submit" value="Change  cambios">
+        </form>
+        </div>
 @endsection

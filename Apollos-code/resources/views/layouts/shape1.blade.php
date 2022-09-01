@@ -55,7 +55,7 @@
 
     {{-- Mi reproductor de música --}}
 
-    <footer>
+    <footer class="hidden">
         <div class="lista-reproduccion" id="list">
             <div class="space-content" id="canciones-lista">
                 <div class="song-playing">
@@ -240,15 +240,9 @@
     <div class="overway_2" id="overlay_2">
         <div class="buscador" id="popup_2">
             <div class="btn-close"><i class="fi fi-rr-cross" id="btn-close"></i> </div>
-            <h2 class="text-xl font-cuerpo font-bold mb-7">Busca Algo</h2>
-            <form action="">
-                <div class="contenedor-input">
-                    <i class="fi fi-rs-search text-xl mx-2 mr-4"></i>
-                    <input type="text" name="buscarpor" id=""
-                        placeholder="Buscar Artista, canción, álbum">
-                </div>
-            </form>
-            <div class="resultados">No se han obtenido resultados</div>
+            <h2 class="text-xl font-cuerpo font-bold mb-7">Búsqueda bajo tu término</h2>
+            {{-- Buscador Reactivo --}}
+            <livewire:buscador-resultados />
         </div>
     </div>
 

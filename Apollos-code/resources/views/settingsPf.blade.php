@@ -64,7 +64,8 @@
 @endsection
 
 @section('title')
-    Editar perfil
+   {{__('Profile Edit')}}
+
 @endsection
 
 @section('content')
@@ -83,7 +84,7 @@
                                         d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
                                         clip-rule="evenodd"></path>
                                 </svg>
-                                <p class="font-medium">¡Campos inválidos!</p>
+                                <p class="font-medium">{{__('Invalid fields!')}}</p>
                             </li>
                         @endif
                         @if (session()->has('cambios'))
@@ -94,7 +95,7 @@
                                         d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
                                         clip-rule="evenodd"></path>
                                 </svg>
-                                <p class="font-medium">¡Campos actualizados!</p>
+                                <p class="font-medium">{{__('Upload fields!')}}</p>
                             </li>
                         @endif
                         <li id="opcion1"
@@ -106,8 +107,7 @@
                                     d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                             <span class="flex-1 ml-3 @if (!session()->has('NoCambios')) font-bold @endif "
-                                id="TitleSect1">Información de
-                                perfil</span>
+                                id="TitleSect1">{{__('Profile Information')}}</span>
                         </li>
                         <li id="opcion2"
                             class="flex items-center p-2 text-base font-normal rounded-lg text-white hover:bg-gray-700">
@@ -120,7 +120,7 @@
                                     clip-rule="evenodd" />
                             </svg>
                             <span class="flex-1 ml-3 @if (session()->has('NoCambios')) font-bold @endif"
-                                id="TitleSect2">Contraseña</span>
+                                id="TitleSect2">{{__('Password')}}</span>
                         </li>
                     </ul>
                 </div>
@@ -135,8 +135,7 @@
                         <!-- Contraseña actual -->
                         <div class="mb-5">
 
-                            <label for="password_actual" class="mb-2 block uppercase text-gray-500 font-bold">Clave
-                                Actual</label>
+                            <label for="password_actual" class="mb-2 block uppercase text-gray-500 font-bold">{{__('Actual Password')}}</label>
                             <input type="password" name="password_actual"
                                 class="border p-3 w-full rounded-lg @error('titulo') border-red-500 @enderror">
                             @error('password_actual')
@@ -149,8 +148,7 @@
                         <!-- Nueva Contraseña -->
                         <div class="mb-5">
 
-                            <label for="new_password" class="mb-2 block uppercase text-gray-500 font-bold">Nueva
-                                Clave</label>
+                            <label for="new_password" class="mb-2 block uppercase text-gray-500 font-bold">{{__('New Password')}}</label>
                             <input type="password" name="password"
                                 class="border p-3 w-full rounded-lg @error('titulo') border-red-500 @enderror">
                             @error('password')
@@ -163,8 +161,7 @@
                         <!-- Confirmar nueva contraseña -->
                         <div class="mb-5">
 
-                            <label for="confirm_password" class="mb-2 block uppercase text-gray-500 font-bold">Confirmar
-                                nueva Clave</label>
+                            <label for="confirm_password" class="mb-2 block uppercase text-gray-500 font-bold">{{__('Confirm Password')}}</label>
                             <input type="password" name="confirm_password"
                                 class="border p-3 w-full rounded-lg @error('titulo') border-red-500 @enderror">
                             @error('confirm_password')
@@ -199,7 +196,7 @@
                         </div>
                         <!-- Nombre -->
                         <div class="mb-5">
-                            <label for="new_name" class="mb-2 block uppercase text-gray-500 font-bold">Nombre</label>
+                            <label for="new_name" class="mb-2 block uppercase text-gray-500 font-bold">{{__('Name')}}</label>
                             <input type="text" id="new_name" name="new_name" placeholder="Tu nombe"
                                 value="{{ Auth::user()->name }}"
                                 class="border p-3 w-full rounded-lg @error('new_name') border-red-500 is-invalid @enderror">
@@ -211,7 +208,7 @@
                         <!-- Apellido -->
                         <div class="mb-5">
                             <label for="new_lastname"
-                                class="mb-2 block uppercase text-gray-500 font-bold">Apellido</label>
+                                class="mb-2 block uppercase text-gray-500 font-bold">{{__('Last Name') }}</label>
                             <input type="text" id="new_lastname" name="new_lastname" placeholder="Tu nombe"
                                 value="{{ Auth::user()->last_name }}"
                                 class="border p-3 w-full rounded-lg @error('new_lastname') border-red-500 is-invalid @enderror">
@@ -222,8 +219,7 @@
                         </div>
                         <!-- Imagen de Perfil -->
                         <div class="mb-5">
-                            <label for="image" class="mb-2 block uppercase text-gray-500 font-bold">Imagen de
-                                Perfil</label>
+                            <label for="image" class="mb-2 block uppercase text-gray-500 font-bold">{{__('Profile Pic')}}</label>
                             <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png"
                                 class="border p-3 w-full rounded-lg">
                         </div>

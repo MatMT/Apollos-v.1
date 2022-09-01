@@ -7,13 +7,13 @@
 
 {{-- Variable de la progress bar --}}
 @section('song/s')
-    <div class="basis-1/5 text-center py-3 bg-white ">Canciones</div>
+    <div class="basis-1/5 text-center py-3 bg-white ">{{__('Songs')}}</div>
 @endsection
 
 @section('subtitulo')
-    Establece el género principal
+{{__('Sets the main genre')}}
 @endsection
 
 @section('placeholder')
-    Titulo del álbum
+{{__('Album Title')}}
 @endsection

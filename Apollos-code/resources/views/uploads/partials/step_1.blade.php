@@ -1,7 +1,7 @@
 @extends('layouts.shape1')
 
 @section('title')
-    Subiendo un álbum
+{{__('Uploading an album')}}
 @endsection
 
 {{-- Se llama al Js y Css encargado de Dropzone --}}
@@ -54,12 +54,12 @@
     <div class="p-10 overflow-hidden">
         <div
             class="flex my-0 mx-auto  sm:w-full sm:flex-row flex-col w-3/4  rounded-xl shadow overflow-hidden font-semibold">
-            <div class="basis-1/5 text-center py-3 bg-white @yield('step1')">Imagen</div>
+            <div class="basis-1/5 text-center py-3 bg-white @yield('step1')">{{__('Image')}}</div>
             {{-- @yield('step') --}}
-            <div class="basis-1/5 text-center py-3 bg-white @yield('step2')">Título</div>
-            <div class="basis-1/5 text-center py-3 bg-white @yield('step3')">Género</div>
+            <div class="basis-1/5 text-center py-3 bg-white @yield('step2')">{{__('Title')}}</div>
+            <div class="basis-1/5 text-center py-3 bg-white @yield('step3')">{{__('Genre')}}</div>
             @yield('song/s')
-            <div class="basis-1/5 text-center py-3 bg-white @yield('step4')">Subir</div>
+            <div class="basis-1/5 text-center py-3 bg-white @yield('step4')">{{__('Upload')}}</div>
         </div> <!-- Progress bar -->
     </div>
 
@@ -78,7 +78,7 @@
         </form>
         @error('imagen')
             <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
-                La imagen es obligatoria.</p>
+                {{__('The image is obligatory.')}}</p>
         @enderror
 
         <div>
@@ -89,8 +89,7 @@
                     <input type="hidden" name="imagen" value="{{ old('imagen') }}" />
                 </div>
                 <p class="text-red-500 mb-5 text-center md:text-right block font-semibold text-sm"><span class="inline"><img
-                            src="{{ asset('assets/icons/errorIcon.png') }}" class="h-4 inline m-2"> Al darle siguiente no
-                        podras editar la portada </span></p>
+                            src="{{ asset('assets/icons/errorIcon.png') }}" class="h-4 inline m-2">{{__('The next time you will not be able to edit the cover')}} </span></p>
 
                 <input type="submit" value="Siguiente"
                     class="submit-bttn  bg-teal-500 transition-colors cursor-pointer uppercase font-bold w-full p-3  text-white rounded-lg" />

@@ -1,7 +1,7 @@
 @extends('layouts.shape1')
 
 @section('title')
-    Subiendo un álbum
+{{__('Uploading an album')}}
 @endsection
 
 @section('css')
@@ -57,12 +57,12 @@
     <div class="p-10 overflow-hidden">
         <div
             class="flex my-0 mx-auto  sm:w-full sm:flex-row flex-col w-3/4  rounded-xl shadow overflow-hidden font-semibold">
-            <div class="basis-1/5 text-center py-3 bg-white @yield('step1')">Imagen</div>
+            <div class="basis-1/5 text-center py-3 bg-white @yield('step1')">{{__('Image')}}</div>
             {{-- @yield('step') --}}
-            <div class="basis-1/5 text-center py-3 bg-white @yield('step2')">Título</div>
-            <div class="basis-1/5 text-center py-3 bg-white @yield('step3')">Género</div>
+            <div class="basis-1/5 text-center py-3 bg-white @yield('step2')">{{__('Title')}}</div>
+            <div class="basis-1/5 text-center py-3 bg-white @yield('step3')">{{__('Genre')}}</div>
             @yield('song/s')
-            <div class="basis-1/5 text-center py-3 bg-white @yield('step4')">Subir</div>
+            <div class="basis-1/5 text-center py-3 bg-white @yield('step4')">{{__('Upload')}}</div> 
         </div> <!-- Progress bar -->
     </div>
 

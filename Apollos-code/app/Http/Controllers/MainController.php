@@ -123,6 +123,14 @@ class MainController extends Controller
             'F_Albums' => $Myalbums,
         ]);
     }
+
+    // public function store_2(Request $request){
+    //     $buscarpor=$request->get('buscarpor');
+    //     $resultados=User::where('name', 'like', '%'.$buscarpor.'%')->get();
+    //     return view('search.index', with('name','buscarpor' ));
+    // }
+
+
 }
 
 // Referencia: https://www.tutsmake.com/how-to-get-random-records-in-laravel/

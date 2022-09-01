@@ -121,10 +121,13 @@ class User extends Authenticatable
         return $this->belongsToMany(User::class, 'followers', 'follower_id', 'user_id');
     }
 
-    // Comprobrar si un usuario ya sigue a otro
+    // MÉTODOS ===============================
+
+    // Válidación
     public function siguiendo(User $user)
     {
-        // Acceder al método followers y comprobar si ya esta el registro en toda su colección
-        return $this->followers->contains($user->id);
+        // La asociación con la tabla likes, permite verificar el contenido
+        $Flag = Follower::where([['user_id', $user->id], ['follower_id', auth()->user()->id]])->exists();
+        return $Flag;
     }
 }

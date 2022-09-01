@@ -26,7 +26,7 @@
                 <ul class="opciones text-2xl font-cuerpo desktop_2:text-xl">
                     <li class="opcion active-opcion" id="op1">{{ __('Favorites') }}</li>
                     <li class="opcion albums-opcion remove" id="op2">Albums</li>
-                    <li class="opcion artistas-opcion remove" id="op3">{{ __('Artist') }}</li>
+                    <li class="opcion artistas-opcion remove" id="op3">{{ __('Artists') }}</li>
                     <li class="opcion favoritos-opcion remove hidden" id="op4">Favoritos</li>
                 </ul>
 

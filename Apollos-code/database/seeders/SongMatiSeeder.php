@@ -19,7 +19,7 @@ class SongMatiSeeder extends Seeder
         $bbnoSencillo1 = new Song();
         $bbnoSencillo1->album_id = 1;
         $bbnoSencillo1->sencillo = true;
-        $bbnoSencillo1->name_song = 'Help Herlsef';
+        $bbnoSencillo1->name_song = 'Help Herself';
         $bbnoSencillo1->time = '3:09';
         $bbnoSencillo1->genre = 'hip hop';
         $bbnoSencillo1->url = 'af9d899e-0e53-43e5-a069-49b9e757c8f0.mp3';

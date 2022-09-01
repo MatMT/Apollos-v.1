@@ -46,7 +46,7 @@
 
                     <h2 class="text-white text-2xl font-bold">{{ __('Albums as you like them') }}</h2>
 
-                    <div class="contenedor-principal slider-2">
+                    <div class="contenedor-principal">
 
                         <button rolle="button" id="flecha-izquierda"><i class="fi fi-rr-angle-left"></i></button>
 
@@ -100,18 +100,18 @@
 
                 <h2 class="text-white text-2xl font-bold">{{ __('Artist would you like it') }}</h2>
 
-                <div class="contenedor-principal slider-2">
+                <div class="contenedor-principal ">
 
-                    <button rolle="button" id="flecha-izquierda"><i class="fi fi-rr-angle-left"></i></button>
+                    <button rolle="button" id="flecha-izquierda-2"><i class="fi fi-rr-angle-left"></i></button>
 
-                    <div class="contenedor-carousel artistas">
+                    <div class="contenedor-carousel slider-2 artistas">
 
                         <!--contenedor-carousel --->
 
                         <div class="carousel">
 
                             @foreach ($artists as $user)
-                                <div class="card drop-shadow-xl">
+                                <div class="card card-2 drop-shadow-xl">
                                     <a href="{{ route('profile.index', $user->name_artist) }}">
                                         <div class="imagen">
                                             <img src="{{ asset('storage') . '/uploads/pfp/' . $user->image }}"
@@ -134,7 +134,7 @@
                     </div>
 
 
-                    <button rolle="button" id="flecha-derecha"><i class="fi fi-rr-angle-right"></i></button>
+                    <button rolle="button" id="flecha-derecha-2"><i class="fi fi-rr-angle-right"></i></button>
 
 
                 </div>
@@ -142,6 +142,8 @@
             </div>
 
             <!--contenedor-carousel NUEVOS ARTISTAS --->
+
+
             <div class="main-content text-white anim">
 
                 {{-- NUEVOS ARTISTAS --}}
@@ -149,17 +151,17 @@
                     <div>
                         <h2 class="text-white text-2xl font-bold">{{ __('Your Artists') }}</h2>
 
-                        <div class="contenedor-principal slider-1">
+                        <div class="contenedor-principal ">
 
-                            <button rolle="button" id="flecha-izquierda"><i class="fi fi-rr-angle-left"></i></button>
+                            <button rolle="button" id="flecha-izquierda-3"><i class="fi fi-rr-angle-left"></i></button>
 
-                            <div class="contenedor-carousel artistas">
+                            <div class="contenedor-carousel slider-3 artistas">
 
                                 <!-- carousel con Datos Volatiles-->
                                 <div class="carousel">
 
                                     @foreach ($new_artists as $user)
-                                        <div class="card drop-shadow-xl">
+                                        <div class="card card-3 drop-shadow-xl">
                                             <a href="{{ route('profile.index', $user->name_artist) }}">
                                                 <div class="imagen">
                                                     <img src="{{ asset('storage') . '/uploads/pfp/' . $user->image }}"
@@ -181,7 +183,7 @@
                                 <!--contenedor-carousel --->
                             </div>
 
-                            <button rolle="button" id="flecha-derecha"><i class="fi fi-rr-angle-right"></i></button>
+                            <button rolle="button" id="flecha-derecha-3"><i class="fi fi-rr-angle-right"></i></button>
 
                         </div>
                     </div>

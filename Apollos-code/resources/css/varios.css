@@ -1,0 +1,370 @@
+:root{
+    /*Paleta de colores Apollos*/
+
+    --morado-apl: #262455;
+    --fucsia-apl: #700353;
+    --rosado-apl: #ff0054;
+    --naranja-apl: #ff5c0a;
+    --amarillo-apl: #ffce47;
+}
+/*------- -------- ----- ----- titilo de la pLAYLIST*/
+
+.info-play-list{
+    display: flex;
+    width: 100%;
+    max-height: 350px;
+    align-items: center;
+    margin-top: 30px;
+    
+}
+
+.img-play-list{
+    width: 30%;
+    max-width: 250px;
+    min-width: 238px;
+    max-height: 250px;
+    min-height: 250px;
+    padding: 20px;
+    margin-right: 50px;
+    background-color: #66666634;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.342);
+    
+}
+
+.img-play-list img{
+    width: 75%;
+}
+
+
+
+/* boton escuchar playlist */
+
+.play-list-btm {
+    width: 175px;
+    height: 46px;
+    margin: 20px 5px;
+    border: white 1px solid;
+    border-radius: 10px;
+    transition: 0.4s all ease;
+}
+.play-list-btm:hover {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+}
+
+
+/*----------------------- Lista de repoducción */
+
+.play-list-container{
+    width: 100%;
+    padding: 10px;
+    padding-bottom: 40px;
+    margin-bottom: 50px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.37);
+}
+
+.songs-list{
+    width: 100%; /* Este contenedor adquiere el tamaño de su padre*/
+
+}
+
+/*--- Fila de la tabla -----*/
+
+.fila-hight-v {
+    width: 100%;
+    height: 42px;
+    min-height: 38px;
+    max-height: 50px;
+    padding: 5px;
+    transition: 0.1s ease-in-out;
+
+}
+
+
+.fila-hight-v .num-song {
+    width: 70px;
+    text-align: center;
+}
+
+.fila-hight-v .picture-song {
+    width: 12%;
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+.fila-hight-v .name-song {
+    padding-left: 10px;
+    width: calc(100% - (70px + 25% + 125px + 12%));
+}
+.fila-hight-v .artists-song {
+    width: 25%;
+}
+
+.fila-hight-v .dur-song {
+    width: 125px;
+    text-align: center;
+    font-size: 16px;
+}
+
+/*Linea blanca*/
+
+.line-table{
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    opacity: 0.5;
+    margin-bottom: 35px;
+}
+
+/*Contenido de la lista*/
+
+.fila-content-v {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    margin: 5px auto;
+    padding: 5px 0px;
+    transition: 0.1s ease-in-out;
+}
+.fila-content-v:hover {
+    background-color: rgba(255, 255, 255, 0.158);
+}
+
+
+.fila-content-v div {
+    cursor: default;
+}
+
+.fila-content-v .num-song {
+    width: 70px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.fila-content-v .picture-song {
+    width: 12%;
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+.fila-content-v .name-song {
+    display: flex;
+    padding-left: 20px;
+    width: calc(100% - (70px + 35% + 125px + 12%));
+    min-width: 300px;
+    color: white;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+.fila-content-v .name-song span {
+    display: block;
+}
+.fila-content-v .name-song i {
+    opacity: 0;
+    margin-top: 2px;
+    transition: 0.2s ease;
+    margin-left: 20px;
+}
+
+.fila-content-v i {
+    opacity: 1;
+    font-weight: 100;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.fila-content-v .name-song i:hover {
+    opacity: 0.8;
+}
+
+.fila-content-v .name-song .fi {
+    text-align: left;
+}
+
+.fila-content-v .artists-song {
+    width: 35%;
+    color: white;
+    font-weight: 300;
+    opacity: 0.5;
+}
+
+.fila-content-v .dur-song {
+    width: 125px;
+    text-align: center;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
+/*----- Area de buscar canciones para la playList*/
+
+.form-buscador{
+    width: 60%;
+    margin-top: 20px;
+    padding: 15px;
+}
+
+.form-buscador .input-b{
+    color: rgba(255, 255, 255, 0.8);
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: rgb(68, 68, 68);
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+.form-buscador input{
+    background-color: transparent;
+    margin-left: 10px;
+    width: 100%;
+    outline: none;
+}
+
+.form-buscador input::placeholder{
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+
+/* Resultado de busquedsa y sugerencias */
+
+
+.list-songs-choose{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    margin: 40px 20px;
+
+}
+
+/*Caciones encontradas */
+.song-found{
+    width: 40%;
+    min-width: 280px;
+    max-width: 330px;
+    display: flex;
+    padding: 5px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+}
+
+.song-found img{
+    width: 25%;
+    border-radius: 5px;
+}
+
+.song-found .info-song{
+    margin-right: 10px;    
+}
+
+.song-found button{
+    border: 1px solid white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    opacity: 0.7;
+
+    transition: 0.3s all ease;
+}
+
+.song-found button:hover{
+    opacity: 0.9;
+    background-color: white;
+    color: black;
+}
+
+
+
+/* ------ Responsive Desing ---------*/
+
+
+@media screen and (max-width: 658px){
+    .list-songs-choose{
+        justify-content: space-around;
+    }
+    .song-found{
+        width: 80%;
+        max-width: 100%;
+    }    
+}
+
+@media screen and (min-width: 1365px){
+    .section_1{
+        display: flex;
+        justify-content: space-between;
+    }
+
+
+    .buscar-cancion{
+        width: 30%;
+        margin-left: 40px;
+    }
+    
+    .form-buscador{
+        width: 100%;
+    }
+}
+
+
+/*Modificadores PLay list y Albums */
+
+.modify-list-a{
+    border-radius: 10px;
+    background-color: rgb(24, 24, 24);
+    padding: 20px;
+}
+
+.modify-list-a form{
+    width: 100%;
+}
+
+.img-send{
+    width: 100%;
+}
+
+.img-send .img-play-list{
+    max-width: 250px;
+    min-width: 200px;
+    max-height: 250px;
+    min-height: 200px;
+
+    margin: 0px auto;
+}
+
+.modify-info{
+    width: 100%;
+}
+
+.modify-info input[type="text"]{
+    margin: 10px auto;
+    padding: 10px;
+    padding-left: 0%;
+    color: var(--amarillo-apl);
+    display: block;
+    background-color: transparent;
+    outline: none;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.modify-info input[type="text"]::placeholder{
+    color: var(--amarillo-apl);
+    font-size: 25px;
+    text-align: center;
+}
+
+.modify-info input[type="text"]:focus{
+    border-bottom: 1px solid var(--amarillo-apl);
+}
+

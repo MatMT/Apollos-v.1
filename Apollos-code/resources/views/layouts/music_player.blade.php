@@ -1,6 +1,3 @@
-{{-- Plantilla de reproductor --}}
-@extends('layouts.music_player')
-
 @extends('layouts.shape1')
 
 @section('title')
@@ -52,7 +49,8 @@
             </div>
 
             {{-- COMPONENTE DE LISTA --}}
-            <x-lista-songs :othersongs="$OtherSongs" :user="$user" />
+            @yield('component_player')
+
         </div>
     </div>
 
@@ -60,7 +58,7 @@
 
     <div class="p-1.5 md:flex justify-center items-center">
         <div class="w-full md:w-1/6">
-            <span class="font-bold block text-center">{{ $user->name }}</span>
+            <span class="font-bold block text-center">{{ $song->InfoArtista($song)->username }}</span>
             {{-- Librería "Carbon" que formatea fechas --}}
             <p class="text-sm text-center text-gray-500 font-cuerpo"> {{ $song->created_at->diffForHumans() }}</p>
         </div> <!-- Información -->
@@ -86,47 +84,16 @@
 
 
             <div class="p-3 w-full md:w-1/4 justify-center items-center gap-3 bg-white">
-                @auth
-                    @if ($song->checkLike(auth()->user()))
-                        <form action="{{ route('song.likes.destroy', $song) }}" method="POST">
-                            @method('DELETE')
-                            @csrf
-                            <div class="my-4">
-                                <button type="submit">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="black" viewBox="0 0 24 24"
-                                        stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                                    </svg>
-                                </button>
-                            </div> <!-- Botón -->
-                        </form> <!-- YA en favoritos -->
-                    @else
-                        <form action="{{ route('song.likes.store', $song) }}" method="POST">
-                            @csrf
-                            <div class="my-4">
-                                <button type="submit">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                                        stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                                    </svg>
-                                </button>
-                            </div> <!-- Botón -->
-                        </form> <!-- Agregar a favoritos -->
-                    @endif
-                @endauth
 
-                <p class="font-bold text-center text-sm">
-                    {{ $song->likes->count() }} <span class="font-normal"> Likes </span>
-                </p>
+                {{-- COMPONENTE DE LIVEWIRE --}}
+                {{-- <livewire:like-song :song="$song" /> --}}
             </div> <!-- Favoritos -->
         </div> <!-- Reproductor -->
 
         <!-- Edición/Eliminación -->
 
         @auth {{-- Autentificado --}}
-            @if ($user->id == auth()->user()->id)
+            @if ($song->InfoArtista($song)->username == auth()->user()->id)
                 {{-- Artista dueño de la canción --}}
                 <div class="1/6 flex justify-center items-center gap-2">
                     {{-- Editar album --}}

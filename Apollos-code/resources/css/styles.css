@@ -274,7 +274,7 @@ header.sticky {
     right: 0%;
     z-index: 500;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     color: white;
 

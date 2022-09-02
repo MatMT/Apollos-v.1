@@ -17,7 +17,7 @@ class Buscador extends Component
     public function BuscarDatosForm()
     {
         // Emito el evento para el padre
-        $this->emit('terminoBusqueda', $this->termino, $this->usuarios, $this->canciones, $this->albums);
+        $this->emit('terminoBusquedaGeneral', $this->termino, $this->usuarios, $this->canciones, $this->albums);
     }
 
     public function render()

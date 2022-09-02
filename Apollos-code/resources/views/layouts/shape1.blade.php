@@ -253,5 +253,4 @@
 @vite('resources/js/menu.js')
 @vite('resources/js/popup-buscador.js')
 
-
 </html>

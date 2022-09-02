@@ -23,31 +23,51 @@
                     @endphp
 
                     @foreach ($songs as $song)
-                        @php
-                            $i++;
-                        @endphp
-                        <div class="song-found">
-                            <img src="{{ asset('storage') . '/uploads/imagenes/' . $song->image }}"
-                                alt="Imagen de {{ $song->name_song }}">
-                            <div class="info-song">
-                                <p class="text-lg font-bold max-w-[114px] min-w-[110px] max-h-[56px]">
-                                    {{ $song->name_song }}</p>
-                                <p class="font-light opacity-70 max-w-[114px]  max-h-[28px]">
-                                    {{ $song->name_song }}
-                                </p>
-                            </div>
+                        @if (!$song->AlreadyAdded($song->id))
+                            @php
+                                $i++;
+                            @endphp
+                            <div class="song-found">
+                                <img src="{{ asset('storage') . '/uploads/imagenes/' . $song->image }}"
+                                    alt="Imagen de {{ $song->name_song }}">
+                                <div class="info-song">
+                                    <p class="text-sm font-bold max-w-[114px] min-w-[110px] max-h-[56px]">
+                                        {{ $song->name_song }}</p>
+                                    <p class="font-light opacity-70 max-w-[114px]  max-h-[28px] text-sm">
+                                        {{ $song->sencillo ? 'Sencillo' : 'Álbum' }}
+                                    </p>
+                                </div>
 
-                            @if ($song->AlreadyAdded($song))
-                                <button class="font-cuerpo" id="ButtonId_{{ $i }}">Añadida</button>
-                            @else
                                 <button class="font-cuerpo" id="ButtonId_{{ $i }}">Añadir</button>
-                            @endif
+                            </div>
+                        @endif
+                    @endforeach
 
-                        </div>
+
+                    @foreach ($songs as $song)
+                        @if ($song->AlreadyAdded($song->id))
+                            <div class="line w-full h-0.5 bg-white mt-5 mb-5"></div>
+
+                            @php
+                                $i++;
+                            @endphp
+                            <div class="song-found">
+                                <img src="{{ asset('storage') . '/uploads/imagenes/' . $song->image }}"
+                                    alt="Imagen de {{ $song->name_song }}">
+                                <div class="info-song">
+                                    <p class="text-sm font-bold max-w-[114px] min-w-[110px] max-h-[56px]">
+                                        {{ $song->name_song }}</p>
+                                    <p class="font-light opacity-70 max-w-[114px]  max-h-[28px]">
+                                        {{ $song->sencillo ? 'Sencillo' : 'Álbum' }}
+                                    </p>
+                                </div>
+
+                                <button class="font-cuerpo" id="ButtonId_{{ $i }}">Añadida</button>
+                            </div>
+                        @endif
                     @endforeach
                 </div>
 
             </div>
-            <div class="line h-px w-full bg-white opacity-25 rounded"></div>
         </div>
 </div>

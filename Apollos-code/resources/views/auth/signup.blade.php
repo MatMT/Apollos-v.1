@@ -97,20 +97,21 @@
 
                                 <div class="input-container">
                                     <span class="icon"><img src="{{ asset('assets/icons/starIconWht.png') }}"></span>
-                                    <select name="user_type" id="user-type" form="registroForm"
-                                        class="form-input text-gray-600">
+                                    <select name="user_type" id="user-type" form="registroForm" class="form-input">
                                         <option value="" selected disabled> Selecciona el tipo de cuenta </option>
-                                        <option value="user" {{ old('user_type') == 'user' ? 'selected' : '' }}>
+                                        <option value="user" {{ old('user_type') == 'user' ? 'selected' : '' }}
+                                            class="text-gray-800">
                                             Usuario</option>
-                                        <option value="artist" {{ old('user_type') == 'artist' ? 'selected' : '' }}>
+                                        <option value="artist" {{ old('user_type') == 'artist' ? 'selected' : '' }}
+                                            class="text-gray-800">
                                             Artista</option>
                                     </select>
                                 </div> {{-- input-container --}}
 
                                 <div class="gender-container">
-                                    <label class="block font-titulo font-bold text-base">Género</label>
+                                    <label class="block font-titulo font-bold text-base text-center">Género</label>
 
-                                    <div class="gender-style flex items-center justify-center border-r-0">
+                                    <div class="gender-style flex items-center justify-center mt-3 border-r-0">
 
                                         <div class="rad-cont">
                                             <input type="radio" name="gender" value="male" class='radio'

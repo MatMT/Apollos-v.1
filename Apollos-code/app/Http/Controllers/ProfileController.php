@@ -50,20 +50,20 @@ class ProfileController extends Controller
         // CONTADOR DISPLAYLIST ===
         $displayList = 0;
 
-        if ($user->rol <> 'artist') {
-            return view('Artist', []);
-        } else {
-            // Mostramos vista y devolvemos datos con las llaves 
-            return view('profile', [
-                // VARIABLES ====
-                'user' => $user,
-                'albums' => $albums,
-                'CounterSongs' => $counterSongs,
-                'sencillos' => $sencillos,
-                'HaySencillos' => $IfSencillos,
-                'displayList' => $displayList
-            ]);
-        }
+        // if ($user->rol <> 'artist') {
+        //     return view('profile', []);
+        // } else {
+        // Mostramos vista y devolvemos datos con las llaves 
+        return view('profile', [
+            // VARIABLES ====
+            'user' => $user,
+            'albums' => $albums,
+            'CounterSongs' => $counterSongs,
+            'sencillos' => $sencillos,
+            'HaySencillos' => $IfSencillos,
+            'displayList' => $displayList
+        ]);
+        // }
     }
 
     // SUBIR CANCIÓN ==========

@@ -1,7 +1,7 @@
 @extends('layouts.shape1')
 
 @section('title')
-{{__('Uploading an sinlge')}}
+    {{ __('Uploading an sinlge') }}
 @endsection
 
 @section('js')
@@ -43,7 +43,7 @@
 @endsection
 
 @section('content')
-    <h1 class='text-white font-titulo text-3xl font-bold mt-12 mb-2 anim2 w-full text-center px-10'>{{__('Upload a Song')}}
+    <h1 class='text-white font-titulo text-3xl font-bold mt-12 mb-2 anim2 w-full text-center px-10'>{{ __('Upload a Song') }}
     </h1>
     <div class="md:flex md:items-center flex justify-center items-center h-4/6 px-10">
 
@@ -57,7 +57,7 @@
 
                 @error('imagen')
                     <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
-                        {{__('The image is obligatory.')}}</p>
+                        {{ __('The image is obligatory.') }}</p>
                 @enderror
 
             </div> <!-- Imagen -->
@@ -71,10 +71,11 @@
 
                 @error('song')
                     <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
-                        {{__('The song is obligatory.')}}</p>
+                        {{ __('The song is obligatory.') }}</p>
                 @enderror
                 <p class="p-2 text-red-500 text-right font-semibold"><span class="inline"><img
-                            src="{{ asset('assets/icons/errorIcon.png') }}" class="h-4 inline m-2"> {{__('6mb per song maximum')}}
+                            src="{{ asset('assets/icons/errorIcon.png') }}" class="h-4 inline m-2">
+                        {{ __('6mb per song maximum') }}
 
                     </span></p>
             </div> <!-- .Mp3 -->
@@ -82,7 +83,7 @@
         </div> <!-- Subir archivos -->
 
         <div class="song-info-inputs md:w-1/2 p-10 bg-white rounded-lg shadow mt-10 md:mt-0 text-gray-800">
-            <form action="{{ route('data.store') }}" method="POST" id="song_up" novalidate>
+            <form action="{{ route('data.store') }}" method="POST" id="song_up" novalidate autocomplete="off">
                 @csrf
                 <!-- Token de imagen -->
                 <div class="mb-5">

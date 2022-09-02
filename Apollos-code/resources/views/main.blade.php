@@ -149,7 +149,7 @@
                 {{-- NUEVOS ARTISTAS --}}
                 @if ($new_artists->count())
                     <div>
-                        <h2 class="text-white text-2xl font-bold">{{ __('Your Artists') }}</h2>
+                        <h2 class="text-white text-2xl font-bold">{{ __('¡New users in Apollos!') }}</h2>
 
                         <div class="contenedor-principal ">
 

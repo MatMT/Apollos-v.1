@@ -35,129 +35,137 @@
     <div class="flex justify-around pb-20">
 
         <div class="contenedores">
-            <h1 class='public-albums text-white font-titulo text-3xl font-bold mb-5 anim2'>{{ __('Published albums') }}
-            </h1>
-            <div class="box-1 active anim2" id="caja-1">
-                <div class="content flex items-center justify-center">
+            @if ($user->rol == 'artist')
+                <h1 class='public-albums text-white font-titulo text-3xl font-bold mb-5 anim2'>{{ __('Published albums') }}
+                </h1>
+                <div class="box-1 active anim2" id="caja-1">
+                    <div class="content flex items-center justify-center">
 
-                    @if ($albums->count())
-                        @foreach ($albums as $album)
-                            <div class="playList">
-                                <!-- LINK -->
-                                {{-- Se mapea automaticamente la ruta por cada song en su url --}}
-                                <a href="{{ route('album.index', ['user' => $user->name_artist, 'album' => $album->id]) }}">
-                                    <!-- IMG -->
-                                    <img src="{{ asset('storage') . '/uploads/imagenes/' . $album->image }}"
-                                        alt="Imagen del album {{ $album->name_album }}">
-
-                                    <h2 class="font-cuerpo font-bold mt-4 text-lg text-center">{{ $album->name_album }}
-                                    </h2>
-                                </a>
-                            </div>
-                        @endforeach
-                    @else
-                        <div class="song-container-tabs mt-2 mb-5 leading-3">
-                            <span class="disc-ico"><img src="{{ asset('assets/icons/discBrokenWht.png') }}"></span>
-                            <h1 class='text-white font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>
-                                {{ auth()->user()->name == $user->name ? '¡Sube tu primer álbum!' : 'Todavía no sube contenido...' }}
-                            </h1>
-                            <h1 class='if-subtitle text-slate-500 font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>
-                                {{ auth()->user()->name == $user->name ? 'Y muestra tu talento ' : '¡Espera su primer álbum!' }}
-                            </h1>
-                        </div>
-                    @endif
-                </div>
-            </div>
-
-            <!-- ============================================================================== -->
-            <h1 class='public-songs text-white font-titulo text-3xl font-bold mb-5 anim2'>{{ __('Published songs') }}</h1>
-
-            <div class="box-2 active anim2" id="caja-2">
-                <div class="content">
-                    <div class="song-list-container ">
-
-                        @if ($HaySencillos && $sencillos->count())
-                            <div class="song-container-tabs flex items-center justify-center mt-2 mb-5">
-                                <div
-                                    class="song-info-tab inline-flex items-center justify-center pb-2 border-b border-white">
-                                    <h1 class="id-song-tab opacity-70"> # </h1>
-                                    <span class="song-pic-tab opacity-70"><img
-                                            src='{{ asset('assets/icons/imageIconWht.png') }}'></span>
-                                    <span class="title-author-tab">
-                                        <h1 class="song-title text-center opacity-70">Nombre de la canción</h1>
-                                    </span>
-                                    <h1 class='counter-time-tab text-center opacity-70'><img
-                                            src='{{ asset('assets/icons/timerIconWht.png') }}'></h1>
-                                    <h1 class='likes-tab text-center opacity-70'>Me gusta</h1>
-                                </div>
-                            </div>
-                            @foreach ($sencillos as $sencillo)
-                                <div class="song-container flex items-center justify-center mt-2">
+                        @if ($albums->count())
+                            @foreach ($albums as $album)
+                                <div class="playList">
+                                    <!-- LINK -->
                                     {{-- Se mapea automaticamente la ruta por cada song en su url --}}
-                                    <a class="song-info inline-flex items-center justify-center"
-                                        href="{{ route('song.show', ['song' => $sencillo, 'user' => $user]) }}">
-                                        <div class="song-info inline-flex items-center justify-center">
-                                            <h1 class="id-song">{{ $displayList = $displayList + 1 }}</h1>
-                                            <span class="song-pic"><img
-                                                    src="{{ asset('storage') . '/uploads/imagenes/' . $sencillo->image }}"></span>
-                                            <span class="title-author">
-                                                <h1 class="song-title font-bold text-center">{{ $sencillo->name_song }}
-                                                </h1>
-                                            </span>
-                                            <h1 class='counter-time text-center'>{{ $sencillo->time }}</h1>
-                                            <h1 class='likes text-center'>{{ $sencillo->likes->count() }}</h1>
-                                            {{-- FAVORITOS --}}
-                                            @if ($sencillo->checkLike(auth()->user()))
-                                                <form action="{{ route('song.likes.destroy', $sencillo) }}" method="POST">
-                                                    @method('DELETE')
-                                                    @csrf
-                                                    <div class="my-4">
-                                                        <button type="submit">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6"
-                                                                fill="white" viewBox="0 0 24 24" stroke="currentColor"
-                                                                stroke-width="2">
-                                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                                                            </svg>
-                                                        </button>
-                                                    </div> <!-- Botón -->
-                                                </form> <!-- YA en favoritos -->
-                                            @else
-                                                <form action="{{ route('song.likes.store', $sencillo) }}" method="POST">
-                                                    @csrf
-                                                    <div class="my-4">
-                                                        <button type="submit">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6"
-                                                                fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                                                stroke-width="2">
-                                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                                                            </svg>
-                                                        </button>
-                                                    </div> <!-- Botón -->
-                                                </form> <!-- Agregar a favoritos -->
-                                            @endif
-                                        </div>
+                                    <a
+                                        href="{{ route('album.index', ['user' => $user->name_artist, 'album' => $album->id]) }}">
+                                        <!-- IMG -->
+                                        <img src="{{ asset('storage') . '/uploads/imagenes/' . $album->image }}"
+                                            alt="Imagen del album {{ $album->name_album }}">
+
+                                        <h2 class="font-cuerpo font-bold mt-4 text-lg text-center">{{ $album->name_album }}
+                                        </h2>
                                     </a>
                                 </div>
                             @endforeach
                         @else
-                            <div class="content flex items-center justify-center">
-                                <div class="song-container-tabs mt-2 mb-5 leading-3">
-                                    <span class="disc-ico"><img src="{{ asset('assets/icons/discBrokenWht.png') }}"></span>
-                                    <h1 class='text-white font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>
-                                        {{ auth()->user()->name == $user->name ? '¡Sube tu primera canción!' : 'Todavía no sube contenido...' }}
-                                    </h1>
-                                    <h1
-                                        class='if-subtitle text-slate-500 font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>
-                                        {{ auth()->user()->name == $user->name ? 'Y muestra tu talento ' : '¡Espera su primera canción!' }}
-                                    </h1>
-                                </div>
+                            <div class="song-container-tabs mt-2 mb-5 leading-3">
+                                <span class="disc-ico"><img src="{{ asset('assets/icons/discBrokenWht.png') }}"></span>
+                                <h1 class='text-white font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>
+                                    {{ auth()->user()->name == $user->name ? '¡Sube tu primer álbum!' : 'Todavía no sube contenido...' }}
+                                </h1>
+                                <h1
+                                    class='if-subtitle text-slate-500 font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>
+                                    {{ auth()->user()->name == $user->name ? 'Y muestra tu talento ' : '¡Espera su primer álbum!' }}
+                                </h1>
                             </div>
                         @endif
                     </div>
+                    <!-- ============================================================================== -->
+
                 </div>
-            </div>
+                <h1 class='public-songs text-white font-titulo text-3xl font-bold mb-5 anim2'>{{ __('Published songs') }}
+                </h1>
+
+                <div class="box-2 active anim2" id="caja-2">
+                    <div class="content">
+                        <div class="song-list-container ">
+
+                            @if ($HaySencillos && $sencillos->count())
+                                <div class="song-container-tabs flex items-center justify-center mt-2 mb-5">
+                                    <div
+                                        class="song-info-tab inline-flex items-center justify-center pb-2 border-b border-white">
+                                        <h1 class="id-song-tab opacity-70"> # </h1>
+                                        <span class="song-pic-tab opacity-70"><img
+                                                src='{{ asset('assets/icons/imageIconWht.png') }}'></span>
+                                        <span class="title-author-tab">
+                                            <h1 class="song-title text-center opacity-70">Nombre de la canción</h1>
+                                        </span>
+                                        <h1 class='counter-time-tab text-center opacity-70'><img
+                                                src='{{ asset('assets/icons/timerIconWht.png') }}'></h1>
+                                        <h1 class='likes-tab text-center opacity-70'>Me gusta</h1>
+                                    </div>
+                                </div>
+                                @foreach ($sencillos as $sencillo)
+                                    <div class="song-container flex items-center justify-center mt-2">
+                                        {{-- Se mapea automaticamente la ruta por cada song en su url --}}
+                                        <a class="song-info inline-flex items-center justify-center"
+                                            href="{{ route('song.show', ['song' => $sencillo, 'user' => $user]) }}">
+                                            <div class="song-info inline-flex items-center justify-center">
+                                                <h1 class="id-song">{{ $displayList = $displayList + 1 }}</h1>
+                                                <span class="song-pic"><img
+                                                        src="{{ asset('storage') . '/uploads/imagenes/' . $sencillo->image }}"></span>
+                                                <span class="title-author">
+                                                    <h1 class="song-title font-bold text-center">{{ $sencillo->name_song }}
+                                                    </h1>
+                                                </span>
+                                                <h1 class='counter-time text-center'>{{ $sencillo->time }}</h1>
+                                                <h1 class='likes text-center'>{{ $sencillo->likes->count() }}</h1>
+                                                {{-- FAVORITOS --}}
+                                                @if ($sencillo->checkLike(auth()->user()))
+                                                    <form action="{{ route('song.likes.destroy', $sencillo) }}"
+                                                        method="POST">
+                                                        @method('DELETE')
+                                                        @csrf
+                                                        <div class="my-4">
+                                                            <button type="submit">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6"
+                                                                    fill="white" viewBox="0 0 24 24" stroke="currentColor"
+                                                                    stroke-width="2">
+                                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                                                </svg>
+                                                            </button>
+                                                        </div> <!-- Botón -->
+                                                    </form> <!-- YA en favoritos -->
+                                                @else
+                                                    <form action="{{ route('song.likes.store', $sencillo) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        <div class="my-4">
+                                                            <button type="submit">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6"
+                                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                                                    stroke-width="2">
+                                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                                                </svg>
+                                                            </button>
+                                                        </div> <!-- Botón -->
+                                                    </form> <!-- Agregar a favoritos -->
+                                                @endif
+                                            </div>
+                                        </a>
+                                    </div>
+                                @endforeach
+                            @else
+                                <div class="content flex items-center justify-center">
+                                    <div class="song-container-tabs mt-2 mb-5 leading-3">
+                                        <span class="disc-ico"><img
+                                                src="{{ asset('assets/icons/discBrokenWht.png') }}"></span>
+                                        <h1 class='text-white font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>
+                                            {{ auth()->user()->name == $user->name ? '¡Sube tu primera canción!' : 'Todavía no sube contenido...' }}
+                                        </h1>
+                                        <h1
+                                            class='if-subtitle text-slate-500 font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>
+                                            {{ auth()->user()->name == $user->name ? 'Y muestra tu talento ' : '¡Espera su primera canción!' }}
+                                        </h1>
+                                    </div>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            @endif
         </div>
     </div>
 @endsection

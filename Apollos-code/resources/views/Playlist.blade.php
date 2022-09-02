@@ -54,7 +54,7 @@
                                 <button class="play-list-btm font-cuerpo font-light text-xl">Escuchar</button>
                             </a>
                         @endif
-                        <i class="fi fi-rr-edit text-3xl mx-4 cursor-pointer" id="lapiz"></i>
+                        {{-- <i class="fi fi-rr-edit text-3xl mx-4 cursor-pointer" id="lapiz"></i> --}}
                     </div>
 
                 </div>
@@ -86,10 +86,9 @@
                             $i = 1;
                         @endphp
 
-
                         @if ($MySongs)
                             @foreach ($MySongs as $song)
-                                <div class="1/2">
+                                <div class="flex items-center justify-around">
                                     <a
                                         href="{{ route('song.playlist.show', ['playlist' => $MyPlaylist, 'song' => $song]) }}">
 
@@ -103,6 +102,19 @@
                                         </div>
 
                                     </a>
+                                    @foreach ($RegistSongs as $regist)
+                                        @if ($regist->song_id == $song->id)
+                                            <form
+                                                action="{{ route('playlist.song.destroy', ['regist' => $regist, 'song' => $song->id]) }}"
+                                                method="POST">
+                                                {{-- METODO SPOOFING - Laravel permite agregar otro tipo de peticiones --}}
+                                                @method('DELETE')
+                                                @csrf
+                                                <input type="submit" value="Eliminar canción" name="" id=""
+                                                    class="bg-red-500 hover:bg-red-600 p-2 rounded text-white font-bold cursor-pointer">
+                                            </form>
+                                        @endif
+                                    @endforeach
                                 </div>
                             @endforeach
                         @endif

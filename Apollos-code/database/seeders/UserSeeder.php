@@ -141,5 +141,22 @@ class UserSeeder extends Seeder
         $vini->birth_date = '2006-08-19';
         $vini->image = '3526eb1d-501a-4245-b33e-23823a3eee97.jpg';
         $vini->save();
+
+        $vini = new User();
+        $vini->name = 'Juan';
+        $vini->last_name = 'Escobar';
+        $vini->rol = 'artist';
+        $vini->email = 'juanpa@correo.com';
+        $vini->username = 'Juanzpa';
+        $vini->status = 'active';
+        $vini->age = '17';
+        $vini->password = Hash::make('1234');
+        $vini->created_at = now();
+        $vini->updated_at = now();
+        $vini->name_artist = 'matador';
+        $vini->gender = false;
+        $vini->birth_date = '2005-07-01';
+        $vini->image = '3526eb1d-501a-4245-b33e-23823a3eee97.jpg';
+        $vini->save(); 
     }
 }

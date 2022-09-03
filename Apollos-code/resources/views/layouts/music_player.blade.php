@@ -85,10 +85,17 @@
                 </div>
 
 
-                <div class="p-3 w-full md:w-1/4 justify-center items-center gap-3 bg-white">
+                <div class="p-3 w-full md:w-1/4 justify-center items-center gap-3 bg-white flex">
 
                     {{-- COMPONENTE DE LIVEWIRE --}}
                     <livewire:like-song :song="$ActuallySong" />
+                    {{-- REPORTAR CANCIÓN --}}
+                    {{-- {{ dd($ActuallySong) }} --}}
+                    <form action="{{ route('reportsong.index', ['user' => $user, 'song' => $ActuallySong]) }}"
+                        method="POST">
+                        @csrf
+                        <input type="submit" name="Reportar" value="Reportar" id="">
+                    </form>
                 </div> <!-- Favoritos -->
             </div> <!-- Reproductor -->
 

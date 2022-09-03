@@ -7,6 +7,8 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\AgeController;
+use App\Mail\RegistroApollos;
+use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
 {
@@ -24,7 +26,7 @@ class RegisterController extends Controller
             'email' => 'required|email|unique:users,email|max:50',
             'password' => 'required|min:4',
             'nacimiento' => 'required|date',
-            'usuario' => 'required|unique:users,name_artist|min:3|max:30',
+            'usuario' => 'required|unique:users|min:3|max:30',
         ]);
 
         // Modificar el Request
@@ -68,6 +70,9 @@ class RegisterController extends Controller
 
         // Autentificación
         auth()->attempt($request->only('email', 'password'));
+
+        // Enviar correo de registro
+        Mail::to($request->email)->send(new RegistroApollos());
 
         return redirect('home');
     }

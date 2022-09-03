@@ -18,7 +18,7 @@ class AlbumViniSeeder extends Seeder
         //       ====================== > Kanye West < ===========================
         // Kanye sencillo - Vini
         $KanyeWestSencillo = new Album();
-        $KanyeWestSencillo->user_id = 14;
+        $KanyeWestSencillo->user_id = 15;
         $KanyeWestSencillo->name_album = 'sencillos_kanye-west';
         $KanyeWestSencillo->sencillo = true;
         $KanyeWestSencillo->confirm = true;
@@ -27,7 +27,7 @@ class AlbumViniSeeder extends Seeder
         $KanyeWestSencillo->save();
         // Kanye Album - Vini
         $KanyeWestAlbum1 = new Album();
-        $KanyeWestAlbum1->user_id = 14;
+        $KanyeWestAlbum1->user_id = 15;
         $KanyeWestAlbum1->name_album = 'Graduation';
         $KanyeWestAlbum1->genre = 'pop';
         $KanyeWestAlbum1->image = 'c02eba96-1652-43e7-b2c0-037c59226522.jpg';
@@ -39,7 +39,7 @@ class AlbumViniSeeder extends Seeder
         $KanyeWestAlbum1->save();
 
         $KanyeWestAlbum2 = new Album();
-        $KanyeWestAlbum2->user_id = 14;
+        $KanyeWestAlbum2->user_id = 15;
         $KanyeWestAlbum2->name_album = 'The Life of Pablo';
         $KanyeWestAlbum2->genre = 'rap';
         $KanyeWestAlbum2->image = 'f8726b22-8466-49e2-97d0-dba48a82d2c7.jpg';
@@ -54,7 +54,7 @@ class AlbumViniSeeder extends Seeder
         //       ====================== > Tyler, The Creator < ===========================
         // Tyler sencillo - Vini
         $TylerCreatSencillo = new Album();
-        $TylerCreatSencillo->user_id = 13;
+        $TylerCreatSencillo->user_id = 14;
         $TylerCreatSencillo->name_album = 'sencillos_tyler-the-creator';
         $TylerCreatSencillo->sencillo = true;
         $TylerCreatSencillo->confirm = true;
@@ -63,7 +63,7 @@ class AlbumViniSeeder extends Seeder
         $TylerCreatSencillo->save();
         // Tyler Album - Vini
         $TylerCreatAlbum1 = new Album();
-        $TylerCreatAlbum1->user_id = 13;
+        $TylerCreatAlbum1->user_id = 14;
         $TylerCreatAlbum1->name_album = 'IGOR';
         $TylerCreatAlbum1->genre = 'pop';
         $TylerCreatAlbum1->image = 'bfb9eef1-f637-45aa-9e3d-9efa1560384f.jpg';
@@ -75,7 +75,7 @@ class AlbumViniSeeder extends Seeder
         $TylerCreatAlbum1->save();
 
         $TylerCreatAlbum2 = new Album();
-        $TylerCreatAlbum2->user_id = 13;
+        $TylerCreatAlbum2->user_id = 14;
         $TylerCreatAlbum2->name_album = 'Flower Boy';
         $TylerCreatAlbum2->genre = 'pop';
         $TylerCreatAlbum2->image = '98d69c06-5b4f-477d-825f-f4ed19fb1248.jpg';

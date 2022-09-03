@@ -17,7 +17,7 @@ class AlbumMatiSeeder extends Seeder
     {
         // bbno$ - MATI
         $bbnoSencillos = new Album();
-        $bbnoSencillos->user_id = 8;
+        $bbnoSencillos->user_id = 9;
         $bbnoSencillos->name_album = 'sencillos_bbno';
         $bbnoSencillos->sencillo = true;
         $bbnoSencillos->confirm = true;
@@ -26,7 +26,7 @@ class AlbumMatiSeeder extends Seeder
         $bbnoSencillos->save();
 
         $bbnoAlbum = new Album();
-        $bbnoAlbum->user_id = 8;
+        $bbnoAlbum->user_id = 9;
         $bbnoAlbum->name_album = 'Eat ya veggies';
         $bbnoAlbum->genre = 'hip hop';
         $bbnoAlbum->image = '53806cbc-650a-458d-a9ee-614725b5a427.jpg';
@@ -41,7 +41,7 @@ class AlbumMatiSeeder extends Seeder
 
         // Cuco - MATI
         $CucoSencillos = new Album();
-        $CucoSencillos->user_id = 9;
+        $CucoSencillos->user_id = 10;
         $CucoSencillos->name_album = 'sencillos_cuco';
         $CucoSencillos->sencillo = true;
         $CucoSencillos->confirm = true;
@@ -50,7 +50,7 @@ class AlbumMatiSeeder extends Seeder
         $CucoSencillos->save();
 
         $CucoAlbum = new Album();
-        $CucoAlbum->user_id = 9;
+        $CucoAlbum->user_id = 10;
         $CucoAlbum->name_album = 'Fantasy Gateway';
         $CucoAlbum->genre = 'indie';
         $CucoAlbum->image = '05a926af-5cda-4800-8138-441ae5bae12b.jpg';

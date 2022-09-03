@@ -70,7 +70,7 @@ class UserSeeder extends Seeder
         $aero->image = 'c3cf38c7-e997-4f50-864c-eb8e4f3e1719.jpg';
         $aero->save();
 
-        // Usuario Default - 3
+        // Usuario Default - 4
         $marjo = new User();
         $marjo->name = 'Marjori';
         $marjo->last_name = 'Arguera';
@@ -88,7 +88,7 @@ class UserSeeder extends Seeder
         $marjo->image = '9f2d5f6e-9c90-43ee-909a-b758a71fbd0e.jpg';
         $marjo->save();
 
-        // Usuario Default - 4
+        // Usuario Default - 5
         $album = new User();
         $album->name = 'Alvin';
         $album->last_name = 'Meléndez';
@@ -106,7 +106,7 @@ class UserSeeder extends Seeder
         $album->birth_date = '2005-11-9';
         $album->save();
 
-        // Usuario Default - 5
+        // Usuario Default - 6
         $vini = new User();
         $vini->name = 'Victor';
         $vini->last_name = 'García';
@@ -124,7 +124,7 @@ class UserSeeder extends Seeder
         $vini->image = 'b59ebcf0-af5f-4d07-ac15-82908ee86f1e.jpg';
         $vini->save();
 
-        // Usuario Default - 6
+        // Usuario Default - 7
         $vini = new User();
         $vini->name = 'Marcelo';
         $vini->last_name = 'Cruz';
@@ -142,6 +142,7 @@ class UserSeeder extends Seeder
         $vini->image = '3526eb1d-501a-4245-b33e-23823a3eee97.jpg';
         $vini->save();
 
+        // Usuario Default - 8
         $vini = new User();
         $vini->name = 'Juan';
         $vini->last_name = 'Escobar';
@@ -157,6 +158,6 @@ class UserSeeder extends Seeder
         $vini->gender = false;
         $vini->birth_date = '2005-07-01';
         $vini->image = '3526eb1d-501a-4245-b33e-23823a3eee97.jpg';
-        $vini->save(); 
+        $vini->save();
     }
 }

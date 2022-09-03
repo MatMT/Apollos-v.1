@@ -2,6 +2,8 @@
 
 namespace App\Mail;
 
+use App\Models\Song;
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -11,16 +13,20 @@ class ReportsongMailable extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $subject = "Alerta! Han reportado tu canción";
+    protected $user;
+    protected $song;
+
+    public $subject = "Alerta | Han reportado tu contenido";
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($user, $song)
     {
-        //
+        $this->user = User::where('id', $user->id)->first();
+        $this->song = Song::where('id', $song->id)->first();
     }
 
     /**
@@ -30,6 +36,6 @@ class ReportsongMailable extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.report');
+        return $this->view('emails.reportuser', ['song' => $this->song, 'user' => $this->user]);
     }
 }

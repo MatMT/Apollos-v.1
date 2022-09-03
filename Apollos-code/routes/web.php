@@ -196,4 +196,4 @@ Route::post('/usuario/user/settings/change/songs',  [SinglesSettingsController::
 
 
 // =============================== EMAIL DE REPORTE
-Route::post('/usuario/user/{user:name_artist}/report', [ReportController::class, 'reporter'])->name('reportsong.index');
+Route::post('/usuario/{user}/report/song/{song}', [ReportController::class, 'reporter'])->name('reportsong.index');

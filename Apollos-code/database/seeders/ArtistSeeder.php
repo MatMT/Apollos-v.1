@@ -15,7 +15,7 @@ class ArtistSeeder extends Seeder
      */
     public function run()
     {
-        // Artist Default - 8 - MATI
+        // Artist Default - 9 - MATI
         $bbno = new User();
         $bbno->name = 'Alexander';
         $bbno->last_name = 'Gumuchian';
@@ -33,7 +33,7 @@ class ArtistSeeder extends Seeder
         $bbno->image = 'a13a928a-5103-4a76-8b6d-96ca2c2d3c42.jpg';
         $bbno->save();
 
-        // Artist Default - 9 - MATI
+        // Artist Default - 10 - MATI
         $Cuco = new User();
         $Cuco->name = 'Omar';
         $Cuco->last_name = 'Banos';
@@ -51,7 +51,7 @@ class ArtistSeeder extends Seeder
         $Cuco->image = 'a077f7dd-82b0-4671-b000-eb51fb3a3846.jpg';
         $Cuco->save();
 
-        // Artist Default - 10 - AERO
+        // Artist Default - 11 - AERO
         $TamImp = new User();
         $TamImp->name = 'Kevin';
         $TamImp->last_name = 'Parker';
@@ -69,7 +69,7 @@ class ArtistSeeder extends Seeder
         $TamImp->image = 'b709b455-25e0-481c-8b48-da1203e2824e.jpg';
         $TamImp->save();
 
-        // Artist Default - 11 - AERO
+        // Artist Default - 12 - AERO
         $weeknd = new User();
         $weeknd->name = 'Abel';
         $weeknd->last_name = 'Makkonen';
@@ -87,7 +87,7 @@ class ArtistSeeder extends Seeder
         $weeknd->image = '8e17d442-457f-4324-99e3-b8afcff89a6c.jpg';
         $weeknd->save();
 
-        // Artist Default - 12 - AERO
+        // Artist Default - 13 - AERO
         $javithor = new User();
         $javithor->name = 'Javier';
         $javithor->last_name = 'Mejía';
@@ -105,7 +105,7 @@ class ArtistSeeder extends Seeder
         $javithor->birth_date = '2004-11-15';
         $javithor->save();
 
-        // Artist Default - 13 - VINI
+        // Artist Default - 14 - VINI
         $tylercreat = new User();
         $tylercreat->name = 'Tyler';
         $tylercreat->last_name = 'Okonma';
@@ -123,7 +123,7 @@ class ArtistSeeder extends Seeder
         $tylercreat->image = 'd90a2013-a0d6-4775-b8e4-b63c245bc6cd.jpg';
         $tylercreat->save();
 
-        // Artist Default - 14 - VINI
+        // Artist Default - 15 - VINI
         $kanyewest = new User();
         $kanyewest->name = 'YE';
         $kanyewest->last_name = 'WEST';

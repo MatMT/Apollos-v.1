@@ -353,6 +353,136 @@ header.sticky {
     width: 100%;
     margin: 25px 10px;
 }
+.divisor_titulo {
+    width: 95%;
+    padding: 10px;
+    padding-bottom: 40px;
+    margin-bottom: 50px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.37);
+    margin-left: auto;
+    margin-right: auto;
+}
+.text-white {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.font-bold {
+    font-weight: 700;
+}
+.text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+}
+.font-cuerpo {
+    font-family: Urbanist, sans-serif;
+}
+.contenedor-artista {
+    width: 95%;
+}
+.mini-contenedor {
+    width: 100%;
+    display: flex;
+    transition: 0.3s ease-in-out all;
+    flex-wrap: wrap;
+}
+.perfil_boton:hover {
+    background-color: rgba(255, 255, 255, 0.096);
+    transition: 0.1s ease-in-out;
+}
+.perfil_boton {
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    color: inherit;
+    text-decoration: inherit;
+    transition: 0.1s ease-in-out;
+}
+.artistas .imagen_pefil {
+    border-radius: 50%;
+}
+.imagen_pefil img{
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 10%;
+    width: 100px;
+    max-width: none;
+    border-radius: 50%;
+    transition: all .5s cubic-bezier(.45,.05,.55,.95);
+}
+.titulo_pefil {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 10%;
+    width: 100%;
+    text-align: left;
+    margin-top: 10px;
+    margin-left: 10px;
+    color: #fff;
+}
+.contenedor_lista{
+    color: white;
+    overflow: hidden;
+    overflow-y: auto;
+}
+.imagen_cancion{
+    padding: 1%;
+    margin-left: 10px;
+}
+.nombre_artista{
+    opacity: 0.6;
+    margin-left: 250px;
+}
+.sencillo{
+    margin-left: 200px;
+    opacity: 0.6;
+}
+.tiempo_cancion{
+    margin-left: 250px;
+}
+.nombre_cancion{
+    margin-left: 100px;
+}
+.cancion_todo {
+    width: 95%;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    margin: 5px auto;
+    transition: 0.1s ease-in-out;
+    margin-bottom: 10px;
+}
+.cancion_todo:hover {
+background-color: rgba(255, 255, 255, 0.096);
+    transition: 0.1s ease-in-out;
+}
+.album_todo{
+    width: 95%;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    margin: 5px auto;
+    transition: 0.1s ease-in-out;
+    margin-bottom: 10px;
+}
+.album_todo:hover{
+    background-color: rgba(255, 255, 255, 0.096);
+    transition: 0.1s ease-in-out;
+}
+.imagen_album{
+    padding: 1%;
+    margin-left: 10px;
+}
+.nombre_album{
+    margin-left: 100px;
+}
+.album{
+    margin-left: 200px;
+    opacity: 0.6;
+}
+.tiempo_album{
+    margin-left: 250px;
+}
+
 
 /*---- ------  Animaciones Buscador ---- ------ -----*/
 

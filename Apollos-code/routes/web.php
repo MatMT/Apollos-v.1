@@ -66,6 +66,12 @@ Route::get('/pruebaplaylist', function () {
     return view('playListC');
 });
 
+Route::get('/pruebabuscador', function () {
+    return view('results');
+});
+
+
+
 // ============================== CAMBIO DE IDIOMA
 Route::get('/locale/{locale}', [LocaleController::class, 'index'])->name('changeLocale');
 

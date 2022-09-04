@@ -34,6 +34,7 @@
 
 
 @section('content')
+    @vite('resources/css/varios.css')
     <main class="w-11/12 mx-auto">
 
 
@@ -126,6 +127,10 @@
 
         </div> <!-- Barra inferior -->
     </main>
+
+    <!-- Agrgamos el reproductor  --->
+    <x-reproductor></x-reproductor>
+
 @endsection
 
 @push('script_end')

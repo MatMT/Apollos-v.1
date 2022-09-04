@@ -62,8 +62,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/pruebaplaylist', function () {
-    return view('playListC');
+Route::get('/pruebaplayer', function () {
+    return view('layouts.player_music');
 });
 
 Route::get('/pruebabuscador', function () {

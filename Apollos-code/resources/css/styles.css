@@ -650,8 +650,6 @@ footer{
 
 
 
-
-
 /*------- Infomración de la canción ------*/
 
 
@@ -754,7 +752,7 @@ footer{
 }
 
 
-.lista-reproduccion.largo{
+.lista-reproduccion{
     width: 92%;
     right: 4%;
 }
@@ -767,7 +765,7 @@ footer{
     flex-direction: column;
 }
 
-.space-content.active{
+.space-content{
     display: flex;
 }
 

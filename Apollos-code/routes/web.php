@@ -75,13 +75,13 @@ Route::get('/locale/{locale}', [LocaleController::class, 'index'])->name('change
 // ============================== REGISTRO
 
 // Registro de usuarios ---
-Route::get('/registro', [RegisterController::class, 'index'])->name('signup')->middleware('guest'); // Autentificación de invitado
-Route::post('/registro', [RegisterController::class, 'store'])->name('signup.store'); // Cerrar sesión
+Route::get('/register', [RegisterController::class, 'index'])->name('signup')->middleware('guest'); // Autentificación de invitado
+Route::post('/register', [RegisterController::class, 'store'])->name('signup.store'); // Cerrar sesión
 
 // ============================== INICIO SESIÓN
 
-Route::get('/inicio', [LoginController::class, 'index'])->name('login')->middleware('guest');
-Route::post('/inicio', [LoginController::class, 'store'])->name('login.store');
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'store'])->name('login.store');
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout'); // Cerrar sesión
 
 // ============================== NAVEGACIÓN
@@ -90,13 +90,13 @@ Route::post('/logout', [LogoutController::class, 'store'])->name('logout'); // C
 Route::get('/home', [MainController::class, 'index'])->name('main');
 
 // Perfil --- Gracias al Route model binding
-Route::get('/usuario/{user:name_artist}', [ProfileController::class, 'index'])->name('profile.index');
+Route::get('/user/{user:name_artist}', [ProfileController::class, 'index'])->name('profile.index');
 
 // Biblioteca ---
-Route::get('/biblioteca', [MainController::class, 'index_2'])->name('biblioteca');
+Route::get('/library', [MainController::class, 'index_2'])->name('biblioteca');
 
 //Buscador
-Route::post('/home/biblioteca', [MainController::class, 'store_2'])->name('search');
+Route::post('/home/library', [MainController::class, 'store_2'])->name('search');
 
 // Artista ---
 Route::view('/Artista', 'Artist')->name('artista');
@@ -104,7 +104,7 @@ Route::view('/Artista', 'Artist')->name('artista');
 // ============================== Playlist
 
 // Vista ---
-Route::get('/usuario/{user:name_artist}/playlist/', [PlaylistController::class, 'index'])->name('playlist.index');
+Route::get('/user/{user:name_artist}/playlist/', [PlaylistController::class, 'index'])->name('playlist.index');
 
 // Agregar ---
 Route::post('/playlist/add', [PlaylistController::class, 'store'])->name('playlist.store');
@@ -112,15 +112,15 @@ Route::post('/playlist/add', [PlaylistController::class, 'store'])->name('playli
 // ============================== PERFIL
 
 // Álbumes --- Imprimir
-Route::get('/usuario/{user:name_artist}/album/{album}/', [AlbumsShowController::class, 'index'])->name('album.index');
+Route::get('/user/{user:name_artist}/album/{album}/', [AlbumsShowController::class, 'index'])->name('album.index');
 
 // ============================== REPRODUCCIÓN
 
 // Canciones de un álbum --- Imprimir
-Route::get('/usuario/{user:name_artist}/canciones/{song}/', [SongsShowController::class, 'show'])->name('song.show');
+Route::get('/user/{user:name_artist}/canciones/{song}/', [SongsShowController::class, 'show'])->name('song.show');
 
 // Canciones de favoritos --- Imprimir
-Route::get('/favoritos/{user:name_artist}/canciones/{song}/', [SongsShowController::class, 'fav'])->name('song.favorites.show');
+Route::get('/favorites/{user:name_artist}/song/{song}/', [SongsShowController::class, 'fav'])->name('song.favorites.show');
 
 // Canciones de una Playlist - Imprimir
 Route::get('/playlist/{playlist}/song/{song}/', [SongsShowController::class, 'playlist'])->name('song.playlist.show');
@@ -135,7 +135,7 @@ Route::post('/uploads/selection/song/data', [DataSongController::class, 'store']
 
 Route::get('/uploads/selection', [UploadController::class, 'index'])->name('upload.select'); // Vista - Selección
 
-Route::post('/uploads/create/imagen', [ImageController::class, 'store'])->name('image.store'); // Controlador - Imagen 
+Route::post('/uploads/create/image', [ImageController::class, 'store'])->name('image.store'); // Controlador - Imagen 
 Route::post('/uploads/create/audio', [SongController::class, 'store'])->name('audio.store'); // Controlador - Mp3 
 
 Route::get('/uploads/selection/album/step_1', [AlbumController::class, 'album_1'])->name('upload.album_1'); // Vista - subida de album
@@ -156,42 +156,42 @@ Route::post('/uploads/selection/album/step_5', [AlbumController::class, 'store_5
 
 // ============================== ELIMINAR CANCIÓN - ÁLBUM - PLAYLIST
 
-Route::delete('/usuario/{user:name_artist}/canciones/{song}', [SongsShowController::class, 'destroy'])->name('song.destroy');
+Route::delete('/user/{user:name_artist}/songs/{song}', [SongsShowController::class, 'destroy'])->name('song.destroy');
 // ---
-Route::delete('/usuario/{user:name_artist}/album/{album}', [AlbumsShowController::class, 'destroy'])->name('album.destroy');
+Route::delete('/user/{user:name_artist}/album/{album}', [AlbumsShowController::class, 'destroy'])->name('album.destroy');
 // --- 
 Route::delete('/playlist/delete/{regist}/song/{song}', [PlaylistController::class, 'destroy'])->name('playlist.song.destroy');
 
 // ============================== FOLLOW
 
-Route::post('/usuario/{user:name_artist}/follow/', [FollowerController::class, 'store'])->name('users.follow');
-Route::delete('/usuario/{user:name_artist}/unfollow/', [FollowerController::class, 'destroy'])->name('users.unfollow');
+Route::post('/user/{user:name_artist}/follow/', [FollowerController::class, 'store'])->name('users.follow');
+Route::delete('/user/{user:name_artist}/unfollow/', [FollowerController::class, 'destroy'])->name('users.unfollow');
 
 // ============================== FAVORITOS
 
-Route::post('/canciones/{song}/likes/', [LikeController::class, 'store'])->name('song.likes.store');
-Route::delete('/canciones/{song}/likes/', [LikeController::class, 'destroy'])->name('song.likes.destroy');
+Route::post('/songs/{song}/likes/', [LikeController::class, 'store'])->name('song.likes.store');
+Route::delete('/songs/{song}/likes/', [LikeController::class, 'destroy'])->name('song.likes.destroy');
 
-Route::post('/albumes/{album}/likes/', [LikeAlbumController::class, 'store'])->name('album.likes.store');
-Route::delete('/albumes/{album}/likes/', [LikeAlbumController::class, 'destroy'])->name('album.likes.destroy');
+Route::post('/albums/{album}/likes/', [LikeAlbumController::class, 'store'])->name('album.likes.store');
+Route::delete('/albums/{album}/likes/', [LikeAlbumController::class, 'destroy'])->name('album.likes.destroy');
 
 // ============================== EDITAR PERFIL
 
-Route::get('/usuario/{user:name_artist}/settings/change/',  [SettingsController::class, 'index'])->name('settings.index');
-Route::post('/usuario/{user:name_artist}/settings/change/',  [SettingsController::class, 'store'])->name('settings.store');
+Route::get('/user/{user:name_artist}/settings/change/',  [SettingsController::class, 'index'])->name('settings.index');
+Route::post('/user/{user:name_artist}/settings/change/',  [SettingsController::class, 'store'])->name('settings.store');
 
 // ============================== EDITAR ÁLBUMES
-Route::get('/usuario/{user:name_artist}/settings/album/{album:id}/', [AlbumSettingsController::class, 'index'])->name('album.config.index');
-Route::post('/usuario/{user:name_artist}/settings/album/{album:id}/', [AlbumSettingsController::class, 'store'])->name('album.config');
+Route::get('/user/{user:name_artist}/album/{album:id}/settings/', [AlbumSettingsController::class, 'index'])->name('album.config.index');
+Route::post('/user/{user:name_artist}/album/{album:id}/settings/', [AlbumSettingsController::class, 'store'])->name('album.config');
 
 // ============================== EDITAR SENCILLOS
 
-Route::get('/usuario/{user:name_artist}/settings/change/song/{song}/',  [SongSettingsController::class, 'index'])->name('song.settings.index');
-Route::post('/usuario/user/{user:name_artist}/change/song/{song}/',  [SongSettingsController::class, 'store'])->name('song.settings.store');
+Route::get('/user/{user:name_artist}/song/{song}/settings/',  [SongSettingsController::class, 'index'])->name('song.settings.index');
+Route::post('/user/{user:name_artist}/song/{song}/settings/',  [SongSettingsController::class, 'store'])->name('song.settings.store');
 
 
 // =============================== EMAIL DE REPORTE
-Route::post('/usuario/{user}/report/song/{song}', [ReportController::class, 'mail'])->name('report.mail.store');
+Route::post('/user/{user}/report/song/{song}', [ReportController::class, 'mail'])->name('report.mail.store');
 
 
 // ============================== ADMIN

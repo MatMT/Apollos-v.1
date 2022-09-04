@@ -5,7 +5,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\SongSettingController;
+use App\Http\Controllers\AlbumSettingsController;
 use App\Http\Controllers\SongController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\DataSongController;
@@ -20,7 +20,7 @@ use App\Http\Controllers\LikeAlbumController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\PlaylistController;
-use App\Http\Controllers\SingleSettingsController;
+use App\Http\Controllers\SongSettingsController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ReportController;
@@ -184,15 +184,13 @@ Route::get('/usuario/{user:name_artist}/settings/change/',  [SettingsController:
 Route::post('/usuario/{user:name_artist}/settings/change/',  [SettingsController::class, 'store'])->name('settings.store');
 
 // ============================== EDITAR ÁLBUMES
-
-Route::get('/usuario/{user:name_artist}/settings/change/{album:id}',  [SongSettingController::class, 'index'])->name('album.settings.index');
-
-Route::post('/usuario/{user:name_artist}/settings/change/{album:id}',  [SongSettingController::class, 'store'])->name('album.settings');
+Route::get('/usuario/{user:name_artist}/settings/album/{album:id}/', [AlbumSettingsController::class, 'index'])->name('album.config.index');
+Route::post('/usuario/{user:name_artist}/settings/album/{album:id}/', [AlbumSettingsController::class, 'store'])->name('album.config');
 
 // ============================== EDITAR SENCILLOS
 
-Route::get('/usuario/user/settings/change/songs',  [SinglesSettingsController::class, 'index'])->name('single.settings.index');
-Route::post('/usuario/user/settings/change/songs',  [SinglesSettingsController::class, 'changeDataSingles'])->name('song.settings');
+Route::get('/usuario/{user:name_artist}/settings/change/song/{song}/',  [SongSettingsController::class, 'index'])->name('song.settings.index');
+Route::post('/usuario/user/{user:name_artist}/change/song/{song}/',  [SongSettingsController::class, 'store'])->name('song.settings');
 
 
 // =============================== EMAIL DE REPORTE

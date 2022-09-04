@@ -195,5 +195,5 @@ Route::post('/usuario/{user}/report/song/{song}', [ReportController::class, 'mai
 
 
 // ============================== ADMIN
-Route::get('/admin/index/', [AdminController::class, 'index'])->name('admin.index')->middleware('guest');
+Route::get('/admin/index/', [AdminController::class, 'index'])->name('admin.index')->middleware('auth.admin');
 Route::post('/admin/index/login', [AdminController::class, 'store'])->name('loginAdmin.store');

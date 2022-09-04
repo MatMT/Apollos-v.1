@@ -11,7 +11,10 @@ class AlbumsShowController extends Controller
 {
     public function __construct()
     {
+        // Verificar inicio de sesión
         $this->middleware('auth');
+        // Permitir acceso de usuario | No de admin
+        $this->middleware('user.log');
     }
 
     // Extraer canciones del album ==========

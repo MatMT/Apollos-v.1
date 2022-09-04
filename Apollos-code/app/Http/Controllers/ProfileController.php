@@ -10,11 +10,12 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
-    // AUTENTIFICACIÓN ==========
     public function __construct()
     {
-        // Autentificación exceptuada para los métodos show(canción) e index(perfil)
+        // Verificar inicio de sesión
         $this->middleware('auth');
+        // Permitir acceso de usuario | No de admin
+        $this->middleware('user.log');
     }
 
     // PERFIL ==========

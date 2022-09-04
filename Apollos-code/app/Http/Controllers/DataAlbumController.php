@@ -10,6 +10,14 @@ use Illuminate\Http\Request;
 
 class DataAlbumController extends Controller
 {
+    public function __construct()
+    {
+        // Verificar inicio de sesión
+        $this->middleware('auth');
+        // Permitir acceso de usuario | No de admin
+        $this->middleware('user.log');
+    }
+
     // Trabaja en conjunto con ImagenContoller y SongController
     public function store(Request $request, User $user)
     {

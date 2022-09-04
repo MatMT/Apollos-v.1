@@ -123,7 +123,7 @@
                                         </div>
                                         <div class="title">
                                             <div class="name font-titulo font-bold text-base desktop_2:text-sm">
-                                                {{ $user->name }}
+                                                {{ $user->username }}
                                             </div>
                                             <div class="type text-base font-thin text-slate-300 desktop_2:text-base">
                                                 {{ __('Artist') }}

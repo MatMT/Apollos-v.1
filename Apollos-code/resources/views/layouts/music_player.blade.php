@@ -102,21 +102,21 @@
             <!-- Edición/Eliminación -->
 
             @auth {{-- Autentificado --}}
-                @if ($ActuallySong->InfoArtista($ActuallySong)->username == auth()->user()->id)
+                    @if ($ActuallySong->InfoArtista($ActuallySong)->id == auth()->user()->id)
                     {{-- Artista dueño de la canción --}}
                     <div class="1/6 flex justify-center items-center gap-2">
                         {{-- Editar album --}}
-                        {{-- <form action="{{ route('single.settings.index') }}">
-                        <input type="submit" value="Editar canción" name="" id=""
+                        <form action="{{ route('song.settings.index', ['user' => $user, 'song' => $ActuallySong->id])}}" >
+                        <input type="submit" value="{{ $ActuallySong->sencillo ? 'Editar sencillo' : 'Editar canción' }}" name="" id=""
                             class="bg-blue-500 hover:bg-blue-600 p-2 rounded text-white font-bold cursor-pointer">
-                    </form> --}}
-                        @if ($ActuallySong->sencillo == true)
+                        </form>
+                        @if ($ActuallySong->sencillo)
                             <form action="{{ route('song.destroy', ['user' => $user, 'song' => $ActuallySong]) }}"
                                 method="POST">
                                 {{-- METODO SPOOFING - Laravel permite agregar otro tipo de peticiones --}}
                                 @method('DELETE')
                                 @csrf
-                                <input type="submit" value="Eliminar canción" name="" id=""
+                                <input type="submit" value="Eliminar sencillo" name="" id=""
                                     class="bg-red-500 hover:bg-red-600 p-2 rounded text-white font-bold cursor-pointer">
                             </form>
                         @endif

@@ -21,11 +21,10 @@ use App\Http\Controllers\UploadController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\PlaylistController;
 use App\Http\Controllers\SongSettingsController;
+use App\Http\Controllers\ReportController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\ReportController;
-use App\Mail\ReportsongMailable;
-use Illuminate\Support\Facades\Mail;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -69,8 +68,6 @@ Route::get('/pruebaplaylist', function () {
 Route::get('/pruebabuscador', function () {
     return view('results');
 });
-
-
 
 // ============================== CAMBIO DE IDIOMA
 Route::get('/locale/{locale}', [LocaleController::class, 'index'])->name('changeLocale');
@@ -190,8 +187,13 @@ Route::post('/usuario/{user:name_artist}/settings/album/{album:id}/', [AlbumSett
 // ============================== EDITAR SENCILLOS
 
 Route::get('/usuario/{user:name_artist}/settings/change/song/{song}/',  [SongSettingsController::class, 'index'])->name('song.settings.index');
-Route::post('/usuario/user/{user:name_artist}/change/song/{song}/',  [SongSettingsController::class, 'store'])->name('song.settings');
+Route::post('/usuario/user/{user:name_artist}/change/song/{song}/',  [SongSettingsController::class, 'store'])->name('song.settings.store');
 
 
 // =============================== EMAIL DE REPORTE
-Route::post('/usuario/{user}/report/song/{song}', [ReportController::class, 'reporter'])->name('reportsong.index');
+Route::post('/usuario/{user}/report/song/{song}', [ReportController::class, 'mail'])->name('report.mail.store');
+
+
+// ============================== ADMIN
+Route::get('/admin/index/', [AdminController::class, 'index'])->name('admin.index')->middleware('guest');
+Route::post('/admin/index/login', [AdminController::class, 'store'])->name('loginAdmin.store');

@@ -3,574 +3,571 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tailwind Starter Template - Night Admin Template: Tailwind Toolbox</title>
-    <meta name="description" content="description here">
-    <meta name="keywords" content="keywords,here">
-
+    <!-- TAILWIND CSS -->
     @vite('resources/css/app.css')
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"
-        integrity="sha256-XF29CBwU1MWLaGEnsELogU6Y6rcc5nCkhhx89nFMIDQ=" crossorigin="anonymous"></script>
+    <!-- ALPINE JS -->
+    @vite(['resources/js/dash.js'])
 
-    <style>
-        .bg-black-alt {
-            background: #191919;
-        }
-
-        .text-black-alt {
-            color: #191919;
-        }
-
-        .border-black-alt {
-            border-color: #191919;
-        }
-    </style>
-
+    <title>Apollos | Admin</title>
 </head>
 
-<body class="bg-black-alt font-sans leading-normal tracking-normal">
+<body class="antialiased bg-gray-100">
+    <div class="flex relative" x-data="{ navOpen: false }">
+        <!-- NAV -->
+        <nav class="absolute md:relative w-64 transform -translate-x-full md:translate-x-0 h-screen overflow-y-scroll bg-black transition-all duration-300"
+            :class="{ '-translate-x-full': !navOpen }">
+            <div class="flex flex-col justify-between h-full">
+                <div class="p-4">
+                    <!-- LOGO -->
+                    <a class="flex items-center text-white space-x-4" href="">
+                        <svg class="w-7 h-7 bg-indigo-600 rounded-lg p-1" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                        </svg>
+                        {{-- Titulo Dashboard --}}
+                        <span class="text-xl font-bold">Admin | Apollos </span>
+                    </a>
 
-    <nav id="header" class="bg-gray-900 fixed w-full z-10 top-0 shadow">
-
-
-        <div class="w-full container mx-auto flex flex-wrap items-center mt-0 pt-3 pb-3 md:pb-0">
-
-            <div class="w-1/2 pl-2 md:pl-0">
-                <a class="text-gray-100 text-base xl:text-xl no-underline hover:no-underline font-bold" href="#">
-                    <i class="fas fa-moon text-blue-400 pr-3"></i> Admin Dark Mode
-                </a>
-            </div>
-            <div class="w-1/2 pr-0">
-                <div class="flex relative inline-block float-right">
-
-                    <div class="relative text-sm text-gray-100">
-                        <button id="userButton" class="flex items-center focus:outline-none mr-3">
-                            <img class="w-8 h-8 rounded-full mr-4" src="http://i.pravatar.cc/300" alt="Avatar of User">
-                            <span class="hidden md:inline-block text-gray-100">Hi, User</span>
-                            <svg class="pl-2 h-2 fill-current text-gray-100" version="1.1"
-                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129"
-                                xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 129 129">
-                                <g>
-                                    <path
-                                        d="m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z" />
-                                </g>
-                            </svg>
-                        </button>
-                        <div id="userMenu"
-                            class="bg-gray-900 rounded shadow-md mt-2 absolute mt-12 top-0 right-0 min-w-full overflow-auto z-30 invisible">
-                            <ul class="list-reset">
-                                <li><a href="#"
-                                        class="px-4 py-2 block text-gray-100 hover:bg-gray-800 no-underline hover:no-underline">My
-                                        account</a></li>
-                                <li><a href="#"
-                                        class="px-4 py-2 block text-gray-100 hover:bg-gray-800 no-underline hover:no-underline">Notifications</a>
-                                </li>
-                                <li>
-                                    <hr class="border-t mx-2 border-gray-400">
-                                </li>
-                                <li><a href="#"
-                                        class="px-4 py-2 block text-gray-100 hover:bg-gray-800 no-underline hover:no-underline">Logout</a>
-                                </li>
-                            </ul>
+                    <!-- SEARCH BAR -->
+                    <div class="border-gray-700 py-5 text-white border-b rounded">
+                        <div class="relative">
+                            {{-- <div class="absolute inset-y-0 left-0 flex items-center pl-2">
+                                <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                </svg>
+                            </div>
+                            <form action="" method="GET">
+                                <input type="search"
+                                    class="w-full py-2 rounded pl-10 bg-gray-800 border-none focus:outline-none focus:ring-0"
+                                    placeholder="Buscar">
+                            </form> --}}
                         </div>
+                        <!-- SEARCH RESULT -->
                     </div>
 
-
-                    <div class="block lg:hidden pr-4">
-                        <button id="nav-toggle"
-                            class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-gray-100 hover:border-teal-500 appearance-none focus:outline-none">
-                            <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <title>Menu</title>
-                                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+                    <!-- NAV LINKS -->
+                    <div class="py-4 text-gray-400 space-y-1">
+                        <!-- BASIC LINK -->
+                        <a href="#"
+                            class="block py-2.5 px-4 flex items-center space-x-2 bg-gray-800 text-white hover:bg-gray-800 hover:text-white rounded">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                </path>
                             </svg>
-                        </button>
+                            <span>Dashboard</span>
+                        </a>
+                        <!-- DROPDOWN LINK -->
+                        {{-- <div class="block" x-data="{ open: false }">
+                            <div @click="open = !open"
+                                class="flex items-center justify-between hover:bg-gray-800 hover:text-white cursor-pointer py-2.5 px-4 rounded">
+                                <div class="flex items-center space-x-2">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                                    </svg>
+                                    <span>Content</span>
+                                </div>
+                                <svg x-show="open" class="w-6 h-6" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 15l7-7 7 7"></path>
+                                </svg>
+                                <svg x-show="!open" class="w-6 h-6" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </div>
+                            <div x-show="open"
+                                class="text-sm border-l-2 border-gray-800 mx-6 my-2.5 px-2.5 flex flex-col gap-y-1">
+                                <a href="#" class="block py-2 px-4 hover:bg-gray-800 hover:text-white rounded">
+                                    Categories
+                                </a>
+                                <a href="#" class="block py-2 px-4 hover:bg-gray-800 hover:text-white rounded">
+                                    Courses
+                                </a>
+                                <a href="#" class="block py-2 px-4 hover:bg-gray-800 hover:text-white rounded">
+                                    Instruction
+                                </a>
+                            </div>
+                        </div> --}}
                     </div>
                 </div>
 
-            </div>
+                <!-- PROFILE -->
+                <div class="text-gray-200 border-gray-800 rounded flex items-center justify-between p-2">
+                    <div class="flex items-center space-x-2">
+                        <!-- AVATAR IMAGE BY FIRST LETTER OF NAME -->
+                        <img src="{{ asset('assets/mini.png') }}" class="w-7 rounded-full" alt="Profile">
+                        <h1>Admin</h1>
+                    </div>
+                    {{-- Cerrar sesión --}}
+                    <a onclick="event.preventDefault(); document.getElementById('logoutForm').submit()" href="#"
+                        class="hover:bg-gray-800 hover:text-white p-2 rounded">
 
+                        <form id="logoutForm" action="{{ route('logout') }}" method="POST">
+                            @csrf
+                        </form>
 
-            <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 bg-gray-900 z-20"
-                id="nav-content">
-                <ul class="list-reset lg:flex flex-1 items-center px-4 md:px-0">
-                    <li class="mr-6 my-2 md:my-0">
-                        <a href="#"
-                            class="block py-1 md:py-3 pl-1 align-middle text-blue-400 no-underline hover:text-gray-100 border-b-2 border-blue-400 hover:border-blue-400">
-                            <i class="fas fa-home fa-fw mr-3 text-blue-400"></i><span
-                                class="pb-1 md:pb-0 text-sm">Home</span>
-                        </a>
-                    </li>
-                    <li class="mr-6 my-2 md:my-0">
-                        <a href="#"
-                            class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900  hover:border-pink-400">
-                            <i class="fas fa-tasks fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Tasks</span>
-                        </a>
-                    </li>
-                    <li class="mr-6 my-2 md:my-0">
-                        <a href="#"
-                            class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900  hover:border-purple-400">
-                            <i class="fa fa-envelope fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Messages</span>
-                        </a>
-                    </li>
-                    <li class="mr-6 my-2 md:my-0">
-                        <a href="#"
-                            class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900  hover:border-green-400">
-                            <i class="fas fa-chart-area fa-fw mr-3"></i><span
-                                class="pb-1 md:pb-0 text-sm">Analytics</span>
-                        </a>
-                    </li>
-                    <li class="mr-6 my-2 md:my-0">
-                        <a href="#"
-                            class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900  hover:border-red-400">
-                            <i class="fa fa-wallet fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Payments</span>
-                        </a>
-                    </li>
-                </ul>
-
-                <div class="relative pull-right pl-4 pr-4 md:pr-0">
-                    <input type="search" placeholder="Search"
-                        class="w-full bg-gray-900 text-sm text-gray-400 transition border border-gray-800 focus:outline-none focus:border-gray-600 rounded py-1 px-2 pl-10 appearance-none leading-normal">
-                    <div class="absolute search-icon" style="top: 0.375rem;left: 1.75rem;">
-                        <svg class="fill-current pointer-events-none text-gray-500 w-4 h-4"
-                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                            <path
-                                d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z">
+                        {{-- <form id="logoutForm" action="" method="POST"></form> --}}
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
                             </path>
                         </svg>
-                    </div>
+                        </form>
+                    </a>
                 </div>
 
             </div>
+        </nav>
+        <!-- END OF NAV -->
 
-        </div>
-    </nav>
-
-    <!--Container-->
-    <div class="container w-full mx-auto pt-20">
-
-        <div class="w-full px-4 md:px-0 md:mt-8 mb-16 text-gray-800 leading-normal">
-
-            <!--Console Content-->
-
-            <div class="flex flex-wrap">
-                <div class="w-full md:w-1/2 xl:w-1/3 p-3">
-                    <!--Metric Card-->
-                    <div class="bg-gray-900 border border-gray-800 rounded shadow p-2">
-                        <div class="flex flex-row items-center">
-                            <div class="flex-shrink pr-4">
-                                <div class="rounded p-3 bg-green-600"><i
-                                        class="fa fa-wallet fa-2x fa-fw fa-inverse"></i></div>
-                            </div>
-                            <div class="flex-1 text-right md:text-center">
-                                <h5 class="font-bold uppercase text-gray-400">Total Revenue</h5>
-                                <h3 class="font-bold text-3xl text-gray-600">$3249 <span class="text-green-500"><i
-                                            class="fas fa-caret-up"></i></span></h3>
-                            </div>
-                        </div>
-                    </div>
-                    <!--/Metric Card-->
-                </div>
-                <div class="w-full md:w-1/2 xl:w-1/3 p-3">
-                    <!--Metric Card-->
-                    <div class="bg-gray-900 border border-gray-800 rounded shadow p-2">
-                        <div class="flex flex-row items-center">
-                            <div class="flex-shrink pr-4">
-                                <div class="rounded p-3 bg-pink-600"><i
-                                        class="fas fa-users fa-2x fa-fw fa-inverse"></i></div>
-                            </div>
-                            <div class="flex-1 text-right md:text-center">
-                                <h5 class="font-bold uppercase text-gray-400">Total Users</h5>
-                                <h3 class="font-bold text-3xl text-gray-600">249 <span class="text-pink-500"><i
-                                            class="fas fa-exchange-alt"></i></span></h3>
-                            </div>
-                        </div>
-                    </div>
-                    <!--/Metric Card-->
-                </div>
-                <div class="w-full md:w-1/2 xl:w-1/3 p-3">
-                    <!--Metric Card-->
-                    <div class="bg-gray-900 border border-gray-800 rounded shadow p-2">
-                        <div class="flex flex-row items-center">
-                            <div class="flex-shrink pr-4">
-                                <div class="rounded p-3 bg-yellow-600"><i
-                                        class="fas fa-user-plus fa-2x fa-fw fa-inverse"></i></div>
-                            </div>
-                            <div class="flex-1 text-right md:text-center">
-                                <h5 class="font-bold uppercase text-gray-400">New Users</h5>
-                                <h3 class="font-bold text-3xl text-gray-600">2 <span class="text-yellow-600"><i
-                                            class="fas fa-caret-up"></i></span></h3>
-                            </div>
-                        </div>
-                    </div>
-                    <!--/Metric Card-->
-                </div>
-                <div class="w-full md:w-1/2 xl:w-1/3 p-3">
-                    <!--Metric Card-->
-                    <div class="bg-gray-900 border border-gray-800 rounded shadow p-2">
-                        <div class="flex flex-row items-center">
-                            <div class="flex-shrink pr-4">
-                                <div class="rounded p-3 bg-blue-600"><i
-                                        class="fas fa-server fa-2x fa-fw fa-inverse"></i></div>
-                            </div>
-                            <div class="flex-1 text-right md:text-center">
-                                <h5 class="font-bold uppercase text-gray-400">Server Uptime</h5>
-                                <h3 class="font-bold text-3xl text-gray-600">152 days</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <!--/Metric Card-->
-                </div>
-                <div class="w-full md:w-1/2 xl:w-1/3 p-3">
-                    <!--Metric Card-->
-                    <div class="bg-gray-900 border border-gray-800 rounded shadow p-2">
-                        <div class="flex flex-row items-center">
-                            <div class="flex-shrink pr-4">
-                                <div class="rounded p-3 bg-indigo-600"><i
-                                        class="fas fa-tasks fa-2x fa-fw fa-inverse"></i></div>
-                            </div>
-                            <div class="flex-1 text-right md:text-center">
-                                <h5 class="font-bold uppercase text-gray-400">To Do List</h5>
-                                <h3 class="font-bold text-3xl text-gray-600">7 tasks</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <!--/Metric Card-->
-                </div>
-                <div class="w-full md:w-1/2 xl:w-1/3 p-3">
-                    <!--Metric Card-->
-                    <div class="bg-gray-900 border border-gray-800 rounded shadow p-2">
-                        <div class="flex flex-row items-center">
-                            <div class="flex-shrink pr-4">
-                                <div class="rounded p-3 bg-red-600"><i
-                                        class="fas fa-inbox fa-2x fa-fw fa-inverse"></i></div>
-                            </div>
-                            <div class="flex-1 text-right md:text-center">
-                                <h5 class="font-bold uppercase text-gray-400">Issues</h5>
-                                <h3 class="font-bold text-3xl text-gray-600">3 <span class="text-red-500"><i
-                                            class="fas fa-caret-up"></i></span></h3>
-                            </div>
-                        </div>
-                    </div>
-                    <!--/Metric Card-->
-                </div>
+        <!-- PAGE CONTENT -->
+        <main class="flex-1 h-screen overflow-y-scroll overflow-x-hidden">
+            <div class="md:hidden justify-between items-center bg-black text-white flex">
+                <h1 class="text-2xl font-bold px-4">Admin | Apollos </h1>
+                <button @click="navOpen = !navOpen" class="btn p-4 focus:outline-none hover:bg-gray-800">
+                    <svg class="w-6 h-6 fill-current" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
             </div>
-
-            <!--Divider-->
-            <hr class="border-b-2 border-gray-600 my-8 mx-4">
-
-            <div class="flex flex-row flex-wrap flex-grow mt-2">
-
-                <div class="w-full md:w-1/2 p-3">
-                    <!--Graph Card-->
-                    <div class="bg-gray-900 border border-gray-800 rounded shadow">
-                        <div class="border-b border-gray-800 p-3">
-                            <h5 class="font-bold uppercase text-gray-600">Graph</h5>
-                        </div>
-                        <div class="p-5">
-                            <canvas id="chartjs-7" class="chartjs" width="undefined" height="undefined"></canvas>
-                            <script>
-                                new Chart(document.getElementById("chartjs-7"), {
-                                    "type": "bar",
-                                    "data": {
-                                        "labels": ["January", "February", "March", "April"],
-                                        "datasets": [{
-                                            "label": "Page Impressions",
-                                            "data": [10, 20, 30, 40],
-                                            "borderColor": "rgb(255, 99, 132)",
-                                            "backgroundColor": "rgba(255, 99, 132, 0.2)"
-                                        }, {
-                                            "label": "Adsense Clicks",
-                                            "data": [5, 15, 10, 30],
-                                            "type": "line",
-                                            "fill": false,
-                                            "borderColor": "rgb(54, 162, 235)"
-                                        }]
-                                    },
-                                    "options": {
-                                        "scales": {
-                                            "yAxes": [{
-                                                "ticks": {
-                                                    "beginAtZero": true
-                                                }
-                                            }]
-                                        }
-                                    }
-                                });
-                            </script>
-                        </div>
-                    </div>
-                    <!--/Graph Card-->
+            <section class="max-w-7xl mx-auto py-4 px-5">
+                <div class="flex justify-between items-center border-b border-gray-300">
+                    <h1 class="text-2xl font-semibold pt-2 pb-6">Reportes músicales </h1>
                 </div>
 
-                <div class="w-full md:w-1/2 p-3">
-                    <!--Graph Card-->
-                    <div class="bg-gray-900 border border-gray-800 rounded shadow">
-                        <div class="border-b border-gray-800 p-3">
-                            <h5 class="font-bold uppercase text-gray-600">Graph</h5>
+                <!-- STATISTICS -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 py-6">
+                    <div class="bg-white shadow rounded-sm flex justify-between items-center py-3.5 px-3.5">
+                        <div class="space-y-2">
+                            <p class="text-xs text-gray-400 uppercase">Usuarios reportados</p>
+                            <div class="flex items-center space-x-2">
+                                <h1 class="text-xl font-semibold">819</h1>
+                                {{-- <p class="text-xs bg-green-50 text-green-500 px-1 rounded">+7.4</p> --}}
+                            </div>
                         </div>
-                        <div class="p-5">
-                            <canvas id="chartjs-0" class="chartjs" width="undefined" height="undefined"></canvas>
-                            <script>
-                                new Chart(document.getElementById("chartjs-0"), {
-                                    "type": "line",
-                                    "data": {
-                                        "labels": ["January", "February", "March", "April", "May", "June", "July"],
-                                        "datasets": [{
-                                            "label": "Views",
-                                            "data": [65, 59, 80, 81, 56, 55, 40],
-                                            "fill": false,
-                                            "borderColor": "rgb(75, 192, 192)",
-                                            "lineTension": 0.1
-                                        }]
-                                    },
-                                    "options": {}
-                                });
-                            </script>
-                        </div>
+                        <svg class="w-12 h-12 text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+                        </svg>
+
                     </div>
-                    <!--/Graph Card-->
-                </div>
 
-                <div class="w-full md:w-1/2 xl:w-1/3 p-3">
-                    <!--Graph Card-->
-                    <div class="bg-gray-900 border border-gray-800 rounded shadow">
-                        <div class="border-b border-gray-800 p-3">
-                            <h5 class="font-bold uppercase text-gray-600">Graph</h5>
+                    <div class="bg-white shadow rounded-sm flex justify-between items-center py-3.5 px-3.5">
+                        <div class="space-y-2">
+                            <p class="text-xs text-gray-400 uppercase">Usuarios informantes</p>
+                            <div class="flex items-center space-x-2">
+                                <h1 class="text-xl font-semibold">819</h1>
+                                {{-- <p class="text-xs bg-green-50 text-green-500 px-1 rounded">+7.4</p> --}}
+                            </div>
                         </div>
-                        <div class="p-5">
-                            <canvas id="chartjs-1" class="chartjs" width="undefined" height="undefined"></canvas>
-                            <script>
-                                new Chart(document.getElementById("chartjs-1"), {
-                                    "type": "bar",
-                                    "data": {
-                                        "labels": ["January", "February", "March", "April", "May", "June", "July"],
-                                        "datasets": [{
-                                            "label": "Likes",
-                                            "data": [65, 59, 80, 81, 56, 55, 40],
-                                            "fill": false,
-                                            "backgroundColor": ["rgba(255, 99, 132, 0.2)", "rgba(255, 159, 64, 0.2)",
-                                                "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(54, 162, 235, 0.2)",
-                                                "rgba(153, 102, 255, 0.2)", "rgba(201, 203, 207, 0.2)"
-                                            ],
-                                            "borderColor": ["rgb(255, 99, 132)", "rgb(255, 159, 64)", "rgb(255, 205, 86)",
-                                                "rgb(75, 192, 192)", "rgb(54, 162, 235)", "rgb(153, 102, 255)",
-                                                "rgb(201, 203, 207)"
-                                            ],
-                                            "borderWidth": 1
-                                        }]
-                                    },
-                                    "options": {
-                                        "scales": {
-                                            "yAxes": [{
-                                                "ticks": {
-                                                    "beginAtZero": true
-                                                }
-                                            }]
-                                        }
-                                    }
-                                });
-                            </script>
-                        </div>
+                        <svg class="w-12 h-12 text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+                        </svg>
+
                     </div>
-                    <!--/Graph Card-->
-                </div>
 
-                <div class="w-full md:w-1/2 xl:w-1/3 p-3">
-                    <!--Graph Card-->
-                    <div class="bg-gray-900 border border-gray-800 rounded shadow">
-                        <div class="border-b border-gray-800 p-3">
-                            <h5 class="font-bold uppercase text-gray-600">Graph</h5>
+                    <div class="bg-white shadow rounded-sm flex justify-between items-center py-3.5 px-3.5">
+                        <div class="space-y-2">
+                            <p class="text-xs text-gray-400 uppercase">Casos reportados</p>
+                            <div class="flex items-center space-x-2">
+                                <h1 class="text-xl font-semibold">121</h1>
+                                {{-- <p class="text-xs bg-red-50 text-red-500 px-1 rounded">-2.9</p> --}}
+                            </div>
                         </div>
-                        <div class="p-5"><canvas id="chartjs-4" class="chartjs" width="undefined"
-                                height="undefined"></canvas>
-                            <script>
-                                new Chart(document.getElementById("chartjs-4"), {
-                                    "type": "doughnut",
-                                    "data": {
-                                        "labels": ["P1", "P2", "P3"],
-                                        "datasets": [{
-                                            "label": "Issues",
-                                            "data": [300, 50, 100],
-                                            "backgroundColor": ["rgb(255, 99, 132)", "rgb(54, 162, 235)", "rgb(255, 205, 86)"]
-                                        }]
-                                    }
-                                });
-                            </script>
-                        </div>
+                        {{-- Icono --}}
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-gray-300">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.249-8.25-3.286zm0 13.036h.008v.008H12v-.008z" />
+                        </svg>
                     </div>
-                    <!--/Graph Card-->
-                </div>
 
-                <div class="w-full md:w-1/2 xl:w-1/3 p-3">
-                    <!--Template Card-->
-                    <div class="bg-gray-900 border border-gray-800 rounded shadow">
-                        <div class="border-b border-gray-800 p-3">
-                            <h5 class="font-bold uppercase text-gray-600">Template</h5>
+                    <div class="bg-white shadow rounded-sm flex justify-between items-center py-3.5 px-3.5">
+                        <div class="space-y-2">
+                            <p class="text-xs text-gray-400 uppercase">Casos Resueltos</p>
+                            <div class="flex items-center space-x-2">
+                                <h1 class="text-xl font-semibold">243</h1>
+                                {{-- <p class="text-xs bg-green-50 text-green-500 px-1 rounded">+3.1</p> --}}
+                            </div>
                         </div>
-                        <div class="p-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-gray-300">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                        </svg>
 
-                        </div>
                     </div>
-                    <!--/Template Card-->
                 </div>
+                <!-- END OF STATISTICS -->
 
-                <div class="w-full p-3">
-                    <!--Table Card-->
-                    <div class="bg-gray-900 border border-gray-800 rounded shadow">
-                        <div class="border-b border-gray-800 p-3">
-                            <h5 class="font-bold uppercase text-gray-600">Table</h5>
-                        </div>
-                        <div class="p-5">
-                            <table class="w-full p-5 text-gray-700">
-                                <thead>
-                                    <tr>
-                                        <th class="text-left text-gray-600">Name</th>
-                                        <th class="text-left text-gray-600">Side</th>
-                                        <th class="text-left text-gray-600">Role</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                    <tr>
-                                        <td>Obi Wan Kenobi</td>
-                                        <td>Light</td>
-                                        <td>Jedi</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Greedo</td>
-                                        <td>South</td>
-                                        <td>Scumbag</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Darth Vader</td>
-                                        <td>Dark</td>
-                                        <td>Sith</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
-                            <p class="py-2"><a href="#" class="text-white">See More issues...</a></p>
-
-                        </div>
-                    </div>
-                    <!--/table Card-->
+                <!-- TABLE -->
+                <div class="bg-white shadow rounded-sm my-2.5 overflow-x-auto">
+                    <table class="min-w-max w-full table-auto">
+                        <thead>
+                            <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                                <th class="py-3 px-6 text-left">Usuario</th>
+                                <th class="py-3 px-6 text-left">Canción</th>
+                                <th class="py-3 px-6 text-center">Colección</th>
+                                <th class="py-3 px-6 text-center">Estado</th>
+                                <th class="py-3 px-6 text-center">Acción</th>
+                            </tr>
+                        </thead>
                 </div>
+                <tbody class="text-gray-600 text-sm">
+                    <!-- Caso -->
+                    <tr class="border-b border-gray-200 hover:bg-gray-100">
+                        <!-- Usuario -->
+                        <td class="py-3 px-6 text-left">
+                            <div class="flex items-center">
+                                <div class="mr-2">
+                                    <img class="w-6 h-6 rounded-full"
+                                        src="https://randomuser.me/api/portraits/men/1.jpg" />
+                                </div>
+                                <span>Eshal Rosas</span>
+                            </div>
+                        </td>
+                        <!-- Colección -->
+                        <td class="py-3 px-6 text-left whitespace-nowrap">
+                            Mi rolita porno 😈
+                        </td>
 
+                        <td class="py-3 px-6 text-center">
+                            Sencillo
+                        </td>
+                        <td class="py-3 px-6 text-center">
+                            <span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Resuelto</span>
+                        </td>
+                        {{-- Interacción --}}
+                        <td class="py-3 px-6 text-center">
+                            <div class="flex item-center justify-center gap-1">
+                                <div class="w-4 mr-2 transform hover:text-red-600 hover:scale-110 cursor-pointer">
 
-            </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                        class="w-5 h-5">
+                                        <path fill-rule="evenodd"
+                                            d="M5.965 4.904l9.131 9.131a6.5 6.5 0 00-9.131-9.131zm8.07 10.192L4.904 5.965a6.5 6.5 0 009.131 9.131zM4.343 4.343a8 8 0 1111.314 11.314A8 8 0 014.343 4.343z"
+                                            clip-rule="evenodd" />
+                                    </svg>
 
-            <!--/ Console Content-->
+                                </div>
+                                <div class="w-4 mr-2 transform hover:text-green-500 hover:scale-110 cursor-pointer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                        class="w-5 h-5">
+                                        <path fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- Caso -->
+                    <tr class="border-b border-gray-200 bg-gray-50 hover:bg-gray-100">
+                        <td class="py-3 px-6 text-left">
+                            <div class="flex items-center">
+                                <div class="mr-2">
+                                    <img class="w-6 h-6 rounded-full"
+                                        src="https://randomuser.me/api/portraits/women/2.jpg" />
+                                </div>
+                                <span>Anita Rodriquez</span>
+                            </div>
+                        </td>
+                        <td class="py-3 px-6 text-left">
+                            Nintendo nos demando
+                        </td>
 
-        </div>
+                        <td class="py-3 px-6 text-center">
+                            Álbum
+                        </td>
+                        <td class="py-3 px-6 text-center">
+                            <span class="bg-red-200 text-red-600 py-1 px-3 rounded-full text-xs">Pendiente</span>
+                        </td>
+                        {{-- Interacción --}}
+                        <td class="py-3 px-6 text-center">
+                            <div class="flex item-center justify-center gap-1">
+                                <div class="w-4 mr-2 transform hover:text-red-600 hover:scale-110 cursor-pointer">
 
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                        class="w-5 h-5">
+                                        <path fill-rule="evenodd"
+                                            d="M5.965 4.904l9.131 9.131a6.5 6.5 0 00-9.131-9.131zm8.07 10.192L4.904 5.965a6.5 6.5 0 009.131 9.131zM4.343 4.343a8 8 0 1111.314 11.314A8 8 0 014.343 4.343z"
+                                            clip-rule="evenodd" />
+                                    </svg>
 
+                                </div>
+                                <div class="w-4 mr-2 transform hover:text-green-500 hover:scale-110 cursor-pointer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                        class="w-5 h-5">
+                                        <path fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    {{-- <tr class="border-b border-gray-200 hover:bg-gray-100">
+                        <td class="py-3 px-6 text-left">
+                            Angular
+                        </td>
+                        <td class="py-3 px-6 text-left">
+                            <div class="flex items-center">
+                                <div class="mr-2">
+                                    <img class="w-6 h-6 rounded-full"
+                                        src="https://randomuser.me/api/portraits/men/3.jpg" />
+                                </div>
+                                <span>Taylan Bush</span>
+                            </div>
+                        </td>
+                        <td class="py-3 px-6 text-center">
+                            787
+                        </td>
+                        <td class="py-3 px-6 text-center">
+                            <span class="bg-yellow-200 text-yellow-600 py-1 px-3 rounded-full text-xs">Scheduled</span>
+                        </td>
+                        <td class="py-3 px-6 text-center">
+                            <div class="flex item-center justify-center">
+                                <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110 cursor-pointer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                    </svg>
+                                </div>
+                                <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110 cursor-pointer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                                    </svg>
+                                </div>
+                                <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110 cursor-pointer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="border-b border-gray-200 bg-gray-50 hover:bg-gray-100">
+                        <td class="py-3 px-6 text-left">
+                            Laravel
+                        </td>
+                        <td class="py-3 px-6 text-left">
+                            <div class="flex items-center">
+                                <div class="mr-2">
+                                    <img class="w-6 h-6 rounded-full"
+                                        src="https://randomuser.me/api/portraits/men/4.jpg" />
+                                </div>
+                                <span>Tarik Novak</span>
+                            </div>
+                        </td>
+                        <td class="py-3 px-6 text-center">
+                            873
+                        </td>
+                        <td class="py-3 px-6 text-center">
+                            <span class="bg-red-200 text-red-600 py-1 px-3 rounded-full text-xs">Pending</span>
+                        </td>
+                        <td class="py-3 px-6 text-center">
+                            <div class="flex item-center justify-center">
+                                <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110 cursor-pointer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                    </svg>
+                                </div>
+                                <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110 cursor-pointer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                                    </svg>
+                                </div>
+                                <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110 cursor-pointer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="border-b border-gray-200 hover:bg-gray-100">
+                        <td class="py-3 px-6 text-left">
+                            GIT Project
+                        </td>
+                        <td class="py-3 px-6 text-left">
+                            <div class="flex items-center">
+                                <div class="mr-2">
+                                    <img class="w-6 h-6 rounded-full"
+                                        src="https://randomuser.me/api/portraits/men/5.jpg" />
+                                </div>
+                                <span>Oscar Howard</span>
+                            </div>
+                        </td>
+                        <td class="py-3 px-6 text-center">
+                            1294
+                        </td>
+                        <td class="py-3 px-6 text-center">
+                            <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">Active</span>
+                        </td>
+                        <td class="py-3 px-6 text-center">
+                            <div class="flex item-center justify-center">
+                                <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110 cursor-pointer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                    </svg>
+                                </div>
+                                <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110 cursor-pointer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                                    </svg>
+                                </div>
+                                <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110 cursor-pointer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="border-b border-gray-200 bg-gray-50 hover:bg-gray-100">
+                        <td class="py-3 px-6 text-left">
+                            JavaScript
+                        </td>
+                        <td class="py-3 px-6 text-left">
+                            <div class="flex items-center">
+                                <div class="mr-2">
+                                    <img class="w-6 h-6 rounded-full"
+                                        src="https://randomuser.me/api/portraits/women/6.jpg" />
+                                </div>
+                                <span>Melisa Moon</span>
+                            </div>
+                        </td>
+                        <td class="py-3 px-6 text-center">
+                            3763
+                        </td>
+                        <td class="py-3 px-6 text-center">
+                            <span class="bg-yellow-200 text-yellow-600 py-1 px-3 rounded-full text-xs">Scheduled</span>
+                        </td>
+                        <td class="py-3 px-6 text-center">
+                            <div class="flex item-center justify-center">
+                                <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110 cursor-pointer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                    </svg>
+                                </div>
+                                <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110 cursor-pointer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                                    </svg>
+                                </div>
+                                <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110 cursor-pointer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="border-b border-gray-200 hover:bg-gray-100">
+                        <td class="py-3 px-6 text-left">
+                            Python3
+                        </td>
+                        <td class="py-3 px-6 text-left">
+                            <div class="flex items-center">
+                                <div class="mr-2">
+                                    <img class="w-6 h-6 rounded-full"
+                                        src="https://randomuser.me/api/portraits/women/7.jpg" />
+                                </div>
+                                <span>Cora Key</span>
+                            </div>
+                        </td>
+                        <td class="py-3 px-6 text-center">
+                            509
+                        </td>
+                        <td class="py-3 px-6 text-center">
+                            <span class="bg-red-200 text-red-600 py-1 px-3 rounded-full text-xs">Pending</span>
+                        </td>
+                        <td class="py-3 px-6 text-center">
+                            <div class="flex item-center justify-center">
+                                <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110 cursor-pointer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                    </svg>
+                                </div>
+                                <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110 cursor-pointer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                                    </svg>
+                                </div>
+                                <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110 cursor-pointer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </td>
+                    </tr> --}}
+                </tbody>
+                </table>
     </div>
-    <!--/container-->
-
-    <footer class="bg-gray-900 border-t border-gray-400 shadow">
-        <div class="container max-w-md mx-auto flex py-8">
-
-            <div class="w-full mx-auto flex flex-wrap">
-                <div class="flex w-full md:w-1/2 ">
-                    <div class="px-8">
-                        <h3 class="font-bold font-bold text-gray-100">About</h3>
-                        <p class="py-4 text-gray-600 text-sm">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vel mi ut felis tempus
-                            commodo nec id erat. Suspendisse consectetur dapibus velit ut lacinia.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="flex w-full md:w-1/2">
-                    <div class="px-8">
-                        <h3 class="font-bold font-bold text-gray-100">Social</h3>
-                        <ul class="list-reset items-center text-sm pt-3">
-                            <li>
-                                <a class="inline-block text-gray-600 no-underline hover:text-gray-100 hover:text-underline py-1"
-                                    href="#">Add social link</a>
-                            </li>
-                            <li>
-                                <a class="inline-block text-gray-600 no-underline hover:text-gray-100 hover:text-underline py-1"
-                                    href="#">Add social link</a>
-                            </li>
-                            <li>
-                                <a class="inline-block text-gray-600 no-underline hover:text-gray-100 hover:text-underline py-1"
-                                    href="#">Add social link</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+    <!-- END OF TABLE -->
 
 
-
-        </div>
-    </footer>
-
-    <script>
-        /*Toggle dropdown list*/
-        /*https://gist.github.com/slavapas/593e8e50cf4cc16ac972afcbad4f70c8*/
-
-        var userMenuDiv = document.getElementById("userMenu");
-        var userMenu = document.getElementById("userButton");
-
-        var navMenuDiv = document.getElementById("nav-content");
-        var navMenu = document.getElementById("nav-toggle");
-
-        document.onclick = check;
-
-        function check(e) {
-            var target = (e && e.target) || (event && event.srcElement);
-
-            //User Menu
-            if (!checkParent(target, userMenuDiv)) {
-                // click NOT on the menu
-                if (checkParent(target, userMenu)) {
-                    // click on the link
-                    if (userMenuDiv.classList.contains("invisible")) {
-                        userMenuDiv.classList.remove("invisible");
-                    } else {
-                        userMenuDiv.classList.add("invisible");
-                    }
-                } else {
-                    // click both outside link and outside menu, hide menu
-                    userMenuDiv.classList.add("invisible");
-                }
-            }
-
-            //Nav Menu
-            if (!checkParent(target, navMenuDiv)) {
-                // click NOT on the menu
-                if (checkParent(target, navMenu)) {
-                    // click on the link
-                    if (navMenuDiv.classList.contains("hidden")) {
-                        navMenuDiv.classList.remove("hidden");
-                    } else {
-                        navMenuDiv.classList.add("hidden");
-                    }
-                } else {
-                    // click both outside link and outside menu, hide menu
-                    navMenuDiv.classList.add("hidden");
-                }
-            }
-
-        }
-
-        function checkParent(t, elm) {
-            while (t.parentNode) {
-                if (t == elm) {
-                    return true;
-                }
-                t = t.parentNode;
-            }
-            return false;
-        }
-    </script>
-
+    </section>
+    <!-- END OF PAGE CONTENT -->
+    </main>
+    </div>
 </body>
 
 </html>

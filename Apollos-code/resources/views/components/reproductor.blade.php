@@ -1,4 +1,5 @@
-<footer class="">
+<div>
+    <footer class="">
         <div class="player activer" id="player">
 
             <button rolle="button" id="show" class="show-list-btn"><i class="fi fi-rr-angle-left"></i></button>
@@ -22,9 +23,20 @@
                 </div>
             </div>
             <div class="controles">
+                {{-- Interacción --}}
+                <div class="p-3 w-full md:w-1/4 justify-center items-center gap-3 flex">
 
-                <i class="fi fi-rr-heart text-xl opacity-50 transition-all hover:opacity-100"></i>
-                <i class="fi fi-sr-heart text-xl text-red-400 hidden "></i>
+                    {{-- COMPONENTE DE LIVEWIRE --}}
+                    <livewire:like-song :song="$actuallysong" />
+                    {{-- REPORTAR CANCIÓN --}}
+                    <form action="{{ route('report.mail.store', ['user' => $user, 'song' => $actuallysong]) }}"
+                        method="POST">
+                        @csrf
+                        <input type="submit" name="Reportar" value="Reportar" id="">
+                    </form>
+                </div> <!-- Favoritos -->
+                {{-- <i class="fi fi-rr-heart text-xl opacity-50 transition-all hover:opacity-100"></i>
+                <i class="fi fi-sr-heart text-xl text-red-400 hidden "></i> --}}
 
                 <!-- PLay and Pause -->
                 <div class="controladores">
@@ -39,3 +51,5 @@
             </div>
         </div>
     </footer>
+
+</div>

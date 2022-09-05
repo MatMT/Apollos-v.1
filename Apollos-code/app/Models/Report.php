@@ -19,4 +19,13 @@ class Report extends Model
         'song_id',
         'album_id',
     ];
+
+    // RELACIÓNES ===============================
+
+    // Relación ---
+    public function song()
+    {
+        // Un Reporte tiene una canción
+        return $this->hasOne(Song::class);
+    }
 }

@@ -7,42 +7,12 @@
 {{-- Se llama al Js y Css encargado de Dropzone --}}
 @section('js')
     @vite(['resources/js/song.js'])
+    @vite(['resources/css/stepsStyles.css'])
 @endsection
 
 @section('css')
     <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
-    <style>
-        .dropzone {
-            border-style: dashed !important;
-            border-width: 3px !important;
-            border-color: white !important;
-
-            background: rgba(34, 47, 62, 0.45);
-            backdrop-filter: blur(8px);
-            font-size: 1.5em;
-        }
-
-        .dz-preview {
-            background: transparent !important;
-        }
-
-        .submit-bttn {
-            background-color: #131313;
-
-            filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
-        }
-
-        .submit-bttn:hover {
-            background-color: white;
-            transition: all 0.2s ease-in-out;
-            color: black;
-        }
-
-        .blur-bg {
-            background: rgba(39, 39, 39, 0.5);
-            backdrop-filter: blur(8px);
-        }
-    </style>
+    @vite(['resources/css/stepsStyles.css'])
 @endsection
 
 @section('header')
@@ -53,7 +23,7 @@
     <div class="p-10 overflow-hidden">
         <div
             class="flex my-0 mx-auto  sm:w-full sm:flex-row flex-col w-3/4  rounded-xl shadow overflow-hidden font-semibold">
-            <div class="basis-1/5 text-center py-3 bg-white @yield('step1')">{{__('Image')}}</div>
+            <div class="basis-1/5 text-center py-3 bg-white @yield('step1')">{{__('Album cover')}}</div>
             {{-- @yield('step') --}}
             <div class="basis-1/5 text-center py-3 bg-white @yield('step2')">{{__('Title')}}</div>
             <div class="basis-1/5 text-center py-3 bg-white @yield('step3')">{{__('Genre')}}</div>
@@ -74,12 +44,13 @@
         <div class="md:w-2/5 xl:px-16">
             <div class="md:h-1/2">
                 <p class="text-red-500 mb-3 text-center md:text-right block font-semibold text-sm"><span class="inline"><img
-                            src="{{ asset('assets/icons/errorIcon.png') }}" class="h-4 inline m-2"> {{__('6mb per song maximum')}}
+                            src="{{ asset('assets/icons/errorIcon.png') }}" class="h-4 inline m-2"> {{__('6 Mb maximum per song')}}
                     </span></p>
 
                 <form action="{{ route('audio.store') }}" method="POST" enctype="multipart/form-data" id="dropzone_audio"
                     class="dropzone  border-dashed border-2 @error('song') border-red-500 @enderror w-full text-white rounded flex flex-col justify-center items-center">
                     @csrf
+                    <div class="dz-message" data-dz-message><span>{{__("Upload your")}} <b>{{__("song")}}</b> {{__("here")}}</span></div>
                 </form> <!-- DROPZONE -->
 
                 <!------------------------------------------------------------>
@@ -104,8 +75,8 @@
 
                     <!-- Campos -->
                     <div class="mb-5">
-                        <label for="titulo" class="mb-2 block uppercase text-white font-bold mt-5">Título</label>
-                        <input type="text" id="titulo" name="titulo" placeholder="Título de tu canción"
+                        <label for="titulo" class="mb-2 block uppercase text-white font-bold mt-5">{{__('Title')}}</label>
+                        <input type="text" id="titulo" name="titulo" placeholder="{{__('Title of your song')}}"
                             class="border p-3 w-full rounded-lg @error('titulo') border-red-500 @enderror"
                             value="{{ old('titulo') }}">
                         @error('titulo')
@@ -113,10 +84,10 @@
                         @enderror
                     </div>
                     <p class="text-red-500 mb-3 text-center md:text-right block font-semibold text-sm"><span
-                            class="inline"><img src="{{ asset('assets/icons/errorIcon.png') }}" class="h-4 inline m-2"> Al
-                            {{__(' By adding it you will no longer be able to remove the song from the registry.')}} </span></p>
+                            class="inline"><img src="{{ asset('assets/icons/errorIcon.png') }}" class="h-4 inline m-2">
+                            {{__("By adding your song, you won't be able to remove it from the registry")}} </span></p>
 
-                    <input type="submit" value="Agregar"
+                    <input type="submit" value="{{__('Add')}}"
                         class="submit-bttn transition-colors cursor-pointer uppercase font-bold w-full p-3 mb-5 md:mb-0 text-white rounded-lg" />
                 </form>
             </div> <!-- .Mp3 -->
@@ -182,8 +153,8 @@
 
                 @if ($i > 1)
                     @if ($songs->count())
-                        <input type="submit" value="Siguiente"
-                            class="submit-bttn transition-colors cursor-pointer uppercase font-bold w-full p-4 mb-12 text-white rounded-lg" />
+                    <input type="submit" value="{{__('Continue')}}"
+                    class="submit-bttn transition-colors cursor-pointer uppercase font-bold w-full p-3  text-white rounded-lg" />
                     @endif
                 @endif
             </form>

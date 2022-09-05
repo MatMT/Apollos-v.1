@@ -14,6 +14,3 @@
 {{__('Sets the main genre')}}
 @endsection
 
-@section('placeholder')
-{{__('Album Title')}}
-@endsection

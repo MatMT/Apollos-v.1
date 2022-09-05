@@ -66,14 +66,14 @@
     "What kind of content do you want to upload?": "¿Qué tipo de contenido deseas subir?",
 
     "Uploading an album": "Subiendo un álbum",
-    "Uploading an single": "Subiendo un sencillo",
+    "Uploading a single": "Subiendo un sencillo",
 
     "Upload a single": "Sube un sencillo",
-    "Image": "Imagen", 
+    "Album cover": "Portada del álbum", 
 
-    "Establishes a title": "Establece un Titulo",
     "Title": "Título",
-    "Album Title": "Titulo del Álbum",
+    "Set a title to your album": "Establece un título a tu álbum",
+    "Album title": "Titulo del álbum",
     "Title of your song": "Título de tu canción",
 
     "Genre": "Género",
@@ -81,7 +81,7 @@
     "Sets the main genre": "Establece el género principal",
         "Electronic": "Electrónica",
 
-    "Place cover": "Coloca Portada",
+    "Upload your album cover": "Coloca la portada de tu álbum",
     "Upload your songs": "Sube tus canciones",
     
     "Upload your":"Sube tu", 
@@ -91,12 +91,13 @@
     "6 Mb maximum per song": "6 Mb máximos por canción",
     "The image is obligatory.": "La imagen es obligatoria",
     "The song is obligatory.": "La canción es obligatoria",
-    "The next time you will not be able to edit the cover": "Al darle siguiente no podras editar la portada",
+    "You won't be able to edit your album cover later": "Al continuar no podrás editar la portada",
 
-    "By adding it you will no longer be able to remove the song from the registry.": " Al agregarla ya no podrás retirar la canción del registro",
+    "By adding your song, you won't be able to remove it from the registry": " Al agregarla ya no podrás retirar la canción del registro",
     "I confirm that all uploaded content is of my authorship": "Confirmo que todo contenido subido es de mi  autoría",
     
-    "Almost all is ready": "Casi todo esta listo",
+    "We are almost done": "Casi todo está listo",
+    "Continue":"Continuar",
     "Publish": "Publicar",
     
 

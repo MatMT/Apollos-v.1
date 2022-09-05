@@ -1,0 +1,52 @@
+.md\:flex{
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+}
+
+.dropzone {
+    border-style: dashed !important;
+    border-width: 3px !important;
+    border-color: white !important;
+
+    background: rgba(34, 47, 62, 0.45);
+    backdrop-filter: blur(8px);
+    font-size: 1.5em;
+}
+
+.dz-preview {
+    background: transparent !important;
+}
+
+.submit-bttn {
+    background-color: #131313;
+
+    filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+}
+
+.submit-bttn:hover {
+    background-color: white;
+    transition: all 0.2s ease-in-out;
+    color: black;
+}
+
+.blur-bg {
+    background: rgba(39, 39, 39, 0.5);
+    backdrop-filter: blur(8px);
+}
+
+span.remove-dz-img{
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    cursor:pointer !important;
+}
+
+span.remove-dz-img img{
+    height: 25px;
+    width: 25px;
+    cursor:pointer !important;
+}
+
+.genero {
+    color: white !important;
+}

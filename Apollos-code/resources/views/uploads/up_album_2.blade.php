@@ -11,9 +11,9 @@
 @endsection
 
 @section('subtitulo')
-{{__('Establishes a title')}}
+{{__('Set a title to your album')}}
 @endsection
 
 @section('placeholder')
-{{__('Album Title')}}
+{{__('Album title')}}
 @endsection

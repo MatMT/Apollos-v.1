@@ -89,8 +89,7 @@
                         @if ($MySongs)
                             @foreach ($MySongs as $song)
                                 <div class="song flex items-center justify-around">
-                                    <a
-                                        href="{{ route('song.playlist.show', ['playlist' => $MyPlaylist, 'song' => $song]) }}">
+                                    <a href="{{ route('song.playlist.show', ['playlist' => $MyPlaylist, 'song' => $song]) }}">
 
                                         <div class="fila-content-v text-lg" href="" id="song">
                                             <div class="num-song font-titulo">{{ $i++ }}</div>

@@ -518,7 +518,7 @@ background-color: rgba(255, 255, 255, 0.096);
 
 
 footer{
-    position: sticky;
+    position: fixed;
     display: flex;
     justify-content: flex-end;
     right: 0%;
@@ -550,19 +550,6 @@ footer{
 
 /*Boton*/
 
-.player button{
-    position: absolute;
-    z-index: 10;
-    top: 49px;
-    left: 10px;
-    opacity: 0.2;
-    font-size: 12px;
-    transition: 0.2s all ease;
-}
-
-.player button:hover{
-    opacity: 0.6;
-}
 
 .player.activer .show-list-btn{
     display: none;
@@ -599,7 +586,7 @@ footer{
 }
 
 .player.activer .cancion{
-    width: 15%;
+    width: 10%;
 }
 
 .player.activer .white-circule{
@@ -619,7 +606,7 @@ footer{
 }
 .player .cancion img{
     height: 100%;
-    border-radius: 100%;
+    border-radius: 5px;
     margin: 0% auto;
 }
 
@@ -633,7 +620,8 @@ footer{
     top: 42.5694%;
     width: 18px;
     height: 18px;
-    background-color: #fdfdfd;
+    background-color: #6b6b6b;
+    background-color: transparent;
     border-radius: 100%;
     z-index: 10;
 }
@@ -708,6 +696,15 @@ footer{
 .player .controles i{
     
     cursor: pointer;
+}
+
+
+#play.active{
+    display: block;
+}
+
+#pause.active{
+    display: block;
 }
 
 .rombo{

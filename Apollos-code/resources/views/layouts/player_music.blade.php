@@ -35,24 +35,23 @@
 
 @section('content')
     @vite('resources/css/varios.css')
+    @vite('resources/js/reproductor.js')
 
-    <main class="w-22/25 tablet_3:w-11/12 my-4 mx-auto p-5 mt-20">
+    <main class="mainplayer w-22/25 tablet_3:w-11/12 my-1 mx-auto p-2">
         <div class="contenido-musical w-full">
             <div class="list-player w-full">
                 <div class="img-music">
                     <img src="{{ asset('storage') . '/uploads/imagenes/' . $ActuallySong->image }}" alt="Imagen de la canción {{ $ActuallySong->name_song }}" class="">
                 </div>
-                <div class="list-songs">
-                    @yield('component_player')
-                </div>
-            </div>
+
+                @yield('component_player')
+
+            </div>        
         </div>
     </main>
 
-    
     <!-- Agrgamos el reproductor  --->
-    <x-reproductor></x-reproductor>
-
+    <x-only-player :othersongs="$OtherSongs" :user="$user" :actuallysong="$ActuallySong"></x-reproductor>
 @endsection
 
 @push('script_end')

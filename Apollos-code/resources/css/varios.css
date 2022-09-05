@@ -129,7 +129,7 @@
     align-items: center;
     border-radius: 5px;
     margin: 5px auto;
-    padding: 5px 0px;
+    padding: 1px 0px;
     transition: 0.1s ease-in-out;
 }
 .song a{
@@ -463,18 +463,73 @@
 
 /*----------------------------------------------------------- Reproductor de Musica (Album, canción, favoritos)*/
 
-.list-player {
+.mainplayer{
+    height: 70vh;
     display: flex;
+}
+
+.songs-list-l{
+    width: 100%;
+}
+.canciones{
+    max-height: 200px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.min-space{
+    margin-bottom: 2px;
+}
+
+.img-music{
+    padding: 0px 20px;
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
-.list-player img{
-    width: 60%;
-    margin: 20px auto;
+
+.img-music img{
+    width: 55%;
+    border-radius: 16px;
 }
 
 @media screen and (min-width: 1365px){
     .list-player{
         display: flex;
         justify-content: space-between;
+        align-items: center;
+        margin-top: 1rem;
+    }
+
+    .img-music img{
+        width: 70%;    
+    }
+
+    .canciones{
+        max-height: 53vh;
+    }
+
+    .play-list-container.player2 {
+        width: 50%;
+    }
+    .min-space{
+        margin-bottom: 20px;
+    }
+
+    .mainplayer{
+        align-items: center;
+    }
+}
+
+
+@media screen and (max-height: 1000px){
+    .canciones{
+        max-height: 40vh;
+    }
+}
+
+@media screen and (max-height: 842px){
+    .canciones{
+        max-height: 30vh;
     }
 }

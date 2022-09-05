@@ -20,12 +20,17 @@ class Report extends Model
         'album_id',
     ];
 
-    // RELACIÓNES ===============================
+    // Métodos ===============================
 
-    // Relación ---
-    public function song()
+    public function Infosong($song_id)
     {
-        // Un Reporte tiene una canción
-        return $this->hasOne(Song::class);
+        $song = Song::where('id', $song_id)->first();
+        return $song;
+    }
+
+    public function InfoUser($reportedUser_id)
+    {
+        $user = User::where('id', $reportedUser_id)->first();
+        return $user;
     }
 }

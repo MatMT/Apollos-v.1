@@ -10,9 +10,11 @@ class AdminController extends Controller
 {
     public function index()
     {
-        $reportes = Report::all()->toArray();
+        $reportes = Report::all();
+
+        $resueltos = Report::where('status', 'resolved')->get();
         // dd($reportes);
-        return view('admin.indexAdmin', ['reports' => $reportes]);
+        return view('admin.indexAdmin', ['reports' => $reportes, 'resolved' => $resueltos]);
     }
 
     public function store(Report $report)

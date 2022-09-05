@@ -29,11 +29,13 @@
                     {{-- COMPONENTE DE LIVEWIRE --}}
                     <livewire:like-song :song="$actuallysong" />
                     {{-- REPORTAR CANCIÓN --}}
-                    <form action="{{ route('report.mail.store', ['user' => $user, 'song' => $actuallysong]) }}"
-                        method="POST">
-                        @csrf
-                        <input type="submit" name="Reportar" value="Reportar" id="">
-                    </form>
+                    @if ($user->id != auth()->user()->id)
+                        <form action="{{ route('report.mail.store', ['user' => $user, 'song' => $actuallysong]) }}"
+                            method="POST">
+                            @csrf
+                            <input type="submit" name="Reportar" value="Reportar" id="">
+                        </form>
+                    @endif
                 </div> <!-- Favoritos -->
                 {{-- <i class="fi fi-rr-heart text-xl opacity-50 transition-all hover:opacity-100"></i>
                 <i class="fi fi-sr-heart text-xl text-red-400 hidden "></i> --}}

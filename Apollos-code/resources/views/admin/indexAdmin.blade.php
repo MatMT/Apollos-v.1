@@ -153,47 +153,21 @@
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-4 py-6">
                     <div class="bg-white shadow rounded-sm flex justify-between items-center py-3.5 px-3.5">
                         <div class="space-y-2">
-                            <p class="text-xs text-gray-400 uppercase">Usuarios reportados</p>
-                            <div class="flex items-center space-x-2">
-                                <h1 class="text-xl font-semibold">819</h1>
-                                {{-- <p class="text-xs bg-green-50 text-green-500 px-1 rounded">+7.4</p> --}}
-                            </div>
-                        </div>
-                        <svg class="w-12 h-12 text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
-                        </svg>
-
-                    </div>
-
-                    <div class="bg-white shadow rounded-sm flex justify-between items-center py-3.5 px-3.5">
-                        <div class="space-y-2">
-                            <p class="text-xs text-gray-400 uppercase">Usuarios informantes</p>
-                            <div class="flex items-center space-x-2">
-                                <h1 class="text-xl font-semibold">819</h1>
-                                {{-- <p class="text-xs bg-green-50 text-green-500 px-1 rounded">+7.4</p> --}}
-                            </div>
-                        </div>
-                        <svg class="w-12 h-12 text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
-                        </svg>
-
-                    </div>
-
-                    <div class="bg-white shadow rounded-sm flex justify-between items-center py-3.5 px-3.5">
-                        <div class="space-y-2">
                             <p class="text-xs text-gray-400 uppercase">Casos reportados</p>
                             <div class="flex items-center space-x-2">
-                                <h1 class="text-xl font-semibold">121</h1>
+                                <h1 class="text-xl font-semibold">
+                                    @if ($reports)
+                                        {{ $reports->count() }}
+                                    @else
+                                        0
+                                    @endif
+                                </h1>
                                 {{-- <p class="text-xs bg-red-50 text-red-500 px-1 rounded">-2.9</p> --}}
                             </div>
                         </div>
                         {{-- Icono --}}
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-gray-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-12 h-12 text-gray-300">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.249-8.25-3.286zm0 13.036h.008v.008H12v-.008z" />
                         </svg>
@@ -203,12 +177,18 @@
                         <div class="space-y-2">
                             <p class="text-xs text-gray-400 uppercase">Casos Resueltos</p>
                             <div class="flex items-center space-x-2">
-                                <h1 class="text-xl font-semibold">243</h1>
+                                <h1 class="text-xl font-semibold">
+                                    @if ($resolved)
+                                        {{ $resolved->count() }}
+                                    @else
+                                        0
+                                    @endif
+                                </h1>
                                 {{-- <p class="text-xs bg-green-50 text-green-500 px-1 rounded">+3.1</p> --}}
                             </div>
                         </div>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-gray-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-12 h-12 text-gray-300">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
                         </svg>
@@ -224,7 +204,7 @@
                             <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
                                 <th class="py-3 px-6 text-left">Usuario</th>
                                 <th class="py-3 px-6 text-left">Canción</th>
-                                <th class="py-3 px-6 text-center">Colección</th>
+                                <th class="py-3 px-6 text-center">Canción</th>
                                 <th class="py-3 px-6 text-center">Estado</th>
                                 <th class="py-3 px-6 text-center">Acción</th>
                             </tr>
@@ -232,97 +212,73 @@
                 </div>
                 <tbody class="text-gray-600 text-sm">
                     <!-- Caso -->
-                    <tr class="border-b border-gray-200 hover:bg-gray-100">
-                        <!-- Usuario -->
-                        <td class="py-3 px-6 text-left">
-                            <div class="flex items-center">
-                                <div class="mr-2">
-                                    <img class="w-6 h-6 rounded-full"
-                                        src="https://randomuser.me/api/portraits/men/1.jpg" />
+                    @php
+                        $i = 0;
+                    @endphp
+                    @foreach ($reports as $report)
+                        @php
+                            ++$i;
+                        @endphp
+                        <tr
+                            class="border-b border-gray-200 @if ($i % 2 == 0) bg-gray-50 @endif hover:bg-gray-100">
+                            <!-- Usuario -->
+                            <td class="py-3 px-6 text-left">
+                                <div class="flex items-center">
+                                    <div class="mr-2">
+                                        <img class="w-6 h-6 rounded-full"
+                                            src="{{ asset('storage') . '/uploads/pfp/' . $report->InfoUser($report->reportedUser_id)->image }}" />
+                                    </div>
+                                    <span> {{ $report->InfoUser($report->reportedUser_id)->username }}
+                                    </span>
                                 </div>
-                                <span>Eshal Rosas</span>
-                            </div>
-                        </td>
-                        <!-- Colección -->
-                        <td class="py-3 px-6 text-left whitespace-nowrap">
-                            Mi rolita porno 😈
-                        </td>
+                            </td>
+                            <!-- Colección -->
+                            <td class="py-3 px-3 text-left whitespace-nowrap">
+                                <p class="ml-2">{{ $report->Infosong($report->song_id)->name_song }}</p>
+                            </td>
 
-                        <td class="py-3 px-6 text-center">
-                            Sencillo
-                        </td>
-                        <td class="py-3 px-6 text-center">
-                            <span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Resuelto</span>
-                        </td>
-                        {{-- Interacción --}}
-                        <td class="py-3 px-6 text-center">
-                            <div class="flex item-center justify-center gap-1">
-                                <div class="w-4 mr-2 transform hover:text-red-600 hover:scale-110 cursor-pointer">
+                            <td class="py-3 px-6 flex justify-center">
+                                <audio controls
+                                    src="{{ asset('storage') . '/uploads/canciones/' . $report->Infosong($report->song_id)->url }}"
+                                    preload="none" controlsList="nodownload noplaybackrate"></audio>
+                            </td>
+                            <td class="py-3 px-3 text-center">
+                                @if ($report->status == 'pending')
+                                    <span
+                                        class="bg-red-200 text-red-600 py-1 px-3 rounded-full text-xs">Pendiente</span>
+                                @else
+                                    <span
+                                        class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Resuelto</span>
+                                @endif
+                                </span>
+                            </td>
+                            {{-- Interacción --}}
+                            <td class="py-3 px-6 text-center">
+                                <div class="flex item-center justify-center gap-1">
+                                    <div class="w-4 mr-2 transform hover:text-red-600 hover:scale-110 cursor-pointer">
 
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                                        class="w-5 h-5">
-                                        <path fill-rule="evenodd"
-                                            d="M5.965 4.904l9.131 9.131a6.5 6.5 0 00-9.131-9.131zm8.07 10.192L4.904 5.965a6.5 6.5 0 009.131 9.131zM4.343 4.343a8 8 0 1111.314 11.314A8 8 0 014.343 4.343z"
-                                            clip-rule="evenodd" />
-                                    </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                            fill="currentColor" class="w-5 h-5">
+                                            <path fill-rule="evenodd"
+                                                d="M5.965 4.904l9.131 9.131a6.5 6.5 0 00-9.131-9.131zm8.07 10.192L4.904 5.965a6.5 6.5 0 009.131 9.131zM4.343 4.343a8 8 0 1111.314 11.314A8 8 0 014.343 4.343z"
+                                                clip-rule="evenodd" />
+                                        </svg>
 
+                                    </div>
+                                    <div
+                                        class="w-4 mr-2 transform hover:text-green-500 hover:scale-110 cursor-pointer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                            fill="currentColor" class="w-5 h-5">
+                                            <path fill-rule="evenodd"
+                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
                                 </div>
-                                <div class="w-4 mr-2 transform hover:text-green-500 hover:scale-110 cursor-pointer">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                                        class="w-5 h-5">
-                                        <path fill-rule="evenodd"
-                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <!-- Caso -->
-                    <tr class="border-b border-gray-200 bg-gray-50 hover:bg-gray-100">
-                        <td class="py-3 px-6 text-left">
-                            <div class="flex items-center">
-                                <div class="mr-2">
-                                    <img class="w-6 h-6 rounded-full"
-                                        src="https://randomuser.me/api/portraits/women/2.jpg" />
-                                </div>
-                                <span>Anita Rodriquez</span>
-                            </div>
-                        </td>
-                        <td class="py-3 px-6 text-left">
-                            Nintendo nos demando
-                        </td>
+                            </td>
+                        </tr>
+                    @endforeach
 
-                        <td class="py-3 px-6 text-center">
-                            Álbum
-                        </td>
-                        <td class="py-3 px-6 text-center">
-                            <span class="bg-red-200 text-red-600 py-1 px-3 rounded-full text-xs">Pendiente</span>
-                        </td>
-                        {{-- Interacción --}}
-                        <td class="py-3 px-6 text-center">
-                            <div class="flex item-center justify-center gap-1">
-                                <div class="w-4 mr-2 transform hover:text-red-600 hover:scale-110 cursor-pointer">
-
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                                        class="w-5 h-5">
-                                        <path fill-rule="evenodd"
-                                            d="M5.965 4.904l9.131 9.131a6.5 6.5 0 00-9.131-9.131zm8.07 10.192L4.904 5.965a6.5 6.5 0 009.131 9.131zM4.343 4.343a8 8 0 1111.314 11.314A8 8 0 014.343 4.343z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-
-                                </div>
-                                <div class="w-4 mr-2 transform hover:text-green-500 hover:scale-110 cursor-pointer">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                                        class="w-5 h-5">
-                                        <path fill-rule="evenodd"
-                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
                     {{-- <tr class="border-b border-gray-200 hover:bg-gray-100">
                         <td class="py-3 px-6 text-left">
                             Angular

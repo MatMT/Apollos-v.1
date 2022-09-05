@@ -25,8 +25,8 @@ class ReportController extends Controller
         // Obtener canción por su id
         $song = Song::where('id', $song)->first();
 
-        // Registro - CANCIÓN
-        Report::create([
+        // Verificar si existe un reporte, en caso de no, se crea el registro
+        Report::firstOrCreate(['song_id' => $song->id], [
             'status' => 'pending',
             'reportingUser_id' => auth()->user()->id,
             'reportedUser_id' => $artist->id,
@@ -35,8 +35,8 @@ class ReportController extends Controller
         ]);
 
         // Email del artista
-        // $artistEmail = $artist->email;
-        // Mail::to($artistEmail)->send(new ReportsongMailable($artist, $song));
+        $artistEmail = $artist->email;
+        Mail::to($artistEmail)->send(new ReportsongMailable($artist, $song));
 
         return redirect()->route('main')->with('message', 'Se ah reportado la canción PEPE');
     }

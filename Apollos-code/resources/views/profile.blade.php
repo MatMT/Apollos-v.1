@@ -61,11 +61,11 @@
                             <div class="song-container-tabs mt-2 mb-5 leading-3">
                                 <span class="disc-ico"><img src="{{ asset('assets/icons/discBrokenWht.png') }}"></span>
                                 <h1 class='text-white font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>
-                                    {{ auth()->user()->name == $user->name ? '¡Sube tu primer álbum!' : 'Todavía no sube contenido...' }}
+                                    {{ auth()->user()->name == $user->name ? __('Upload your first album!') : __('No content...') }}
                                 </h1>
                                 <h1
                                     class='if-subtitle text-slate-500 font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>
-                                    {{ auth()->user()->name == $user->name ? 'Y muestra tu talento ' : '¡Espera su primer álbum!' }}
+                                    {{ auth()->user()->name == $user->name ? __('And show your talent') : __('Wait for their first album!') }}
                                 </h1>
                             </div>
                         @endif
@@ -88,11 +88,11 @@
                                         <span class="song-pic-tab opacity-70"><img
                                                 src='{{ asset('assets/icons/imageIconWht.png') }}'></span>
                                         <span class="title-author-tab">
-                                            <h1 class="song-title text-center opacity-70">Nombre de la canción</h1>
+                                            <h1 class="song-title text-center opacity-70">{{__('Name')}}</h1>
                                         </span>
                                         <h1 class='counter-time-tab text-center opacity-70'><img
                                                 src='{{ asset('assets/icons/timerIconWht.png') }}'></h1>
-                                        <h1 class='likes-tab text-center opacity-70'>Me gusta</h1>
+                                        <h1 class='likes-tab text-center opacity-70'>{{__('Like')}}</h1>
                                     </div>
                                 </div>
                                 @foreach ($sencillos as $sencillo)
@@ -153,11 +153,11 @@
                                         <span class="disc-ico"><img
                                                 src="{{ asset('assets/icons/discBrokenWht.png') }}"></span>
                                         <h1 class='text-white font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>
-                                            {{ auth()->user()->name == $user->name ? '¡Sube tu primera canción!' : 'Todavía no sube contenido...' }}
+                                            {{ auth()->user()->name == $user->name ? __('Upload your first song!') : __('No content...') }}
                                         </h1>
                                         <h1
                                             class='if-subtitle text-slate-500 font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>
-                                            {{ auth()->user()->name == $user->name ? 'Y muestra tu talento ' : '¡Espera su primera canción!' }}
+                                            {{ auth()->user()->name == $user->name ? __('And show your talent') : __('Wait for their first song!') }}
                                         </h1>
                                     </div>
                                 </div>

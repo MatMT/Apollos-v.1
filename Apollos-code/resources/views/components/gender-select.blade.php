@@ -1,12 +1,12 @@
 <label for="genero" class="genero mb-2 block uppercase text-gray-800 font-bold">Género</label>
     <select name="genero" id="genero" form="song_up"
         class="border p-3 w-full rounded-lg text-gray-800 @error('genero') border-red-500  @enderror">
-        <option value="" selected disabled> -- Selecciona el género de tu canción --
+        <option value="" selected disabled> {{__('Select your song genre')}}
         </option>
         {{-- Operador ternario para antiguo select --}}
         <option value="pop"         {{ old('genero') == 'pop' ? 'selected' : '' }}>Pop</option>
         <option value="rock"        {{ old('genero') == 'rock' ? 'selected' : '' }}>Rock</option>
-        <option value="electronic"  {{ old('genero')  == 'electronic' ? 'selected' : '' }}>Electrónica</option>
+        <option value="electronic"  {{ old('genero')  == 'electronic' ? 'selected' : '' }}>{{__('Electronic')}}</option>
         <option value="instrumental"{{ old('genero') == 'instrumental' ? 'selected' : '' }}>Instrumental</option>
         <option value="metal"       {{ old('genero') == 'metal' ? 'selected' : '' }}>Metal</option>
         <option value="bachata"     {{ old('genero') == 'bachata' ? 'selected' : '' }}>Bachata</option>

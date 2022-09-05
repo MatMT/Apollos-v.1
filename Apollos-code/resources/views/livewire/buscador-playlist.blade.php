@@ -34,11 +34,11 @@
                                     <p class="text-sm font-bold max-w-[114px] min-w-[110px] max-h-[56px]">
                                         {{ $song->name_song }}</p>
                                     <p class="font-light opacity-70 max-w-[114px]  max-h-[28px] text-sm">
-                                        {{ $song->sencillo ? 'Sencillo' : 'Álbum' }}
+                                        {{ $song->sencillo ? __('Single') : __('Album') }}
                                     </p>
                                 </div>
 
-                                <button class="font-cuerpo" id="ButtonId_{{ $i }}">Añadir</button>
+                                <button class="font-cuerpo" id="ButtonId_{{ $i }}">{{__('Add')}}</button>
                             </div>
                         @endif
                     @endforeach
@@ -58,11 +58,11 @@
                                     <p class="text-sm font-bold max-w-[114px] min-w-[110px] max-h-[56px]">
                                         {{ $song->name_song }}</p>
                                     <p class="font-light opacity-70 max-w-[114px]  max-h-[28px]">
-                                        {{ $song->sencillo ? 'Sencillo' : 'Álbum' }}
+                                        {{ $song->sencillo ? __('Single') : __('Album') }}
                                     </p>
                                 </div>
 
-                                <button class="font-cuerpo" id="ButtonId_{{ $i }}">Añadida</button>
+                                <button class="font-cuerpo" id="ButtonId_{{ $i }}">{{__('Added')}}</button>
                             </div>
                         @endif
                     @endforeach

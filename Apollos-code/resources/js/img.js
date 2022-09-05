@@ -7,7 +7,7 @@ const DropzoneImg = new Dropzone('#dropzone_img', {
     dictDefaultMessage: 'Sube tu <b>imagen</b> aquí',
     acceptedFiles: '.png, .jpg, .jpeg',
     addRemoveLinks: true,
-    dictRemoveFile: 'Borrar Archivo',
+    dictRemoveFile: `<span class='remove-dz-img'><img src="../../assets/icons/removeIconWht.png"></span>`,
     maxFiles: 1,
     uploadMultiple: false,
     // maxFilesize: , // 2 MB

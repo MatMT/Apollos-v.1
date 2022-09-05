@@ -25,8 +25,9 @@ class RegisterController extends Controller
             'apellido' => 'required|min:4|max:25 ',
             'email' => 'required|email|unique:users,email|max:50',
             'password' => 'required|min:4',
+            'género'=> 'required',
             'nacimiento' => 'required|date',
-            'usuario' => 'required|unique:users|min:3|max:30',
+            'usuario' => 'required|string|unique:users,username|min:3|max:30',
         ]);
 
         // Modificar el Request
@@ -34,7 +35,7 @@ class RegisterController extends Controller
         $request->request->add(['usuario' => Str::slug($request->usuario)]);
 
         // Género --- 
-        $gender = $request->gender;
+        $gender = $request->género;
 
         // 0 hombre - 1 mujer
         $gender == 'male' ? $gender = false : $gender;
@@ -54,7 +55,7 @@ class RegisterController extends Controller
         $artist = $request->user_type;
         $artist == '' ? $artist = 'user' : $artist;
 
-        // Creación 
+        // Creación de usuario
         User::create([
             'name' => $request->nombre,
             'last_name' => $request->apellido,
@@ -67,7 +68,7 @@ class RegisterController extends Controller
             'name_artist' =>  $request->usuario,
             'username' => $username
         ]);
-
+        
         // Autentificación
         auth()->attempt($request->only('email', 'password'));
 

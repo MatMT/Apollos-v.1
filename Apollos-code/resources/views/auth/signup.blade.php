@@ -114,7 +114,7 @@
                                     <div class="gender-style flex items-center justify-center mt-3 border-r-0">
 
                                         <div class="rad-cont">
-                                            <input type="radio" name="gender" value="male" class='radio'
+                                            <input type="radio" name="género" value="male" class='radio'
                                                 id="M" />
                                             {{-- @if (old('gender')) checked @endif --}}
                                             <label class="gender-input rounded-l-md" for="M">
@@ -123,7 +123,7 @@
                                         </div> {{-- rad-cont --}}
 
                                         <div class="rad-cont">
-                                            <input type="radio" name="gender" value="female" class='radio'
+                                            <input type="radio" name="género" value="female" class='radio'
                                                 id='F' />
 
                                             <label class="gender-input rounded-r-md" for="F">

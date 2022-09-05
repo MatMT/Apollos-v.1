@@ -38,6 +38,6 @@ class ReportController extends Controller
         $artistEmail = $artist->email;
         Mail::to($artistEmail)->send(new ReportsongMailable($artist, $song));
 
-        return redirect()->route('main')->with('message', 'Se ah reportado la canción PEPE');
+        return redirect()->route('main')->with('message', 'Se ah reportado la canción   ');
     }
 }

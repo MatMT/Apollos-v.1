@@ -1,7 +1,7 @@
 @extends('layouts.shape1')
 
 @section('title')
-    {{ __('Uploading an sinlge') }}
+    {{ __('Upload a single') }}
 @endsection
 
 @section('js')
@@ -35,6 +35,19 @@
         .dz-preview {
             background: transparent !important;
         }
+
+        span.remove-dz-img{
+            margin-top: 5px;
+            display: flex;
+            justify-content: center;
+        }
+
+        span.remove-dz-img img{
+            height: 25px;
+            width: 25px;
+        }
+
+        
     </style>
 @endsection
 
@@ -43,7 +56,7 @@
 @endsection
 
 @section('content')
-    <h1 class='text-white font-titulo text-3xl font-bold mt-12 mb-2 anim2 w-full text-center px-10'>{{ __('Upload a Song') }}
+    <h1 class='text-white font-titulo text-3xl font-bold mt-4 mb-2 anim2 w-full text-center px-10'>{{ __('Upload a single') }}
     </h1>
     <div class="md:flex md:items-center flex justify-center items-center h-4/6 px-10">
 
@@ -53,6 +66,7 @@
                 <form action="{{ route('image.store') }}" method="POST" enctype="multipart/form-data" id="dropzone_img"
                     class="dropzone md:h-1/2 border-5 border-dashed @error('imagen') border-red-500 @enderror w-full h-96 rounded flex flex-col justify-center items-center">
                     @csrf
+                    <div class="dz-message" data-dz-message><span>{{__("Upload your")}} <b>{{__("image")}}</b> {{__("here")}}</span></div>
                 </form>
 
                 @error('imagen')
@@ -67,6 +81,7 @@
                 <form action="{{ route('audio.store') }}" method="POST" enctype="multipart/form-data" id="dropzone_audio"
                     class="dropzone md:h-1/2  border-dashed border-2 @error('song') border-red-500 @enderror w-full h-96 rounded flex flex-col justify-center items-center">
                     @csrf
+                    <div class="dz-message" data-dz-message><span>{{__("Upload your")}} <b>{{__("song")}}</b> {{__("here")}}</span></div>
                 </form>
 
                 @error('song')
@@ -75,7 +90,7 @@
                 @enderror
                 <p class="p-2 text-red-500 text-right font-semibold"><span class="inline"><img
                             src="{{ asset('assets/icons/errorIcon.png') }}" class="h-4 inline m-2">
-                        {{ __('6mb per song maximum') }}
+                        {{ __('6 Mb maximum per song') }}
 
                     </span></p>
             </div> <!-- .Mp3 -->
@@ -107,8 +122,8 @@
 
                 <!-- Campos -->
                 <div class="mb-5">
-                    <label for="titulo" class="mb-2 block uppercase text-gray-800 font-bold">Título</label>
-                    <input type="text" id="titulo" name="titulo" placeholder="Título de tu canción"
+                    <label for="titulo" class="mb-2 block uppercase text-gray-800 font-bold">{{__('Title')}}</label>
+                    <input type="text" id="titulo" name="titulo" placeholder="{{__('Title of your song')}}"
                         class="border p-3 w-full rounded-lg @error('titulo') border-red-500 @enderror"
                         value="{{ old('titulo') }}">
                     @error('titulo')
@@ -126,7 +141,7 @@
                     @enderror
                 </div>
 
-                <input type="submit" value="Publicar"
+                <input type="submit" value="{{__('Publish')}}"
                     class="submit-bttn bg-sky-600 transition-colors cursor-pointer uppercase font-bold w-full p-3  text-white rounded-lg" />
 
             </form>

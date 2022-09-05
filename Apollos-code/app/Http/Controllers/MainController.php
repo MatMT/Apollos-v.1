@@ -12,10 +12,12 @@ use Illuminate\Support\Facades\DB;
 
 class MainController extends Controller
 {
-    // Autentificación de registrado
     public function __construct()
     {
+        // Verificar inicio de sesión
         $this->middleware('auth');
+        // Permitir acceso de usuario | No de admin
+        $this->middleware('user.log');
     }
 
     // MAIN ===============================================================
@@ -23,6 +25,7 @@ class MainController extends Controller
     {
         // Obtener id del usuario logeado
         $UserLog = Auth()->user();
+
 
         // Obtener id de a quienes seguimos ===
         $ids = auth()->user()->followings->pluck('id')->toArray();
@@ -32,21 +35,20 @@ class MainController extends Controller
         $favoritos = Like::where('user_id', $UserLog->id)->first();
 
         if ($favoritos) {
-            $favoritos = Song::where('id', $favoritos->song_id)->first();
+            $favoritos = Song::where([['id', $favoritos->song_id], ['visibility', true]])->first();
         } else {
             $favoritos = null;
         }
 
         // Extraer la collección de artistas nuevos ===
         $artistsId = DB::table('users')
-            ->where('rol', 'artist',)
+            ->where('rol', 'artist')
             ->inRandomOrder()
             ->pluck('id');
 
         // Artistas que ya han subido un contenido
         $NewArtistId = Album::whereIn('user_id', $artistsId)->pluck('user_id');
-        $NewArtist = User::whereNotIn('id', $NewArtistId)->get();
-
+        $NewArtist = User::whereNotIn('id', $NewArtistId)->where('rol', '<>', 'admin')->get();
         // Extraer la collección de artistas ===
         $artists = DB::table('users')
             ->where('rol', 'artist',)
@@ -114,7 +116,7 @@ class MainController extends Controller
             ->where('user_id', $UserLog->id)
             ->pluck('song_id');
 
-        $MySongs = Song::whereIn('id', $MySongsId)->get();
+        $MySongs = Song::whereIn('id', $MySongsId)->where('visibility', true)->get();
 
         return view('Library', [
             'userLikes' => $UserLog,

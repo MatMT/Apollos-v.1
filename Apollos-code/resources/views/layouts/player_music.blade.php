@@ -41,7 +41,8 @@
         <div class="contenido-musical w-full">
             <div class="list-player w-full">
                 <div class="img-music">
-                    <img src="{{ asset('storage') . '/uploads/imagenes/' . $ActuallySong->image }}" alt="Imagen de la canción {{ $ActuallySong->name_song }}" class="">
+                    <img src="{{ asset('storage') . '/uploads/imagenes/' . $ActuallySong->image }}"
+                        alt="Imagen de la canción {{ $ActuallySong->name_song }}" class="">
                 </div>
 
                 @yield('component_player')
@@ -50,13 +51,13 @@
         </div>
     </main>
 
-    <!-- Agrgamos el reproductor  --->
-    <x-only-player :othersongs="$OtherSongs" :user="$user" :actuallysong="$ActuallySong"></x-reproductor>
+    <!-- Agregamos el reproductor  --->
+    <x-reproductor :othersongs="$OtherSongs" :user="$user" :actuallysong="$ActuallySong"></x-reproductor>
 @endsection
 
 @push('script_end')
     @php
-    $i = 0;
+        $i = 0;
     @endphp
 
     <script>

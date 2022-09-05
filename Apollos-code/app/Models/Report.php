@@ -19,4 +19,18 @@ class Report extends Model
         'song_id',
         'album_id',
     ];
+
+    // Métodos ===============================
+
+    public function Infosong($song_id)
+    {
+        $song = Song::where('id', $song_id)->first();
+        return $song;
+    }
+
+    public function InfoUser($reportedUser_id)
+    {
+        $user = User::where('id', $reportedUser_id)->first();
+        return $user;
+    }
 }

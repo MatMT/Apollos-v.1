@@ -10,13 +10,10 @@
 @endsection
 
 @section('subtitulo')
-{{__('Almost all is ready')}}
+{{__('We are almost done')}}
     <br>
     -- {{ $album->name_album }} --
     <br>
     {{ $total }}
 @endsection
 
-@section('placeholder')
-{{__('Almost all is ready')}}
-@endsection

@@ -17,17 +17,20 @@ class AlbumSettingsController extends Controller
 {
     public function __construct()
     {
+        // Verificar inicio de sesión
         $this->middleware('auth');
+        // Permitir acceso de usuario | No de admin
+        $this->middleware('user.log');
     }
 
     public function index(User $user, Album $album)
-    {            
+    {
         // Buscar el albúm por el id recibido
         $Album = Album::where('id', $album->id)->pluck('id');
         $MyAlbumId = Album::where('user_id', auth()->user()->id)->where('id', $Album)->pluck('id');
 
         // Validación - Redirigir álbum que no es mío
-        if($MyAlbumId != $Album) {
+        if ($MyAlbumId != $Album) {
             return redirect(route('main'));
         }
 
@@ -69,7 +72,7 @@ class AlbumSettingsController extends Controller
 
             // Ruta de la imagen - storage_path() - apunta hacia la carpeta storage
             $imagenStorage = storage_path('app') . '/public/uploads/imagenes/' . $nombreImagen;
-            
+
             // Guardando en storage
             $imagenServidor->save($imagenStorage);
 
@@ -86,8 +89,8 @@ class AlbumSettingsController extends Controller
             Redirect::back()->with('cambios', 'Cambio de portada');
         }
 
-        if ($request->genero != '' && $request->genero != $album->genre){
-            
+        if ($request->genero != '' && $request->genero != $album->genre) {
+
             $sqlBDUpdateName = DB::table('albums')
                 ->where('id', $album->id)
                 ->update(['genre' => $request->genero]);

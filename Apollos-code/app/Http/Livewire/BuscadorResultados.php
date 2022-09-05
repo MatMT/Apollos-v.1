@@ -34,7 +34,7 @@ class BuscadorResultados extends Component
         // "%" = Buscar coincidencia en cualquier parte del string
 
         $canciones = Song::when($this->termino, function ($query) { // Calllback
-            $query->where('name_song', 'LIKE', "%" . $this->termino . "%");
+            $query->where([['name_song', 'LIKE', "%" . $this->termino . "%"], ['visibility', true]]);
         })->get();
 
         $albums = Album::when($this->termino, function ($query) { // Calllback

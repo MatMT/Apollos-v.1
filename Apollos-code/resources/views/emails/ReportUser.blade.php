@@ -128,7 +128,7 @@
                         <tr>
                             <td style="text-align: center; padding: 15px 0 10px;">
                                 <p style="font-size: 22px;font-weight:bold; margin:0;">
-                                    {{ auth()->user()->username }}
+                                    {{ $user->username }}
                                 </p>
                             </td>
                         </tr>
@@ -137,10 +137,15 @@
                                 <p style="font-size: 16px;font-weight:bold; margin:0;">
                                     El CONTENIDO REPORTADO FUE
                                 </p>
+                                @if ($song->sencillo == 0)
+                                    <p style="font-size: 14px;font-weight:bold; margin:0;">
+                                        - {{ $song->name_song }} -
+                                    </p>
+                                @endif
                             </td>
                         </tr>
                         <tr>
-                            <td style="padding:5px 110px 25px">
+                            <td style="padding:5px 100px 25px">
                                 <table class="info-song" width="100%">
                                     <tr>
                                         <th>Colección</th>
@@ -152,13 +157,32 @@
                                             @if ($song->sencillo == 1)
                                                 Sencillos
                                             @else
-                                                Álbumes
+                                                Álbum
                                             @endif
-                                        <td>{{ $song->name_song }}</td>
+                                        <td>
+                                            @if ($song->sencillo == 0)
+                                                {{ $song->infoAlbum($song) }}
+                                            @else
+                                                {{ $song->name_song }}
+                                            @endif
+                                        </td>
                                         <td>{{ $song->created_at->diffForHumans() }}</td>
                                     </tr>
                                 </table>
                             </td>
+                        </tr>
+                        <tr>
+
+                            <td style="text-align: center">
+                                <p style="font-size: 14px;font-weight:bold; margin: 0 0 10px 0;">
+                                    Debes retirar tu @if ($song->sencillo == 0)
+                                        albúm
+                                    @else
+                                        canción
+                                    @endif
+                                </p>
+                            </td>
+
                         </tr>
                     </table>
                 </td>

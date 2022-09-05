@@ -48,7 +48,7 @@ class Playlist extends Model
                 ->pluck('song_id');
 
             // Extraer mis canciones
-            $MySongs = Song::whereIn('id', $MyListOfSongs)->orderBy('id')->get();
+            $MySongs = Song::whereIn('id', $MyListOfSongs)->where('visibility', true)->orderBy('id')->get();
 
             return $MySongs;
         }

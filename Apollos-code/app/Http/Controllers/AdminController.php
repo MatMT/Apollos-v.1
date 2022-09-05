@@ -2,12 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Report;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
     public function index()
     {
-        return view('auth.loginAdmin');
+        $reportes = Report::all();
+
+        $resueltos = Report::where('status', 'resolved')->get();
+        // dd($reportes);
+        return view('admin.indexAdmin', ['reports' => $reportes, 'resolved' => $resueltos]);
+    }
+
+    public function store(Report $report)
+    {
+        dd($report);
     }
 }

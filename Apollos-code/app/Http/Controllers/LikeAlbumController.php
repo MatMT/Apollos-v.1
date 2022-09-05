@@ -7,6 +7,14 @@ use Illuminate\Http\Request;
 
 class LikeAlbumController extends Controller
 {
+    public function __construct()
+    {
+        // Verificar inicio de sesión
+        $this->middleware('auth');
+        // Permitir acceso de usuario | No de admin
+        $this->middleware('user.log');
+    }
+
     // Agregar a favoritos
     public function store(Request $request, Album $album)
     {

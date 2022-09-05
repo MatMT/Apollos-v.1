@@ -75,7 +75,7 @@
                         </li>
                     @endif
                     <li>
-                        <a href="{{ route('main') }}">{{ __('Home') }}</a>
+                        <a href="{{ route('main') }}">{{ __('Home ') }}</a>
                     </li>
 
                     <div class="line h-px w-full bg-white opacity-25 rounded"></div>

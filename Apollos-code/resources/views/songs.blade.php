@@ -74,7 +74,7 @@
                                     <span class="text-center point">⚬</span>
                                 @endif
                                 <span class="counter @if (!$album->sencillo) ml-1 @endif">
-                                    <h1>{{ $album->songs->count() }} canciones</h1>
+                                    <h1>{{ $counts->count() }} canciones</h1>
                                 </span>
                             </div>
                         </div> <!-- Información -->
@@ -168,53 +168,58 @@
                                         </div>
                                     </div>
                                     @foreach ($album->songs as $song)
-                                        <div class="song-container flex items-center justify-center mt-1">
-                                            {{-- Se mapea automaticamente la ruta por cada song en su url --}}
-                                            <a class="song-info inline-flex items-center justify-center gap-9"
-                                                href="{{ route('song.show', ['song' => $song->id, 'user' => $user]) }}">
+                                        @if ($song->visibility == true)
+                                            <div class="song-container flex items-center justify-center mt-1">
+                                                {{-- Se mapea automaticamente la ruta por cada song en su url --}}
+                                                <a class="song-info inline-flex items-center justify-center gap-9"
+                                                    href="{{ route('song.show', ['song' => $song->id, 'user' => $user]) }}">
 
-                                                <h1 class="id-song">{{ $displayList = $displayList + 1 }}</h1>
-                                                <span class="title-author">
-                                                    <h1 class="song-title font-bold text-center">{{ $song->name_song }}
-                                                    </h1>
-                                                </span>
-                                                <h1 class='counter-time text-center'>{{ $song->time }}</h1>
-                                                <h1 class='likes text-center'>{{ $song->likes->count() }}</h1>
-                                                @if ($song->checkLike(auth()->user()))
-                                                    <form action="{{ route('song.likes.destroy', $song) }}" method="POST">
-                                                        @method('DELETE')
-                                                        @csrf
-                                                        <div class="my-4">
-                                                            <button type="submit">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6"
-                                                                    fill="white" viewBox="0 0 24 24" stroke="currentColor"
-                                                                    stroke-width="2">
-                                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                                                                </svg>
-                                                            </button>
-                                                        </div> <!-- Botón -->
-                                                    </form> <!-- YA en favoritos -->
-                                                @else
-                                                    <form action="{{ route('song.likes.store', $song) }}" method="POST">
-                                                        @csrf
-                                                        <div class="my-4">
-                                                            <button type="submit">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6"
-                                                                    fill="none" viewBox="0 0 24 24"
-                                                                    stroke="currentColor" stroke-width="2">
-                                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                                                                </svg>
-                                                            </button>
-                                                        </div> <!-- Botón -->
-                                                    </form> <!-- Agregar a favoritos -->
-                                                @endif
-                                                {{-- <span class="like-ico"><img src='{{ asset('assets/icons/likedIcon.png') }}'
+                                                    <h1 class="id-song">{{ $displayList = $displayList + 1 }}</h1>
+                                                    <span class="title-author">
+                                                        <h1 class="song-title font-bold text-center">{{ $song->name_song }}
+                                                        </h1>
+                                                    </span>
+                                                    <h1 class='counter-time text-center'>{{ $song->time }}</h1>
+                                                    <h1 class='likes text-center'>{{ $song->likes->count() }}</h1>
+                                                    @if ($song->checkLike(auth()->user()))
+                                                        <form action="{{ route('song.likes.destroy', $song) }}"
+                                                            method="POST">
+                                                            @method('DELETE')
+                                                            @csrf
+                                                            <div class="my-4">
+                                                                <button type="submit">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6"
+                                                                        fill="white" viewBox="0 0 24 24"
+                                                                        stroke="currentColor" stroke-width="2">
+                                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                                            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                                                    </svg>
+                                                                </button>
+                                                            </div> <!-- Botón -->
+                                                        </form> <!-- YA en favoritos -->
+                                                    @else
+                                                        <form action="{{ route('song.likes.store', $song) }}"
+                                                            method="POST">
+                                                            @csrf
+                                                            <div class="my-4">
+                                                                <button type="submit">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                                                        class="h-6 w-6" fill="none"
+                                                                        viewBox="0 0 24 24" stroke="currentColor"
+                                                                        stroke-width="2">
+                                                                        <path stroke-linecap="round"
+                                                                            stroke-linejoin="round"
+                                                                            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                                                    </svg>
+                                                                </button>
+                                                            </div> <!-- Botón -->
+                                                        </form> <!-- Agregar a favoritos -->
+                                                    @endif
+                                                    {{-- <span class="like-ico"><img src='{{ asset('assets/icons/likedIcon.png') }}'
                                                         class="like-icon liked"></span> --}}
-
-                                            </a>
-                                        </div>
+                                                </a>
+                                            </div>
+                                        @endif
                                     @endforeach
                                 </div>
                             </div>

@@ -9,7 +9,10 @@ class FollowerController extends Controller
 {
     public function __construct()
     {
+        // Verificar inicio de sesión
         $this->middleware('auth');
+        // Permitir acceso de usuario | No de admin
+        $this->middleware('user.log');
     }
 
     public function store(User $user)

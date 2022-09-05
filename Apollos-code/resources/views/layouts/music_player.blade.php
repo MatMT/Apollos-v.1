@@ -92,7 +92,8 @@
                     <livewire:like-song :song="$ActuallySong" />
                     {{-- REPORTAR CANCIÓN --}}
                     {{-- {{ dd($ActuallySong) }} --}}
-                    <form action="{{ route('report.mail.store', ['user' => $user, 'song' => $ActuallySong]) }}"
+                    <form
+                        action="{{ route('report.mail.store', ['user' => $ActuallySong->InfoArtista($ActuallySong)->username, 'song' => $ActuallySong]) }}"
                         method="POST">
                         @csrf
                         <input type="submit" name="Reportar" value="Reportar" id="">
@@ -107,13 +108,15 @@
                     {{-- Artista dueño de la canción --}}
                     <div class="1/6 flex justify-center items-center gap-2">
                         {{-- Editar album --}}
-                        <form action="{{ route('song.settings.index', ['user' => $user, 'song' => $ActuallySong->id]) }}">
+                        <form
+                            action="{{ route('song.settings.index', ['user' => $ActuallySong->InfoArtista($ActuallySong)->username, 'song' => $ActuallySong->id]) }}">
                             <input type="submit" value="{{ $ActuallySong->sencillo ? 'Editar sencillo' : 'Editar canción' }}"
                                 name="" id=""
                                 class="bg-blue-500 hover:bg-blue-600 p-2 rounded text-white font-bold cursor-pointer">
                         </form>
                         @if ($ActuallySong->sencillo)
-                            <form action="{{ route('song.destroy', ['user' => $user, 'song' => $ActuallySong]) }}"
+                            <form
+                                action="{{ route('song.destroy', ['user' => $ActuallySong->InfoArtista($ActuallySong), 'song' => $ActuallySong]) }}"
                                 method="POST">
                                 {{-- METODO SPOOFING - Laravel permite agregar otro tipo de peticiones --}}
                                 @method('DELETE')
@@ -130,13 +133,12 @@
     </main>
 
     <!-- Agrgamos el reproductor  --->
-    <x-reproductor></x-reproductor>
-
+    <x-reproductor :actuallysong="$ActuallySong" :user="$ActuallySong->InfoArtista($ActuallySong)"></x-reproductor>
 @endsection
 
 @push('script_end')
     @php
-    $i = 0;
+        $i = 0;
     @endphp
 
     <script>

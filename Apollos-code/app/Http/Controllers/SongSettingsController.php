@@ -18,7 +18,10 @@ class SongSettingsController extends Controller
 {
     public function __construct()
     {
+        // Verificar inicio de sesión
         $this->middleware('auth');
+        // Permitir acceso de usuario | No de admin
+        $this->middleware('user.log');
     }
 
     public function index(User $user, Song $song)
@@ -28,7 +31,7 @@ class SongSettingsController extends Controller
         $MyAlbumId = Album::where('user_id', auth()->user()->id)->where('id', $Album)->pluck('id');
 
         // Validación - Redirigir canción que no es mío
-        if($MyAlbumId != $Album) {
+        if ($MyAlbumId != $Album) {
             return redirect(route('main'));
         }
 
@@ -36,7 +39,6 @@ class SongSettingsController extends Controller
             'user' => $user,
             'song' => $song
         ]);
-        
     }
 
     public function store(Request $request, User $user, Song $song)
@@ -71,7 +73,7 @@ class SongSettingsController extends Controller
 
             // Ruta de la imagen - storage_path() - apunta hacia la carpeta storage
             $imagenStorage = storage_path('app') . '/public/uploads/imagenes/' . $nombreImagen;
-            
+
             // Guardando en storage
             $imagenServidor->save($imagenStorage);
 
@@ -84,7 +86,7 @@ class SongSettingsController extends Controller
             Redirect::back()->with('cambios', 'Cambio de portada');
         }
 
-        if ($request->genero != '' && $request->genero != $song->genre){
+        if ($request->genero != '' && $request->genero != $song->genre) {
             $sqlBDUpdateName = DB::table('songs')
                 ->where('id', $song->id)
                 ->update(['genre' => $request->genero]);

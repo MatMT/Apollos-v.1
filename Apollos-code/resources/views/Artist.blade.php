@@ -234,7 +234,7 @@
                 </div>
 
             </div>
-            <div class="sencillos-artistas"></div>
+            <div class="sencillos-artistas"></div>  
 
 
         </div>

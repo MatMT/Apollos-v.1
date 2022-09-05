@@ -10,13 +10,16 @@
 @push('script_end')
     <script>
         @foreach ($songs as $song)
-            @php
-                $i++;
-            @endphp
-            var myform_{{ $i }} = document.getElementById("FormId_{{ $i }}");
-            document.getElementById("ButtonId_{{ $i }}").addEventListener("click", function() {
-                myform_{{ $i }}.submit();
-            });
+            @if (!$song->AlreadyAdded($song->id))
+                var myform_{{ $song->id }} = document.getElementById("FormId_{{ $song->id }}");
+                
+                var sbmt= document.getElementById("ButtonId_{{ $song->id }}");
+                
+                sbmt.addEventListener("click", function() {
+                    alert("ButtonId_{{ $song->id }}");
+                    // myform_{{ $song->id }}.submit();
+                });
+            @endif
         @endforeach
     </script>
 @endpush
@@ -150,7 +153,7 @@
 
         <!-- Popup Modificar PalyList -->
 
-        <div class="overway_2" id="over">
+        {{-- <div class="overway_2" id="over">
 
             <div class="modify-list-a font-cuerpo" id="coverxd">
                 <i class="fi fi-rr-cross btn-cerrar cursor-pointer" id="btn-close-2"></i>
@@ -171,7 +174,8 @@
                     <input type="submit" value="Modificar" class="btn-enviar-mod">
                 </form>
             </div>
-        </div>
+        </div> --}}
     </main>
     @vite('resources/js/varios.js')
+    
 @endsection

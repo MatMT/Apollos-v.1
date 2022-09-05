@@ -175,7 +175,7 @@
                                                 </div>
                                                 <div class="title">
                                                     <div class="name font-titulo text-base desktop_2:text-base">
-                                                        {{ $user->name }}
+                                                        {{ $user->name_artist }}
                                                     </div>
                                                     <div
                                                         class="type text-base font-thin text-slate-300 desktop_2:text-base">

@@ -33,19 +33,6 @@ class PlaylistController extends Controller
 
         // Si tengo canciones en mi playlist
         if ($MySongs) {
-            // Actualización de segundos
-            $duration = 0;
-            $total = 0;
-            foreach ($MySongs as $song) {
-                $total += $song->total;
-                $duration += $song->total;
-            }
-
-            // Uso de Trait - Similar a una herencia - No repite codigo
-            $duration = $this->TimeTotal($duration);
-
-            Playlist::where('id', $MyPlaylist->id)->update(['duration' => $duration, 'total' => $total]);
-
             // Registros de canciones con mi playlist
             $RegistsOfMyPlaylist = Playlist_song::where('playlist_id', $MyPlaylist->id)->get();
             $InitialSong = $playlist->MySongsPlaylist(auth()->user())->first();

@@ -28,7 +28,7 @@ class BuscadorPlaylist extends Component
         // "%" = Buscar coincidencia en cualquier parte del string
 
         $canciones = Song::when($this->termino, function ($query) { // Calllback
-            $query->where('name_song', 'LIKE', "%" . $this->termino . "%");
+            $query->where([['name_song', 'LIKE', "%" . $this->termino . "%"], ['visibility', true]]);
         })->get();
 
         return view('livewire.buscador-playlist', [

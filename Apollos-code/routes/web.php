@@ -191,7 +191,7 @@ Route::post('/user/{user:name_artist}/song/{song}/settings/',  [SongSettingsCont
 
 
 // =============================== EMAIL DE REPORTE
-Route::post('/user/{user}/report/song/{song}', [ReportController::class, 'mail'])->name('report.mail.store');
+Route::post('/user/{user}/report/song/{song}', [ReportController::class, 'store'])->name('report.mail.store');
 
 
 // ============================== ADMIN

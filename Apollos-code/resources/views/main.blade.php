@@ -1,6 +1,6 @@
 @extends('layouts.shape1')
 
-@section('title', 'Home ')
+@section('title', __('Home '))
 
 @section('header')
     <x-header title="Home" active="this"></x-header>
@@ -48,7 +48,7 @@
             @if ($F_Albums->count())
                 <div class="main-content text-white anim">
 
-                    <h2 class="text-white text-2xl font-bold">{{ __('Albums as you like them') }}</h2>
+                    <h2 class="text-white text-2xl font-bold">{{ __('Collections as you like it') }}</h2>
 
                     <div class="contenedor-principal">
 
@@ -63,11 +63,11 @@
                                             href="{{ route('song.favorites.show', ['user' => $Fav->InfoArtista($Fav), 'song' => $Fav]) }}">
                                             <div class="imagen albums">
                                                 <img src="{{ asset('storage/uploads/imagenes/favoritos.webp') }}"
-                                                    alt="Imagen de favoritos">
+                                                    alt="Fav image">
                                             </div>
                                             <div class="title">
                                                 <div class="name font-titulo font-bold text-lg desktop_2:text-base">
-                                                    Favoritos</div>
+                                                    {{__('Favorites')}}</div>
                                             </div>
                                         </a>
                                     </div>
@@ -102,7 +102,7 @@
             <!-- ARTISTAS GENERALES -->
             <div class="main-content text-white anim">
 
-                <h2 class="text-white text-2xl font-bold">{{ __('Artist would you like it') }}</h2>
+                <h2 class="text-white text-2xl font-bold">{{ __('Artists you will love') }}</h2>
 
                 <div class="contenedor-principal ">
 
@@ -153,7 +153,7 @@
                 {{-- NUEVOS ARTISTAS --}}
                 @if ($new_artists->count())
                     <div>
-                        <h2 class="text-white text-2xl font-bold">{{ __('¡New users in Apollos!') }}</h2>
+                        <h2 class="text-white text-2xl font-bold">{{ __("New users in Apollo's!") }}</h2>
 
                         <div class="contenedor-principal ">
 
@@ -206,12 +206,12 @@
 
                 if (hour >= 5 && hour <= 11) {
                     //Escribir en html
-                    lugar.innerHTML = "¡Buenos días";
+                    lugar.innerHTML = "{{__('Good morning')}}";
                 } else {
                     if (hour >= 12 && hour <= 18) {
-                        lugar.innerHTML = "¡Buenas tardes";
+                        lugar.innerHTML = "{{__('Good afternoon')}}";
                     } else {
-                        lugar.innerHTML = "¡Buenas noches";
+                        lugar.innerHTML = "{{__('Good evening')}}";
                     }
                 }
             </script>

@@ -11,39 +11,7 @@
 
 @section('css')
     <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
-
-    <style>
-        .dropzone {
-            border-style: dashed !important;
-            border-width: 3px !important;
-            border-color: white !important;
-
-            background: rgba(34, 47, 62, 0.45);
-            backdrop-filter: blur(8px);
-            font-size: 1.5em;
-        }
-
-        .dz-preview {
-            background: transparent !important;
-        }
-
-        .submit-bttn {
-            background-color: #131313;
-
-            filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
-        }
-
-        .submit-bttn:hover {
-            background-color: white;
-            transition: all 0.2s ease-in-out;
-            color: black;
-        }
-
-        .blur-bg {
-            background: rgba(39, 39, 39, 0.5);
-            backdrop-filter: blur(8px);
-        }
-    </style>
+    @vite(['resources/css/stepsStyles.css'])
 @endsection
 
 @section('header')
@@ -54,7 +22,7 @@
     <div class="p-10 overflow-hidden">
         <div
             class="flex my-0 mx-auto  sm:w-full sm:flex-row flex-col w-3/4  rounded-xl shadow overflow-hidden font-semibold">
-            <div class="basis-1/5 text-center py-3 bg-white @yield('step1')">{{__('Image')}}</div>
+            <div class="basis-1/5 text-center py-3 bg-white @yield('step1')">{{__('Album cover')}}</div>
             {{-- @yield('step') --}}
             <div class="basis-1/5 text-center py-3 bg-white @yield('step2')">{{__('Title')}}</div>
             <div class="basis-1/5 text-center py-3 bg-white @yield('step3')">{{__('Genre')}}</div>
@@ -75,6 +43,7 @@
         <form action="{{ route('image.store') }}" method="POST" enctype="multipart/form-data" id="dropzone_img"
             class="dropzone border-dashed border-2 @error('imagen') border-red-500 @enderror w-full h-96 rounded flex flex-col justify-center items-center">
             @csrf
+            <div class="dz-message" data-dz-message><span>{{__("Upload your")}} <b>{{__("image")}}</b> {{__("here")}}</span></div>
         </form>
         @error('imagen')
             <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
@@ -89,10 +58,10 @@
                     <input type="hidden" name="imagen" value="{{ old('imagen') }}" />
                 </div>
                 <p class="text-red-500 mb-5 text-center md:text-right block font-semibold text-sm"><span class="inline"><img
-                            src="{{ asset('assets/icons/errorIcon.png') }}" class="h-4 inline m-2">{{__('The next time you will not be able to edit the cover')}} </span></p>
+                            src="{{ asset('assets/icons/errorIcon.png') }}" class="h-4 inline m-2">{{__("You won't be able to edit your album cover later")}} </span></p>
 
-                <input type="submit" value="Siguiente"
-                    class="submit-bttn  bg-teal-500 transition-colors cursor-pointer uppercase font-bold w-full p-3  text-white rounded-lg" />
+                <input type="submit" value="{{__('Continue')}}"
+                    class="submit-bttn transition-colors cursor-pointer uppercase font-bold w-full p-3  text-white rounded-lg" />
             </form>
 
         </div> <!-- Envío de input -->

@@ -8,12 +8,15 @@ class ListaFavSongs extends Component
 {
     public $othersongs;
     public $actuallysong;
+    public $user;
 
 
-    public function __construct($othersongs, $actuallysong)
+
+    public function __construct($othersongs, $actuallysong, $user)
     {
         $this->othersongs = $othersongs;
         $this->actuallysong = $actuallysong;
+        $this->user = $user;
     }
 
     /**

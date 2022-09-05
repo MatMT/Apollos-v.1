@@ -11,9 +11,6 @@
 @endsection
 
 @section('subtitulo')
-{{__('Upload your Songs')}}
+{{__('Upload your songs')}}
 @endsection
 
-{{-- @section('placeholder')
-    Titulo de la canción
-@endsection --}}

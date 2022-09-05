@@ -35,7 +35,7 @@ class MainController extends Controller
         $favoritos = Like::where('user_id', $UserLog->id)->first();
 
         if ($favoritos) {
-            $favoritos = Song::where('id', $favoritos->song_id)->first();
+            $favoritos = Song::where([['id', $favoritos->song_id], ['visibility', true]])->first();
         } else {
             $favoritos = null;
         }
@@ -116,7 +116,7 @@ class MainController extends Controller
             ->where('user_id', $UserLog->id)
             ->pluck('song_id');
 
-        $MySongs = Song::whereIn('id', $MySongsId)->get();
+        $MySongs = Song::whereIn('id', $MySongsId)->where('visibility', true)->get();
 
         return view('Library', [
             'userLikes' => $UserLog,

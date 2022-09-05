@@ -23,7 +23,7 @@ class Buscador extends Component
     public function render()
     {
         $usuarios = User::all();
-        $canciones = Song::all();
+        $canciones = Song::where('visibility', true)->get();
         $albums = Album::all();
 
         return view('livewire.buscador', [

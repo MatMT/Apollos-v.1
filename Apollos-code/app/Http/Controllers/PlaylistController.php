@@ -25,7 +25,6 @@ class PlaylistController extends Controller
     public function index(User $user, Playlist $playlist)
     {
         $i = 0;
-
         // Extraer mi playlist mediante el método del modelo
         $MyPlaylist = $playlist->MyPlaylist(auth()->user());
 
@@ -34,16 +33,29 @@ class PlaylistController extends Controller
 
         // Si tengo canciones en mi playlist
         if ($MySongs) {
+            // Actualización de segundos
+            $duration = 0;
+            $total = 0;
+            foreach ($MySongs as $song) {
+                $total += $song->total;
+                $duration += $song->total;
+            }
+
+            // Uso de Trait - Similar a una herencia - No repite codigo
+            $duration = $this->TimeTotal($duration);
+
+            Playlist::where('id', $MyPlaylist->id)->update(['duration' => $duration, 'total' => $total]);
+
             // Registros de canciones con mi playlist
             $RegistsOfMyPlaylist = Playlist_song::where('playlist_id', $MyPlaylist->id)->get();
             $InitialSong = $playlist->MySongsPlaylist(auth()->user())->first();
             $MySongsId = $playlist->MySongsPlaylist(auth()->user())->pluck('id');
             // Canciones aún no presentes en mi playlist
-            $songs = Song::whereNotIn('id', $MySongsId)->get();
+            $songs = Song::whereNotIn('id', $MySongsId)->where('visibility', true)->get();
         } else {
             $RegistsOfMyPlaylist = null;
             $InitialSong = null;
-            $songs = Song::inrandomOrder()->get();
+            $songs = Song::inrandomOrder()->where('visibility', true)->get();
         }
 
         // Reenvío a vista con variables a mostrar

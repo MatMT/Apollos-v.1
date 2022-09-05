@@ -18,7 +18,7 @@ return new class extends Migration
             $table->enum('status', ['pending', 'resolved'])->default('pending');
             $table->foreignId('reportingUser_id')->constrained('users')->onDelete('cascade'); // Usuario informante
             $table->foreignId('reportedUser_id')->constrained('users')->onDelete('cascade'); // Usuario reportado
-            $table->string('reason', 30); // Razón de reporte
+            $table->string('reason', 30)->nullable(); // Razón de reporte
             $table->foreignId('song_id')->constrained()->onDelete('cascade'); // Canción reportada
             $table->foreignId('album_id')->constrained()->onDelete('cascade'); // Colección - Álbum
             $table->timestamps();

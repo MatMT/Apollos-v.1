@@ -54,6 +54,12 @@ class Song extends Model
         return $Artista;
     }
 
+    public function infoAlbum(Song $song)
+    {
+        $Album = Album::where('id', $song->album_id)->first();
+        return $Album->name_album;
+    }
+
     public function AlreadyAdded()
     {
         $UserLog = auth()->user()->id;

@@ -4,18 +4,13 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class ListaPlaylistSongs extends Component
+class reproductor extends Component
 {
-    public $othersongs;
     public $actuallysong;
-    public $playlist;
     public $user;
 
-
-    public function __construct($othersongs, $actuallysong, $playlist, $user)
+    public function __construct($actuallysong, $user)
     {
-        $this->othersongs = $othersongs;
-        $this->playlist = $playlist;
         $this->actuallysong = $actuallysong;
         $this->user = $user;
     }
@@ -27,6 +22,6 @@ class ListaPlaylistSongs extends Component
      */
     public function render()
     {
-        return view('components.lista-playlist-songs');
+        return view('components.reproductor');
     }
 }

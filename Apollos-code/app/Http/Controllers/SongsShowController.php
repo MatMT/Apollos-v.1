@@ -23,26 +23,27 @@ class SongsShowController extends Controller
     // REPRODUCTOR ==========
     public function show(User $user, Song $song)
     {
-        // Llamamos al modelo y automáticamente su tabla
-        $songs = Song::where('album_id', $song->album_id)->get();
+        if ($song->visibility == true) {
+            // Llamamos al modelo y automáticamente su tabla
+            $songs = Song::where([['album_id', $song->album_id], ['visibility', true]])->get();
 
-        return view('uploads.show', [
-            'user' => $user,
-            'OtherSongs' => $songs,
-            'ActuallySong' => $song
-        ]);
+            return view('uploads.show', [
+                'user' => $user,
+                'OtherSongs' => $songs,
+                'ActuallySong' => $song
+            ]);
+        }
+        return back();
     }
 
     // Playlist ==========
     public function fav(User $user, Song $song)
-
     {
         // Extraer mis canciones
         $MyListOfSongs = Like::where('user_id', auth()->user()->id)->pluck('song_id');
-        $MySongs = Song::whereIn('id', $MyListOfSongs)->orderBy('id')->get();
+        $MySongs = Song::whereIn('id', $MyListOfSongs)->where('visibility', true)->orderBy('id')->get();
 
         // dd($MySongs);
-
         return view('uploads.show_fav', [
             'OtherSongs' => $MySongs,
             'ActuallySong' => $song
@@ -54,7 +55,6 @@ class SongsShowController extends Controller
     {
         // Extraer mis canciones en la playlist mediante el método del modelo
         $MySongs = $playlist->MySongsPlaylist(auth()->user());
-
         return view('uploads.show_playlist', [
             'OtherSongs' => $MySongs,
             'MyPlaylist' => $playlist,

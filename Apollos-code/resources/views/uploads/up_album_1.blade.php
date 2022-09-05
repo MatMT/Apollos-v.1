@@ -11,5 +11,5 @@
 @endsection
 
 @section('subtitulo')
-{{__('Place cover')}}
+{{__('Upload your album cover')}}
 @endsection

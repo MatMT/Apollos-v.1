@@ -2,10 +2,10 @@
     <div class="user-info text-lg">
         <h1 class="user-type">
             @if ($user->rol == 'artist')
-                <h1>Artista</h1>
+                <h1>{{__('Artist')}}</h1>
             @else
                 @if ($user->rol == 'user')
-                    <h1>Usuario</h1>
+                    <h1>{{__('User')}}</h1>
                 @endif
             @endif
         </h1>
@@ -23,13 +23,14 @@
 
         <br>
         <p class="followers">
-            {{ $user->followers->count() }} @choice('Seguidor|Seguidores', $user->followers->count())
+            {{ $user->followers->count() }} 
+            {{ $user->followers->count() === 1 ? __("Follower"): __("Followers") }}
         </p>
 
         @if ($user->rol == 'artist')
             <h1 class="songs inline-block"> {{ $countersongs }}
-                {{ $countersongs === 1 ? 'Canción' : 'Canciones' }}</h1> | <h1 class="albums inline-block">
-                {{ $albums->count() }} {{ $albums->count() === 1 ? 'Álbum' : 'Álbumes' }}
+                {{ $countersongs === 1 ? __('Song') : __('Songs') }}</h1> | <h1 class="albums inline-block">
+                {{ $albums->count() }} {{ $albums->count() === 1 ? __('Album') : __('Albums') }}
             </h1>
         @endif
 
@@ -37,7 +38,7 @@
             <div class="auth-user flex gap-2">
                 <a href="{{ route('settings.index', $user) }}" class="artist-bttn mt-5 ">
                     <div class="flex gap-1 items-center">
-                        <p>Editar perfil</p>
+                        <p>{{__('Edit profile')}}</p>
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                             <path
                                 d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
@@ -47,7 +48,7 @@
                 @if (auth()->user()->rol == 'artist')
                     <a href="{{ route('upload.select') }}" class="artist-bttn mt-5">
                         <div class="flex gap-1 items-center">
-                            <p>Subir contenido</p>
+                            <p>{{__('Upload content')}}</p>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
                                 fill="currentColor">
                                 <path

@@ -1,10 +1,10 @@
 {
-    "Home": "Inicio",
+    "Home ": "Inicio ",
     "Your library": "Tu biblioteca",
     "Create playlist": "Crear playlist",
     "Search": "Buscar",
 
-    "Artist": "Artista",
+    "Artist": "Artista", "Artists": "Artistas",
     "User": "Usuario",
 
     "Profile": "Perfil",
@@ -13,54 +13,109 @@
     "English": "Inglés",
     "Log out": "Cerrar sesión",
 
-    "Artist would you like it": "Artistas que te gustarán",
+    "Artists you will love": "Artistas que te gustarán",
     "Discover a new world of music": "Descubre un mundo nuevo de música",
-    "¡New users in Apollos!": "¡Nuevos en Apollos!",
-    "Albums as you like them": "Colecciones como a ti te gustan",
+    "New users in Apollo's!": "¡Nuevos usuarios en Apollo's!",
+    "Collections as you like it": "Colecciones como a ti te gustan",
+
+    "Good morning":"¡Buenos días ",
+    "Good afternoon":"¡Buenas tardes ",
+    "Good evening":"¡Buenas noches ",
 
     "Library": "Biblioteca",
     "Check out your collection": "Hecha un vistazo a tu colección",
     "Favorites": "Favoritos",
 
+    "Albums":"Álbumes", "Album": "Álbum",
+    "Single": "Sencillo", "Singles": "Sencillos",
+    "Song": "Sencillo", "Songs": "Canciones",
+    
+    "Follower": "Seguidor", "Followers": "Seguidores",
+    "Following": "Siguiendo", "Follow": "Seguir",
+    
     "Published albums": "Álbumes publicados",
     "Published songs": "Canciones publicadas",
 
-    "Image": "imagen",
-    "Title": "Titulo",
-    "Songs": "Canciones",
-    "Genre": "Género",
-    "Upload": "Subir",
-    "The next time you will not be able to edit the cover": "Al darle siguiente no podras editar la portada",
-    "Upload your Songs": "Sube tus Canciones",
-    "The image is obligatory.": "La Imagen es obligatoria",
-    "The song is obligatory.": "La Canción es obligatoria",
-    "Place cover": "Coloca Portada",
+    "My playlist":"Mi playlist",
+    "My list":"Mi lista",
+    "Play":"Reproducir",
+
+    "Like":"Me gusta", "Likes":"Me gustas",
+    "Duration":"Duración",
+    "Delete song": "Eliminar canción",
+
+    "Add":"Añadir",
+    "Added":"Añadida",
+
+    "Find what you want to listen":"Encuentra lo que deseas escuchar",
+    "Search in Apollo's":"Buscar en Apollo's",
+
+    "Search for songs to add to your list!":"¡Busca canciones para agregar a tu lista!",
+    "Find something for your list":"Encuentra algo para tu lista",
+
+    "Upload content": "Subir contenido",
+
+    "Upload your first album!": "¡Sube tu primer álbum!", 
+    "Upload your first song!": "¡Sube tu primera canción!",
+        "And show your talent": "Y muestra tu talento",
+
+    "No content...": "Todavía no ha subido contenido...", 
+        "Wait for their first album!": "¡Espera su primer álbum!",
+        "Wait for their first song!": "¡Espera su primera canción!",
+    
+    "What kind of content do you want to upload?": "¿Qué tipo de contenido deseas subir?",
+
     "Uploading an album": "Subiendo un álbum",
-    "Uploading an sinlge": "Subiendo un sencillo",
-    "Upload content": "Sube Contenido",
-    "Establishes a title": "Establece un Titulo",
-    "Album Title": "Titulo del Álbum",
+    "Uploading a single": "Subiendo un sencillo",
+
+    "Upload a single": "Sube un sencillo",
+    "Album cover": "Portada del álbum", 
+
+    "Title": "Título",
+    "Set a title to your album": "Establece un título a tu álbum",
+    "Album title": "Titulo del álbum",
+    "Title of your song": "Título de tu canción",
+
+    "Genre": "Género",
+    "Select your song genre": "Selecciona el género de tu canción",
     "Sets the main genre": "Establece el género principal",
-    "6mb per song maximum": "6mb máximos por canción",
-    "By adding it you will no longer be able to remove the song from the registry.": " Al agregarla ya no podrás retirar la canción del registro",
-    "I confirm that all uploaded content is of my authorship.": "Confirmo que todo contenido subido es de mi  autoría.",
-    "Almost all is ready": "Casi todo esta listo",
+        "Electronic": "Electrónica",
 
-    "What type of content do you want to upload?": "¿Que tipo de contenido deseas subir?",
-    "Single": "Sencillo",
-    "Album": "Álbum",
+    "Upload your album cover": "Coloca la portada de tu álbum",
+    "Upload your songs": "Sube tus canciones",
+    
+    "Upload your":"Sube tu", 
+        "image": "imagen",
+        "song": "canción",
+    "here": "aquí",
+    "6 Mb maximum per song": "6 Mb máximos por canción",
+    "The image is obligatory.": "La imagen es obligatoria",
+    "The song is obligatory.": "La canción es obligatoria",
+    "You won't be able to edit your album cover later": "Al continuar no podrás editar la portada",
 
-    "Upload a Song": "Sube una cancion",
+    "By adding your song, you won't be able to remove it from the registry": " Al agregarla ya no podrás retirar la canción del registro",
+    "I confirm that all uploaded content is of my authorship": "Confirmo que todo contenido subido es de mi  autoría",
+    
+    "We are almost done": "Casi todo está listo",
+    "Continue":"Continuar",
+    "Publish": "Publicar",
+    
 
-    "Profile Edit": "Editar Perfil",
+    "Edit profile": "Editar perfil",
     "Invalid fields!": "¡Campos inválidos!",
     "Upload fields": "¡Campos actualizados!",
-    "Profile Information": "Información del Perfil",
-    "Password": "Contraseña",
-    "Actual Password": "Clave Actual",
-    "New Password": "Nueva Clave",
-    "Confirm New Password": "Confirma nueva Clave",
+
+    "Profile information": "Información del perfil",
+    "Username": "Nombre de usuario",
     "Name": "Nombre",
-    "Last Name": "Apellido",
-    "Profile Pic": "Imagen de Perfil"
+    "Last name": "Apellido",
+    "Profile pic": "Imagen de perfil",
+
+    "Password": "Contraseña",
+    "Actual password": "Clave actual",
+    "New password": "Nueva clave",
+    "Confirm new password": "Confirmar nueva clave",
+    
+    "Save changes": "Guardar cambios",
+    "Cancel": "Cancelar"
 }

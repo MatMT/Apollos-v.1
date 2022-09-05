@@ -9,12 +9,15 @@ class ListaPlaylistSongs extends Component
     public $othersongs;
     public $actuallysong;
     public $playlist;
+    public $user;
 
-    public function __construct($othersongs, $actuallysong, $playlist)
+
+    public function __construct($othersongs, $actuallysong, $playlist, $user)
     {
         $this->othersongs = $othersongs;
         $this->playlist = $playlist;
         $this->actuallysong = $actuallysong;
+        $this->user = $user;
     }
 
     /**

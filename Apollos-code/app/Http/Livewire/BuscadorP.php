@@ -18,7 +18,7 @@ class BuscadorP extends Component
 
     public function render()
     {
-        $canciones = Song::all();
+        $canciones = Song::where('visibility', true)->get();
 
         return view('livewire.buscador-p', [
             'songs' => $canciones,

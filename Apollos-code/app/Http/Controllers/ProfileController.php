@@ -35,11 +35,11 @@ class ProfileController extends Controller
         $MisColecciones = Album::where([['user_id', $user->id], ['confirm', true]])->get()->pluck('id');
 
         // Todas mis canciones
-        $MisCanciones = Song::WhereIn('album_id', $MisColecciones)->get();
+        $MisCanciones = Song::WhereIn('album_id', $MisColecciones)->where('visibility', true)->get();
 
         if ($CollecionSencillos != null) {
             $IfSencillos = true;
-            $sencillos = Song::where([['album_id', $CollecionSencillos->id], ['sencillo', true]])->latest()->get();
+            $sencillos = Song::where([['album_id', $CollecionSencillos->id], ['sencillo', true], ['visibility', true]])->latest()->get();
         } else {
             $IfSencillos = false;
             $sencillos = array();

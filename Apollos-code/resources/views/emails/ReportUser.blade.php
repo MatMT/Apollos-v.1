@@ -128,7 +128,7 @@
                         <tr>
                             <td style="text-align: center; padding: 15px 0 10px;">
                                 <p style="font-size: 22px;font-weight:bold; margin:0;">
-                                    {{ auth()->user()->username }}
+                                    {{ $user->username }}
                                 </p>
                             </td>
                         </tr>

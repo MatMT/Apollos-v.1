@@ -99,6 +99,7 @@
                 </div>
             @endif
 
+            @if($artists)
             <!-- ARTISTAS GENERALES -->
             <div class="main-content text-white anim">
 
@@ -144,6 +145,7 @@
                 </div>
 
             </div>
+            @endif
 
             <!--contenedor-carousel NUEVOS ARTISTAS --->
 

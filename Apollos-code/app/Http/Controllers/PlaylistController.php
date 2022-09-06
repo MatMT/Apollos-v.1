@@ -37,6 +37,20 @@ class PlaylistController extends Controller
             $RegistsOfMyPlaylist = Playlist_song::where('playlist_id', $MyPlaylist->id)->get();
             $InitialSong = $playlist->MySongsPlaylist(auth()->user())->first();
             $MySongsId = $playlist->MySongsPlaylist(auth()->user())->pluck('id');
+
+            // Actualización de segundos
+            $duration = 0;
+            $total = 0;
+            foreach ($MySongs as $song) {
+                $total += $song->total;
+                $duration += $song->total;
+            }
+
+            // Uso de Trait - Similar a una herencia - No repite codigo
+            $duration = $this->TimeTotal($duration);
+
+            Playlist::where('id', $MyPlaylist->id)->update(['duration' => $duration, 'total' => $total]);
+
             // Canciones aún no presentes en mi playlist
             $songs = Song::whereNotIn('id', $MySongsId)->where('visibility', true)->get();
         } else {

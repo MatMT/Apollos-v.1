@@ -35,8 +35,8 @@ class ReportController extends Controller
         ]);
 
         // Email del artista
-        $artistEmail = $artist->email;
-        Mail::to($artistEmail)->send(new ReportsongMailable($artist, $song));
+        // $artistEmail = $artist->email;
+        // Mail::to($artistEmail)->send(new ReportsongMailable($artist, $song));
 
         return redirect()->route('main')->with('message', 'Se ah reportado la canción   ');
     }

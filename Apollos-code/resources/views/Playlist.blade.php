@@ -7,23 +7,6 @@
     <x-header title="Playlist" activeplay="this"></x-header>
 @endsection
 
-@push('script_end')
-    <script>
-        @foreach ($songs as $song)
-            @if (!$song->AlreadyAdded($song->id))
-                var myform_{{ $song->id }} = document.getElementById("FormId_{{ $song->id }}");
-                
-                var sbmt= document.getElementById("ButtonId_{{ $song->id }}");
-                
-                sbmt.addEventListener("click", function() {
-                    alert("ButtonId_{{ $song->id }}");
-                    // myform_{{ $song->id }}.submit();
-                });
-            @endif
-        @endforeach
-    </script>
-@endpush
-
 @section('content')
 
     @vite('resources/css/varios.css')
@@ -41,7 +24,7 @@
                 <div class="name-artist">
                     <h3 class="font-titulo text-3xl font-light xl:text-4xl">Playlist</h3>
                     <h2 class="font-titulo_2 text-6xl my-2 xl:text-7xl">
-                        {{__('My playlist')}}
+                        {{ __('My playlist') }}
                     </h2>
                 </div>
                 <div class="followers-artist">
@@ -54,7 +37,7 @@
                     <div class="box-icon">
                         @if ($Start)
                             <a href="{{ route('song.playlist.show', ['playlist' => $MyPlaylist, 'song' => $Start]) }}">
-                                <button class="play-list-btm font-cuerpo font-light text-xl">{{__('Play')}}</button>
+                                <button class="play-list-btm font-cuerpo font-light text-xl">{{ __('Play') }}</button>
                             </a>
                         @endif
                         {{-- <i class="fi fi-rr-edit text-3xl mx-4 cursor-pointer" id="lapiz"></i> --}}
@@ -70,7 +53,7 @@
 
                 <div class="play-list-container mx-1 anim">
 
-                    <h3 class="font-cuerpo font-bold text-3xl text-white">{{__('My list')}}:</h3>
+                    <h3 class="font-cuerpo font-bold text-3xl text-white">{{ __('My list') }}:</h3>
 
                     <div class="songs-list" id="lista-canciones">
 
@@ -78,9 +61,9 @@
                             <tr class="fila-hight-v text-lg">
                                 <td class="num-song">#</td>
                                 <td class="picture-song"></td>
-                                <td class="name-song">{{__('Name')}}</td>
+                                <td class="name-song">{{ __('Name') }}</td>
                                 <td class="artists-song"></td>
-                                <td class="dur-song">{{__('Duration')}}</td>
+                                <td class="dur-song">{{ __('Duration') }}</td>
                             </tr>
                         </table>
                         <section class="line-table"></section>
@@ -92,7 +75,8 @@
                         @if ($MySongs)
                             @foreach ($MySongs as $song)
                                 <div class="song flex items-center justify-around">
-                                    <a href="{{ route('song.playlist.show', ['playlist' => $MyPlaylist, 'song' => $song]) }}">
+                                    <a
+                                        href="{{ route('song.playlist.show', ['playlist' => $MyPlaylist, 'song' => $song]) }}">
 
                                         <div class="fila-content-v text-lg" href="" id="song">
                                             <div class="num-song font-titulo">{{ $i++ }}</div>
@@ -112,7 +96,8 @@
                                                 {{-- METODO SPOOFING - Laravel permite agregar otro tipo de peticiones --}}
                                                 @method('DELETE')
                                                 @csrf
-                                                <input type="submit" value="{{__('Delete song')}}" name="" id=""
+                                                <input type="submit" value="{{ __('Delete song') }}" name=""
+                                                    id=""
                                                     class="bg-red-500 hover:bg-red-600 p-2 rounded text-white font-bold cursor-pointer">
                                             </form>
                                         @endif
@@ -125,7 +110,9 @@
                             <div class="fila-content-v text-lg">
                                 <div class="num-song font-titulo"></div>
                                 <div class="picture-song"></div>
-                                <div class="name-song text-2xl font-cuerpo"><span>{{__('Search for songs to add to your list!')}}</span></div>
+                                <div class="name-song text-2xl font-cuerpo">
+                                    <span>{{ __('Search for songs to add to your list!') }}</span>
+                                </div>
                                 <div class="artists-song font"></div>
                                 <div class="dur-song font-titulo"></div>
                             </div>
@@ -140,7 +127,8 @@
                 <div class="buscar-cancion w-full">
 
                     <div class="list-buscados w-full">
-                        <h3 class="text-white font-cuerpo font-extrabold text-2xl ml-3 ">{{__('Find something for your list')}}</h3>
+                        <h3 class="text-white font-cuerpo font-extrabold text-2xl ml-3 ">
+                            {{ __('Find something for your list') }}</h3>
                         <div class="form-buscador">
                             <livewire:buscador-playlist :mysongs="$MySongs" />
                         </div>
@@ -177,5 +165,5 @@
         </div> --}}
     </main>
     @vite('resources/js/varios.js')
-    
+
 @endsection

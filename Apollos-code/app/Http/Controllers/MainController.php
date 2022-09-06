@@ -45,10 +45,11 @@ class MainController extends Controller
             ->where('rol', 'artist')
             ->inRandomOrder()
             ->pluck('id');
-
+        
         // Artistas que ya han subido un contenido
         $NewArtistId = Album::whereIn('user_id', $artistsId)->pluck('user_id');
-        $NewArtist = User::whereNotIn('id', $NewArtistId)->where('rol', '<>', 'admin')->get();
+        $NewArtist = User::whereNotIn('id', $NewArtistId)->where('rol', 'artist', 'admin')->get();
+
         // Extraer la collección de artistas ===
         $artists = DB::table('users')
             ->where('rol', 'artist',)

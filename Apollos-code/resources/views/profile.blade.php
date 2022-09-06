@@ -61,7 +61,7 @@
                             <div class="song-container-tabs mt-2 mb-5 leading-3">
                                 <span class="disc-ico"><img src="{{ asset('assets/icons/discBrokenWht.png') }}"></span>
                                 <h1 class='text-white font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>
-                                    {{ auth()->user()->name == $user->name ? __('Upload your first album!') : __('No content...') }}
+                                    {{ auth()->user()->name == $user->name ? __('Upload your first album!') : __('No content yet...') }}
                                 </h1>
                                 <h1
                                     class='if-subtitle text-slate-500 font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>
@@ -153,7 +153,7 @@
                                         <span class="disc-ico"><img
                                                 src="{{ asset('assets/icons/discBrokenWht.png') }}"></span>
                                         <h1 class='text-white font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>
-                                            {{ auth()->user()->name == $user->name ? __('Upload your first song!') : __('No content...') }}
+                                            {{ auth()->user()->name == $user->name ? __('Upload your first song!') : __('No content yet...') }}
                                         </h1>
                                         <h1
                                             class='if-subtitle text-slate-500 font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>
@@ -165,6 +165,77 @@
                         </div>
                     </div>
                 </div>
+            @else
+            <h1 class='public-albums text-white font-titulo text-3xl font-bold mb-5 anim2'>{{ __('Followed artists') }}</h1>                
+                <div class="artist-cont anim2">
+                    <div class="content">
+                        @if ($followedArts->count() != 0)
+                            @foreach ($followedArts as $followedArts)
+                                <div class="info artista">
+    
+                                    <a href="{{ route('profile.index', ['user' => $followedArts->name_artist]) }}">
+    
+                                        <img src="{{ asset('storage') . '/uploads/pfp/' . $followedArts->image }}"
+                                            alt="Imagen de {{ $followedArts->name }}">
+                                        <h2 class="font-cuerpo font-bold mt-4 text-lg text-center">{{ $followedArts->username }}
+                                        </h2>
+                                    </a>
+                                </div>
+                            @endforeach
+                        @else
+                        <div class="content flex items-center justify-center">
+                            <div class="song-container-tabs mt-2 mb-5 leading-3">
+                                <span class="disc-ico"><img
+                                        src="{{ asset('assets/icons/musicIconWht.png') }}"></span>
+                                <h1 class='text-white font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>
+                                    {{ auth()->user()->name == $user->name ? __("You don't follow any artist yet...") : __('No followed artists...') }}
+                                </h1>
+                                <h1
+                                    class='if-subtitle text-slate-500 font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>
+                                    {{ auth()->user()->name == $user->name ? __('Find your first favorite artist!') : __('It seems like '. $user->username .' does not have any favorite singer yet')}}
+                                </h1>
+                            </div>
+                        </div>
+                        @endif
+                    </div>  
+                </div>
+
+            <h1 class='public-albums text-white font-titulo text-3xl font-bold mb-5 anim2'>{{ __('Favorite albums') }}</h1>
+                <div class="artist-cont anim2">
+                    <div class="content">
+                        @if ($likedAlbums->count())
+                            @foreach ($likedAlbums as $album)
+                                <div class="info album">
+                                    <a
+                                        href="{{ route('album.index', ['user' => $user->obtenerArtist($album->user_id)->name_artist, 'album' => $album->id]) }}">
+    
+                                        <img src="{{ asset('storage') . '/uploads/imagenes/' . $album->image }}"
+                                            alt="Imagen de {{ $album->name_album }}">
+                                        <h2 class="font-cuerpo font-bold mt-4 text-lg">{{ $album->name_album }}
+                                        </h2>
+                                        <p class="description text-gray-400 font-cuerpo text-sm text-ellipsis">
+                                            {{ $user->obtenerArtist($album->user_id)->username }}</p>
+                                    </a>
+                                </div>
+                            @endforeach
+                        @else
+                        <div class="content flex items-center justify-center">
+                            <div class="song-container-tabs mt-2 mb-5 leading-3">
+                                <span class="disc-ico"><img
+                                        src="{{ asset('assets/icons/discBrokenWht.png') }}"></span>
+                                <h1 class='text-white font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>
+                                    {{ auth()->user()->name == $user->name ? __("You don't have favorites yet...") : __('No favorite albums yet...') }}
+                                </h1>
+                                <h1
+                                    class='if-subtitle text-slate-500 font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>
+                                    {{ auth()->user()->name == $user->name ? __('Find your first favorite album!') : __('It seems like '. $user->username .' does not have any favorite album yet')}}
+                                </h1>
+                            </div>
+                        </div>
+                        @endif
+                    </div>
+                </div>
+            </div>
             @endif
         </div>
     </div>

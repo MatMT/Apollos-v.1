@@ -51,9 +51,24 @@ class ProfileController extends Controller
         // CONTADOR DISPLAYLIST ===
         $displayList = 0;
 
-        // if ($user->rol <> 'artist') {
-        //     return view('profile', []);
-        // } else {
+        // Obtener id de a quienes seguimos ===
+        $ids = $user->followings->pluck('id')->toArray();
+
+        // Extraer la collección de mis artistas ===
+        $Myartistas = DB::table('users')
+            ->where('rol', 'artist')
+            ->whereIn('id', $ids)
+            ->get();
+
+
+        // Extraer la collección de mis álbumes ===
+        $MyalbumsId = DB::table('like_albums')
+            ->where('user_id', $user->id)
+            ->pluck('album_id');
+        $Myalbums = DB::table('albums')
+            ->whereIn('id', $MyalbumsId)
+            ->get();
+
         // Mostramos vista y devolvemos datos con las llaves 
         return view('profile', [
             // VARIABLES ====
@@ -62,7 +77,9 @@ class ProfileController extends Controller
             'CounterSongs' => $counterSongs,
             'sencillos' => $sencillos,
             'HaySencillos' => $IfSencillos,
-            'displayList' => $displayList
+            'displayList' => $displayList,
+            'followedArts' => $Myartistas,
+            'likedAlbums' => $Myalbums
         ]);
         // }
     }

@@ -1,4 +1,24 @@
 {
+    
+    "Sign up":"Regístrate",
+    "Oops! Something went wrong":"¡Oops! Algo salió mal",
+
+    "Sign up and enjoy your favorite music!":"¡Regístrate y disfruta de tu música favorita!",
+
+    "Do you already have an account?":"¿Ya tienes una cuenta?",
+
+    "Log in":"Inicia sesión ",
+    "Welcome back!":"¡Bienvenido de nuevo!",
+    "You don't have an account yet?":"¿No tienes una cuenta todavía?",
+
+    "Select account type":" Selecciona el tipo de cuenta",
+    "Username": "Nombre de usuario",
+    "Name": "Nombre",
+    "Last name": "Apellido",
+    "E-mail": "Correo electrónico",
+    "Password": "Contraseña",
+    "Birth date": "Fecha de nacimiento",
+
     "Home ": "Inicio ",
     "Your library": "Tu biblioteca",
     "Create playlist": "Crear playlist",
@@ -112,12 +132,8 @@
     "Updated fields!": "¡Campos actualizados!",
 
     "Profile information": "Información del perfil",
-    "Username": "Nombre de usuario",
-    "Name": "Nombre",
-    "Last name": "Apellido",
     "Profile pic": "Imagen de perfil",
 
-    "Password": "Contraseña",
     "Actual password": "Clave actual",
     "New password": "Nueva clave",
     "Confirm new password": "Confirmar nueva clave",
@@ -139,15 +155,5 @@
     "Uploaded":"Subida",
     "You must withdraw your":"Debes retirar tu",
     "or wait for an admin to advise the report.":"o esperar que un admin asesore el reporte.",
-    "Welcome":"Bienvenid@",
-
-    "Sign up":"Regístrate",
-    "Sign up and enjoy your favorite music!":"¡Regístrate y disfruta de tu música favorita!",
-    "Oops! Something went wrong":"¡Oops! Algo salió mal",
-    "Select account type":" Selecciona el tipo de cuenta",
-    "Do you already have an account?":"¿Ya tienes una cuenta?",
-
-    "Log In":"Inicia Sesión ",
-    "Welcome back!":"¡Bienvenido de nuevo!",
-    "Dont have an account":"¿No tienes una cuenta?"
+    "Welcome":"Bienvenid@"
 }

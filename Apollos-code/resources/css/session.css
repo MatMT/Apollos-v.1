@@ -22,7 +22,7 @@ body {
 
 .signup-container,
 .login-container {
-    background: url(../assets/img/fon_blu_3.jpg);
+    background: url(../images/fon_blu_3.jpg);
     background-size: cover;
 }
 

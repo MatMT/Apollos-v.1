@@ -28,6 +28,7 @@
 
     "Albums":"Álbumes", "Album": "Álbum",
     "Single": "Sencillo", "Singles": "Sencillos",
+    "Colection": "Colección", "Colections": "Colecciones",
     "Song": "Sencillo", "Songs": "Canciones",
     
     "Follower": "Seguidor", "Followers": "Seguidores",
@@ -42,6 +43,10 @@
 
     "Like":"Me gusta", "Likes":"Me gustas",
     "Duration":"Duración",
+
+    "Edit album": "Editar álbum",
+    "Delete album": "Eliminar álbum",
+    "Edit song": "Editar canción",
     "Delete song": "Eliminar canción",
 
     "Add":"Añadir",
@@ -102,10 +107,9 @@
     "Continue":"Continuar",
     "Release": "Publicar",
     
-
     "Edit profile": "Editar perfil",
     "Invalid fields!": "¡Campos inválidos!",
-    "Upload fields": "¡Campos actualizados!",
+    "Updated fields!": "¡Campos actualizados!",
 
     "Profile information": "Información del perfil",
     "Username": "Nombre de usuario",
@@ -117,7 +121,16 @@
     "Actual password": "Clave actual",
     "New password": "Nueva clave",
     "Confirm new password": "Confirmar nueva clave",
-    
+
+    "Update title":"Cambiar título",
+    "Updating your song info":"Actualizar los datos de tu canción",
+    "Updating your single info":"Actualizar los datos de tu sencillo",
+    "Updating your album info":"Actualizar los datos de tu álbum",
+    "Song cover":"Portada de la canción",
+
+    "Update the song genre by editing your album":"Actualiza el género de la canción editando tu álbum",
+    "Update the song cover by editing your album":"Actualiza la portada de la canción editando tu álbum",
+
     "Save changes": "Guardar cambios",
     "Cancel": "Cancelar"
 }

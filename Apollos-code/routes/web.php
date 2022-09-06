@@ -186,8 +186,8 @@ Route::post('/user/{user:name_artist}/album/{album:id}/settings/', [AlbumSetting
 
 // ============================== EDITAR SENCILLOS
 
-Route::get('/user/{user:name_artist}/song/{song}/settings/',  [SongSettingsController::class, 'index'])->name('song.settings.index');
-Route::post('/user/{user:name_artist}/song/{song}/settings/',  [SongSettingsController::class, 'store'])->name('song.settings.store');
+Route::get('/user/{user:name_artist}/songs/{song}/settings/',  [SongSettingsController::class, 'index'])->name('song.settings.index');
+Route::post('/user/{user:name_artist}/songs/{song}/settings/',  [SongSettingsController::class, 'store'])->name('song.settings.store');
 
 
 // =============================== EMAIL DE REPORTE

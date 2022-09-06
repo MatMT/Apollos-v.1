@@ -1,7 +1,7 @@
 @extends('layouts.shape1')
 
 @section('title')
-    {{ __('Upload a single') }}
+    {{ __('Uploading a single') }}
 @endsection
 
 @section('js')
@@ -66,7 +66,7 @@
                 <form action="{{ route('image.store') }}" method="POST" enctype="multipart/form-data" id="dropzone_img"
                     class="dropzone md:h-1/2 border-5 border-dashed @error('imagen') border-red-500 @enderror w-full h-96 rounded flex flex-col justify-center items-center">
                     @csrf
-                    <div class="dz-message" data-dz-message><span>{{__("Upload your")}} <b>{{__("image")}}</b> {{__("here")}}</span></div>
+                    <div class="dz-message" data-dz-message><span>{{__("Upload the")}} <b>{{__("cover")}}</b> {{__("here")}}</span></div>
                 </form>
 
                 @error('imagen')
@@ -81,7 +81,7 @@
                 <form action="{{ route('audio.store') }}" method="POST" enctype="multipart/form-data" id="dropzone_audio"
                     class="dropzone md:h-1/2  border-dashed border-2 @error('song') border-red-500 @enderror w-full h-96 rounded flex flex-col justify-center items-center">
                     @csrf
-                    <div class="dz-message" data-dz-message><span>{{__("Upload your")}} <b>{{__("song")}}</b> {{__("here")}}</span></div>
+                    <div class="dz-message" data-dz-message><span>{{__("Upload the")}} <b>{{__("song")}}</b> {{__("here")}}</span></div>
                 </form>
 
                 @error('song')
@@ -141,7 +141,7 @@
                     @enderror
                 </div>
 
-                <input type="submit" value="{{__('Publish')}}"
+                <input type="submit" value="{{__('Upload')}}"
                     class="submit-bttn bg-sky-600 transition-colors cursor-pointer uppercase font-bold w-full p-3  text-white rounded-lg" />
 
             </form>

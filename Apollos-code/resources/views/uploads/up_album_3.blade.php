@@ -11,6 +11,6 @@
 @endsection
 
 @section('subtitulo')
-{{__('Sets the main genre')}}
+{{__('Set the main genre')}}
 @endsection
 

@@ -11,7 +11,7 @@ class RegistroApollos extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $subject = "Bienvenido | Disfruta de la música";
+    public $subject = "Te has registrado | Disfruta de la música";
 
     /**
      * Create a new message instance.

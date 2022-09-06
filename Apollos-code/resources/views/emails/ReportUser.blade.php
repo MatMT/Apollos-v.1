@@ -166,7 +166,7 @@
                                                 {{ $song->name_song }}
                                             @endif
                                         </td>
-                                        <td>{{ $song->created_at->diffForHumans() }}</td>
+                                        <td>{{ $song->created_at->format('d/m/Y') }}</td>
                                     </tr>
                                 </table>
                             </td>
@@ -174,13 +174,17 @@
                         <tr>
 
                             <td style="text-align: center">
-                                <p style="font-size: 14px;font-weight:bold; margin: 0 0 10px 0;">
+                                <p style="font-size: 14px;font-weight:bold; margin: 0 ">
                                     Debes retirar tu @if ($song->sencillo == 0)
                                         albúm
                                     @else
                                         canción
                                     @endif
                                 </p>
+                                <p style="font-size: 14px;font-weight:bold; margin: 0 0 12px 0;">
+                                    o esperar que un admin asesore el reporte.
+                                </p>
+                                <br>
                             </td>
 
                         </tr>

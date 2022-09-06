@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
     @vite('resources/css/app.css')
     <link rel="stylesheet" href="{{ asset('css/session.css') }}">
-    <title>Regístrate | Apollo's</title>
+    <title>{{_('Sign up')}} | Apollo's</title>
     <script>
         function uncheckRadio(rbutton) {
             rbutton.checked = (rbutton.checked) ? false : true;
@@ -36,7 +36,7 @@
                             <img src="{{ asset('assets/apolloLogoCompleteWht.svg') }}" class=" block text-center">
                         </div> {{-- logo --}}
 
-                        <h1 class="mt-4 font-titulo text-lg font-semibold">¡Regístrate y disfruta de tu música favorita!
+                        <h1 class="mt-4 font-titulo text-lg font-semibold">{{_('Sign up and enjoy your favorite music!')}}
                         </h1>
 
                         <div class="session-form-container flex justify-center">
@@ -48,8 +48,8 @@
                                     <div class="errors text-red-600 px-3 py-2 rounded mb-3">
                                         <ul>
                                             <span class="inline"><img src="{{ asset('assets/icons/errorIcon.png') }}"
-                                                    class="h-4 inline m-2"><strong class="font-bold">¡Oops! Algo salió
-                                                    mal</strong></span>
+                                                    class="h-4 inline m-2"><strong class="font-bold">{{_('Oops! Something went                                          
+                                                        wrong')}}</strong></span>
                                             @foreach ($errors->all() as $error)
                                                 <li class="list-disc pl-7 list-inside">
                                                     {{ $error }}
@@ -98,7 +98,7 @@
                                 <div class="input-container">
                                     <span class="icon"><img src="{{ asset('assets/icons/starIconWht.png') }}"></span>
                                     <select name="user_type" id="user-type" form="registroForm" class="form-input">
-                                        <option value="" selected disabled> Selecciona el tipo de cuenta </option>
+                                        <option value="" selected disabled>{{_('Select account type')}} </option>
                                         <option value="user" {{ old('user_type') == 'user' ? 'selected' : '' }}
                                             class="text-gray-800">
                                             Usuario</option>
@@ -109,7 +109,7 @@
                                 </div> {{-- input-container --}}
 
                                 <div class="gender-container">
-                                    <label class="block font-titulo font-bold text-base text-center">Género</label>
+                                    <label class="block font-titulo font-bold text-base text-center">{{_('Genre')}}</label>
 
                                     <div class="gender-style flex items-center justify-center mt-3 border-r-0">
 
@@ -137,10 +137,9 @@
                                     <input type="submit" class="submit font-titulo" value="Registrarse">
                                 </div> {{-- button-center --}}
 
-                                <h2 class="block text-center mt-5 text-gray-900">¿Ya tienes una cuenta?<a
+                                <h2 class="block text-center mt-5 text-gray-900">{{_('Do you already have an account?')}}<a
                                         href="{{ route('login') }}" class="block"> <span
-                                            class="font-bold hover:text-slate-50 transition all">Inicia
-                                            sesión</span></a></h2>
+                                            class="font-bold hover:text-slate-50 transition all">{{_('Log In')}}</span></a></h2>
 
                             </form>
                         </div> {{-- session-form-container --}}

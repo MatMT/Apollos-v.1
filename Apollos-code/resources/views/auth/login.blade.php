@@ -9,7 +9,7 @@
     
     @vite('resources/css/app.css')
     <link rel="stylesheet" href="{{ asset('css/session.css') }}">
-    <title>Inicia sesión | Apollo's</title>
+    <title>{{_('Log In')}} | Apollo's</title>
 </head>
 
 <body class="text-base text-white">
@@ -25,7 +25,7 @@
                             <img src="{{ asset('assets/apolloLogoCompleteWht.svg') }}" class=" block text-center">
                         </div> {{-- logo --}}
 
-                        <h1 class="mt-4 font-titulo text-lg font-semibold text-center">¡Bienvenido de nuevo!</h1>
+                        <h1 class="mt-4 font-titulo text-lg font-semibold text-center">{{_('Welcome back!')}}</h1>
 
                         <div class="session-form-container flex justify-center">
                             <form action="{{ route('login.store') }}" method="post" class="session-form" novalidate>
@@ -34,7 +34,7 @@
                                 @if ($errors->any())
                                 <div class="errors text-red-600 px-3 py-2 rounded mb-3">
                                     <ul>
-                                        <span class="inline"><img src="{{ asset('assets/icons/errorIcon.png') }}" class="h-4 inline m-2"><strong class="font-bold">¡Oops! Algo salió mal</strong></span>
+                                        <span class="inline"><img src="{{ asset('assets/icons/errorIcon.png') }}" class="h-4 inline m-2"><strong class="font-bold">{{_('Oops! Something went wrong')}}</strong></span>
                                         @foreach ($errors->all() as $error)
                                         <li class="list-disc pl-7 list-inside">
                                             {{ $error }}
@@ -58,7 +58,7 @@
                                     <input type="submit" class="submit font-titulo" value="Iniciar sesión">
                                 </div> {{-- button-center --}}
 
-                                <h2 class="block text-center mt-5 text-gray-900">¿No tienes una cuenta?<a href="{{ route('signup') }}" class=" block"> <span class="font-bold hover:text-slate-50 transition all">Regístrate</span></a></h2>
+                                <h2 class="block text-center mt-5 text-gray-900">{{_('Dont have an account')}}<a href="{{ route('signup') }}" class=" block"> <span class="font-bold hover:text-slate-50 transition all">{{_('Sign up')}}</span></a></h2>
 
                             </form>
                         </div> {{-- session-form-container --}}

@@ -50,7 +50,7 @@
                 <form action="{{ route('audio.store') }}" method="POST" enctype="multipart/form-data" id="dropzone_audio"
                     class="dropzone  border-dashed border-2 @error('song') border-red-500 @enderror w-full text-white rounded flex flex-col justify-center items-center">
                     @csrf
-                    <div class="dz-message" data-dz-message><span>{{__("Upload your")}} <b>{{__("song")}}</b> {{__("here")}}</span></div>
+                    <div class="dz-message" data-dz-message><span>{{__("Upload the")}} <b>{{__("song")}}</b> {{__("here")}}</span></div>
                 </form> <!-- DROPZONE -->
 
                 <!------------------------------------------------------------>

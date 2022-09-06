@@ -48,7 +48,7 @@
             @if ($F_Albums->count())
                 <div class="main-content text-white anim">
 
-                    <h2 class="text-white text-2xl font-bold">{{ __('Collections as you like it') }}</h2>
+                    <h2 class="text-white text-2xl font-bold">{{ __('More of what you like') }}</h2>
 
                     <div class="contenedor-principal">
 
@@ -103,7 +103,7 @@
             <!-- ARTISTAS GENERALES -->
             <div class="main-content text-white anim">
 
-                <h2 class="text-white text-2xl font-bold">{{ __('Artists you will love') }}</h2>
+                <h2 class="text-white text-2xl font-bold">{{ __('Suggested artists') }}</h2>
 
                 <div class="contenedor-principal ">
 

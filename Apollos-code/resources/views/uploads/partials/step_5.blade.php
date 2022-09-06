@@ -107,7 +107,7 @@
                         <input type="hidden" name="total" value="{{ $total }}" />
                     </div>
 
-                    <input type="submit" value="{{__('Publish')}}"
+                    <input type="submit" value="{{__('Release')}}"
                     class="submit-bttn transition-colors cursor-pointer uppercase font-bold w-full p-3  text-white rounded-lg" />
                 </form>
             </div>

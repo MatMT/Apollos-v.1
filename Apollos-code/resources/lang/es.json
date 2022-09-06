@@ -13,10 +13,10 @@
     "English": "Inglés",
     "Log out": "Cerrar sesión",
 
-    "Artists you will love": "Artistas que te gustarán",
+    "Suggested artists": "Artistas que te gustarán",
     "Discover a new world of music": "Descubre un mundo nuevo de música",
     "New users in Apollo's!": "¡Nuevos usuarios en Apollo's!",
-    "Collections as you like it": "Colecciones como a ti te gustan",
+    "More of what you like": "Colecciones como a ti te gustan",
 
     "Good morning":"¡Buenos días ",
     "Good afternoon":"¡Buenas tardes ",
@@ -33,8 +33,8 @@
     "Follower": "Seguidor", "Followers": "Seguidores",
     "Following": "Siguiendo", "Follow": "Seguir",
     
-    "Published albums": "Álbumes publicados",
-    "Published songs": "Canciones publicadas",
+    "Public albums": "Álbumes publicados",
+    "Public songs": "Canciones publicadas",
 
     "My playlist":"Mi playlist",
     "My list":"Mi lista",
@@ -47,10 +47,10 @@
     "Add":"Añadir",
     "Added":"Añadida",
 
-    "Find what you want to listen":"Encuentra lo que deseas escuchar",
+    "Discover something new":"Descubre algo nuevo",
     "Search in Apollo's":"Buscar en Apollo's",
 
-    "Search for songs to add to your list!":"¡Busca canciones para agregar a tu lista!",
+    "Let's find something for your platlist!":"¡Encontremos algo para tu lista!",
     "Find something for your list":"Encuentra algo para tu lista",
 
     "Upload content": "Subir contenido",
@@ -63,7 +63,7 @@
         "Wait for their first album!": "¡Espera su primer álbum!",
         "Wait for their first song!": "¡Espera su primera canción!",
     
-    "What kind of content do you want to upload?": "¿Qué tipo de contenido deseas subir?",
+    "What do you want to upload?": "¿Qué deseas subir?",
 
     "Uploading an album": "Subiendo un álbum",
     "Uploading a single": "Subiendo un sencillo",
@@ -85,20 +85,22 @@
     "Upload your songs": "Sube tus canciones",
     
     "Upload your":"Sube tu", 
-        "image": "imagen",
+    "Upload the":"Sube la", 
+    "image": "imagen",
         "song": "canción",
+        "cover": "portada",
     "here": "aquí",
     "6 Mb maximum per song": "6 Mb máximos por canción",
     "The image is obligatory.": "La imagen es obligatoria",
     "The song is obligatory.": "La canción es obligatoria",
-    "You won't be able to edit your album cover later": "Al continuar no podrás editar la portada",
+    "You won't be able to edit the album cover until it is released": "No podrás editar la portada del álbum hasta publicarlo",
 
     "By adding your song, you won't be able to remove it from the registry": " Al agregarla ya no podrás retirar la canción del registro",
     "I confirm that all uploaded content is of my authorship": "Confirmo que todo contenido subido es de mi  autoría",
     
     "We are almost done": "Casi todo está listo",
     "Continue":"Continuar",
-    "Publish": "Publicar",
+    "Release": "Publicar",
     
 
     "Edit profile": "Editar perfil",

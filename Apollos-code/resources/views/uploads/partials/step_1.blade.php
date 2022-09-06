@@ -43,7 +43,7 @@
         <form action="{{ route('image.store') }}" method="POST" enctype="multipart/form-data" id="dropzone_img"
             class="dropzone border-dashed border-2 @error('imagen') border-red-500 @enderror w-full h-96 rounded flex flex-col justify-center items-center">
             @csrf
-            <div class="dz-message" data-dz-message><span>{{__("Upload your")}} <b>{{__("image")}}</b> {{__("here")}}</span></div>
+            <div class="dz-message" data-dz-message><span>{{__("Upload the")}} <b>{{__("cover")}}</b> {{__("here")}}</span></div>
         </form>
         @error('imagen')
             <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
@@ -58,7 +58,7 @@
                     <input type="hidden" name="imagen" value="{{ old('imagen') }}" />
                 </div>
                 <p class="text-red-500 mb-5 text-center md:text-right block font-semibold text-sm"><span class="inline"><img
-                            src="{{ asset('assets/icons/errorIcon.png') }}" class="h-4 inline m-2">{{__("You won't be able to edit your album cover later")}} </span></p>
+                            src="{{ asset('assets/icons/errorIcon.png') }}" class="h-4 inline m-2">{{__("You won't be able to edit the album cover until it is released")}} </span></p>
 
                 <input type="submit" value="{{__('Continue')}}"
                     class="submit-bttn transition-colors cursor-pointer uppercase font-bold w-full p-3  text-white rounded-lg" />

@@ -249,3 +249,13 @@ h1.author {
     font-size: 1.7em;
     margin-top: -20px;
 }
+
+.artist-cont{
+        min-width: 1140px !important;
+    max-width: 1140px !important;
+}
+
+.artist-cont .content{
+    min-width: 1146.4px !important;
+    max-width: 1146.4px !important;
+}

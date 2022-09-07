@@ -1,6 +1,7 @@
 <div>
     <div class="user-info text-lg">
-        <h1 class="user-type">
+        <h1 class="user-type ">
+            {{-- {{dd($user->followings)}} --}}
             @if ($user->rol == 'artist')
                 <h1>{{__('Artist')}}</h1>
             @else
@@ -19,12 +20,16 @@
                 {{ $user->followings->count() }} Siguiendo
             </p>
         @endif --}}
-
-
         <br>
+
         <p class="followers">
             {{ $user->followers->count() }} 
-            {{ $user->followers->count() === 1 ? __("Follower"): __("Followers") }}
+            {{ $user->followers->count() === 1 ? __("Follower"): __("Followers") }} |
+            {{$user->followings->count()}} {{__('Following')}}
+        </p>
+
+        <p class="following">
+            
         </p>
 
         @if ($user->rol == 'artist')

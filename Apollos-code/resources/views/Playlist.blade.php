@@ -111,7 +111,7 @@
                                 <div class="num-song font-titulo"></div>
                                 <div class="picture-song"></div>
                                 <div class="name-song text-2xl font-cuerpo">
-                                    <span>{{ __('Search for songs to add to your list!') }}</span>
+                                    <span>{{__("Let's find something for your platlist!")}}</span>
                                 </div>
                                 <div class="artists-song font"></div>
                                 <div class="dur-song font-titulo"></div>

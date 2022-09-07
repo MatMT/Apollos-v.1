@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apollos | Bienvenida</title>
+    <title>Apollos | {{_('Welcome')}}</title>
     <style type="text/css">
         body {
             margin: 0;
@@ -128,11 +128,7 @@
                         <tr>
                             <td style="text-align: center; padding: 15px 0 10px;">
                                 <p style="font-size: 22px;font-weight:bold; margin:0;">
-                                    @if ($user->gender == true)
-                                        Bienvenida
-                                    @else
-                                        Bienvenido
-                                    @endif
+                                    {{__('Welcome')}}
                                 </p>
                             </td>
                         </tr>
@@ -140,9 +136,9 @@
                             <td style="text-align: center; padding: 15px 0 15px;">
                                 <p style="font-size: 22px;font-weight:bold; margin:0;">
                                     @if ($user->rol == 'artist')
-                                        Artista
+                                    {{__('Artist')}}
                                     @else
-                                        Usuario
+                                    {{__('User')}}
                                     @endif | {{ $user->username }}
                                 </p>
                             </td>

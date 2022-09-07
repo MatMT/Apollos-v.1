@@ -3,7 +3,7 @@
     padding: 0%;
 }
 
-:root{
+:root {
     /*Paleta de colores Apollos*/
 
     --morado-apl: #262455;
@@ -19,8 +19,19 @@ body {
     height: 100vh;
     scrollbar-width: none;
     background-color: rgb(12, 12, 12);
-    --bg-pseudo     : linear-gradient(180deg,rgba(255, 255, 255, 0) 10%,rgba(12, 12, 12, 0.3) 60%,rgba(12, 12, 12, 1) 90%); /* Variable que almacena el color de fondo del pseudoelemento */
-    --bg-new        : linear-gradient( 180deg, rgba(255, 255, 255, 0) 0%, rgba(12, 12, 12, 0.5) 25%, rgba(12, 12, 12, 0.95) 80%, rgba(12,12,12,1) 90% );
+    --bg-pseudo: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0) 10%,
+        rgba(12, 12, 12, 0.3) 60%,
+        rgba(12, 12, 12, 1) 90%
+    ); /* Variable que almacena el color de fondo del pseudoelemento */
+    --bg-new: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(12, 12, 12, 0.5) 25%,
+        rgba(12, 12, 12, 0.95) 80%,
+        rgba(12, 12, 12, 1) 90%
+    );
 }
 
 /*body::after{
@@ -40,10 +51,9 @@ body::before {
     z-index: -5;
 }
 
-.lib{
+.lib {
     height: 75vh;
 }
-
 
 /*Fondo de pantalla*/
 
@@ -70,8 +80,6 @@ body::before {
 .muralArtist img {
     width: 100%;
 }
-
-
 
 .muralArtist::after {
     content: "";
@@ -183,7 +191,7 @@ header .options li {
     color: rgb(255, 255, 255);
     opacity: 0.6;
 }
-header .options li:hover{
+header .options li:hover {
     opacity: 0.9;
 }
 header .Logout {
@@ -292,7 +300,7 @@ header.sticky {
     background-color: rgb(22, 22, 22);
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.555);
     border-radius: 10px;
-    width: 85%;
+    width: 46%;
     height: 90%;
     padding: 30px;
     padding-bottom: 50px;
@@ -301,25 +309,23 @@ header.sticky {
     opacity: 0;
     overflow-y: scroll;
     overflow-x: hidden;
+    min-width: 395px;
 }
-.buscador::-webkit-scrollbar-track
-{
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	border-radius: 10px;
-	background-color: none;
-}
-
-.buscador::-webkit-scrollbar
-{
-	width: 12px;
-	background-color: none;
+.buscador::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: none;
 }
 
-.buscador::-webkit-scrollbar-thumb
-{
-	border-radius: 10px;
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-	background-color: #555;
+.buscador::-webkit-scrollbar {
+    width: 12px;
+    background-color: none;
+}
+
+.buscador::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #555;
 }
 .buscador .btn-close {
     font-size: 16px;
@@ -400,14 +406,14 @@ header.sticky {
 .artistas .imagen_pefil {
     border-radius: 50%;
 }
-.imagen_pefil img{
+.imagen_pefil img {
     padding-left: 10%;
     padding-right: 10%;
     padding-top: 10%;
     width: 100px;
     max-width: none;
     border-radius: 50%;
-    transition: all .5s cubic-bezier(.45,.05,.55,.95);
+    transition: all 0.5s cubic-bezier(0.45, 0.05, 0.55, 0.95);
 }
 .titulo_pefil {
     padding-left: 10%;
@@ -419,27 +425,27 @@ header.sticky {
     margin-left: 10px;
     color: #fff;
 }
-.contenedor_lista{
+.contenedor_lista {
     color: white;
     overflow: hidden;
     overflow-y: auto;
 }
-.imagen_cancion{
+.imagen_cancion {
     padding: 1%;
     margin-left: 10px;
 }
-.nombre_artista{
+.nombre_artista {
     opacity: 0.6;
     margin-left: 250px;
 }
-.sencillo{
+.sencillo {
     margin-left: 200px;
     opacity: 0.6;
 }
-.tiempo_cancion{
+.tiempo_cancion {
     margin-left: 250px;
 }
-.nombre_cancion{
+.nombre_cancion {
     margin-left: 100px;
 }
 .cancion_todo {
@@ -452,10 +458,10 @@ header.sticky {
     margin-bottom: 10px;
 }
 .cancion_todo:hover {
-background-color: rgba(255, 255, 255, 0.096);
+    background-color: rgba(255, 255, 255, 0.096);
     transition: 0.1s ease-in-out;
 }
-.album_todo{
+.album_todo {
     width: 95%;
     display: flex;
     align-items: center;
@@ -464,25 +470,23 @@ background-color: rgba(255, 255, 255, 0.096);
     transition: 0.1s ease-in-out;
     margin-bottom: 10px;
 }
-.album_todo:hover{
+.album_todo:hover {
     background-color: rgba(255, 255, 255, 0.096);
     transition: 0.1s ease-in-out;
 }
-.imagen_album{
+.imagen_album {
     padding: 1%;
     margin-left: 10px;
 }
-.nombre_album{
+.nombre_album {
     margin-left: 100px;
 }
-.album{
+.album {
     margin-left: 200px;
-    opacity: 0.6;
 }
-.tiempo_album{
+.tiempo_album {
     margin-left: 250px;
 }
-
 
 /*---- ------  Animaciones Buscador ---- ------ -----*/
 
@@ -516,8 +520,7 @@ background-color: rgba(255, 255, 255, 0.096);
 
 /*--- ---- ----- ---- ----- ----- Reproductor */
 
-
-footer{
+footer {
     position: fixed;
     display: flex;
     justify-content: flex-end;
@@ -534,7 +537,7 @@ footer{
     border: 1px solid rgba(167, 165, 165, 0.3);
     border-radius: 15px;
     margin-right: 40px;
-    
+
     background-color: #131313;
     color: #fdfdfd;
 
@@ -547,33 +550,30 @@ footer{
     transition: 0.5s all ease-in-out;
 }
 
-
 /*Boton*/
 
-
-.player.activer .show-list-btn{
+.player.activer .show-list-btn {
     display: none;
 }
 
-.player.player.activer .hidde-list-btn{
+.player.player.activer .hidde-list-btn {
     display: block;
 }
 
-.player.activer{
+.player.activer {
     min-width: none;
     width: 95%;
     background-color: #131313;
     color: #f1f1f1;
     margin: 0px auto;
-    
 }
 
-.player.activer .line-time-song{
+.player.activer .line-time-song {
     display: flex;
     width: 30.666%;
 }
 
-.player.activer .info-cancion{
+.player.activer .info-cancion {
     width: 17.666%;
 }
 .player.activer .controles{
@@ -585,19 +585,18 @@ footer{
     min-width: 112px;
 }
 
-.player.activer .cancion{
+.player.activer .cancion {
     width: 10%;
 }
 
-.player.activer .white-circule{
+.player.activer .white-circule {
     left: 46%;
     top: 43%;
 }
 
-
 /*---- Foto de la canción ------*/
 
-.player .cancion{
+.player .cancion {
     height: 100%;
     padding: 15px;
     min-width: 100px;
@@ -605,18 +604,18 @@ footer{
     margin-left: 10px;
     position: relative;
 }
-.player .cancion img{
+.player .cancion img {
     height: 100%;
     min-width: 78px;
     border-radius: 5px;
     margin: 0% auto;
 }
 
-.player .cancion img.rotar{
+.player .cancion img.rotar {
     animation: rotar 6s linear infinite;
 }
 
-.white-circule{
+.white-circule {
     position: absolute;
     left: 41.3697%;
     top: 42.5694%;
@@ -638,50 +637,43 @@ footer{
     }
 }
 
-
-
 /*------- Infomración de la canción ------*/
 
-
-.player .info-cancion{
+.player .info-cancion {
     width: 35%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-
 }
 
 /*----- ----- Linea de Tiempo ---------*/
 
-.line-time-song{
+.line-time-song {
     height: 100%;
     display: none;
     padding: 50px 20px;
 }
 
-
-.player.activer .line-time-song{
+.player.activer .line-time-song {
     display: flex;
     flex-direction: column;
 }
-.line-time-song .line-time{
+.line-time-song .line-time {
     width: 95%;
     height: 2px;
     background-color: #ff00555d;
 }
 
-.line-time-song .line-progress{
+.line-time-song .line-progress {
     width: 25%;
     height: 2px;
     background-color: var(--rosado-apl);
 }
 
-
-
 /*----- Controles del reproductor ------*/
 
-.player .controles{
+.player .controles {
     width: 35%;
     height: 100%;
     display: flex;
@@ -691,21 +683,19 @@ footer{
     margin-right: 10px;
 }
 
-.player .controles .controladores{
+.player .controles .controladores {
     display: flex;
     align-items: center;
 }
-.player .controles i{
-    
+.player .controles i {
     cursor: pointer;
 }
 
-
-#play.active{
+#play.active {
     display: block;
 }
 
-#pause.active{
+#pause.active {
     display: block;
 }
 
@@ -720,16 +710,13 @@ footer{
     color: #f1f1f1;
     transform: rotate(45deg);
 }
-.rombo i{
+.rombo i {
     transform: rotate(-45deg);
 }
 
-
-
 /*------------------------------- Lista de Reproducción ..*/
 
-
-.lista-reproduccion{
+.lista-reproduccion {
     width: 22%;
     min-width: 480px;
     height: 0vh;
@@ -743,33 +730,29 @@ footer{
     right: 45px;
 
     transition: 0.4s all ease;
-
 }
 
-.lista-reproduccion.active{
+.lista-reproduccion.active {
     height: 75vh;
 }
 
-
-.lista-reproduccion{
+.lista-reproduccion {
     width: 92%;
     right: 4%;
 }
 
-
 /*------ Espacio del contendio de las listas de reproducción -------*/
-.space-content{
+.space-content {
     width: 100%;
     display: none;
     flex-direction: column;
 }
 
-.space-content{
+.space-content {
     display: flex;
 }
 
-
-.song-playing{
+.song-playing {
     width: 100%;
     padding: 15px;
     margin-top: 25px;
@@ -777,7 +760,7 @@ footer{
     align-items: center;
 }
 
-.song-playing img{
+.song-playing img {
     margin: 0px auto;
     min-height: 430px;
     border-radius: 10px;
@@ -785,12 +768,11 @@ footer{
 
 /*----- Lista de Reproducción -------*/
 
-.songs-list-then{
+.songs-list-then {
     margin-top: 15px;
     width: 100%;
     padding: 15px;
 }
-
 
 .songs-list-r {
     color: white;
@@ -800,7 +782,7 @@ footer{
     overflow-y: auto;
 }
 
-.title-table{
+.title-table {
     margin: 15px auto;
 }
 
@@ -811,10 +793,7 @@ footer{
     max-height: 50px;
     padding: 5px;
     transition: 0.1s ease-in-out;
-
 }
-
-
 
 .fila-hight-r .num-song {
     width: 70px;
@@ -841,10 +820,7 @@ footer{
     font-size: 14px;
 }
 
-
-
 /* Canciones lista */
-
 
 .fila-content-l {
     width: 95%;
@@ -857,7 +833,6 @@ footer{
 .fila-content-l:hover {
     background-color: rgba(255, 255, 255, 0.158);
 }
-
 
 .fila-content-l div {
     cursor: default;
@@ -918,7 +893,6 @@ footer{
     color: rgba(255, 255, 255, 0.7);
 }
 
-
 /*-------  -------  ----- Querys ---------  ------  ----*/
 
 @media screen and (max-width: 921px) {
@@ -930,35 +904,33 @@ footer{
 }
 
 @media screen and (min-width: 1078px) {
-    
-    .space-content{
+    .space-content {
         flex-direction: row;
     }
 
     .song-playing,
-    .songs-list-then{
+    .songs-list-then {
         width: 50%;
     }
 
-    .song-playing img{
+    .song-playing img {
         width: 60%;
         min-height: fit-content;
     }
 
     .song-playing,
-    .space-content{
+    .space-content {
         height: 100%;
     }
 
-    .songs-list-then{
+    .songs-list-then {
         padding: 60px 25px;
         padding-bottom: 25px;
     }
 
-    .songs-list-r{
+    .songs-list-r {
         max-height: 700px;
     }
-    
 }
 
 

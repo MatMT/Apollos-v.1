@@ -41,9 +41,9 @@
                 <div class="list-info text-lg ml-5">
                     <h1 class="list-type">
                         @if (!$album->sencillo)
-                            Álbum
+                            {{__('Album')}}
                         @else
-                            Colección
+                            {{__('Colection')}}
                         @endif
                     </h1>
 
@@ -74,7 +74,7 @@
                                     <span class="text-center point">⚬</span>
                                 @endif
                                 <span class="counter @if (!$album->sencillo) ml-1 @endif">
-                                    <h1>{{ $counts->count() }} canciones</h1>
+                                    <h1>{{ $counts->count()}} {{ __('Songs')}}</h1>
                                 </span>
                             </div>
                         </div> <!-- Información -->
@@ -120,7 +120,7 @@
                                 <div class="1/6 flex justify-center items-center gap-2">
                                     {{-- Editar album --}}
                                     <form action="{{ route('album.config.index', ['user' => $user, 'album' => $album->id]) }}">
-                                        <input type="submit" value="Editar álbum" name="" id=""
+                                        <input type="submit" value="{{__('Edit album')}}" name="" id=""
                                             class="bg-blue-500 hover:bg-blue-600 p-2 rounded text-white font-bold cursor-pointer">
                                     </form>
 
@@ -132,7 +132,7 @@
                                         {{-- METODO SPOOFING - Laravel permite agregar otro tipo de peticiones --}}
                                         @method('DELETE')
                                         @csrf
-                                        <input type="submit" value="Eliminar álbum" name="" id=""
+                                        <input type="submit" value="{{__('Delete album')}}" name="" id=""
                                             class="bg-red-500 hover:bg-red-600 p-2 rounded text-white font-bold cursor-pointer">
                                     </form>
                                 </div>
@@ -160,11 +160,11 @@
                                             class="song-info-tab inline-flex items-center justify-center pb-2 border-b border-white">
                                             <h1 class="id-song-tab opacity-70"> # </h1>
                                             <span class="title-author-tab">
-                                                <h1 class="song-title text-center opacity-70">Nombre de la canción</h1>
+                                                <h1 class="song-title text-center opacity-70">{{__('Name')}}</h1>
                                             </span>
                                             <h1 class='counter-time-tab text-center opacity-70'><img
                                                     src='{{ asset('assets/icons/timerIconWht.png') }}'></h1>
-                                            <h1 class='likes-tab text-center opacity-70'>Me gustas</h1>
+                                            <h1 class='likes-tab text-center opacity-70'>{{__('Likes')}}</h1>
                                         </div>
                                     </div>
                                     @foreach ($album->songs as $song)

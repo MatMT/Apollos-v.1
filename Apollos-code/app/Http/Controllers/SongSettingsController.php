@@ -35,7 +35,7 @@ class SongSettingsController extends Controller
             return redirect(route('main'));
         }
 
-        return view('songSettings', [
+        return view('settings.songSettings', [
             'user' => $user,
             'song' => $song
         ]);

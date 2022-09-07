@@ -2,6 +2,20 @@
 
 /* Funciones del Reproductor */
 
+const audio = document.getElementById("audio");
+const btn_play = document.getElementById("play");
+const btn_pause = document.getElementById("pause");
+const btn_next = document.getElementById("next");
+const btn_back = document.getElementById("back");
+
+var line_time = document.getElementById("down");
+// Ancho de la linea de tiempo
+var wth_line = line_time.offsetWidth;
+var line_progress = document.getElementById("up");
+
+// VARIABLES PARA ACTULIZAR EL TIEMPO
+
+var current_time = document.getElementById("current")
 
 
 /* Reproducción enserie de las canciones */
@@ -11,16 +25,14 @@ reproducir();
 // Obtenr la posición de la canción dentro del arreglo
 
 function reproducir() {
-
-    const audio = document.getElementById("audio");
-    const btn_play = document.getElementById("play");
-    const btn_pause = document.getElementById("pause");
-    const btn_next = document.getElementById("next");
-    const btn_back = document.getElementById("back");
+    
+    // numero de veces que se llama la función actually_time
+    const num_time = 1000;
 
     audio.load();
-    audio.volume = 0.5;
-    btn_pause.classList.add("active");
+    audio.volume = 0.3;
+    
+
     /* Colocar Evantos  */
 
     btn_pause.addEventListener('click', function(){
@@ -110,6 +122,33 @@ function reproducir() {
             window.location = url_next_song;
         }
     })
+
+
+    btn_pause.classList.add("active");
+    load = setInterval(time_continue, 1);
+    tmer = setInterval(actually_time, num_time);
 }
 
 
+function time_continue() {
+    if(audio.ended == false){
+        var total = parseInt(audio.currentTime*wth_line/audio.duration);
+
+        line_progress.style.width = total + "px"; 
+    }
+}
+
+function actually_time(){
+
+    alert("siiii");
+    if (audio.currentTime > 0){
+        
+        var actualSegundos = audio.currentTime.toFixed(0);
+        var actual = secondsToString(actualSegundos);
+        
+        var duracion = actual;
+        current_time.innerHTML = duracion;
+    }
+
+
+}

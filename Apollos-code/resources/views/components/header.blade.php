@@ -1,6 +1,6 @@
 <header class="py-3 px-8 text-white w-full header">
 
-    <div class="box-header w-full h-28 flex items-center justify-between py-3 px-5 relative " id="box-h">
+    <div class="box-header w-full h-24 flex items-center justify-between px-5 relative xl:h-28" id="box-h">
 
         <a href="#" class="font-logo mx-8 text-3xl tablet_5:mx-5 tablet_5:text-2xl">Apollo's</a>
 

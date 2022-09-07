@@ -3,133 +3,104 @@
 @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&display=swap");
 
-html {
-  background-image: url(../images/fondo_404.jpg);
-  color: white;
-  overflow: hidden;
-  height: 100%;
-  user-select: none;
-  position: relative;
-  background-repeat: no repeat;
-  background-size: cover;
+body{
+	background: linear-gradient(-45deg, #262455, #700353, #ff0054, #ff5c0a, #ffce47);
+	background-size: 400% 400%;
+  overflow-x: hidden;
+	animation: gradiente 15s ease infinite;
 }
-
-
-
-.static {
-  width: 100%;
-  height: 100%; 
-  position: relative;
-  margin: 0;
-  padding: 0;
-  top: -100px;
-  opacity: 0.05;
-  z-index: 230;
-  user-select: none;
-  user-drag: none;
+@keyframes gradiente {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
-
 .error {
   text-align: center;
   font-family: 'Righteous', cursive;
-  font-size: 95px;
+  font-size: 200px;
   font-style: italic;
   text-align: center;
-  width: 100px;
   height: 60px;
   line-height: 60px;
   margin: auto;
   position: absolute;
-  top: 0;
+  top: -290;
   bottom: 0;
   left: -60px;
   right: 0;
-  animation: noise 2s linear infinite;
+  color: #fff;
   overflow: default;
 }
-
-.error:after {
-  content: '404';
-  font-family: 'Righteous', cursive;
-  font-size: 100px;
-  font-style: italic;
-  text-align: center;
-  width: 150px;
-  height: 60px;
-  line-height: 60px;
-  margin: auto;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  opacity: 0;
-  color: blue;
-  animation: noise-1 .2s linear infinite;
-}
-
 .info {
   text-align: center;
-  font-family: 'Righteous', cursive;
-  font-size: 15px;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 35px;
   font-style: italic;
   text-align: center;
-  width: 200px;
-  height: 60px;
-  line-height: 60px;
+  width: 650px;
   margin: auto;
-  position: absolute;
-  top: 140px;
-  bottom: 0;
-  left: 0;
   right: 0;
-  animation: noise-3 1s linear infinite;
+  left: 0;
+  position: absolute;
+  top: 50px;
+  color: #fff;
 }
-
-.error:before {
-  content: '404';
-  font-family: 'Righteous', cursive;
-  font-size: 100px;
-  font-style: italic;
+.astru{
+width: 550px;
+height: auto;
+animation: floating 3s infinite ease-in-out;
+margin-left: -100px;
+margin-top: 100px;
+}
+@keyframes floating {
+  0% { transform: translate(0,  0px); }
+  50%  { transform: translate(0, 15px); }
+  100%   { transform: translate(0, -0px); }   
+}
+.oops {
   text-align: center;
-  width: 100px;
-  height: 60px;
-  line-height: 60px;
+  font-style:oblique;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 75px;
+  text-align: center;
+  font-weight: 700;
+  width: 950px;
   margin: auto;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
   right: 0;
-  opacity: 0;
-  color: red;
-  animation: noise-2 .2s linear infinite;
+  left: 0;
+  position: absolute;
+  top: 500px;
+  color: #fff;
 }
-
-@keyframes noise-1 {
-  0%, 20%, 40%, 60%, 70%, 90% {opacity: 0;}
-  10% {opacity: .1;}
-  50% {opacity: .5; left: -6px;}
-  80% {opacity: .3;}
-  100% {opacity: .6; left: 2px;}
+.espacio{
+  width: 750px;
+height: auto;
+margin-left: 900px;
+margin-top: -550px;
 }
-
-@keyframes noise-2 {
-  0%, 20%, 40%, 60%, 70%, 90% {opacity: 0;}
-  10% {opacity: .1;}
-  50% {opacity: .5; left: 6px;}
-  80% {opacity: .3;}
-  100% {opacity: .6; left: -2px;}
+.boton{
+  display:inline-block;
+  background-color: #ff5677;
+  border-radius: 100px;
+width: 200px;
+height: 90px;
+margin-left: 40%;
+margin-top: -150px;
+text-decoration: none;
+align-items: center;
 }
-
-@keyframes noise {
-  0%, 3%, 5%, 42%, 44%, 100% {opacity: 1; transform: scaleY(1);}  
-  4.3% {opacity: 1; transform: scaleY(1.7);}
-  43% {opacity: 1; transform: scaleX(1.5);}
-}
-
-@keyframes noise-3 {
-  0%,3%,5%,42%,44%,100% {opacity: 1; transform: scaleY(1);}
-  4.3% {opacity: 1; transform: scaleY(4);}
-  43% {opacity: 1; transform: scaleX(10) rotate(60deg);}
+.boton p{
+  font-family: 'Montserrat Alternates', sans-serif;
+  text-decoration: none;
+  margin-right: 15px;
+  margin-top: 7px;
+  font-size: 40px;
+  color: white;
+  padding: 7px 40px;
 }

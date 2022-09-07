@@ -51,7 +51,7 @@ const DropzoneMp3 = new Dropzone('#dropzone_audio', {
     dictRemoveFile: `<span class='remove-dz-img'><img src="../../assets/icons/removeIconWht.png"></span>`,
     maxFiles: 1,
     uploadMultiple: false,
-    maxFilesize: 6, // 6 MB
+    maxFilesize: 12, // 6 MB
 
     // En caso de haber subido la canción anteriormente restablecerá el elemento
     init: function () {

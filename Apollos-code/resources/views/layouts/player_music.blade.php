@@ -52,7 +52,7 @@
     </main>
 
     <!-- Agregamos el reproductor  --->
-    <x-reproductor :othersongs="$OtherSongs" :user="$user" :actuallysong="$ActuallySong"></x-reproductor>
+    <x-only_player :othersongs="$OtherSongs" :user="$user" :actuallysong="$ActuallySong"></x-reproductor>
 @endsection
 
 @push('script_end')

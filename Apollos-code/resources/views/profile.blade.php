@@ -188,11 +188,11 @@
                                 <span class="disc-ico"><img
                                         src="{{ asset('assets/icons/musicIconWht.png') }}"></span>
                                 <h1 class='text-white font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>
-                                    {{ auth()->user()->name == $user->name ? __("You don't follow any artist yet...") : __('No followed artists...') }}
+                                    {{ auth()->user()->name == $user->name ? __("You don't follow any artist yet...") : __('No followed artists yet...') }}
                                 </h1>
                                 <h1
                                     class='if-subtitle text-slate-500 font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>
-                                    {{ auth()->user()->name == $user->name ? __('Find your first favorite artist!') : __('It seems like '. $user->username .' does not have any favorite singer yet')}}
+                                    {{ auth()->user()->name == $user->name ? __('Find your first favorite artist!') : __('It seems like this user does not follow any artist yet')}}
                                 </h1>
                             </div>
                         </div>
@@ -228,7 +228,7 @@
                                 </h1>
                                 <h1
                                     class='if-subtitle text-slate-500 font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>
-                                    {{ auth()->user()->name == $user->name ? __('Find your first favorite album!') : __('It seems like '. $user->username .' does not have any favorite album yet')}}
+                                    {{ auth()->user()->name == $user->name ? __('Find your first favorite album!') : __('It seems like this user does not have any favorite album yet')}}
                                 </h1>
                             </div>
                         </div>

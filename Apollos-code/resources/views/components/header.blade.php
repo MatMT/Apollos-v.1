@@ -10,7 +10,7 @@
 
             <li class="mx-7 {{ $active ?? '' }} ">
                 <a href="{{ route('main') }}"><i class="fi fi-rs-home"></i><span
-                        class="tablet_5:hidden">{{ __('Home') }}</span></a>
+                        class="tablet_5:hidden">{{ __('Home ') }}</span></a>
             </li>
             <li class="mx-7 {{ $activeli ?? '' }} "><a href="{{ route('biblioteca') }}"><i
                         class="fi fi-rs-apps"></i></i><span class="tablet_5:hidden">{{ __('Your library') }}</span></a>

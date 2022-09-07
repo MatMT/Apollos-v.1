@@ -45,14 +45,14 @@
 .artistas .imagen_pefil {
     border-radius: 50%;
 }
-.imagen_pefil img{
+.imagen_pefil img {
     padding-left: 10%;
     padding-right: 10%;
     padding-top: 10%;
     width: 100px;
     max-width: none;
     border-radius: 50%;
-    transition: all .5s cubic-bezier(.45,.05,.55,.95);
+    transition: all 0.5s cubic-bezier(0.45, 0.05, 0.55, 0.95);
 }
 .titulo_pefil {
     padding-left: 10%;
@@ -64,27 +64,27 @@
     margin-left: 10px;
     color: #fff;
 }
-.contenedor_lista{
+.contenedor_lista {
     color: white;
     overflow: hidden;
     overflow-y: auto;
 }
-.imagen_cancion{
+.imagen_cancion {
     padding: 1%;
     margin-left: 10px;
 }
-.nombre_artista{
+.nombre_artista {
     opacity: 0.6;
     margin-left: 250px;
 }
-.sencillo{
+.sencillo {
     margin-left: 200px;
     opacity: 0.6;
 }
-.tiempo_cancion{
+.tiempo_cancion {
     margin-left: 250px;
 }
-.nombre_cancion{
+.nombre_cancion {
     margin-left: 100px;
 }
 .cancion_todo {
@@ -97,10 +97,10 @@
     margin-bottom: 10px;
 }
 .cancion_todo:hover {
-background-color: rgba(255, 255, 255, 0.096);
+    background-color: rgba(255, 255, 255, 0.096);
     transition: 0.1s ease-in-out;
 }
-.album_todo{
+.album_todo {
     width: 95%;
     display: flex;
     align-items: center;
@@ -109,21 +109,21 @@ background-color: rgba(255, 255, 255, 0.096);
     transition: 0.1s ease-in-out;
     margin-bottom: 10px;
 }
-.album_todo:hover{
+.album_todo:hover {
     background-color: rgba(255, 255, 255, 0.096);
     transition: 0.1s ease-in-out;
 }
-.imagen_album{
+.imagen_album {
     padding: 1%;
     margin-left: 10px;
 }
-.nombre_album{
+.nombre_album {
     margin-left: 100px;
 }
-.album{
+.album {
     margin-left: 200px;
     opacity: 0.6;
 }
-.tiempo_album{
+.tiempo_album {
     margin-left: 250px;
 }

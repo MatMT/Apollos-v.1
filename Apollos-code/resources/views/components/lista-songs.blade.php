@@ -20,7 +20,7 @@
     @endphp
     
     <span id="cancion_actual" class="text-2xl text-white hidden">{{ $soyActual }}</span>
-    <h3 class="font-cuerpo font-bold text-2xl text-white">Lista de Reproducción</h3>
+    <h3 class="font-cuerpo font-bold text-2xl text-white">{{__('Playlist')}}</h3>
 
     <div class="songs-list-l m-0" id="lista-canciones">
 
@@ -28,9 +28,9 @@
             <tr class="fila-hight-v text-lg">
                 <td class="num-song">#</td>
                 <td class="picture-song"></td>
-                <td class="name-song">NOMBRE</td>
+                <td class="name-song">{{__('Name')}}</td>
                 <td class="artists-song"></td>
-                <td class="dur-song">DURACIÓN</td>
+                <td class="dur-song">{{__('Duration')}}</td>
             </tr>
         </table>
         <section class="line-table min-space"></section>

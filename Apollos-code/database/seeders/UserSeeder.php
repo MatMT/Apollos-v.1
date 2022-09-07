@@ -74,7 +74,7 @@ class UserSeeder extends Seeder
         $marjo = new User();
         $marjo->name = 'Marjori';
         $marjo->last_name = 'Arguera';
-        $marjo->rol = 'artist';
+        $marjo->rol = 'user';
         $marjo->email = 'marjo@correo.com';
         $marjo->username = 'Majowo';
         $marjo->status = 'active';
@@ -92,7 +92,7 @@ class UserSeeder extends Seeder
         $album = new User();
         $album->name = 'Alvin';
         $album->last_name = 'Meléndez';
-        $album->rol = 'artist';
+        $album->rol = 'user';
         $album->email = 'album@correo.com';
         $album->username = 'Albumneitor';
         $album->status = 'active';

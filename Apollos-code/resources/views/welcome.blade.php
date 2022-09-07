@@ -76,7 +76,8 @@
             </div>
           </div>
         </div>
-        <div class="image-left-side wow slideInRight" data-wow-delay=".5s"><img src={{asset('assets/img/imagen2.png')}}/>
+        <div class="image-left-side wow slideInRight" data-wow-delay=".5s"><img src={{ asset('assets/img/imagen2.png')}}    >
+        </div>
         </div>
       </section>
       <!--Owl Carousel-->

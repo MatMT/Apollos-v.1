@@ -4,7 +4,7 @@
       <p class="logo">Apollo's</p>
       <nav>
         <ul>
-          <li><a href="{{ route('login') }}">Inicia sesion</a></li>
+          <li><a href="{{ route('login') }}">Inicia sesión</a></li>
           <li><a href="{{ route('signup') }}">Registrate</a></li>
         </ul>
       </nav>

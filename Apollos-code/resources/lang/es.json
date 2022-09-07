@@ -49,7 +49,7 @@
     "Albums":"Álbumes", "Album": "Álbum",
     "Single": "Sencillo", "Singles": "Sencillos",
     "Colection": "Colección", "Colections": "Colecciones",
-    "Song": "Sencillo", "Songs": "Canciones",
+    "Song": "Canción", "Songs": "Canciones",
     
     "Follower": "Seguidor", "Followers": "Seguidores",
     "Following": "Siguiendo", "Follow": "Seguir",
@@ -157,5 +157,17 @@
     "Uploaded":"Subida",
     "You must withdraw your":"Debes retirar tu",
     "or wait for an admin to advise the report.":"o esperar que un admin asesore el reporte.",
-    "Welcome":"Bienvenid@"
+
+    "Welcome":"Bienvenid@",
+
+    "Dashboard":"Panel principal",
+    "Musical reports":"Reportes musicales",
+    "Reported cases":"Casos reportados",
+    "Solved cases":"Casos resueltos",
+    "Denied cases":"Casos denegados",
+    "Accepted cases":"Casos aceptados",
+    "Status":"Estado",
+    "Action":"Acción",
+    "Pending":"Pendiente",
+    "Solved":"Resuelto"
 }

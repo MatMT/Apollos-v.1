@@ -9,8 +9,9 @@
     @vite('resources/css/app.css')
     <!-- ALPINE JS -->
     @vite(['resources/js/dash.js'])
+    <link rel="shortcut icon" href="{{ asset('assets/favicon.png') }}" type="image/x-icon">
 
-    <title>Apollos | Admin</title>
+    <title>Admin | Apollo's</title>
 </head>
 
 <body class="antialiased bg-gray-100">
@@ -28,7 +29,7 @@
                                 d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
                         </svg>
                         {{-- Titulo Dashboard --}}
-                        <span class="text-xl font-bold">Admin | Apollos </span>
+                        <span class="text-xl font-bold">Admin | Apollo's </span>
                     </a>
 
                     <!-- SEARCH BAR -->
@@ -61,7 +62,7 @@
                                     d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
                                 </path>
                             </svg>
-                            <span>Dashboard</span>
+                            <span>{{__('Dashboard')}}</span>
                         </a>
                         <!-- DROPDOWN LINK -->
                         {{-- <div class="block" x-data="{ open: false }">
@@ -135,7 +136,7 @@
         <!-- PAGE CONTENT -->
         <main class="flex-1 h-screen overflow-y-scroll overflow-x-hidden">
             <div class="md:hidden justify-between items-center bg-black text-white flex">
-                <h1 class="text-2xl font-bold px-4">Admin | Apollos </h1>
+                <h1 class="text-2xl font-bold px-4">Admin | Apollo's </h1>
                 <button @click="navOpen = !navOpen" class="btn p-4 focus:outline-none hover:bg-gray-800">
                     <svg class="w-6 h-6 fill-current" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
@@ -146,14 +147,14 @@
             </div>
             <section class="max-w-7xl mx-auto py-4 px-5">
                 <div class="flex justify-between items-center border-b border-gray-300">
-                    <h1 class="text-2xl font-semibold pt-2 pb-6">Reportes músicales </h1>
+                    <h1 class="text-2xl font-semibold pt-2 pb-6">{{__('Musical reports')}}</h1>
                 </div>
 
                 <!-- STATISTICS -->
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-4 py-6">
                     <div class="bg-white shadow rounded-sm flex justify-between items-center py-3.5 px-3.5">
                         <div class="space-y-2">
-                            <p class="text-xs text-gray-400 uppercase">Casos reportados</p>
+                            <p class="text-xs text-gray-400 uppercase">{{__('Reported cases')}}</p>
                             <div class="flex items-center space-x-2">
                                 <h1 class="text-xl font-semibold">
                                     @if ($reports)
@@ -175,7 +176,7 @@
 
                     <div class="bg-white shadow rounded-sm flex justify-between items-center py-3.5 px-3.5">
                         <div class="space-y-2">
-                            <p class="text-xs text-gray-400 uppercase">Casos Resueltos</p>
+                            <p class="text-xs text-gray-400 uppercase">{{__('Solved cases')}}</p>
                             <div class="flex items-center space-x-2">
                                 <h1 class="text-xl font-semibold">
                                     @if ($resolved)
@@ -197,7 +198,7 @@
 
                     <div class="bg-white shadow rounded-sm flex justify-between items-center py-3.5 px-3.5">
                         <div class="space-y-2">
-                            <p class="text-xs text-gray-400 uppercase">Contenidos denegados</p>
+                            <p class="text-xs text-gray-400 uppercase">{{__('Denied cases')}}</p>
                             <div class="flex items-center space-x-2">
                                 <h1 class="text-xl font-semibold">
                                     @if ($denied)
@@ -218,7 +219,7 @@
 
                     <div class="bg-white shadow rounded-sm flex justify-between items-center py-3.5 px-3.5">
                         <div class="space-y-2">
-                            <p class="text-xs text-gray-400 uppercase">Contenidos Aceptados</p>
+                            <p class="text-xs text-gray-400 uppercase">{{__('Accepted cases')}}</p>
                             <div class="flex items-center space-x-2">
                                 <h1 class="text-xl font-semibold">
                                     @if ($acepted)
@@ -246,11 +247,11 @@
                     <table class="min-w-max w-full table-auto">
                         <thead>
                             <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-                                <th class="py-3 px-6 text-left">Usuario</th>
-                                <th class="py-3 px-6 text-left">Canción</th>
-                                <th class="py-3 px-6 text-center">Canción</th>
-                                <th class="py-3 px-6 text-center">Estado</th>
-                                <th class="py-3 px-6 text-center">Acción</th>
+                                <th class="py-3 px-6 text-left">{{__('User')}}</th>
+                                <th class="py-3 px-6 text-left">{{__('Song')}}</th>
+                                <th class="py-3 px-6 text-center">{{__('Song')}}</th>
+                                <th class="py-3 px-6 text-center">{{__('Status')}}</th>
+                                <th class="py-3 px-6 text-center">{{__('Action')}}</th>
                             </tr>
                         </thead>
                 </div>
@@ -289,10 +290,10 @@
                             <td class="py-3 px-3 text-center">
                                 @if ($report->status == 'pending')
                                     <span
-                                        class="bg-red-200 text-red-600 py-1 px-3 rounded-full text-xs">Pendiente</span>
+                                        class="bg-red-200 text-red-600 py-1 px-3 rounded-full text-xs">{{__('Pending')}}</span>
                                 @else
                                     <span
-                                        class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Resuelto</span>
+                                        class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">{{__('Solved')}}</span>
                                 @endif
                                 </span>
                             </td>

@@ -1,11 +1,11 @@
 <div>
-    <div class="flex gap-2">
+    <div class="gap-2 mp:flex">
         <button {{-- Evento de Livewire --}} wire:click="like" class="inline-block">
-            <i class="fi fi-rr-heart text-lg opacity-70 transition-all relative ease-in-out hover:opacity-100 hover:text-red-400 {{ $isLiked ? 'hidden' : 'block' }}"></i>
-            <i class="fi fi-sr-heart text-lg text-red-400 relative {{ $isLiked ? 'block' : 'hidden' }}"></i>
+            <i class="fi fi-rr-heart text-lg opacity-70 transition-all relative ease-in-out hover:opacity-100 hover:text-red-400 ml-1 {{ $isLiked ? 'hidden' : 'block' }}"></i>
+            <i class="fi fi-sr-heart text-lg text-red-400 relative ml-1 {{ $isLiked ? 'block' : 'hidden' }}"></i>
         </button>
 
-        <p class="font-bold text-center text-sm">
+        <p class="font-bold text-center text-sm hidden mp:flex">
             {{ $likes }} <span class="font-normal"> {{__('Likes')}} </span>
         </p>
     </div>

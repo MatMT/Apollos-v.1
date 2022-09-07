@@ -4,8 +4,8 @@
       <p class="logo">Apollo's</p>
       <nav>
         <ul>
-          <li><a href="#">Inicia sesion</a></li>
-          <li><a href="#">Registrarse</a></li>
+          <li><a href="{{ route('login') }}">Inicia sesion</a></li>
+          <li><a href="{{ route('signup') }}">Registrate</a></li>
         </ul>
       </nav>
     </header>
@@ -16,7 +16,7 @@
         <span class="pequeñito1">Descubre un nuevo</span>
         <p class="frase ">Universo <span class="pequeñito">de</span> Música</p>
       </div>
-  <a href="" class="fill"><p>Explora</p></a>
+  <a href="{{ route('main') }}" class="fill"><p>Explora</p></a>
   </section>
       <!--About-->
       <section class="section section-sm position-relative" id="about">

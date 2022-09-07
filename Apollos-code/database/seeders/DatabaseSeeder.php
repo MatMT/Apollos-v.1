@@ -23,6 +23,8 @@ class DatabaseSeeder extends Seeder
         $this->call(SongMatiSeeder::class);
         $this->call(AlbumAeroSeeder::class);
         $this->call(SongAeroSeeder::class);
+        $this->call(AlbumViniSeeder::class);
+        $this->call(SongViniSeeder::class);
         $this->call(FollowSeeder::class);
         $this->call(LikeAlbumSeeder::class);
 

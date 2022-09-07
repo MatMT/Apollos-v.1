@@ -96,7 +96,7 @@ class SongViniSeeder extends Seeder
         $KanyeWestAlbum5->name_song = "Famous";
         $KanyeWestAlbum5->time = '3:16';
         $KanyeWestAlbum5->genre = 'rap';
-        $KanyeWestAlbum5->url = '8ae370d8-11cc-40a8-8772-ded78cbc58c4.mp3.mp3';
+        $KanyeWestAlbum5->url = '8ae370d8-11cc-40a8-8772-ded78cbc58c4.mp3';
         $KanyeWestAlbum5->image = 'f8726b22-8466-49e2-97d0-dba48a82d2c7.jpg';
         $KanyeWestAlbum5->total = 291.53;
         $KanyeWestAlbum5->created_at = now();

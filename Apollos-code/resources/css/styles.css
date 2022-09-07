@@ -661,14 +661,16 @@ footer {
 }
 .line-time-song .line-time {
     width: 95%;
-    height: 2px;
+    height: 3px;
     background-color: #ff00555d;
+    border-radius: 3px;
 }
 
 .line-time-song .line-progress {
-    width: 25%;
-    height: 2px;
+    width: 0%;
+    height: 3px;
     background-color: var(--rosado-apl);
+    border-radius: 3px;
 }
 
 /*----- Controles del reproductor ------*/

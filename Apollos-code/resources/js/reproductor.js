@@ -11,6 +11,7 @@ const btn_back = document.getElementById("back");
 var line_time = document.getElementById("down");
 // Ancho de la linea de tiempo
 var wth_line = line_time.offsetWidth;
+alert(wth_line)
 var line_progress = document.getElementById("up");
 
 // VARIABLES PARA ACTULIZAR EL TIEMPO
@@ -123,10 +124,11 @@ function reproducir() {
         }
     })
 
+    line_time.addEventListener('click', posicionamiento, false)
 
     btn_pause.classList.add("active");
     load = setInterval(time_continue, 1);
-    tmer = setInterval(actually_time, num_time);
+    
 }
 
 
@@ -138,17 +140,13 @@ function time_continue() {
     }
 }
 
-function actually_time(){
+function posicionamiento(posicionamiento){
+    
+    var click = posicionamiento.pageX-line_progress.offsetLeft;
 
-    alert("siiii");
-    if (audio.currentTime > 0){
-        
-        var actualSegundos = audio.currentTime.toFixed(0);
-        var actual = secondsToString(actualSegundos);
-        
-        var duracion = actual;
-        current_time.innerHTML = duracion;
-    }
+    var nuevoTiempo = click*audio.duration/wth_line;
 
+    audio.currentTime = nuevoTiempo;
 
+    line_progress.style.width = click + "px";
 }

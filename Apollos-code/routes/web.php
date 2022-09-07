@@ -61,7 +61,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/pruebaplayer', function () {
+Route::get('/prueba', function () {
     return view('layouts.player_music');
 });
 

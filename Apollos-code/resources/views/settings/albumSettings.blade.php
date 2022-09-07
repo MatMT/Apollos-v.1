@@ -7,7 +7,7 @@
 @section('header')
     <x-header></x-header>
 @endsection
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />image.png
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 @section('css')
     <style>
         header.sticky,
@@ -62,38 +62,45 @@
             transition: all 0.2s ease-in-out;
             color: black;
         }
-        .foo {
-        display: block;
-        position: relative;
-        width: 300px;
-        cursor: pointer;
-        border: 0;
-        height: 60px;
-        border-radius: 5px;
-        outline: 0;
+
+        .input-file {
+            width: 0.1px;
+            height: 0.1px;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            z-index: -1;
         }
 
-        .foo:after {
-        transition: 200ms all ease;
-        border-bottom: 3px solid rgba(0,0,0,.2);
-        background: #1d1e22;
-        text-shadow: 0 2px 0 rgba(0,0,0,.2);
-        color: #fff;
-        font-size: 20px;
-        text-align: center;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: block;
-        content: 'Upload Something';
-        line-height: 60px;
-        border-radius: 5px;
+        .foo{
+            max-width: 400px;
+            cursor: pointer;
+            border: 0;
+            height: 60px;
+            border-radius: 5px;
+            outline: 0;
+            transition: 200ms all ease;
+            border-bottom: 3px solid rgba(0,0,0,.2);
+            background: #1d1e22;
+            text-shadow: 0 2px 0 rgba(0,0,0,.2);
+            color: #fff;
+            font-size: 20px;
+            text-align: center;
+            line-height: 60px;
+            border-radius: 5px;
+
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
         }
-        .foo:hover:after {
+
+        .foo:hover {
         background: #75ea96;
-        }   
+        }    
+
+        .photo-ico{
+            z-index: 2;
+        }
     </style>
 @endsection
 
@@ -143,11 +150,16 @@
                 </div>
 
                 <div class="mb-5">
-                    <label for="image" class="mb-2 block uppercase text-gray-800 font-bold">{{__('Album cover')}}</label>
-                    <span class="material-symbols-outlined">
-                        add_a_photo
-                        </span>
-                    <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png" class="foo" class="material-symbols-outlined">
+                    <label for="" class="mb-2 block uppercase text-gray-800 font-bold">{{__('Album cover')}}</label>
+                    <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png" class="input-file" class="material-symbols-outlined">
+                            <label for="image" class="foo flex items-center justify-center p-3"> 
+                                <span class="material-symbols-outlined photo-ico inline-block px-2" >
+                                    add_a_photo
+                                </span>
+                                
+                                <h3 id="file-upload-filename" class="text-ellipsis overflow-hidden whitespace-nowrap"> <!-- Selected file will get here --> </h3>
+
+                            </label>
                 </div>
 
                 <input type="submit" value="{{__('Save changes')}}"
@@ -156,4 +168,20 @@
         </div>
     </div>
 </div>
+
+<script>
+    var input = document.getElementById( 'image' );
+    var infoArea = document.getElementById( 'file-upload-filename' );
+
+    input.addEventListener( 'change', showFileName );
+
+    function showFileName( event ) {
+    
+    var input = event.srcElement;
+    
+    var fileName = input.files[0].name;
+    
+    infoArea.textContent =  fileName;
+    }
+</script>
 @endsection

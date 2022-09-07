@@ -4,8 +4,8 @@
       <p class="logo">Apollo's</p>
       <nav>
         <ul>
-          <li><a href="#">Inicia sesion</a></li>
-          <li><a href="#">Registrate</a></li>
+          <li><a href="{{ route('login') }}">Inicia sesión</a></li>
+          <li><a href="{{ route('signup') }}">Registrate</a></li>
         </ul>
       </nav>
     </header>
@@ -14,9 +14,9 @@
       <div class="separador"></div>
       <div class="div_frase">
         <span class="pequeñito1">Descubre un nuevo</span>
-        <p class="frase ">Universo <span class="pequeñito">de</span> Musica</p>
+        <p class="frase ">Universo <span class="pequeñito">de</span> Música</p>
       </div>
-  <a href="" class="fill"><p>Explora</p></a>
+  <a href="{{ route('main') }}" class="fill"><p>Explora</p></a>
   </section>
       <!--About-->
       <section class="section section-sm position-relative" id="about">
@@ -29,8 +29,8 @@
             <div class="col-lg-6 col-12">
               <div class="block-sm offset-top-45">
                 <div class="section-name wow fadeInRight" data-wow-delay=".2s">Apollo's</div>
-                <h3 class="wow fadeInLeft text-capitalize devider-bottom" data-wow-delay=".3s">Que<span class="text-primary"> es?</span></h3>
-                <p class="offset-xl-40 wow fadeInUp" data-wow-delay=".4s">Hemos planteado la idea de “Apollo's”, una web app en el cual las personas puedan compartir su música para mostrarsela a otros usuarios, es de denotar que “Apollo's” retoma la idea de su antecesor objetivo “Dreams”, evolucionando y ampliando sus capacidades. 
+                <h3 class="wow fadeInLeft text-capitalize devider-bottom" data-wow-delay=".3s">Qué<span class="text-primary"> es?</span></h3>
+                <p class="offset-xl-40 wow fadeInUp" data-wow-delay=".4s">Hemos planteado la idea de “Apollo's”, una web app en el cual las personas puedan compartir su música para mostrársela a otros usuarios, es de denotar que “Apollo's” retoma la idea de su antecesor objetivo “Dreams”, evolucionando y ampliando sus capacidades. 
                 </p>
                 <p class="default-letter-spacing font-weight-bold text-gray-dark wow fadeInUp" data-wow-delay=".4s">Con la experiencia a un mejor nivel</p>
               </div>
@@ -45,12 +45,12 @@
             <div class="col-xl-7 col-lg-7 col-12">
               <div class="section-name wow fadeInRight">Dreams</div>
               <h3 class="text-capitalize devider-left wow fadeInLeft1" data-wow-delay=".2s">Que te<span class="text-primary"> Ofrecemos?</span></h3>
-              <p>Queremos ser un servicio de reproducción de música agradable y de calidad para aquellas personas que se atreven a crear contenido y compartir sus ideas, además a quienes la música forma parte de muchos momentos de su vida y quieran disfrutarlos bajo la melodía del sonido. Queremos llevar nuestro servició a su mayor potencial sustentandose de la creatividad, la perseverancia, la valentía y entusiasmo.  
+              <p>Queremos ser un servicio de reproducción de música agradable y de calidad para aquellas personas que se atreven a crear contenido y compartir sus ideas, además a quienes la música forma parte de muchos momentos de su vida y quieran disfrutarlos bajo la melodía del sonido. Queremos llevar nuestro servicio a su mayor potencial sustentándose de la creatividad, la perseverancia, la valentía y entusiasmo.  
               </p>
               <div class="row row-15">
                 <div class="col-xl-6 wow fadeInUp" data-wow-delay=".2s">
                   <div class="box-default">
-                    <div class="box-default-title">Mejor experiencia al escuchar tu musica</div>
+                    <div class="box-default-title">Mejor experiencia al escuchar tu música</div>
                     <ion-icon name="headset-outline" class="box-default-icon novi-icon icon-lg"></ion-icon>
                   </div>
                 </div>
@@ -62,13 +62,13 @@
                 </div>
                 <div class="col-xl-6 wow fadeInUp" data-wow-delay=".4s">
                   <div class="box-default">
-                    <div class="box-default-title">Facil de acceder a todas sus herramientas desde la web</div>
+                    <div class="box-default-title">Fácil de acceder a todas sus herramientas desde la web</div>
                     <ion-icon name="laptop-outline" class="box-default-icon novi-icon icon-lg"></ion-icon>
                   </div>
                 </div>
                 <div class="col-xl-6 wow fadeInUp" data-wow-delay=".5s">
                   <div class="box-default">
-                    <div class="box-default-title">Mejor experiencia al explorar en nuestra aplicacion para usuarios como artistas</div>
+                    <div class="box-default-title">Mejor experiencia al explorar en nuestra aplicación para usuarios como artistas</div>
                     <ion-icon name="happy-outline" class="box-default-icon novi-icon icon-lg"></ion-icon>
                   </div>
                 </div>

@@ -140,5 +140,24 @@ class ArtistSeeder extends Seeder
         $kanyewest->birth_date = '1977-06-05';
         $kanyewest->image = 'cb75620d-ba57-4178-be07-9b24cef9cd49.jpg';
         $kanyewest->save();
+
+        // Artist Default - 16 - VINI
+        $pereira = new User();
+        $pereira->name = "Javier";
+        $pereira->last_name = "Pereira";
+        $pereira->rol = 'artist';
+        $pereira->email = "javier2316@hotmail.com";
+        $pereira->username = "Javier Pereira";
+        $pereira->status = "active";
+        $pereira->age = "26";
+        $pereira->password = Hash::make('pereira123');
+        $pereira->created_at = now();
+        $pereira->updated_at = now();
+        $pereira->name_artist = "Javier Pereira";
+        $pereira->gender = false;
+        $pereira->birth_date = "1997-05-26";
+        $pereira->save();
     }
+
+
 }

@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apollos | Contenido Reportado</title>
+    <title>Apollos | {{_('Content Reported')}}</title>
     <style type="text/css">
         body {
             margin: 0;
@@ -135,7 +135,7 @@
                         <tr>
                             <td style="text-align: center; padding: 15px 0 15px;">
                                 <p style="font-size: 16px;font-weight:bold; margin:0;">
-                                    El CONTENIDO REPORTADO FUE
+                                    {{__('THE REPORTED CONTENT WAS')}}
                                 </p>
                                 @if ($song->sencillo == 0)
                                     <p style="font-size: 14px;font-weight:bold; margin:0;">
@@ -148,16 +148,16 @@
                             <td style="padding:5px 100px 25px">
                                 <table class="info-song" width="100%">
                                     <tr>
-                                        <th>Colección</th>
-                                        <th>Nombre</th>
-                                        <th>Súbida</th>
+                                        <th>{{__('Colection')}}</th>
+                                        <th>{{__('Name')}}</th>
+                                        <th>{{__('Uploaded')}}</th>
                                     </tr>
                                     <tr>
                                         <td>
                                             @if ($song->sencillo == 1)
-                                                Sencillos
+                                                {{__('Single')}}
                                             @else
-                                                Álbum
+                                                {{__('Album')}}
                                             @endif
                                         <td>
                                             @if ($song->sencillo == 0)
@@ -166,7 +166,7 @@
                                                 {{ $song->name_song }}
                                             @endif
                                         </td>
-                                        <td>{{ $song->created_at->diffForHumans() }}</td>
+                                        <td>{{ $song->created_at->format('d/m/Y') }}</td>
                                     </tr>
                                 </table>
                             </td>
@@ -174,13 +174,17 @@
                         <tr>
 
                             <td style="text-align: center">
-                                <p style="font-size: 14px;font-weight:bold; margin: 0 0 10px 0;">
-                                    Debes retirar tu @if ($song->sencillo == 0)
-                                        albúm
+                                <p style="font-size: 14px;font-weight:bold; margin: 0 ">
+                                    {{__('You must withdraw your')}} @if ($song->sencillo == 0)
+                                    {{__('Album')}}
                                     @else
-                                        canción
-                                    @endif
+                                    {{__('Song')}}
+                                    @endif  
                                 </p>
+                                <p style="font-size: 14px;font-weight:bold; margin: 0 0 12px 0;">
+                                    {{__('or wait for an admin to advise the report.')}}
+                                </p>
+                                <br>
                             </td>
 
                         </tr>

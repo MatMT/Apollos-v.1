@@ -34,7 +34,7 @@
                     <div class="line w-full h-0.5 bg-white mx-3 mt-5 mb-5"></div>
 
                     @foreach ($songs as $song)
-                        @if ($song->AlreadyAdded($song->id))
+                        @if ($song->AlreadyAdded($song->id) && $song->visibility == true)
                             <div class="song-found">
                                 <img src="{{ asset('storage') . '/uploads/imagenes/' . $song->image }}"
                                     alt="Imagen de {{ $song->name_song }}" class="mr-2">

@@ -1,4 +1,24 @@
 {
+    
+    "Sign up":"Regístrate",
+    "Oops! Something went wrong":"¡Oops! Algo salió mal",
+
+    "Sign up and enjoy your favorite music!":"¡Regístrate y disfruta de tu música favorita!",
+
+    "Do you already have an account?":"¿Ya tienes una cuenta?",
+
+    "Log in":"Inicia sesión ",
+    "Welcome back!":"¡Bienvenido de nuevo!",
+    "You don't have an account yet?":"¿No tienes una cuenta todavía?",
+
+    "Select account type":" Selecciona el tipo de cuenta",
+    "Username": "Nombre de usuario",
+    "Name": "Nombre",
+    "Last name": "Apellido",
+    "E-mail": "Correo electrónico",
+    "Password": "Contraseña",
+    "Birth date": "Fecha de nacimiento",
+
     "Home ": "Inicio ",
     "Your library": "Tu biblioteca",
     "Create playlist": "Crear playlist",
@@ -15,7 +35,7 @@
 
     "Suggested artists": "Artistas que te gustarán",
     "Discover a new world of music": "Descubre un mundo nuevo de música",
-    "New users in Apollo's!": "¡Nuevos usuarios en Apollo's!",
+    "New artists in Apollo's!": "¡Nuevos artistas en Apollo's!",
     "More of what you like": "Colecciones como a ti te gustan",
 
     "Good morning":"¡Buenos días ",
@@ -28,20 +48,29 @@
 
     "Albums":"Álbumes", "Album": "Álbum",
     "Single": "Sencillo", "Singles": "Sencillos",
-    "Song": "Sencillo", "Songs": "Canciones",
+    "Colection": "Colección", "Colections": "Colecciones",
+    "Song": "Canción", "Songs": "Canciones",
     
     "Follower": "Seguidor", "Followers": "Seguidores",
     "Following": "Siguiendo", "Follow": "Seguir",
     
     "Public albums": "Álbumes publicados",
+    "Favorite albums": "Álbumes favoritos",
+    "Followed artists": "Artistas seguidos",
     "Public songs": "Canciones publicadas",
 
+    "Playlist":"Lista de reproducción",
     "My playlist":"Mi playlist",
     "My list":"Mi lista",
     "Play":"Reproducir",
 
     "Like":"Me gusta", "Likes":"Me gustas",
+    "Report":"Reportar",
     "Duration":"Duración",
+
+    "Edit album": "Editar álbum",
+    "Delete album": "Eliminar álbum",
+    "Edit song": "Editar canción",
     "Delete song": "Eliminar canción",
 
     "Add":"Añadir",
@@ -59,9 +88,15 @@
     "Upload your first song!": "¡Sube tu primera canción!",
         "And show your talent": "Y muestra tu talento",
 
-    "No content...": "Todavía no ha subido contenido...", 
+    "No content yet...": "Todavía no ha subido contenido...", 
         "Wait for their first album!": "¡Espera su primer álbum!",
         "Wait for their first song!": "¡Espera su primera canción!",
+    
+    "No followed artists yet...": "Sin artistas seguidos...", 
+        "It seems like this user does not follow any artist yet": "Parece que este usuario todavía no sigue a ningún artista",  
+    "No favorite albums yet...": "Sin álbumes favoritos...", 
+        "It seems like this user does not have any favorite album yet": "Parece que este usuario todavía no tiene un álbum favorito",  
+
     
     "What do you want to upload?": "¿Qué deseas subir?",
 
@@ -102,22 +137,45 @@
     "Continue":"Continuar",
     "Release": "Publicar",
     
-
     "Edit profile": "Editar perfil",
     "Invalid fields!": "¡Campos inválidos!",
-    "Upload fields": "¡Campos actualizados!",
+    "Updated fields!": "¡Campos actualizados!",
 
     "Profile information": "Información del perfil",
-    "Username": "Nombre de usuario",
-    "Name": "Nombre",
-    "Last name": "Apellido",
     "Profile pic": "Imagen de perfil",
 
-    "Password": "Contraseña",
     "Actual password": "Clave actual",
     "New password": "Nueva clave",
     "Confirm new password": "Confirmar nueva clave",
-    
+
+    "Update title":"Cambiar título",
+    "Updating your song info":"Actualizar los datos de tu canción",
+    "Updating your single info":"Actualizar los datos de tu sencillo",
+    "Updating your album info":"Actualizar los datos de tu álbum",
+    "Song cover":"Portada de la canción",
+
+    "Update the song genre by editing your album":"Actualiza el género de la canción editando tu álbum",
+    "Update the song cover by editing your album":"Actualiza la portada de la canción editando tu álbum",
+
     "Save changes": "Guardar cambios",
-    "Cancel": "Cancelar"
+    "Cancel": "Cancelar", 
+
+    "Content Reported":"Contenido Reportado",
+    "THE REPORTED CONTENT WAS":"El CONTENIDO REPORTADO FUE",
+    "Uploaded":"Subida",
+    "You must withdraw your":"Debes retirar tu",
+    "or wait for an admin to advise the report.":"o esperar que un admin asesore el reporte.",
+
+    "Welcome":"Bienvenid@",
+
+    "Dashboard":"Panel principal",
+    "Musical reports":"Reportes musicales",
+    "Reported cases":"Casos reportados",
+    "Solved cases":"Casos resueltos",
+    "Denied cases":"Casos denegados",
+    "Accepted cases":"Casos aceptados",
+    "Status":"Estado",
+    "Action":"Acción",
+    "Pending":"Pendiente",
+    "Solved":"Resuelto"
 }

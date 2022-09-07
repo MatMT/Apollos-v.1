@@ -29,7 +29,7 @@ class SettingsController extends Controller
             return Redirect::back();
         }
 
-        return view('settingsPf', [
+        return view('settings.userSettings', [
             'user' => $user
         ]);
     }

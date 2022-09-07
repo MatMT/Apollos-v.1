@@ -155,7 +155,7 @@
                 {{-- NUEVOS ARTISTAS --}}
                 @if ($new_artists->count())
                     <div>
-                        <h2 class="text-white text-2xl font-bold">{{ __("New users in Apollo's!") }}</h2>
+                        <h2 class="text-white text-2xl font-bold">{{ __("New artists in Apollo's!") }}</h2>
 
                         <div class="contenedor-principal ">
 
@@ -175,7 +175,7 @@
                                                 </div>
                                                 <div class="title">
                                                     <div class="name font-titulo text-base desktop_2:text-base">
-                                                        {{ $user->name_artist }}
+                                                        {{ $user->username }}
                                                     </div>
                                                     <div
                                                         class="type text-base font-thin text-slate-300 desktop_2:text-base">

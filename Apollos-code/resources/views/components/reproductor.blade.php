@@ -33,7 +33,7 @@
                         <form action="{{ route('report.mail.store', ['user' => $user, 'song' => $actuallysong]) }}"
                             method="POST">
                             @csrf
-                            <input type="submit" name="Reportar" value="Reportar" id="">
+                            <input type="submit" name="Reportar" value="{{__('Report')}}" id="">
                         </form>
                     @endif
                 </div>

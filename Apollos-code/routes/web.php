@@ -186,8 +186,8 @@ Route::post('/user/{user:name_artist}/album/{album:id}/settings/', [AlbumSetting
 
 // ============================== EDITAR SENCILLOS
 
-Route::get('/user/{user:name_artist}/song/{song}/settings/',  [SongSettingsController::class, 'index'])->name('song.settings.index');
-Route::post('/user/{user:name_artist}/song/{song}/settings/',  [SongSettingsController::class, 'store'])->name('song.settings.store');
+Route::get('/user/{user:name_artist}/songs/{song}/settings/',  [SongSettingsController::class, 'index'])->name('song.settings.index');
+Route::post('/user/{user:name_artist}/songs/{song}/settings/',  [SongSettingsController::class, 'store'])->name('song.settings.store');
 
 
 // =============================== EMAIL DE REPORTE
@@ -196,4 +196,5 @@ Route::post('/user/{user}/report/song/{song}', [ReportController::class, 'store'
 
 // ============================== ADMIN
 Route::get('/admin/index/', [AdminController::class, 'index'])->name('admin.index')->middleware('auth.admin');
-Route::post('/admin/index/login', [AdminController::class, 'store'])->name('loginAdmin.store');
+Route::post('/admin/report/{report}/song/{song}/action/accepted', [AdminController::class, 'store_1'])->name('admin.accepted.store');
+Route::post('/admin/report/{report}/song/{song}/action/denied', [AdminController::class, 'store_2'])->name('admin.denied.store');

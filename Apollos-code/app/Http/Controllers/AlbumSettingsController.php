@@ -34,7 +34,7 @@ class AlbumSettingsController extends Controller
             return redirect(route('main'));
         }
 
-        return view('albumSettings', [
+        return view('settings.albumSettings', [
             'user' => $user,
             'album' => $album
         ]);

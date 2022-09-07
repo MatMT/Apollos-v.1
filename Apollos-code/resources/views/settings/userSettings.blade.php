@@ -7,13 +7,9 @@
 @section('header')
     <x-header></x-header>
 @endsection
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 @section('css')
     <style>
-        body {
-            min-height: 125vh;
-        }
-
         header.sticky,
         header {
             position: fixed !important;
@@ -60,6 +56,39 @@
         .player {
             display: none;
         }
+
+        .foo {
+        display: block;
+        position: relative;
+        width: 300px;
+        cursor: pointer;
+        border: 0;
+        height: 60px;
+        border-radius: 5px;
+        outline: 0;
+        }
+
+        .foo:after {
+        transition: 200ms all ease;
+        border-bottom: 3px solid rgba(0,0,0,.2);
+        background: #1d1e22;
+        text-shadow: 0 2px 0 rgba(0,0,0,.2);
+        color: #fff;
+        font-size: 20px;
+        text-align: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        content: 'Upload Something';
+        line-height: 60px;
+        border-radius: 5px;
+        }
+        .foo:hover:after {
+        background: #75ea96;
+        }    
     </style>
 @endsection
 
@@ -69,7 +98,7 @@
 @endsection
 
 @section('content')
-    <div class=" md:flex md:justify-center pt-40 pb-48 overflow-hidden">
+    <div class=" md:flex md:justify-center pt-40 pb-48 overflow-hidden anim2">
         <div class=" full-container justify-center md:w-3/4 flex shadow minH rounded-2xl overflow-hidden">
             <!-- Barra lateral | ESTÁTICA -->
             <aside class="w-1/4" aria-label="Sidebar md:w-1/4">
@@ -95,7 +124,7 @@
                                         d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
                                         clip-rule="evenodd"></path>
                                 </svg>
-                                <p class="font-medium">{{__('Upload fields!')}}</p>
+                                <p class="font-medium">{{__('Updated fields!')}}</p>
                             </li>
                         @endif
                         <li id="opcion1"
@@ -220,10 +249,12 @@
                         <!-- Imagen de Perfil -->
                         <div class="mb-5">
                             <label for="image" class="mb-2 block uppercase text-gray-500 font-bold">{{__('Profile pic')}}</label>
-                            <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png"
-                                class="border p-3 w-full rounded-lg">
+                            <span class="material-symbols-outlined">
+                                add_a_photo
+                                </span>
+                            <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png" class="foo" class="material-symbols-outlined">
                         </div>
-
+                        
                         <!-- Enviar -->
                         <input type="submit" value="{{__('Save changes')}}"
                             class="submit-bttn bg-slate-800 transition-colors cursor-pointer uppercase font-bold w-full p-3  text-white rounded-lg" />

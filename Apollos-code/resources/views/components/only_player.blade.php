@@ -6,7 +6,7 @@
             
             <!-- Etiqueta de Audio -->
 
-            <audio preload="auto" autoplay="yes" id="audio" preload>
+            <audio preload="auto" id="audio" preload>
                 <source src="{{ asset('storage') . '/uploads/canciones/' . $actuallysong->url }}"" type="">
             </audio>
 
@@ -23,8 +23,8 @@
                 <div class="line-time" id="down">
                     <div class="line-progress" id="up"></div>
                 </div>
-                <div class="time-num flex justify-between opacity-60 text-sm w-19/20 mt-2">
-                    <span id="current">0:50</span><span>3:15</span>
+                <div class="time-num font-titulo flex justify-between opacity-60 text-sm w-19/20 mt-2">
+                    <span id="current">0:00</span><span>{{$actuallysong->time}}</span>
                 </div>
             </div>
             <div class="controles">

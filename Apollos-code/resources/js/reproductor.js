@@ -11,12 +11,18 @@ const btn_back = document.getElementById("back");
 var line_time = document.getElementById("down");
 // Ancho de la linea de tiempo
 var wth_line = line_time.offsetWidth;
-alert(wth_line)
+
 var line_progress = document.getElementById("up");
 
 // VARIABLES PARA ACTULIZAR EL TIEMPO
 
 var current_time = document.getElementById("current")
+
+// VARIABLES PARA MANEJAR EL TIEMPO
+
+var segundos;
+var minutos;
+var horas;
 
 
 /* Reproducción enserie de las canciones */
@@ -31,6 +37,7 @@ function reproducir() {
     const num_time = 1000;
 
     audio.load();
+    audio.play();
     audio.volume = 0.3;
     
 
@@ -124,13 +131,20 @@ function reproducir() {
         }
     })
 
-    line_time.addEventListener('click', posicionamiento, false)
+    line_time.addEventListener('click', posicionamiento, false);
+    line_time.addEventListener("click", tim, false);
+    var load;
 
-    btn_pause.classList.add("active");
-    load = setInterval(time_continue, 1);
+    if(audio.paused == false){
+        btn_pause.classList.add("active");
+    
+        load = setInterval(time_continue, 1);
+        tmer = setInterval(printTime, num_time);
+    }
     
 }
 
+// Control de la barra del tiempo 
 
 function time_continue() {
     if(audio.ended == false){
@@ -146,7 +160,63 @@ function posicionamiento(posicionamiento){
 
     var nuevoTiempo = click*audio.duration/wth_line;
 
+    alert(nuevoTiempo)
+
     audio.currentTime = nuevoTiempo;
 
     line_progress.style.width = click + "px";
+}
+
+function tim(posicion) {
+    if(audio.ended==false){
+        var raton = posicion.pageX-line_progress.offsetLeft;
+
+        var nuevoTiempo = raton*audio.duration/wth_line;
+
+        duracion = nuevoTiempo;
+
+        horas = parseInt(duracion/3600);
+        minutos = parseInt(duracion/60) - horas * 60;
+
+        segundos = parseInt((duracion / 60 - (horas*60))*60) - (minutos * 60);
+
+        if(segundos < 10){
+            current_time.innerHTML = minutos.toString() + ":0" + segundos.toString();
+        }else{
+            current_time.innerHTML = minutos.toString() + ":" + segundos.toString();
+        }
+    }
+}
+
+
+
+// Visualización de los minutos que transcurren
+function printTime(){
+    //seg = pista.currentTime;
+    
+    if (audio.currentTime > 0){
+        var actualSegundos = audio.currentTime.toFixed(0);
+        var actual = secondsToString(actualSegundos);
+        
+        var duracion = actual;
+        current_time.innerHTML = duracion;
+    }
+
+
+}
+
+function secondsToString(seconds) {
+    var hour="";
+    if (seconds > 3600){
+        hour = Math.floor(seconds / 3600);
+        hour = (hour < 10)? '0' + hour : hour;
+        hour+=":"
+    }
+
+
+    var minute = Math.floor((seconds / 60) % 60);
+    minute = (minute < 10)? + minute : minute;
+    var second = seconds % 60;
+    second = (second < 10)? '0' + second : second;
+    return hour  + minute + ':' + second;
 }

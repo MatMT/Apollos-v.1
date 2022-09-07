@@ -4,10 +4,8 @@
       <p class="logo">Apollo's</p>
       <nav>
         <ul>
-          <li><a href="#">Inico</a></li>
+          <li><a href="#">Inicia sesion</a></li>
           <li><a href="#">Registrate</a></li>
-          <li><a href="#">Sobre nosotros</a></li>
-          <li><a href="#">Ofertas</a></li>
         </ul>
       </nav>
     </header>
@@ -34,7 +32,7 @@
                 <h3 class="wow fadeInLeft text-capitalize devider-bottom" data-wow-delay=".3s">Que<span class="text-primary"> es?</span></h3>
                 <p class="offset-xl-40 wow fadeInUp" data-wow-delay=".4s">Hemos planteado la idea de “Apollo's”, una web app en el cual las personas puedan compartir su música para mostrarsela a otros usuarios, es de denotar que “Apollo's” retoma la idea de su antecesor objetivo “Dreams”, evolucionando y ampliando sus capacidades. 
                 </p>
-                <p class="default-letter-spacing font-weight-bold text-gray-dark wow fadeInUp" data-wow-delay=".4s">Con la experiencia a un mejor nivel</p><a class="button-width-190 button-primary button-circle button-lg button offset-top-30" href="about.html">Sobre nosotros</a>
+                <p class="default-letter-spacing font-weight-bold text-gray-dark wow fadeInUp" data-wow-delay=".4s">Con la experiencia a un mejor nivel</p>
               </div>
             </div>
           </div>
@@ -78,7 +76,7 @@
             </div>
           </div>
         </div>
-        <div class="image-left-side wow slideInRight" data-wow-delay=".5s"><img src=/>
+        <div class="image-left-side wow slideInRight" data-wow-delay=".5s"><img src={{asset('assets/img/imagen2.png')}}/>
         </div>
       </section>
       <!--Owl Carousel-->

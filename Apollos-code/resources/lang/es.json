@@ -35,7 +35,7 @@
 
     "Suggested artists": "Artistas que te gustarán",
     "Discover a new world of music": "Descubre un mundo nuevo de música",
-    "New users in Apollo's!": "¡Nuevos usuarios en Apollo's!",
+    "New artists in Apollo's!": "¡Nuevos artistas en Apollo's!",
     "More of what you like": "Colecciones como a ti te gustan",
 
     "Good morning":"¡Buenos días ",
@@ -55,6 +55,8 @@
     "Following": "Siguiendo", "Follow": "Seguir",
     
     "Public albums": "Álbumes publicados",
+    "Favorite albums": "Álbumes favoritos",
+    "Followed artists": "Artistas seguidos",
     "Public songs": "Canciones publicadas",
 
     "Playlist":"Lista de reproducción",
@@ -86,9 +88,15 @@
     "Upload your first song!": "¡Sube tu primera canción!",
         "And show your talent": "Y muestra tu talento",
 
-    "No content...": "Todavía no ha subido contenido...", 
+    "No content yet...": "Todavía no ha subido contenido...", 
         "Wait for their first album!": "¡Espera su primer álbum!",
         "Wait for their first song!": "¡Espera su primera canción!",
+    
+    "No followed artists yet...": "Sin artistas seguidos...", 
+        "It seems like this user does not follow any artist yet": "Parece que este usuario todavía no sigue a ningún artista",  
+    "No favorite albums yet...": "Sin álbumes favoritos...", 
+        "It seems like this user does not have any favorite album yet": "Parece que este usuario todavía no tiene un álbum favorito",  
+
     
     "What do you want to upload?": "¿Qué deseas subir?",
 

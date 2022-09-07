@@ -135,7 +135,7 @@
                         <tr>
                             <td style="text-align: center; padding: 15px 0 15px;">
                                 <p style="font-size: 16px;font-weight:bold; margin:0;">
-                                    {{_('THE REPORTED CONTENT WAS')}}
+                                    {{__('THE REPORTED CONTENT WAS')}}
                                 </p>
                                 @if ($song->sencillo == 0)
                                     <p style="font-size: 14px;font-weight:bold; margin:0;">
@@ -148,16 +148,16 @@
                             <td style="padding:5px 100px 25px">
                                 <table class="info-song" width="100%">
                                     <tr>
-                                        <th>{{_('Colection')}}</th>
-                                        <th>{{_('Name')}}</th>
-                                        <th>{{_('Uploaded')}}</th>
+                                        <th>{{__('Colection')}}</th>
+                                        <th>{{__('Name')}}</th>
+                                        <th>{{__('Uploaded')}}</th>
                                     </tr>
                                     <tr>
                                         <td>
                                             @if ($song->sencillo == 1)
-                                                Sencillos
+                                                {{__('Single')}}
                                             @else
-                                                Álbum
+                                                {{__('Album')}}
                                             @endif
                                         <td>
                                             @if ($song->sencillo == 0)
@@ -175,14 +175,14 @@
 
                             <td style="text-align: center">
                                 <p style="font-size: 14px;font-weight:bold; margin: 0 ">
-                                    {{_('You must withdraw your')}} @if ($song->sencillo == 0)
-                                    {{_('Album')}}
+                                    {{__('You must withdraw your')}} @if ($song->sencillo == 0)
+                                    {{__('Album')}}
                                     @else
-                                    {{_('Song')}}
+                                    {{__('Song')}}
                                     @endif  
                                 </p>
                                 <p style="font-size: 14px;font-weight:bold; margin: 0 0 12px 0;">
-                                    {{_('or wait for an admin to advise the report.')}}
+                                    {{__('or wait for an admin to advise the report.')}}
                                 </p>
                                 <br>
                             </td>

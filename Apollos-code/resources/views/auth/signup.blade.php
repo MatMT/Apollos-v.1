@@ -1,6 +1,6 @@
 @extends('layouts.sessionshape')
        
-@section('title'){{_('Sign up')}}@endsection
+@section('title'){{__('Sign up')}}@endsection
 
 @section('body')
 {{-- Delimitación de fecha de nacimiento --}}

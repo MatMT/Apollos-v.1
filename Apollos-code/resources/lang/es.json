@@ -57,11 +57,13 @@
     "Public albums": "Álbumes publicados",
     "Public songs": "Canciones publicadas",
 
+    "Playlist":"Lista de reproducción",
     "My playlist":"Mi playlist",
     "My list":"Mi lista",
     "Play":"Reproducir",
 
     "Like":"Me gusta", "Likes":"Me gustas",
+    "Report":"Reportar",
     "Duration":"Duración",
 
     "Edit album": "Editar álbum",

@@ -128,11 +128,7 @@
                         <tr>
                             <td style="text-align: center; padding: 15px 0 10px;">
                                 <p style="font-size: 22px;font-weight:bold; margin:0;">
-                                    @if ($user->gender == true)
-                                    {{_('Welcome')}}
-                                    @else
-                                    {{_('Wecome')}}
-                                    @endif
+                                    {{__('Welcome')}}
                                 </p>
                             </td>
                         </tr>
@@ -140,9 +136,9 @@
                             <td style="text-align: center; padding: 15px 0 15px;">
                                 <p style="font-size: 22px;font-weight:bold; margin:0;">
                                     @if ($user->rol == 'artist')
-                                    {{_('Artist')}}
+                                    {{__('Artist')}}
                                     @else
-                                    {{_('User')}}
+                                    {{__('User')}}
                                     @endif | {{ $user->username }}
                                 </p>
                             </td>

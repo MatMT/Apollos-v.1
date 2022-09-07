@@ -30,9 +30,9 @@ body{
   line-height: 60px;
   margin: auto;
   position: absolute;
-  top: -290;
+  top: -30%;
   bottom: 0;
-  left: -60px;
+  left: 0;
   right: 0;
   color: #fff;
   overflow: default;
@@ -55,8 +55,8 @@ body{
 width: 550px;
 height: auto;
 animation: floating 3s infinite ease-in-out;
-margin-left: -100px;
-margin-top: 100px;
+margin-left: -5%;
+margin-top: 5%;
 }
 @keyframes floating {
   0% { transform: translate(0,  0px); }
@@ -75,14 +75,14 @@ margin-top: 100px;
   right: 0;
   left: 0;
   position: absolute;
-  top: 500px;
+  top: 80%;
   color: #fff;
 }
 .espacio{
   width: 750px;
 height: auto;
-margin-left: 900px;
-margin-top: -550px;
+margin-left: 70%;
+margin-top: -35%;
 }
 .boton{
   display:inline-block;
@@ -90,8 +90,8 @@ margin-top: -550px;
   border-radius: 100px;
 width: 200px;
 height: 90px;
-margin-left: 40%;
-margin-top: -150px;
+margin-left: 44%;
+margin-top: -5%;
 text-decoration: none;
 align-items: center;
 }

@@ -23,13 +23,12 @@
             <div class="post_1 w-full justify-around items-center">
 
                 <div class="title-post w-3/5 laptop:w-4/5 anim">
-                    <h1 class="font-titulo_2 text-7xl my-8 leading-tight text-white desktop:text-6xl">
+                    <h1 class="font-titulo_2 text-5xl my-6 leading-tight text-white 2xl:text-7xl 2xl:my-8">
                         {{ __('Discover a new world of music') }}</h1>
                     <div class="line w-28 h-0.5 bg-white mb-5"></div>
-                    <div class="line w-28 h-0.5 mb-1"></div>
 
                     <a
-                        class="font-cuerpo font-thin text-3xl laptop_2:text-2xl bg-morado_1 px-6 pt-1 pb-2 rounded-full drop-shadow-2xl mt-3 text-slate-300 cursor-default"><span
+                        class="font-cuerpo font-thin text-2xl 2xl:text-3xl bg-morado_1 px-6 pt-1 pb-2 rounded-full drop-shadow-2xl mt-3 text-slate-300 cursor-default" href=""><span
                             id="saludo"></span> {{ Auth::user()->name }}!</a>
                 </div>
 

@@ -159,6 +159,10 @@
                             <span class="flex-1 ml-3 @if (session()->has('NoCambios')) font-bold @endif"
                                 id="TitleSect2">{{__('Password')}}</span>
                         </li>
+                            <li id="return"
+                        class="flex items-center p-2 text-base font-normal rounded-lg text-white hover:bg-red-700 padding-30px 70px">
+                        <a href="{{ route('profile.index', auth()->user()) }}">{{__('Return')}}</a>
+                            </li>
                     </ul>
                 </div>
             </aside>

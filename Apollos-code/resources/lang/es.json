@@ -177,5 +177,7 @@
     "Status":"Estado",
     "Action":"Acción",
     "Pending":"Pendiente",
-    "Solved":"Resuelto"
+    "Solved":"Resuelto",
+
+    "Return":"Regresar"
 }

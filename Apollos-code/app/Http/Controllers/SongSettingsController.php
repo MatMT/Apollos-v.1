@@ -44,7 +44,6 @@ class SongSettingsController extends Controller
     public function store(Request $request, User $user, Song $song)
     {
         $Cambios = false;
-
         if ($request->new_name_song != "" && $request->new_name_song != $song->name_song) {
             // Validación
             $this->validate($request, [

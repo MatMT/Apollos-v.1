@@ -147,13 +147,13 @@
                     </div>
 
                     @if($song->sencillo)
-                        <div class="mb-5">
+                        {{-- <div class="mb-5">
                             <x-gender-select></x-gender-select> 
-                        </div>
+                        </div> --}}
 
                         <div class="mb-5">
                             <label for=""
-                                class="mb-2 block uppercase text-gray-500 font-bold">{{ __('Profile pic') }}</label>
+                                class="mb-2 block uppercase text-gray-800 font-bold">{{ __('Song cover') }}</label>
 
                             <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png"
                                 class="input-file" class="material-symbols-outlined">
@@ -169,14 +169,14 @@
                             </label>
                         </div>
                     @else
-                        <div class="mb-5">
+                        {{-- <div class="mb-5">
                             <p class="mb-2 block uppercase text-gray-800 font-bold">{{__('Genre')}}</p>
                             <div class="errors text-red-600 px-3 py-2 rounded mb-3">
                                 <p>
                                     <span class="inline"><img src="{{ asset('assets/icons/errorIcon.png') }}" class="h-4 inline m-2"><strong class="font-bold">{{__("Update the song genre by editing your album")}}</strong></span>
                                 </p>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="mb-5">
                             <p class="mb-2 block uppercase text-gray-800 font-bold">{{__('Song cover')}}</p>
@@ -190,14 +190,15 @@
 
                     <input type="submit" value="{{__('Save changes')}}"
                     class="submit-bttn bg-sky-600 transition-colors cursor-pointer uppercase font-bold w-full p-3  text-white rounded-lg" />
-                    <div>
-                        <li  type="submit" id="opcion2"
-                        class="flex items-center p-2 text-base font-normal">
-                        <a href="{{ route('song.show', ['song' => $song, 'user' => $user]) }}"
-                            class="submit-bttn bg-sky-600 transition-colors cursor-pointer uppercase font-bold w-full p-3  text-white rounded-lg text-center" >{{__('Return')}}</a>
-                            </li>
-                    </div>
+                    
                 </form>
+                <div>
+                    <li  type="submit" id="opcion2"
+                    class="flex items-center p-2 text-base font-normal">
+                    <a href="{{ route('song.show', ['song' => $song, 'user' => $user]) }}"
+                        class="transition-colors cursor-pointer uppercase font-bold w-full p-3  text-gray-800 rounded-lg text-center" >{{__('Return')}}</a>
+                        </li>
+                </div>
             </div>
         </div>
     </div>

@@ -746,6 +746,12 @@ footer {
     background-color: rgba(53, 53, 53, 0.9);
     border-radius: 30px;
 }
+.other-icons-single{
+    top: -50px !important;
+}
+.other-icons-song{
+    top: -30px !important;
+}
 
 .other-icons.active{
     display: block;

@@ -43,15 +43,31 @@
                     </div>
                 </div>
                 <i class="fi fi-bs-menu-dots text-lg" id="trespuntitos"></i>
-                <div class="other-icons hidden anim2" id="other-icons">
+                <div class="other-icons hidden anim2 {{ auth()->user()->name == $user->name ? 'other-icons-' : ''}}{{$actuallysong->sencillo ? 'single' : 'song' }}
+                    " id="other-icons">
+                    @if (auth()->user()->name == $user->name)
+                        <form action="{{ route('song.settings.index', ['user' => $user, 'song' => $actuallysong->id])}}" >
+                            <input type="submit" value="{{__('Edit song')}}" name="" id=""
+                            class="transition-colors cursor-pointer">
+                        </form>
+                        @if ($actuallysong->sencillo)
+                                <form action="{{ route('song.destroy', ['user' => $user, 'song' => $actuallysong]) }}"
+                                    method="POST">
+                                    {{-- METODO SPOOFING - Laravel permite agregar otro tipo de peticiones --}}
+                                    @method('DELETE')
+                                    @csrf
+                                    <input type="submit" value="{{__('Delete song')}}" name="" id=""
+                                    class="transition-colors cursor-pointer">
+                                </form>
+                        @endif
+                    @endif
                     <form
                         action="{{ route('report.mail.store', ['user' => $actuallysong->InfoArtista($actuallysong)->username, 'song' => $actuallysong]) }}"
                         method="POST" class="flex items-center hover:text-red-400 cursor-pointer">
                         @csrf
                         <span class="material-icons  cursor-pointer transition-colors">report</span>
-                        <input type="submit" name="Reportar" value="Reportar" id="" class="transition-colors cursor-pointer">
+                        <input type="submit" name="Reportar" value="{{__('Report')}}" id="" class="transition-colors cursor-pointer">
                     </form>
-                    
                 </div>               
             </div>
         </div>

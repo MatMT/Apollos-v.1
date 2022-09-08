@@ -29,7 +29,7 @@ class SongSettingsController extends Controller
         // Buscar el albúm por el id de la canción recibida
         $Album = Album::where('id', $song->album_id)->pluck('id');
         $MyAlbumId = Album::where('user_id', auth()->user()->id)->where('id', $Album)->pluck('id');
-
+        
         // Validación - Redirigir canción que no es mío
         if ($MyAlbumId != $Album) {
             return redirect(route('main'));

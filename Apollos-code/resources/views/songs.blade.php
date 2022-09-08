@@ -117,7 +117,7 @@
                         @auth {{-- Autentificado --}}
                             @if ($user->id == auth()->user()->id)
                                 {{-- Artista dueño de la canción --}}
-                                <div class="1/6 flex justify-center items-center gap-2">
+                                <div class="1/6 flex items-center gap-2 mt-5 ml-10">
                                     {{-- Editar album --}}
                                     <form action="{{ route('album.config.index', ['user' => $user, 'album' => $album->id]) }}">
                                         <input type="submit" value="{{__('Edit album')}}" name="" id=""

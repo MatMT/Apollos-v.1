@@ -6,6 +6,7 @@ Dropzone.autoDiscover = false;
 const DropzoneImg = new Dropzone('#dropzone_img', {
     dictDefaultMessage: 'Sube tu <b>imagen</b> aquí',
     acceptedFiles: '.png, .jpg, .jpeg',
+    dictCancelUpload: "",
     addRemoveLinks: true,
     dictRemoveFile: `<span class='remove-dz-img'><img src="../../../assets/icons/removeIconWht.png"></span>`,
     maxFiles: 1,

@@ -46,7 +46,7 @@
 
 @section('content')
     <div class="center-content flex justify-center items-center anim2 h-screen">
-        <div class="content-select rounded-2xl overflow-hidden">
+        <div class="content-select rounded-2xl overflow-hidden pb-5">
             <h1 class='text-white font-titulo text-3xl font-bold mt-12 mb-5 anim2 w-full text-center px-10'>{{__('What do you want to upload?')}}</h1>
             <div class=" upload-div md:flex md:items-center gap-4 flex items-center justify-center">
 

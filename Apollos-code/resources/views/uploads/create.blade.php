@@ -58,7 +58,7 @@
 @section('content')
     <h1 class='text-white font-titulo text-3xl font-bold mt-4 mb-2 anim2 w-full text-center px-10'>{{ __('Upload a single') }}
     </h1>
-    <div class="md:flex md:items-center flex justify-center items-center h-4/6 px-10">
+    <div class="md:flex md:items-center flex justify-center items-center h-4/6 px-10 pt-10 mt-5">
 
         <div class="md:w-1/2 pt-5 text-white">
             <div class="md:h-1/2 px-10 mt-5 ">
@@ -90,7 +90,7 @@
                 @enderror
                 <p class="p-2 text-red-500 text-right font-semibold"><span class="inline"><img
                             src="{{ asset('assets/icons/errorIcon.png') }}" class="h-4 inline m-2">
-                        {{ __('6 Mb maximum per song') }}
+                        {{ __('12 Mb maximum per song') }}
 
                     </span></p>
             </div> <!-- .Mp3 -->

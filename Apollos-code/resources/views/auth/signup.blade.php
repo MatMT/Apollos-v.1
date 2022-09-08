@@ -19,8 +19,7 @@ $lastDate = date('Y-m-d', $lastDate);
                                     <div class="errors text-red-600 px-3 py-2 rounded mb-3">
                                         <ul>
                                             <span class="inline"><img src="{{ asset('assets/icons/errorIcon.png') }}"
-                                                    class="h-4 inline m-2"><strong class="font-bold">{{__('Oops! Something went                                          
-                                                        wrong')}}</strong></span>
+                                                    class="h-4 inline m-2"><strong class="font-bold">{{__('Oops! Something went wrong')}}</strong></span>
                                             @foreach ($errors->all() as $error)
                                                 <li class="list-disc pl-7 list-inside">
                                                     {{ $error }}

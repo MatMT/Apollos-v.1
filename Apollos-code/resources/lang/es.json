@@ -112,7 +112,7 @@
     "Title of your song": "Título de tu canción",
 
     "Genre": "Género",
-    "Select your song genre": "Selecciona el género de tu canción",
+    "Select musical genre": "Selecciona el género músical",
     "Sets the main genre": "Establece el género principal",
         "Electronic": "Electrónica",
 
@@ -125,7 +125,7 @@
         "song": "canción",
         "cover": "portada",
     "here": "aquí",
-    "6 Mb maximum per song": "6 Mb máximos por canción",
+    "12 Mb maximum per song": "12 Mb máximos por canción",
     "The image is obligatory.": "La imagen es obligatoria",
     "The song is obligatory.": "La canción es obligatoria",
     "You won't be able to edit the album cover until it is released": "No podrás editar la portada del álbum hasta publicarlo",

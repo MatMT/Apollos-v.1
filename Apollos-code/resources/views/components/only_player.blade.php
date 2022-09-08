@@ -3,7 +3,7 @@
 
     <footer class="">
         <div class="player activer" id="player">
-            
+            {{-- {{dd()}} --}}
             <!-- Etiqueta de Audio -->
 
             <audio preload="auto" id="audio" preload>
@@ -62,7 +62,7 @@
                         @endif
                     @endif
                     <form
-                        action="{{ route('report.mail.store', ['user' => $actuallysong->InfoArtista($actuallysong)->username, 'song' => $actuallysong]) }}"
+                        action="{{ route('report.mail.store', ['user' => $user, 'song' => $actuallysong->id]) }}"
                         method="POST" class="flex items-center hover:text-red-400 cursor-pointer">
                         @csrf
                         <span class="material-icons  cursor-pointer transition-colors">report</span>

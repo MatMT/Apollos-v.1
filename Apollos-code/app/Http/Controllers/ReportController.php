@@ -18,10 +18,11 @@ class ReportController extends Controller
         $this->middleware('auth');
     }
 
-    public function store($artist, $song, Report $report)
+    public function store(User $user, $song)
     {
+        
         // Obtenemos artista por su id
-        $artist = User::where('id', $artist)->first();
+        $artist = User::where('id', $user->id)->first();
         // Obtener canción por su id
         $song = Song::where('id', $song)->first();
 
@@ -38,6 +39,6 @@ class ReportController extends Controller
         $artistEmail = $artist->email;
         Mail::to($artistEmail)->send(new ReportsongMailable($artist, $song));
 
-        return redirect()->route('main')->with('message', 'Se ah reportado la canción   ');
+        return redirect()->route('main')->with('message', 'Cambios');
     }
 }

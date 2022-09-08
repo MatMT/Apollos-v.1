@@ -149,21 +149,23 @@
                     @if($song->sencillo)
                         <div class="mb-5">
                             <x-gender-select></x-gender-select> 
-                            @error('genero')
-                            <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
-                                {{ $message }}</p>
-                            @enderror
                         </div>
 
                         <div class="mb-5">
-                            <label for="image" class="mb-2 block uppercase text-gray-800 font-bold">{{__('Song cover')}}</label>
-                            <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png" class="input-file" class="material-symbols-outlined">
-                            <label for="" class="foo flex items-center justify-center p-3"> 
-                                <span class="material-symbols-outlined photo-ico inline-block px-2" >
+                            <label for=""
+                                class="mb-2 block uppercase text-gray-500 font-bold">{{ __('Profile pic') }}</label>
+
+                            <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png"
+                                class="input-file" class="material-symbols-outlined">
+                            <label for="image" class="foo flex items-center justify-center p-3">
+                                <span class="material-symbols-outlined photo-ico inline-block px-2">
                                     add_a_photo
                                 </span>
-                                
-                                <h3 id="file-upload-filename" class="text-ellipsis overflow-hidden whitespace-nowrap"></h3>
+
+                                <h3 id="file-upload-filename" class="text-ellipsis overflow-hidden whitespace-nowrap">
+                                    <!-- Selected file will get here -->
+                                </h3>
+
                             </label>
                         </div>
                     @else

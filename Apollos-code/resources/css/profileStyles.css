@@ -26,13 +26,15 @@ header.sticky {
 .user-section {
     width: 1302px;
     min-height: 435px;
-    max-height: 435px;
+    /* max-height: 435px; */
     background: rgba(53, 59, 72, 0.97);
     box-shadow: 0px 31px 0px 0px rgba(30, 39, 46);
 }
 
 .user-section-content {
     padding-top: 1px;
+    min-height: 335px;
+    /* max-height: 335px; */
 }
 
 .center-user-section h1 {
@@ -43,6 +45,7 @@ header.sticky {
     box-sizing: border-box;
     margin-top: 15px;
     min-height: 250px;
+    order: 1;
 }
 
 .artist-bttn,
@@ -90,15 +93,13 @@ header.sticky {
 }
 
 .user-photo {
-    margin-top: -250px;
-    margin-right: 50px;
-    border: 15px #1e272e solid;
+    /* margin-top: -250px; */
+    margin-top: 35px;
+    border-color: #1e272e;
+
+    order: 2;
 }
 
-.user-photo img {
-    height: 300px;
-    width: 300px;
-}
 
 .song-pic-tab img,
 .counter-time-tab img {

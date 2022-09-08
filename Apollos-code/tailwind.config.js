@@ -44,6 +44,9 @@ module.exports = {
       'md': '768px',
       // => @media (min-width: 768px) { ... }
 
+      'smd': '830px',
+      // => @media (min-width: 860px) { ... }
+
       'mp': '945px',
       // => @media (min-width: 768px) { ... }
 

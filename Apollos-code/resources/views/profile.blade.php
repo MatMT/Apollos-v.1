@@ -14,15 +14,9 @@
 
 @section('content')
     <div class="center-user-section flex items-center justify-center font-titulo">
-        <div class="user-section rounded-bl-3xl rounded-br-3xl px-20">
-            <div class="user-section-content mt-32 text-white">
-
+        <div class="user-section rounded-bl-3xl rounded-br-3xl px-20 smd:max-h-[435px]">
                 {{-- Componente de información LiveWire --}}
                 <livewire:social-panel :user="$user" :countersongs="$CounterSongs" :albums="$albums">
-
-            </div>
-
-
         </div> <!-- HEADER PERFIL -->
     </div>
 

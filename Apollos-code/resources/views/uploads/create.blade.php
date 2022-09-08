@@ -10,6 +10,7 @@
 @section('css')
     {{-- @vite('resources/css/profileStyles.css') --}}
     <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+
     <style>
         .dropzone {
             border-style: dashed !important;
@@ -57,7 +58,8 @@
     <h1 class='text-white font-titulo text-3xl font-bold mt-4 mb-2 anim2 w-full text-center px-10'>
         {{ __('Upload a single') }}
     </h1>
-    <div class="md:flex md:items-center flex flex-wrap justify-center items-center h-4/6 px-10 pt-10 mt-5">
+    <div
+        class="md:flex md:items-center flex flex-wrap justify-center items-center h-4/6 px-10 pt-10 mt-5 w-full mp:w-6/7 my-0 mx-auto ">
 
         <div class="w-9/12 md:w-1/2 pt-5 text-white">
             <div class="md:h-1/2 px-10 mt-5 ">

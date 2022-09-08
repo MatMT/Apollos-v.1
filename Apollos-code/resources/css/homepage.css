@@ -51,7 +51,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
 	margin: 0;
-    font-family: 'Slabo 27px', serif;
+    font-family: 'Paytone One', sans-serif;
 	font-size: 1rem;
 	font-weight: 400;
 	line-height: 2.14286;
@@ -180,7 +180,7 @@ pre,
 code,
 kbd,
 samp {
-    font-family: 'Slabo 27px', serif;
+    font-family: 'Paytone One', sans-serif;
 	font-size: 1em;
 }
 
@@ -352,7 +352,7 @@ template {
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
 	margin-bottom: 0.5rem;
-    font-family: 'Slabo 27px', serif;
+    font-family: 'Paytone One', sans-serif;
 	font-weight: 500;
 	line-height: 1.1;
 	color: #404044;
@@ -7766,7 +7766,7 @@ button.close {
 }
 
 .text-monospace {
-    font-family: 'Slabo 27px', serif;
+    font-family: 'Paytone One', sans-serif;
 }
 
 .text-justify {
@@ -8119,7 +8119,7 @@ html p a:hover {
 * Typography
 */
 body {
-	font-family: 'Montserrat Alternates', sans-serif;
+	font-family: 'Paytone One', sans-serif;
 	font-size: 14px;
 	line-height: 2.14286;
 	font-weight: 400;
@@ -8633,7 +8633,7 @@ a[href*='tel'], a[href*='mailto'] {
 }
 
 .main-decorated-box .decorated-subtitle {
-    font-family: 'Slabo 27px', serif;
+    font-family: 'Paytone One', sans-serif;
 	line-height: 1.5;
 	font-size: 20px;
 	position: relative;
@@ -8685,7 +8685,7 @@ a[href*='tel'], a[href*='mailto'] {
 .box-default {
 	position: relative;
 	padding: 10px 0 0 55px;
-    font-family: 'Slabo 27px', serif;
+    font-family: 'Paytone One', sans-serif;
 }
 
 @media (min-width: 1200px) {
@@ -8704,7 +8704,7 @@ a[href*='tel'], a[href*='mailto'] {
 }
 
 .box-default-description {
-    font-family: 'Slabo 27px', serif;
+    font-family: 'Paytone One', sans-serif;
 }
 
 .box-default-icon {
@@ -8766,7 +8766,7 @@ a[href*='tel'], a[href*='mailto'] {
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;
-    font-family: 'Slabo 27px', serif;
+    font-family: 'Paytone One', sans-serif;
 	font-weight: 700;
 	margin-top: 20px;
 }
@@ -8898,7 +8898,7 @@ a[href*='tel'], a[href*='mailto'] {
 }
 
 .service-box-link {
-    font-family: 'Slabo 27px', serif;
+    font-family: 'Paytone One', sans-serif;
 	font-weight: 700;
 	position: relative;
 	display: inline-block;
@@ -8921,7 +8921,7 @@ a[href*='tel'], a[href*='mailto'] {
 .service-box-title {
 	text-transform: uppercase;
 	letter-spacing: 0.22em;
-    font-family: 'Slabo 27px', serif;
+    font-family: 'Paytone One', sans-serif;
 	color: #404044;
 	font-weight: 400;
 }
@@ -9321,7 +9321,7 @@ p + .list-marked {
 }
 
 .check-list > li {
-    font-family: 'Slabo 27px', serif;
+    font-family: 'Paytone One', sans-serif;
 	z-index: 2;
 	padding-left: 45px;
 }
@@ -9599,7 +9599,7 @@ hr {
 	font-size: 14px;
 	line-height: 1.25;
 	border: 1px solid;
-    font-family: 'Slabo 27px', serif;
+    font-family: 'Paytone One', sans-serif;
 	font-weight: 700;
 	letter-spacing: 0.23em;
 	text-transform: uppercase;
@@ -9947,7 +9947,7 @@ hr {
 
 .btn-primary {
 	border-radius: 3px;
-    font-family: 'Slabo 27px', serif;
+    font-family: 'Paytone One', sans-serif;
 	font-weight: 700;
 	letter-spacing: .05em;
 	text-transform: uppercase;
@@ -10287,7 +10287,7 @@ textarea.form-input {
 .checkbox .checkbox-custom-dummy::after,
 .checkbox-inline .checkbox-custom-dummy::after {
 	content: '\f222';
-    font-family: 'Slabo 27px', serif;
+    font-family: 'Paytone One', sans-serif;
 	position: absolute;
 	top: -1px;
 	left: -2px;
@@ -10572,7 +10572,7 @@ textarea.form-input {
 
 .post-classic-wrap h5 {
 	margin-top: 10px;
-    font-family: 'Slabo 27px', serif;
+    font-family: 'Paytone One', sans-serif;
 }
 
 .post-classic-wrap h5 a {
@@ -10615,7 +10615,7 @@ textarea.form-input {
 	height: 20px;
 	width: 20px;
 	line-height: .6;
-    font-family: 'Slabo 27px', serif;
+    font-family: 'Paytone One', sans-serif;
 	font-weight: 300;
 	cursor: pointer;
 	overflow: hidden;
@@ -10842,7 +10842,7 @@ textarea.form-input {
 }
 
 .post-line__time-day {
-    font-family: 'Slabo 27px', serif;
+    font-family: 'Paytone One', sans-serif;
 	font-size: 24px;
 	color: #151515;
 }
@@ -10914,7 +10914,7 @@ textarea.form-input {
 
 .list-categories {
 	position: relative;
-    font-family: 'Slabo 27px', serif;
+    font-family: 'Paytone One', sans-serif;
 	font-size: 16px;
 	border-left: 1px solid #f5f5f5;
 }
@@ -11035,7 +11035,7 @@ textarea.form-input {
 }
 
 .post-single__time-day {
-    font-family: 'Slabo 27px', serif;
+    font-family: 'Paytone One', sans-serif;
 	font-size: 36px;
 	color: #151515;
 }
@@ -11842,7 +11842,7 @@ textarea.form-input {
 }
 
 .footer-classic-title {
-    font-family: 'Slabo 27px', serif;
+    font-family: 'Paytone One', sans-serif;
 	color: #d7dde5;
 	text-transform: uppercase;
 	margin-bottom: 15px;
@@ -12324,7 +12324,7 @@ html.boxed body {
 }
 
 .blog-layout .select2-container .select2-choice > .select2-chosen {
-    font-family: 'Slabo 27px', serif;
+    font-family: 'Paytone One', sans-serif;
 	font-size: 18px;
 	color: #151515;
 }
@@ -12509,7 +12509,7 @@ html.boxed body {
 	font-weight: 700;
 	letter-spacing: 15px;
 	text-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
-    font-family: 'Slabo 27px', serif;
+    font-family: 'Paytone One', sans-serif;
 	line-height: 1;
 	color: #ffffff;
 	text-align: center;
@@ -12624,7 +12624,7 @@ html.boxed body {
 .cta-big-text {
 	transition: all ease .35s;
 	font-size: 22px;
-    font-family: 'Slabo 27px', serif;
+    font-family: 'Paytone One', sans-serif;font-family: 'Paytone One', sans-serif;
 }
 
 @media (min-width: 1200px) {
@@ -14114,7 +14114,7 @@ html.tablet .ui-to-top {
 
 .rd-navbar-static .rd-nav-item > .rd-navbar-submenu-toggle {
 	margin-left: 4px;
-    font-family: 'Slabo 27px', serif;
+    font-family: 'Paytone One', sans-serif;
 	font-size: 16px;
 	cursor: pointer;
 	color: #ffffff;
@@ -14141,7 +14141,7 @@ html.tablet .ui-to-top {
 
 .rd-navbar-static .rd-nav-link {
 	position: relative;
-    font-family: 'Slabo 27px', serif;
+    font-family: 'Paytone One', sans-serif;
 	display: inline-block;
 	padding-bottom: 10px;
 	color: #ffffff;
@@ -15481,7 +15481,7 @@ html.rd-navbar-fixed-linked .page {
 .rd-search-results-live .search-quick-result {
 	padding-left: 15px;
 	padding-right: 15px;
-    font-family: 'Slabo 27px', serif;
+    font-family: 'Paytone One', sans-serif;
 	font-size: 14px;
 	font-weight: 700;
 	line-height: 30px;
@@ -15512,7 +15512,7 @@ html.rd-navbar-fixed-linked .page {
 
 .rd-search-results-live .search-title {
 	position: relative;
-    font-family: 'Slabo 27px', serif;
+    font-family: 'Paytone One', sans-serif;
 	font-size: 14px;
 	font-weight: 700;
 	color: #404044;
@@ -15533,7 +15533,7 @@ html.rd-navbar-fixed-linked .page {
 	z-index: 0;
 	display: block;
 	padding: 8px;
-    font-family: 'Slabo 27px', serif;
+    font-family: 'Paytone One', sans-serif;
 	font-size: 14px;
 	font-weight: 700;
 	letter-spacing: 0.23em;
@@ -16145,7 +16145,7 @@ html.rd-navbar-fixed-linked .page {
 	z-index: 1;
 	padding: 21px 32px 21px 82px;
 	font-weight: 400;
-    font-family: 'Slabo 27px', serif;
+    font-family: 'Paytone One', sans-serif;
 	font-size: 16px;
 	line-height: 1.25;
 	letter-spacing: 0;
@@ -16269,7 +16269,7 @@ html.rd-navbar-fixed-linked .page {
 	font-weight: 700;
 	letter-spacing: .017em;
 	text-transform: uppercase;
-    font-family: 'Slabo 27px', serif;
+    font-family: 'Paytone One', sans-serif;
 	margin-bottom: 7px;
 }
 
@@ -16298,7 +16298,7 @@ html.rd-navbar-fixed-linked .page {
 	font-size: 14px;
 	text-transform: uppercase;
 	color: #b3bbc1;
-    font-family: 'Slabo 27px', serif;
+    font-family: 'Paytone One', sans-serif;
 }
 
 /*
@@ -16318,7 +16318,7 @@ html.rd-navbar-fixed-linked .page {
 	margin-bottom: -10px;
 	margin-left: -5px;
 	margin-right: -5px;
-    font-family: 'Slabo 27px', serif;
+    font-family: 'Paytone One', sans-serif;
 }
 
 .progress-linear .progress-header > * {
@@ -16670,7 +16670,7 @@ html.rd-navbar-fixed-linked .page {
 
 .review-carousel .item-description .item-subsection-title {
 	position: relative;
-    font-family: 'Slabo 27px', serif;
+    font-family: 'Paytone One', sans-serif;
 	color: #fff;
 	font-size: 18px;
 }
@@ -16716,7 +16716,7 @@ html.rd-navbar-fixed-linked .page {
 	.review-carousel .owl-dots .active:before {
 		font-size: 18px;
 		color: rgb(158, 80, 253);
-        font-family: 'Slabo 27px', serif;
+        font-family: 'Paytone One', sans-serif;
 		font-weight: 700;
 		position: absolute;
 		content: "0" counter(button) " ";
@@ -16823,9 +16823,9 @@ html.rd-navbar-fixed-linked .page {
 	margin-top: 65vh;
 	background: none;
 	border-radius: 100px;
-	border: solid 10px #fff;
+	border: solid 5px #fff;
 	text-align: center;
-    font-family: 'Montserrat Alternates', sans-serif;
+	font-family: 'Paytone One', sans-serif;
 	font-size: 4.5vh;
 	color: #fff;
 	transition: 0.6s;
@@ -16857,7 +16857,8 @@ header{
 
 }
 header.abajo{
-	background: #000;
+	background-color:rgba(0, 0, 0, 0.557);
+	backdrop-filter: blur(8px);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
 	padding: 15px 20px;
@@ -16866,7 +16867,7 @@ header.abajo{
 .logo{
 	margin-top: 0;
 	position: relative;
-	font-size: 4.5em;
+	font-size: 2.5em;
 	color: #fff;
     font-family: 'Righteous', cursive;
 }
@@ -16893,12 +16894,12 @@ header ul li a{
 	color: white;
 	letter-spacing: 2px;
 	transition: 0.7s;
-    font-family: 'Montserrat Alternates', sans-serif;
+    font-family: 'Paytone One', sans-serif;
 	font-size: 1.2em;
 }
 
 .zona1{
-	background-image: url(../images/2.jpg);
+	background-image: url(../images/phone-with-music-icon-and-headphones-on-blurred-background-music-listening-concept-copy-space.jpg);
 	background-blend-mode: soft-light;
 	background-color:rgba(0, 0, 0, 0.557);
 	background-position: center;

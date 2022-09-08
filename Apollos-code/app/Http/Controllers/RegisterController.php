@@ -73,7 +73,7 @@ class RegisterController extends Controller
         auth()->attempt($request->only('email', 'password'));
 
         // Enviar correo de registro
-        Mail::to($request->email)->send(new RegistroApollos());
+        // Mail::to($request->email)->send(new RegistroApollos());
 
         return redirect('home');
     }

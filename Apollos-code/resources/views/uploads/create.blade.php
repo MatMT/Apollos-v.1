@@ -59,7 +59,7 @@
     </h1>
     <div class="md:flex md:items-center flex flex-wrap justify-center items-center h-4/6 px-10 pt-10 mt-5">
 
-        <div class="md:w-1/2 pt-5 text-white">
+        <div class="w-9/12 md:w-1/2 pt-5 text-white">
             <div class="md:h-1/2 px-10 mt-5 ">
 
                 <form action="{{ route('image.store') }}" method="POST" enctype="multipart/form-data" id="dropzone_img"
@@ -98,7 +98,7 @@
 
         </div> <!-- Subir archivos -->
 
-        <div class="song-info-inputs md:w-1/2 p-10 bg-white rounded-lg shadow mt-10 md:mt-0 text-gray-800">
+        <div class="w-9/12 song-info-inputs md:w-1/2 p-10 bg-white rounded-lg shadow mt-10 mb-10 md:mt-0 text-gray-800">
             <form action="{{ route('data.store') }}" method="POST" id="song_up" novalidate autocomplete="off">
                 @csrf
                 <!-- Token de imagen -->

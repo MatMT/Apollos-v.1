@@ -113,7 +113,7 @@
 
     "Genre": "Género",
     "Select musical genre": "Selecciona el género músical",
-    "Sets the main genre": "Establece el género principal",
+    "Set the main genre": "Establece el género principal",
         "Electronic": "Electrónica",
 
     "Upload your album cover": "Coloca la portada de tu álbum",
@@ -131,9 +131,9 @@
     "You won't be able to edit the album cover until it is released": "No podrás editar la portada del álbum hasta publicarlo",
 
     "By adding your song, you won't be able to remove it from the registry": " Al agregarla ya no podrás retirar la canción del registro",
-    "I confirm that all uploaded content is of my authorship": "Confirmo que todo contenido subido es de mi  autoría",
+    "I confirm that all uploaded content is of my authorship and does not harm the integrity of others": "Confirmo que todo contenido subido es de mi autoría y no daña la integridad de terceros",
     
-    "We are almost done": "Casi todo está listo",
+    "Album information": "Información del álbum",
     "Continue":"Continuar",
     "Release": "Publicar",
     

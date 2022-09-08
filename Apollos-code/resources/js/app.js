@@ -6,6 +6,7 @@ Dropzone.autoDiscover = false;
 const DropzoneImg = new Dropzone('#dropzone_img', {
     dictDefaultMessage: 'Sube tu <b>imagen</b> aquí',
     acceptedFiles: '.png, .jpg, .jpeg',
+    dictCancelUpload: "",
     addRemoveLinks: true,
     dictRemoveFile: `<span class='remove-dz-img'><img src="../../assets/icons/removeIconWht.png"></span>`,
     maxFiles: 1,
@@ -49,6 +50,7 @@ const DropzoneMp3 = new Dropzone('#dropzone_audio', {
     acceptedFiles: '.mp3, .m4a',
     addRemoveLinks: true,
     dictRemoveFile: `<span class='remove-dz-img'><img src="../../assets/icons/removeIconWht.png"></span>`,
+    dictCancelUpload: "",
     maxFiles: 1,
     uploadMultiple: false,
     maxFilesize: 12, // 6 MB

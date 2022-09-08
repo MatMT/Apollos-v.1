@@ -1,6 +1,6 @@
 @extends('layouts.shape1')
 
-@section('title', 'Tu Biblioteca ')
+@section('title', __('Your library ') )
 
 @section('header')
     <x-header title="Biblioteca" activeli="this"></x-header>
@@ -53,6 +53,10 @@
                                     </a>
                                 </div>
                             @endforeach
+                        @else
+                            <h1 class='text-white font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>
+                                {{__("You don't have favorites yet...")}}
+                            </h1>
                         @endif
 
                     </div>
@@ -79,7 +83,9 @@
                             </div>
                         @endforeach
                     @else
-                        <p>Hola</p>
+                        <h1 class='text-white font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>
+                            {{__("You don't have favorites albums yet...")}}
+                        </h1>
                     @endif
                 </div>
             </div>
@@ -105,7 +111,9 @@
                             </div>
                         @endforeach
                     @else
-                        <p>Hola</p>
+                    <h1 class='text-white font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>
+                        {{__("You don't follow any artist yet...")}}
+                    </h1>
                     @endif
 
                 </div>

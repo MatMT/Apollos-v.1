@@ -21,6 +21,7 @@
 
     "Home ": "Inicio ",
     "Your library": "Tu biblioteca",
+    "Your library ": "Tu biblioteca ",
     "Create playlist": "Crear playlist",
     "Search": "Buscar",
 
@@ -92,7 +93,12 @@
         "Wait for their first album!": "¡Espera su primer álbum!",
         "Wait for their first song!": "¡Espera su primera canción!",
     
-    "No followed artists yet...": "Sin artistas seguidos...", 
+    "You don't follow any artist yet...": "Todavía no sigues a un artista...", 
+    "Find your first favorite artist!": "¡Encuentra a tu primer artista favorito!", 
+    "Find your first favorite album!": "¡Encuentra a tu primer álbum favorito!", 
+    "You don't have favorites albums yet...": "Todavía no tienes un álbum favorito...", 
+    "You don't have favorites yet...": "Todavía no tienes favoritos...", 
+    
         "It seems like this user does not follow any artist yet": "Parece que este usuario todavía no sigue a ningún artista",  
     "No favorite albums yet...": "Sin álbumes favoritos...", 
         "It seems like this user does not have any favorite album yet": "Parece que este usuario todavía no tiene un álbum favorito",  

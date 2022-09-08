@@ -21,7 +21,7 @@
                 {{ $user->followings->count() }} Siguiendo
             </p>
         @endif --}}
-        <p class="followers">
+        <p class="followers mt-2">
             {{ $user->followers->count() }} 
             {{ $user->followers->count() === 1 ? __("Follower"): __("Followers") }} |
             {{$user->followings->count()}} {{__('Following')}}

@@ -218,7 +218,7 @@
                                 <span class="disc-ico"><img
                                         src="{{ asset('assets/icons/discBrokenWht.png') }}"></span>
                                 <h1 class='text-white font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>
-                                    {{ auth()->user()->name == $user->name ? __("You don't have favorites yet...") : __('No favorite albums yet...') }}
+                                    {{ auth()->user()->name == $user->name ? __("You don't have favorites albums yet...") : __('No favorite albums yet...') }}
                                 </h1>
                                 <h1
                                     class='if-subtitle text-slate-500 font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>

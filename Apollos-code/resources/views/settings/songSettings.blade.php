@@ -191,7 +191,7 @@
                     <div>
                         <li  type="submit" id="opcion2"
                         class="flex items-center p-2 text-base font-normal">
-                        <a href="{{ route('song.show', ['song' => $sencillo, 'user' => $user]) }}"
+                        <a href="{{ route('song.show', ['song' => $song, 'user' => $user]) }}"
                             class="submit-bttn bg-sky-600 transition-colors cursor-pointer uppercase font-bold w-full p-3  text-white rounded-lg text-center" >{{__('Return')}}</a>
                             </li>
                     </div>

@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&display=swap');
  :root {
 	--blue: #007bff;
 	--indigo: #6610f2;
@@ -62,6 +63,10 @@ body {
 
 [tabindex="-1"]:focus {
 	outline: 0 !important;
+}
+
+.text-primary{
+	text-transform: lowercase;
 }
 
 hr {
@@ -8685,7 +8690,7 @@ a[href*='tel'], a[href*='mailto'] {
 .box-default {
 	position: relative;
 	padding: 10px 0 0 55px;
-    font-family: 'Paytone One', sans-serif;
+    font-family: Urbanist, "sans-serif";
 }
 
 @media (min-width: 1200px) {
@@ -11280,6 +11285,17 @@ textarea.form-input {
 	}
 }
 
+.zona1{
+	font-family: 'Montserrat Alternates', sans-serif !important;
+}
+
+
+.section-name.wow{
+	font-family: 'Righteous', cursive;
+	font-size: 16px;
+
+}
+
 @media (min-width: 1200px) {
 	* + .post-single__footer {
 		margin-top: 65px;
@@ -12635,6 +12651,8 @@ html.boxed body {
 
 .default-letter-spacing {
 	letter-spacing: 0.02em;
+	font-family: Urbanist, "sans-serif";
+	font-size: 20px;
 }
 
 .service-subtitle {
@@ -12725,6 +12743,7 @@ h3 + img {
 
 .row-15 {
 	margin-bottom: -15px;
+	font-family: Urbanist, "sans-serif";
 }
 
 .row-15:empty {
@@ -12895,12 +12914,18 @@ h3 + img {
 
 .offset-xl-40 {
 	margin-top: 15px;
+	font-family: Urbanist, "sans-serif";
+	font-size: 23px;
 }
 
 @media (min-width: 1200px) {
 	.offset-xl-40 {
 		margin-top: 40px;
 	}
+}
+
+.row.row-15{
+	font-family: Urbanist, "sans-serif" !important;
 }
 
 /*
@@ -16885,17 +16910,17 @@ header ul{
 
 header ul li{
 	list-style: none;
+	
 }
 header ul li a{
 	position: relative;
-	font-family: helvetica;
+	font-family: Urbanist, "sans-serif" !important;
 	margin: 0 15px;
 	text-decoration: none;
 	color: white;
 	letter-spacing: 2px;
 	transition: 0.7s;
-    font-family: 'Paytone One', sans-serif;
-	font-size: 1.2em;
+	font-size: 1.5em;
 }
 
 .zona1{
@@ -17164,6 +17189,11 @@ margin-top: 50vh;
 
 .fa-inverse {
 	color: #ffffff;
+}
+
+.offer{
+	font-family: Urbanist, "sans-serif";
+	font-size: 16px;
 }
 
 /* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen

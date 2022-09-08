@@ -18,15 +18,33 @@
 
 <body class="text-base text-white">
         
+    
 
     <div class="body h-full w-full min-h-screen">
 
-        <div class="content min-h-screen max-w-screen">
-            <div class="min-h-screen w-full signup-container">
+        
 
+        <div class="content min-h-screen max-w-screen">
+            
+            <div class="min-h-screen w-full signup-container">
+                <header>
+                    <a class="logo-text" href="{{ url('/') }}">Apollo's</a>
+                    
+                    <nav>
+                        <ul>
+                            @auth
+                                    <li><a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">{{__('Home ')}}</a></li>
+                            @else
+                            <li><a href="{{ route('login') }}">{{__('Log in')}}</a></li>
+                            <li><a href="{{ route('signup') }}">{{__('Sign up')}}</a></li>
+                            @endif
+                        </ul>
+                        
+                    </nav>
+                </header>
                 <div class="center-form flex items-center justify-center min-h-screen">
 
-                    <div class="form-work my-10 p-6 rounded-md">
+                    <div class="form-work my-40 p-6 rounded-md">
                         <div class="logo flex justify-center items-center">
                             <img src="{{ asset('assets/apolloLogoCompleteWht.svg') }}" class=" block text-center">
                         </div> {{-- logo --}}
@@ -41,5 +59,18 @@
         </div> {{-- content --}}
     </div> {{-- body --}}
 </body>
+
+    <script>
+        window.addEventListener("scroll", function() {
+        var header = document.querySelector("header");
+        var logo = document.querySelector(".logo-text");
+        var logo_zona = document.querySelector(".logo_zona");
+        var img_logo = document.querySelector(".img_logo");
+        header.classList.toggle("abajo", window.scrollY > 20);
+        logo.classList.toggle("abajo", window.scrollY > 0);
+        logo_zona.classList.toggle("abajo", window.scrollY > 0);
+        img_logo.classList.toggle("abajo", window.scrollY > 20);
+        });
+    </script>
 
 </html>

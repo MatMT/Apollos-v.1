@@ -1,25 +1,44 @@
 @vite('resources/css/homepage.css')
 
+<head>
+    <title>Apollo's</title>
+    <link rel="shortcut icon" href="{{ asset('assets/favicon.png') }}" type="image/x-icon">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Righteous&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
 <body>
     <header>
         <p class="logo">Apollo's</p>
         <nav>
             <ul>
-                <li><a href="{{ route('login') }}">Inicia sesión</a></li>
-                <li><a href="{{ route('signup') }}">Registrate</a></li>
+                @auth
+                        <li><a href="{{ url('/home') }}">{{__('Home ')}}</a></li>
+                @else
+                <li><a href="{{ route('login') }}">{{__('Log in')}}</a></li>
+                <li><a href="{{ route('signup') }}">{{__('Sign up')}}</a></li>
+                @endif
             </ul>
+            
         </nav>
     </header>
 
     <section class="zona1">
         <div class="separador"></div>
         <div class="div_frase">
-            <span class="pequeñito1">Descubre un nuevo</span>
-            <p class="frase ">Universo <span class="pequeñito">de</span> Música</p>
+            <span class="pequeñito1 font-cue">Descubre un nuevo</span>
+            <p class="frase ">mundo <span class="pequeñito">de</span> música</p>
         </div>
         <a href="{{ route('main') }}" class="fill">
             <p>Explora</p>
         </a>
+
+        
     </section>
     <!--About-->
     <section class="section section-sm position-relative" id="about">
@@ -33,7 +52,7 @@
                 <div class="col-lg-6 col-12">
                     <div class="block-sm offset-top-45">
                         <div class="section-name wow fadeInRight" data-wow-delay=".2s">Apollo's</div>
-                        <h3 class="wow fadeInLeft text-capitalize devider-bottom" data-wow-delay=".3s">Qué<span
+                        <h3 class="wow fadeInLeft text-capitalize devider-bottom" data-wow-delay=".3s">¿Qué<span
                                 class="text-primary"> es?</span></h3>
                         <p class="offset-xl-40 wow fadeInUp" data-wow-delay=".4s">Hemos planteado la idea de “Apollo's”,
                             una web app en el cual las personas puedan compartir su música para mostrársela a otros
@@ -48,29 +67,28 @@
         </div>
     </section>
     <!--Features-->
-    <section class="section custom-section position-relative section-md">
+    <section class="section custom-section position-relative section-md font-cuerpo">
         <div class="container">
             <div class="row">
                 <div class="col-xl-7 col-lg-7 col-12">
                     <div class="section-name wow fadeInRight">Dreams</div>
-                    <h3 class="text-capitalize devider-left wow fadeInLeft1" data-wow-delay=".2s">Que te<span
-                            class="text-primary"> Ofrecemos?</span></h3>
-                    <p>Queremos ser un servicio de reproducción de música agradable y de calidad para aquellas personas
-                        que se atreven a crear contenido y compartir sus ideas, además a quienes la música forma parte
-                        de muchos momentos de su vida y quieran disfrutarlos bajo la melodía del sonido. Queremos llevar
-                        nuestro servicio a su mayor potencial sustentándose de la creatividad, la perseverancia, la
-                        valentía y entusiasmo.
+                    <h3 class="text-capitalize devider-left wow fadeInLeft1" data-wow-delay=".2s">¿Qué<span
+                            class="text-primary"> ofrecemos?</span></h3>
+                    <p class='offer'>Buscamos ser un servicio de streaming de música agradable y de calidad para aquellos que se animan a crear contenido y compartir sus ideas, 
+                        así como para aquellos que quieren estar acompañados de música y disfrutar del sonido de la música 
+                        en muchos momentos de su vida. Nuestro objetivo es servirle en su mayor potencial, motivado por la 
+                        creatividad, la determinación, el coraje y la pasión.
                     </p>
                     <div class="row row-15">
                         <div class="col-xl-6 wow fadeInUp" data-wow-delay=".2s">
                             <div class="box-default">
-                                <div class="box-default-title">Mejor experiencia al escuchar tu música</div>
+                                <div class="box-default-title">Una mejor experiencia al escuchar tu música</div>
                                 <ion-icon name="headset-outline" class="box-default-icon novi-icon icon-lg"></ion-icon>
                             </div>
                         </div>
                         <div class="col-xl-6 wow fadeInUp" data-wow-delay=".3s">
                             <div class="box-default">
-                                <div class="box-default-title">Mejor forma de poder subir tu musica como artista</div>
+                                <div class="box-default-title">La mejor forma de subir tu música como artista</div>
                                 <ion-icon name="cloud-upload-outline" class="box-default-icon novi-icon icon-lg">
                                 </ion-icon>
                                 </ion-icon>
@@ -78,14 +96,14 @@
                         </div>
                         <div class="col-xl-6 wow fadeInUp" data-wow-delay=".4s">
                             <div class="box-default">
-                                <div class="box-default-title">Fácil de acceder a todas sus herramientas desde la web
+                                <div class="box-default-title">Fácil acceso a todas sus herramientas desde la web
                                 </div>
                                 <ion-icon name="laptop-outline" class="box-default-icon novi-icon icon-lg"></ion-icon>
                             </div>
                         </div>
                         <div class="col-xl-6 wow fadeInUp" data-wow-delay=".5s">
                             <div class="box-default">
-                                <div class="box-default-title">Mejor experiencia al explorar en nuestra aplicación para
+                                <div class="box-default-title">Mejor experiencia de visualización en nuestra aplicación tanto para 
                                     usuarios como artistas</div>
                                 <ion-icon name="happy-outline" class="box-default-icon novi-icon icon-lg"></ion-icon>
                             </div>
@@ -104,52 +122,51 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-10">
-                    <div class="section-name wow fadeInRight text-center" data-wow-delay=".2s">Que tenemos en mente
+                    <div class="section-name wow fadeInRight text-center" data-wow-delay=".2s">¿Qué tenemos en mente?
                     </div>
-                    <h3 class="wow fadeInLeft text-capitalize text-center" data-wow-delay=".3s">Nuestros<span
-                            class="text-primary"> Objetivos</span></h3>
+                    <h3 class="wow fadeInLeft text-capitalize text-center" data-wow-delay=".3s">nuestros<span
+                            class="text-primary"> objetivos</span></h3>
                     <div class="owl-carousel review-carousel" data-items="1" data-sm-items="1" data-md-items="1"
                         data-lg-items="1" data-xl-items="1" data-xxl-items="1" data-dots="true" data-nav="false"
                         data-stage-padding="0" data-loop="false" data-margin="0" data-mouse-drag="true"
                         data-autoplay="false">
                         <div class="item">
                             <div class="item-description wow fadeInUp" data-wow-delay=".3s">
-                                <p>Somos una empresa desarrolladora de aplicaciones web que nos hemos centrado en el
+                                <p class='offer'>Somos una empresa desarrolladora de aplicaciones web que nos hemos centrado en el
                                     servicio multimedia para la reproducción de música vía streaming, potenciando la
                                     comodidad y experiencia de nuestros usuarios y ser un facilitador de difusión de
                                     contenido musical para nuevos creadores. Nos enfocamos en aquellas personas amantes
                                     de la música, y las mentes creativas que desean compartir sus ingeniosas ideas</p>
                                 <div class="item-subsection"><span
-                                        class="item-subsection-title devider-left">Mision</span></div>
+                                        class="item-subsection-title devider-left">Misión</span></div>
                             </div>
                         </div>
                         <div class="item">
                             <div class="item-description wow fadeInUp" data-wow-delay=".3s">
-                                <p>Queremos ser un servicio de reproducción de música agradable y de calidad para
+                                <p class='offer'>Queremos ser un servicio de reproducción de música agradable y de calidad para
                                     aquellas personas que se atreven a crear contenido y compartir sus ideas, además a
                                     quienes la música forma parte de muchos momentos de su vida y quieran disfrutarlos
                                     bajo la melodía del sonido. Queremos llevar nuestro servició a su mayor potencial
                                     sustentandose de la creatividad, la perseverancia, la valentía y entusiasmo
                                 </p>
                                 <div class="item-subsection"><span
-                                        class="item-subsection-title devider-left">vision</span></div>
+                                        class="item-subsection-title devider-left">Visión</span></div>
                             </div>
                         </div>
                         <div class="item">
                             <div class="item-description wow fadeInUp" data-wow-delay=".3s">
-                                <p>Lograr que que nuevos artistas entren al mundo musical, ya que nosotros sabemos que
-                                    todos tienen la misma importancia para comenzar a ser los artistas que lograran ser
-                                    en un futuro, y la manera mas facil de hacerlo sera con nuestra aplicion por las
-                                    facilidades que brinadamos a los mismos usuarios</p>
+                                <p class='offer'>Lograr que nuevos artistas entren al mundo musical, ya que nosotros sabemos que todos 
+                                    tienen la misma importancia para comenzar a ser los artistas que lograran ser en un futuro, y 
+                                    la manera más fácil de hacerlo sera con nuestra aplicación por las facilidades que brindamos a los mismos usuarios</p>
                                 <div class="item-subsection"><span class="item-subsection-title devider-left">Por
                                         todos</span></div>
                             </div>
                         </div>
                         <div class="item">
                             <div class="item-description wow fadeInUp" data-wow-delay=".3s">
-                                <p>La clave de tener una buena aplicacion es tener una interfaz facil de explorar y con
-                                    herramientas que la apliacion sube como la subida de archivos, con agradble aspecto
-                                    sobre todo para que estos factores nos hagan distinguir de las competencias de
+                                <p class='offer'>La clave de tener una buena aplicación es tener una interfaz fácil de explorar y con
+                                    herramientas que la aplicación sube como la subida de archivos, con agradable aspecto
+                                    sobre todo, para que estos factores nos hagan distinguir de las competencias de
                                     streaming dirigidas al mismo publico</p>
                                 <div class="item-subsection"><span class="item-subsection-title devider-left">La mejor
                                         experiencia</span></div>

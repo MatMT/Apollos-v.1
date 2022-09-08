@@ -2,9 +2,9 @@
     <livewire:buscador>
         <div class="resultados">
             {{-- Álbumes --}}
-            <div class="lista-canciones w-full flex justify-around gap-6 h-38 flex-wrap pt-5 pb-10">
+            <div class="lista-canciones w-full flex justify-center gap-y-6 gap-x-10 h-38 flex-wrap pt-5 pb-10">
                 <div class="w-full mx-5 anim">
-                    <h3 class="font-cuerpo font-bold text-2xl text-white m-0 text-center xl:text-left">Artistas</h3>
+                    <h3 class="font-cuerpo font-bold text-2xl text-white m-0 text-center xl:text-left">{{__('Artists')}}</h3>
                 </div>
                 @php
                     $i = 0;
@@ -30,9 +30,9 @@
             <div class="line h-px w-full bg-white opacity-25 rounded anim"></div>
 
             {{-- Canciones --}}
-            <div class="lista-canciones w-full flex justify-around gap-6 h-38 flex-wrap pt-5 pb-10">
+            <div class="lista-canciones w-full flex justify-center gap-y-6 gap-x-10 h-38 flex-wrap pt-5 pb-10">
                 <div class="w-full mx-5 anim">
-                    <h3 class="font-cuerpo font-bold text-2xl text-white m-0">Canciones</h3>
+                    <h3 class="font-cuerpo font-bold text-2xl text-white m-0">{{__('Songs')}}</h3>
                 </div>
                 @php
                     $i = 0;
@@ -58,9 +58,9 @@
             </div>
             <div class="line h-px w-full bg-white opacity-25 rounded anim"></div>
             {{-- Usuarios --}}
-            <div class="lista-canciones w-full flex justify-around gap-6 h-38 flex-wrap pt-5 pb-10">
+            <div class="lista-canciones w-full flex justify-center gap-y-6 gap-x-10 h-38 flex-wrap pt-5 pb-10">
                 <div class="w-full mx-5 anim">
-                    <h3 class="font-cuerpo font-bold text-2xl text-white m-0">Álbums</h3>
+                    <h3 class="font-cuerpo font-bold text-2xl text-white m-0">{{__('Albums')}}</h3>
                 </div>
 
                 @php

@@ -44,7 +44,7 @@
         <div class="md:w-2/5 xl:px-16">
             <div class="md:h-1/2">
                 <p class="text-red-500 mb-3 text-center md:text-right block font-semibold text-sm"><span class="inline"><img
-                            src="{{ asset('assets/icons/errorIcon.png') }}" class="h-4 inline m-2"> {{__('6 Mb maximum per song')}}
+                            src="{{ asset('assets/icons/errorIcon.png') }}" class="h-4 inline m-2"> {{__('12 Mb maximum per song')}}
                     </span></p>
 
                 <form action="{{ route('audio.store') }}" method="POST" enctype="multipart/form-data" id="dropzone_audio"
@@ -109,8 +109,9 @@
                                 <th scope="col" class="py-3 px-6">
                                     {{__('Title')}}
                                 </th>
-                                <th scope="col" class="py-3 px-6">
-                                    ⏱️
+                                <th scope="col" class="px-6">
+                                    <span class="inline"><img src="{{ asset('assets/icons/timerIconWht.png') }}" class="h-4 inline m-2">
+                                    </span>
                                 </th>
                             </tr>
                         </thead>

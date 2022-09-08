@@ -146,6 +146,8 @@ return [
         'email' => "E-mail",
         'nacimiento' => "birth date",
         'género' => "genre",
+        'genero' => "genre",
         'usuario' => "username",
+        'titulo' => "title",
     ],
 ];

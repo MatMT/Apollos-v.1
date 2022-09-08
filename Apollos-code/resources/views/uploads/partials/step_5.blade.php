@@ -28,15 +28,13 @@
             <div class="basis-1/5 text-center py-3 bg-white @yield('step2')">{{__('Title')}}</div>
             <div class="basis-1/5 text-center py-3 bg-white @yield('step3')">{{__('Genre')}}</div>
             @yield('song/s')
-            <div class="basis-1/5 text-center py-3 bg-white @yield('step4')">{{__('Upload')}}</div>
+            <div class="basis-1/5 text-center py-3 blur-bg text-white @yield('step4')">{{__('Upload')}}</div>
         </div> <!-- Progress bar -->
     </div>
 
     <!-- SUBTITULO -->
-    <div class="mx-auto mt-8">
-        <h2 class="text-white font-titulo text-3xl font-bold mb-5 text-center">
+    <div class="mx-auto mt-8 lg:px-96 sm:px-40 px-20">
             @yield('subtitulo')
-        </h2>
     </div>
 
     <div class="md:flex md:items-center px-2 xl:px-28 gap-8">
@@ -55,8 +53,9 @@
                             <th scope="col" class="py-3 px-6">
                                 {{__('Title')}}
                             </th>
-                            <th scope="col" class="py-3 px-6">
-                                ⏱️
+                            <th scope="col" class="px-6">
+                                <span class="inline"><img src="{{ asset('assets/icons/timerIconWht.png') }}" class="h-4 inline m-2">
+                                </span>
                             </th>
                         </tr>
                     </thead>
@@ -83,7 +82,7 @@
                                         {{ $i }}
                                     </th> <!-- id -->
                                     <td class="py-4 px-6">
-                                        Titulo {{ $i }}
+                                        {{__('Title')}} {{ $i }}
                                     </td>
                                 </tr>
                             @endfor
@@ -100,7 +99,7 @@
 
                     <div class="mb-5 p-2 @error('confirm') border-dashed border-2 border-red-500 @enderror">
                         <input type="checkbox" value="1" name="confirm">
-                        <label for="confirm" class='text-white'>{{__('I confirm that all uploaded content is of my authorship')}}</label>
+                        <label for="confirm" class='text-white'>{{__('I confirm that all uploaded content is of my authorship and does not harm the integrity of others')}}</label>
                     </div>
 
                     <div>

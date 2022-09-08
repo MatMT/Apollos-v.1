@@ -112,8 +112,8 @@
     "Title of your song": "Título de tu canción",
 
     "Genre": "Género",
-    "Select your song genre": "Selecciona el género de tu canción",
-    "Sets the main genre": "Establece el género principal",
+    "Select musical genre": "Selecciona el género músical",
+    "Set the main genre": "Establece el género principal",
         "Electronic": "Electrónica",
 
     "Upload your album cover": "Coloca la portada de tu álbum",
@@ -125,15 +125,15 @@
         "song": "canción",
         "cover": "portada",
     "here": "aquí",
-    "6 Mb maximum per song": "6 Mb máximos por canción",
+    "12 Mb maximum per song": "12 Mb máximos por canción",
     "The image is obligatory.": "La imagen es obligatoria",
     "The song is obligatory.": "La canción es obligatoria",
     "You won't be able to edit the album cover until it is released": "No podrás editar la portada del álbum hasta publicarlo",
 
     "By adding your song, you won't be able to remove it from the registry": " Al agregarla ya no podrás retirar la canción del registro",
-    "I confirm that all uploaded content is of my authorship": "Confirmo que todo contenido subido es de mi  autoría",
+    "I confirm that all uploaded content is of my authorship and does not harm the integrity of others": "Confirmo que todo contenido subido es de mi autoría y no daña la integridad de terceros",
     
-    "We are almost done": "Casi todo está listo",
+    "Album information": "Información del álbum",
     "Continue":"Continuar",
     "Release": "Publicar",
     
@@ -177,5 +177,7 @@
     "Status":"Estado",
     "Action":"Acción",
     "Pending":"Pendiente",
-    "Solved":"Resuelto"
+    "Solved":"Resuelto",
+
+    "Return":"Regresar"
 }

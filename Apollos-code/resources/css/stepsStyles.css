@@ -50,3 +50,13 @@ span.remove-dz-img img{
 .genero {
     color: white !important;
 }
+
+input:focus, select:focus{
+    outline: darkgray;
+}
+
+.submit-bttn:focus{
+    outline: none;
+    border-color: none;
+    border-width: 0;
+}

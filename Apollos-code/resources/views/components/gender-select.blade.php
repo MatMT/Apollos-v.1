@@ -1,7 +1,7 @@
 <label for="genero" class="genero mb-2 block uppercase text-gray-800 font-bold">{{__('Genre')}}</label>
     <select name="genero" id="genero" form="song_up"
         class="border p-3 w-full rounded-lg text-gray-800 @error('genero') border-red-500  @enderror">
-        <option value="" selected disabled> {{__('Select your song genre')}}
+        <option value="" selected disabled> {{__('Select musical genre')}}
         </option>
         {{-- Operador ternario para antiguo select --}}
         <option value="pop"         {{ old('genero') == 'pop' ? 'selected' : '' }}>Pop</option>

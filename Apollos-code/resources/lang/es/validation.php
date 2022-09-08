@@ -152,6 +152,9 @@ return [
         'password' => "contraseña",
         'nacimiento' => "fecha de nacimiento",
         'usuario' => "nombre de usuario",
-        
+        'image' => "imagen",
+        'titulo' => "título",
+        'canción' => "título",
+        'genero' => "género",
     ]
 ];

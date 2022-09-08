@@ -164,6 +164,13 @@
 
                 <input type="submit" value="{{__('Save changes')}}"
                 class="submit-bttn bg-sky-600 transition-colors cursor-pointer uppercase font-bold w-full p-3  text-white rounded-lg" />
+                <div>
+                    <li  type="submit" id="opcion2"
+                    class="flex items-center p-2 text-base font-normal">
+                    <a href="{{ route('album.index', ['user' => $user->name_artist, 'album' => $album->id]) }}"
+                        class="submit-bttn bg-sky-600 transition-colors cursor-pointer uppercase font-bold w-full p-3  text-white rounded-lg text-center" >{{__('Return')}}</a>
+                        </li>
+                </div>
             </form>
         </div>
     </div>

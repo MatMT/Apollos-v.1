@@ -7,7 +7,8 @@
 @section('header')
     <x-header></x-header>
 @endsection
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
 @section('css')
     <style>
@@ -67,17 +68,17 @@
             z-index: -1;
         }
 
-        .foo{
-            max-width: 400px;
+        .foo {
+            width: 100%;
             cursor: pointer;
             border: 0;
-            height: 60px;
+            /* height: 60px; */
             border-radius: 5px;
             outline: 0;
             transition: 200ms all ease;
-            border-bottom: 3px solid rgba(0,0,0,.2);
+            border-bottom: 3px solid rgba(0, 0, 0, .2);
             background: #1d1e22;
-            text-shadow: 0 2px 0 rgba(0,0,0,.2);
+            text-shadow: 0 2px 0 rgba(0, 0, 0, .2);
             color: #fff;
             font-size: 20px;
             text-align: center;
@@ -90,19 +91,17 @@
         }
 
         .foo:hover {
-        background: #75ea96;
-        }    
-
-        .photo-ico{
-            z-index: 2;
+            background: #75ea96;
         }
 
+        .photo-ico {
+            z-index: 2;
+        }
     </style>
 @endsection
 
 @section('title')
-   {{__('Edit profile')}}
-
+    {{ __('Edit profile') }}
 @endsection
 
 @section('content')
@@ -121,7 +120,7 @@
                                         d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
                                         clip-rule="evenodd"></path>
                                 </svg>
-                                <p class="font-medium">{{__('Invalid fields!')}}</p>
+                                <p class="font-medium">{{ __('Invalid fields!') }}</p>
                             </li>
                         @endif
                         @if (session()->has('cambios'))
@@ -132,7 +131,7 @@
                                         d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
                                         clip-rule="evenodd"></path>
                                 </svg>
-                                <p class="font-medium">{{__('Updated fields!')}}</p>
+                                <p class="font-medium">{{ __('Updated fields!') }}</p>
                             </li>
                         @endif
                         <li id="opcion1"
@@ -144,7 +143,7 @@
                                     d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                             <span class="flex-1 ml-3 @if (!session()->has('NoCambios')) font-bold @endif "
-                                id="TitleSect1">{{__('Profile information')}}</span>
+                                id="TitleSect1">{{ __('Profile information') }}</span>
                         </li>
                         <li id="opcion2"
                             class="flex items-center p-2 text-base font-normal rounded-lg text-white hover:bg-gray-700">
@@ -157,12 +156,24 @@
                                     clip-rule="evenodd" />
                             </svg>
                             <span class="flex-1 ml-3 @if (session()->has('NoCambios')) font-bold @endif"
-                                id="TitleSect2">{{__('Password')}}</span>
+                                id="TitleSect2">{{ __('Password') }}</span>
                         </li>
-                            <li id="return"
-                        class="flex items-center p-2 text-base font-normal rounded-lg text-white hover:bg-red-700 padding-30px 70px">
-                        <a href="{{ route('profile.index', auth()->user()) }}">{{__('Return')}}</a>
+                        <a href="{{ route('profile.index', auth()->user()) }}"
+                            class="flex items-center p-2 text-base font-normal rounded-lg text-white hover:bg-gray-700 padding-30px 70px gap-3">
+                            <li id="return">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor"
+                                    class=" flex-shrink-0 w-6 h-6 transition duration-75 text-gray-400 group-hover:text-white">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
+                                </svg>
+
+
                             </li>
+                            {{ __('Return') }}
+                        </a>
+
                     </ul>
                 </div>
             </aside>
@@ -176,7 +187,8 @@
                         <!-- Contraseña actual -->
                         <div class="mb-5">
 
-                            <label for="password_actual" class="mb-2 block uppercase text-gray-500 font-bold">{{__('Actual password')}}</label>
+                            <label for="password_actual"
+                                class="mb-2 block uppercase text-gray-500 font-bold">{{ __('Actual password') }}</label>
                             <input type="password" name="password_actual"
                                 class="border p-3 w-full rounded-lg @error('titulo') border-red-500 @enderror">
                             @error('password_actual')
@@ -189,7 +201,8 @@
                         <!-- Nueva Contraseña -->
                         <div class="mb-5">
 
-                            <label for="new_password" class="mb-2 block uppercase text-gray-500 font-bold">{{__('New password')}}</label>
+                            <label for="new_password"
+                                class="mb-2 block uppercase text-gray-500 font-bold">{{ __('New password') }}</label>
                             <input type="password" name="password"
                                 class="border p-3 w-full rounded-lg @error('titulo') border-red-500 @enderror">
                             @error('password')
@@ -202,7 +215,8 @@
                         <!-- Confirmar nueva contraseña -->
                         <div class="mb-5">
 
-                            <label for="confirm_password" class="mb-2 block uppercase text-gray-500 font-bold">{{__('Confirm new password')}}</label>
+                            <label for="confirm_password"
+                                class="mb-2 block uppercase text-gray-500 font-bold">{{ __('Confirm new password') }}</label>
                             <input type="password" name="confirm_password"
                                 class="border p-3 w-full rounded-lg @error('titulo') border-red-500 @enderror">
                             @error('confirm_password')
@@ -214,7 +228,7 @@
                         </div>
                         <!-- Enviar -->
                         <div>
-                            <input type="submit" value="{{__('Save changes')}}"
+                            <input type="submit" value="{{ __('Save changes') }}"
                                 class="submit-bttn bg-slate-800 transition-colors cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg" />
                         </div>
                     </form>
@@ -226,9 +240,10 @@
                         @csrf
                         <!-- Nombre de Usuario -->
                         <div class="mb-5">
-                            <label for="username" class="mb-2 block uppercase text-gray-500 font-bold">{{__('Username')}}</label>
-                            <input type="text" id="username" name="username" placeholder="{{ Auth::user()->username }}"
-                                value=""
+                            <label for="username"
+                                class="mb-2 block uppercase text-gray-500 font-bold">{{ __('Username') }}</label>
+                            <input type="text" id="username" name="username"
+                                placeholder="{{ Auth::user()->username }}" value=""
                                 class="border p-3 w-full rounded-lg @error('username') border-red-500 is-invalid @enderror">
                             @error('username')
                                 <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }}
@@ -237,7 +252,8 @@
                         </div>
                         <!-- Nombre -->
                         <div class="mb-5">
-                            <label for="new_name" class="mb-2 block uppercase text-gray-500 font-bold">{{__('Name')}}</label>
+                            <label for="new_name"
+                                class="mb-2 block uppercase text-gray-500 font-bold">{{ __('Name') }}</label>
                             <input type="text" id="new_name" name="new_name" placeholder="{{ Auth::user()->name }}"
                                 value=""
                                 class="border p-3 w-full rounded-lg @error('new_name') border-red-500 is-invalid @enderror">
@@ -249,9 +265,9 @@
                         <!-- Apellido -->
                         <div class="mb-5">
                             <label for="new_lastname"
-                                class="mb-2 block uppercase text-gray-500 font-bold">{{__('Last name') }}</label>
-                            <input type="text" id="new_lastname" name="new_lastname" placeholder="{{ Auth::user()->last_name }}"
-                                value=""
+                                class="mb-2 block uppercase text-gray-500 font-bold">{{ __('Last name') }}</label>
+                            <input type="text" id="new_lastname" name="new_lastname"
+                                placeholder="{{ Auth::user()->last_name }}" value=""
                                 class="border p-3 w-full rounded-lg @error('new_lastname') border-red-500 is-invalid @enderror">
                             @error('new_lastname')
                                 <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }}
@@ -260,21 +276,25 @@
                         </div>
                         <!-- Imagen de Perfil -->
                         <div class="mb-5">
-                            <label for="" class="mb-2 block uppercase text-gray-500 font-bold">{{__('Profile pic')}}</label>
+                            <label for=""
+                                class="mb-2 block uppercase text-gray-500 font-bold">{{ __('Profile pic') }}</label>
 
-                            <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png" class="input-file" class="material-symbols-outlined">
-                            <label for="image" class="foo flex items-center justify-center p-3"> 
-                                <span class="material-symbols-outlined photo-ico inline-block px-2" >
+                            <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png"
+                                class="input-file" class="material-symbols-outlined">
+                            <label for="image" class="foo flex items-center justify-center p-3">
+                                <span class="material-symbols-outlined photo-ico inline-block px-2">
                                     add_a_photo
                                 </span>
-                                
-                                <h3 id="file-upload-filename" class="text-ellipsis overflow-hidden whitespace-nowrap"> <!-- Selected file will get here --> </h3>
+
+                                <h3 id="file-upload-filename" class="text-ellipsis overflow-hidden whitespace-nowrap">
+                                    <!-- Selected file will get here -->
+                                </h3>
 
                             </label>
                         </div>
-                        
+
                         <!-- Enviar -->
-                        <input type="submit" value="{{__('Save changes')}}"
+                        <input type="submit" value="{{ __('Save changes') }}"
                             class="submit-bttn bg-slate-800 transition-colors cursor-pointer uppercase font-bold w-full p-3  text-white rounded-lg" />
                     </form>
                 </div>
@@ -283,18 +303,18 @@
     </div>
 
     <script>
-        var input = document.getElementById( 'image' );
-        var infoArea = document.getElementById( 'file-upload-filename' );
-        
-        input.addEventListener( 'change', showFileName );
-        
-        function showFileName( event ) {
-            
-        var input = event.srcElement;
-            
-        var fileName = input.files[0].name;
-            
-        infoArea.textContent =  fileName;
+        var input = document.getElementById('image');
+        var infoArea = document.getElementById('file-upload-filename');
+
+        input.addEventListener('change', showFileName);
+
+        function showFileName(event) {
+
+            var input = event.srcElement;
+
+            var fileName = input.files[0].name;
+
+            infoArea.textContent = fileName;
         }
     </script>
 @endsection

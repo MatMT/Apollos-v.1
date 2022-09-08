@@ -1,6 +1,7 @@
 <div>
-    <div class="user-info text-lg">
-        <h1 class="user-type ">
+    <div class="user-section-content smd:mt-32 text-white flex flex-wrap-reverse items-center smd:justify-between justify-center smd:max-h[335px] mt-12">
+    <div class="user-info smd:text-left text-base smd:text-lg text-center">
+        <h1 class="user-type">
             {{-- {{dd($user->followings)}} --}}
             @if ($user->rol == 'artist')
                 <h1>{{__('Artist')}}</h1>
@@ -11,7 +12,7 @@
             @endif
         </h1>
 
-        <h1 class="username first-letter:uppercase font-titulo text-7xl font-bold">
+        <h1 class="username first-letter:uppercase font-titulo xl:text-7xl lg:text-6xl text-5xl font-bold">
             {{ $user->username }}
         </h1>
 
@@ -20,8 +21,6 @@
                 {{ $user->followings->count() }} Siguiendo
             </p>
         @endif --}}
-        <br>
-
         <p class="followers">
             {{ $user->followers->count() }} 
             {{ $user->followers->count() === 1 ? __("Follower"): __("Followers") }} |
@@ -40,7 +39,7 @@
         @endif
 
         @if (auth()->user()->name == $user->name)
-            <div class="auth-user flex gap-2">
+            <div class="auth-user flex gap-2 w-auto smd:mr-0 mr-1">
                 <a href="{{ route('settings.index', $user) }}" class="artist-bttn mt-5 ">
                     <div class="flex gap-1 items-center">
                         <p>{{__('Edit profile')}}</p>
@@ -71,7 +70,8 @@
         @endif
     </div>
 
-    <div class="user-photo float-right rounded-full overflow-hidden"">
+    <div class="user-photo rounded-full overflow-hidden  h-[300px] w-[300px] smd:border-[10px] lg:border-[15px] smd:h-[275px] smd:w-[275px] xl:h-[300px] xl:w-[300px]">
         <img src="{{ asset('storage') . '/uploads/pfp/' . $user->image }}" alt="Imagen de usuario">
+    </div>
     </div>
 </div>

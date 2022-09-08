@@ -135,7 +135,7 @@ class SongViniSeeder extends Seeder
         // ====================== > Tyler, The Creator: Álbumes < ===========================
         // Álbum Tyler - 1_1 - Vini
         $TylerCreatAlbum1 = new Song();
-        $TylerCreatAlbum1->album_id = 12;
+        $TylerCreatAlbum1->album_id = 15;
         $TylerCreatAlbum1->sencillo = false;
         $TylerCreatAlbum1->name_song = "EARFQUAKE";
         $TylerCreatAlbum1->time = '3:10';
@@ -163,7 +163,7 @@ class SongViniSeeder extends Seeder
 
         // Álbum Tyler - 1_3 - Vini
         $TylerCreatAlbum3 = new Song();
-        $TylerCreatAlbum3->album_id = 12;
+        $TylerCreatAlbum3->album_id = 15;
         $TylerCreatAlbum3->sencillo = false;
         $TylerCreatAlbum3->name_song = "PUPPET";
         $TylerCreatAlbum3->time = '2:59';

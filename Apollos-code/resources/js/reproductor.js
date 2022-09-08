@@ -70,7 +70,7 @@ function reproducir() {
     audio.volume = 0.5;
     audio.play();
     
-    //barra_volumen.addEventListener('click', volumen_control, false);
+    barra_volumen.addEventListener('click', volumen_control, false);
 
 
     /* Colocar Evantos  */
@@ -193,8 +193,7 @@ function time_continue() {
 
 function posicionamiento(posicionamiento){
     
-    alert(line_progress.offsetLeft)
-    var click = posicionamiento.pageX-line_progress.offsetLeft;
+    var click = posicionamiento.pageX-line_time.offsetLeft;
 
     var nuevoTiempo = click*audio.duration/wth_line;
 
@@ -206,7 +205,7 @@ function posicionamiento(posicionamiento){
 
 function tim(posicion) {
     if(audio.ended==false){
-        var raton = posicion.pageX-line_progress.offsetLeft;
+        var raton = posicion.pageX-line_time.offsetLeft;
 
         var nuevoTiempo = raton*audio.duration/wth_line;
 
@@ -272,11 +271,11 @@ function widthBarra(){
 
 function volumen_control(volumen_control){
 
+    
     let rango = volumen_control.pageX-barra_volumen.offsetLeft;
 
-    nuevoVolumen = (rango * 1)/wdt_vol;
-
-
+    var nuevoVolumen = (rango * 1)/wdt_vol;
+    
     audio.volume = nuevoVolumen;
 
     range_vol.style.width =  rango + "px";

@@ -76,5 +76,6 @@
 
 @vite('resources/js/menu.js')
 @vite('resources/js/popup-buscador.js')
+@vite('resources/js/varios.js')
 
 </html>

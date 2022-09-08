@@ -34,15 +34,25 @@
                     <span id="current">0:00</span><span>{{$actuallysong->time}}</span>
                 </div>
             </div>
-            <div class="controles">
+            <div class="controles relative">
                 <livewire:like-song :song="$actuallysong" />
                 <div class="sonido flex items-center w-1/3">
-                    <i class="fi fi-rr-volume mx-2 text-lg opacity-70 transition-all ease-in-out hover:opacity-100" id="volumen"></i>
+                    <i class="fi fi-rr-volume mx-2 text-lg transition-all ease-in-out hover:opacity-100" id="volumen"></i>
                     <div class="totalvol w-4/5 min-w-[3rem] h-[3px] bg-zinc-700 rounded hidden 2lg:flex cursor-pointer" id="volumen2">
-                        <div class="vol h-0.5" id="vol"></div>
+                        <div class="vol h-0.5 w-[30%]" id="vol"></div>
                     </div>
                 </div>
-                <i class="fi fi-bs-menu-dots text-lg"></i>               
+                <i class="fi fi-bs-menu-dots text-lg" id="trespuntitos"></i>
+                <div class="other-icons hidden anim2" id="other-icons">
+                    <form
+                        action="{{ route('report.mail.store', ['user' => $actuallysong->InfoArtista($actuallysong)->username, 'song' => $actuallysong]) }}"
+                        method="POST" class="flex items-center hover:text-red-400 cursor-pointer">
+                        @csrf
+                        <span class="material-icons  cursor-pointer transition-colors">report</span>
+                        <input type="submit" name="Reportar" value="Reportar" id="" class="transition-colors cursor-pointer">
+                    </form>
+                    
+                </div>               
             </div>
         </div>
     </footer>

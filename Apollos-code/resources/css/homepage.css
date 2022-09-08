@@ -16816,8 +16816,8 @@ html.rd-navbar-fixed-linked .page {
 	
 }
 .fill{
-	height: 15vh;
-	width: 30vh;
+	height: 12vh;
+	width: 25vh;
 	position: absolute;
 	margin-left: 85vh;
 	margin-top: 65vh;
@@ -16832,7 +16832,7 @@ html.rd-navbar-fixed-linked .page {
 	text-decoration: none;
 			}
 			.fill p{ 
-				margin-top: 5%;
+				margin-top: 2%;
 				pointer-events: none;
 				transition: 0.6s;
 			}
@@ -18131,10 +18131,6 @@ margin-top: 50vh;
 
 .fa-angle-right:before {
 	content: "\f105";
-}
-
-.fa-angle-up:before {
-	content: "\f106";
 }
 
 .fa-angle-down:before {
@@ -30242,4 +30238,8 @@ margin-top: 50vh;
 
 .linearicons-ellipsis:before {
 	content: "\ece9";
+}
+.arriba{
+	font-size: 1.5rem;
+	margin-top: 20%;
 }

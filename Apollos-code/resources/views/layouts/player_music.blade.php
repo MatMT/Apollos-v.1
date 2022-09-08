@@ -37,7 +37,7 @@
     @vite('resources/css/varios.css')
     @vite('resources/js/reproductor.js')
 
-    <main class="mainplayer w-22/25 tablet_3:w-11/12 my-1 mx-auto p-2">
+    <main class="mainplayer w-22/25 tablet_3:w-11/12 my-1 mx-auto p-2 pb-8">
         <div class="contenido-musical w-full">
             <div class="list-player w-full">
                 <div class="img-music">
@@ -52,7 +52,7 @@
     </main>
 
     <!-- Agregamos el reproductor  --->
-    <x-only_player :othersongs="$OtherSongs" :user="$user" :actuallysong="$ActuallySong"></x-reproductor>
+    <x-only_player :actuallysong="$ActuallySong" :user="$ActuallySong->InfoArtista($ActuallySong)"></x-only_player>
 @endsection
 
 @push('script_end')

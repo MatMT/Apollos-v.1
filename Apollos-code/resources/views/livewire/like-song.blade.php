@@ -6,7 +6,7 @@
         </button>
 
         <p class="font-bold text-center text-sm hidden mp:flex">
-            {{ $likes }} <span class="font-normal"> {{__('Likes')}} </span>
+            {{ $likes }} <span class="font-normal mx-1"> {{__('Likes')}} </span>
         </p>
     </div>
 

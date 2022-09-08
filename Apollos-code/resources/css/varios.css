@@ -532,4 +532,7 @@
     .canciones{
         max-height: 30vh;
     }
+    .img-music img{
+        width: 60%;    
+    }
 }

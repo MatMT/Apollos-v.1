@@ -1,4 +1,10 @@
-/**Boton de darle like */
+/* Colores para la barra de reproducción */
+
+var myColors = ['#700353', '#454092', '#ff0054', '#ff5c0a', '#ffce47'];
+var rand = Math.floor(Math.random()*myColors.length);
+var rValue = myColors[rand];
+console.log(rValue)
+
 
 /* Funciones del Reproductor */
 
@@ -14,6 +20,10 @@ var wth_line = line_time.offsetWidth;
 
 var line_progress = document.getElementById("up");
 
+// cambio de colores de la barra de tiempo
+
+line_progress.style.background = rValue;
+
 // VARIABLES PARA ACTULIZAR EL TIEMPO
 
 var current_time = document.getElementById("current")
@@ -23,6 +33,26 @@ var current_time = document.getElementById("current")
 var segundos;
 var minutos;
 var horas;
+
+
+// VARIABLES PARA CONTROLAR EL VOLUMEN 
+
+var barra_volumen = document.getElementById("volumen2");
+var wdt_vol = barra_volumen.offsetWidth;
+var range_vol = document.getElementById("vol");
+
+
+
+
+
+
+// Icocno de audio
+
+var volumen = document.getElementById("volumen");
+var volchange = document.getElementById("vol");
+
+volumen.style.color = rValue;
+volchange.style.background = rValue;
 
 
 /* Reproducción enserie de las canciones */
@@ -37,9 +67,11 @@ function reproducir() {
     const num_time = 1000;
 
     audio.load();
+    audio.volume = 0.5;
     audio.play();
-    audio.volume = 0.3;
     
+    //barra_volumen.addEventListener('click', volumen_control, false);
+
 
     /* Colocar Evantos  */
 
@@ -141,6 +173,10 @@ function reproducir() {
         load = setInterval(time_continue, 1);
         tmer = setInterval(printTime, num_time);
     }
+
+    var siempre;
+
+    siempre = setInterval(widthBarra, num_time);
     
 }
 
@@ -150,21 +186,22 @@ function time_continue() {
     if(audio.ended == false){
         var total = parseInt(audio.currentTime*wth_line/audio.duration);
 
-        line_progress.style.width = total + "px"; 
+        var porcentaje = (total*100)/wth_line;
+        line_progress.style.width = porcentaje + "%"; 
     }
 }
 
 function posicionamiento(posicionamiento){
     
+    alert(line_progress.offsetLeft)
     var click = posicionamiento.pageX-line_progress.offsetLeft;
 
     var nuevoTiempo = click*audio.duration/wth_line;
 
-    alert(nuevoTiempo)
 
     audio.currentTime = nuevoTiempo;
 
-    line_progress.style.width = click + "px";
+    line_progress.style.width =  (click) + "px";
 }
 
 function tim(posicion) {
@@ -219,4 +256,29 @@ function secondsToString(seconds) {
     var second = seconds % 60;
     second = (second < 10)? '0' + second : second;
     return hour  + minute + ':' + second;
+}
+
+// Obtener siempre el ancho del div
+
+function widthBarra(){
+    var newWidth;
+
+    newWidth = line_time.offsetWidth;
+
+    wth_line = newWidth;
+
+}
+
+
+function volumen_control(volumen_control){
+
+    let rango = volumen_control.pageX-barra_volumen.offsetLeft;
+
+    nuevoVolumen = (rango * 1)/wdt_vol;
+
+
+    audio.volume = nuevoVolumen;
+
+    range_vol.style.width =  rango + "px";
+
 }

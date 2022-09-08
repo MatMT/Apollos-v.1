@@ -20,32 +20,29 @@
                 <h3 class="font-cuerpo font-light opacity-60 text-sm ml-1 lg:text-base">{{$user->username }}</h3>
             </div>
             <div class="line-time-song hidden">
+                <div class="reproduccion">
+                    <span class="material-icons change cursor-pointer" id="back">skip_previous</span>
+                    <!-- PLay and Pause -->
+                    <span class="material-icons control hidden cursor-pointer" id="play" >play_circle</span>
+                    <span class="material-icons control hidden cursor-pointer" id="pause">pause_circle</span>
+                    <span class="material-icons change cursor-pointer" id="next">skip_next</span>
+                </div>
                 <div class="line-time" id="down">
                     <div class="line-progress" id="up"></div>
                 </div>
-                <div class="time-num font-titulo flex justify-between opacity-60 text-sm w-19/20 mt-2">
+                <div class="time-num font-titulo flex justify-between opacity-60 text-xs mp:text-sm w-19/20 mt-2">
                     <span id="current">0:00</span><span>{{$actuallysong->time}}</span>
                 </div>
             </div>
             <div class="controles">
-
-                <div class="like-vol flex ">
-                    <livewire:like-song :song="$actuallysong" />
-                    <i class="fi fi-rr-volume mx-2 text-lg opacity-70 transition-all ease-in-out hover:opacity-100"></i>
-                </div>
-                
-
-                <!-- PLay and Pause -->
-                <div class="controladores">
-                    <i class="fi fi-rr-angle-double-small-left text-2xl mr-4" id="back"></i>
-                    <div class="rombo">
-                        <i class="fi fi-sr-play text-2xl hidden" id="play"></i>
-                        <i class="fi fi-sr-pause text-2xl hidden" id="pause"></i>
+                <livewire:like-song :song="$actuallysong" />
+                <div class="sonido flex items-center w-1/3">
+                    <i class="fi fi-rr-volume mx-2 text-lg opacity-70 transition-all ease-in-out hover:opacity-100" id="volumen"></i>
+                    <div class="totalvol w-4/5 min-w-[3rem] h-[3px] bg-zinc-700 rounded hidden 2lg:flex cursor-pointer" id="volumen2">
+                        <div class="vol h-0.5" id="vol"></div>
                     </div>
-
-                    <i class="fi fi-rr-angle-double-small-right text-2xl ml-4" id="next"></i>
                 </div>
-
+                <i class="fi fi-bs-menu-dots text-lg"></i>               
             </div>
         </div>
     </footer>

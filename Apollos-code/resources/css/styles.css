@@ -6,7 +6,7 @@
 :root {
     /*Paleta de colores Apollos*/
 
-    --morado-apl: #262455;
+    --morado-apl: #38357a;
     --fucsia-apl: #700353;
     --rosado-apl: #ff0054;
     --naranja-apl: #ff5c0a;
@@ -161,6 +161,7 @@ header .contenido-menu {
     padding: 10px 20px;
 
     background: rgba(20, 20, 20, 0.479);
+    border: rgba(250,250,250,0.1) 1px solid;
 
     -webkit-backdrop-filter: blur(10px);
     -moz-backdrop-filter: blur(10px);
@@ -531,7 +532,7 @@ footer {
 }
 
 .player {
-    height: 110px;
+    height: 100px;
     width: 25%;
     min-width: 490px;
     border: 1px solid rgba(167, 165, 165, 0.3);
@@ -568,16 +569,17 @@ footer {
     margin: 0px auto;
 }
 
-.player.activer .line-time-song {
-    display: flex;
-    width: 30.666%;
+.player.activer .info-cancion {
+    width: 18%;
 }
 
-.player.activer .info-cancion {
-    width: 17.666%;
+.player.activer .line-time-song {
+    display: flex;
+    width: 40%;
 }
+
 .player.activer .controles{
-    width: 30.6666%;
+    width: 22%;
 }
 
 .player.activer .controles .controladores{
@@ -585,9 +587,6 @@ footer {
     min-width: 112px;
 }
 
-.player.activer .cancion {
-    width: 10%;
-}
 
 .player.activer .white-circule {
     left: 46%;
@@ -606,8 +605,8 @@ footer {
 }
 .player .cancion img {
     height: 100%;
-    min-width: 78px;
-    border-radius: 5px;
+    min-width: 68px;
+    border-radius: 100%;
     margin: 0% auto;
 }
 
@@ -652,8 +651,37 @@ footer {
 .line-time-song {
     height: 100%;
     display: none;
-    padding: 50px 20px;
+    padding: 10px 20px;
 }
+
+/* icocnos para el control de la canción */
+.reproduccion{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.reproduccion .control{
+    font-size: 45px;
+    margin: 0px 5px;
+}
+
+.reproduccion .change{
+    font-size: 30px;
+    margin: 0px 10px;
+}
+
+#play.active {
+    display: block;
+}
+
+#pause.active {
+    display: block;
+}
+
+/*Linea de tiempo*/
 
 .player.activer .line-time-song {
     display: flex;
@@ -662,14 +690,14 @@ footer {
 .line-time-song .line-time {
     width: 95%;
     height: 3px;
-    background-color: #ff00555d;
+    background-color: #8585855d;
     border-radius: 3px;
 }
 
 .line-time-song .line-progress {
     width: 0%;
     height: 3px;
-    background-color: var(--rosado-apl);
+    background-color: var(--naranja-apl);
     border-radius: 3px;
 }
 
@@ -693,14 +721,9 @@ footer {
     cursor: pointer;
 }
 
-#play.active {
-    display: block;
-}
 
-#pause.active {
-    display: block;
-}
 
+/*
 .rombo{
     width: 50px; 
     height: 50px; 
@@ -715,7 +738,7 @@ footer {
 .rombo i {
     transform: rotate(-45deg);
 }
-
+*7
 /*------------------------------- Lista de Reproducción ..*/
 
 .lista-reproduccion {

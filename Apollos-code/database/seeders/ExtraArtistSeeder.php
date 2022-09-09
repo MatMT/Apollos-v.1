@@ -50,7 +50,7 @@ class ExtraArtistSeeder extends Seeder
         $BadBunnySencillo1->time = '3:28';
         $BadBunnySencillo1->genre = 'reggaeton';
         $BadBunnySencillo1->url = '35b56f83-19ae-4103-bf9f-09563e0e00b2.mp3';
-        $BadBunnySencillo1->image = 'b2b1e80c-d047-48f4-8bd2-9b2d50686a00.png';
+        $BadBunnySencillo1->image = '5842b5db-a01b-41a7-ba4f-45c86067ff29.jpg';
         $BadBunnySencillo1->total = 208.07;
         $BadBunnySencillo1->created_at = now();
         $BadBunnySencillo1->updated_at = now();

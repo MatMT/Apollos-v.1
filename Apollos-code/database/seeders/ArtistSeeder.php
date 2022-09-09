@@ -92,7 +92,7 @@ class ArtistSeeder extends Seeder
         $javithor->name = 'Javier';
         $javithor->last_name = 'Mejía';
         $javithor->rol = 'artist';
-        $javithor->email = 'javithor@correo.com';
+        $javithor->email = 'mateonintendo123@gmail.com';
         $javithor->username = 'Javithor';
         $javithor->status = 'active';
         $javithor->age = '17';

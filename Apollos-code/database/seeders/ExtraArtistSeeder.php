@@ -64,7 +64,7 @@ class ExtraArtistSeeder extends Seeder
         $BadBunnyAlbum1->time = '3:50';
         $BadBunnyAlbum1->genre = 'reggaeton';
         $BadBunnyAlbum1->url = '24c3b35e-d040-49c0-a12d-ae4028542cea.mp3';
-        $BadBunnyAlbum1->image = '57423623-2108-46f6-a19c-064ff220517c.jpg';
+        $BadBunnyAlbum1->image = '5842b5db-a01b-41a7-ba4f-45c86067ff29.jpg';
         $BadBunnyAlbum1->total = 230.45;
         $BadBunnyAlbum1->created_at = now();
         $BadBunnyAlbum1->updated_at = now();
@@ -77,7 +77,7 @@ class ExtraArtistSeeder extends Seeder
         $BadBunnyAlbum2->time = '4:04';
         $BadBunnyAlbum2->genre = 'reggaeton';
         $BadBunnyAlbum2->url = 'a6798ad3-a2a7-4592-8835-f60c0faf4ade.mp3';
-        $BadBunnyAlbum2->image = '57423623-2108-46f6-a19c-064ff220517c.jpg';
+        $BadBunnyAlbum2->image = '5842b5db-a01b-41a7-ba4f-45c86067ff29.jpg';
         $BadBunnyAlbum2->total = 243.85;
         $BadBunnyAlbum2->created_at = now();
         $BadBunnyAlbum2->updated_at = now();
@@ -90,7 +90,7 @@ class ExtraArtistSeeder extends Seeder
         $BadBunnyAlbum3->time = '3:51';
         $BadBunnyAlbum3->genre = 'reggaeton';
         $BadBunnyAlbum3->url = 'c850d563-099a-403c-87da-85f9619f5cd5.mp3';
-        $BadBunnyAlbum3->image = '57423623-2108-46f6-a19c-064ff220517c.jpg';
+        $BadBunnyAlbum3->image = '5842b5db-a01b-41a7-ba4f-45c86067ff29.jpg';
         $BadBunnyAlbum3->total = 230.74;
         $BadBunnyAlbum3->created_at = now();
         $BadBunnyAlbum3->updated_at = now();
@@ -103,7 +103,7 @@ class ExtraArtistSeeder extends Seeder
         $BadBunnyAlbum4->time = '2:53';
         $BadBunnyAlbum4->genre = 'reggaeton';
         $BadBunnyAlbum4->url = '364d8d3e-32d4-40a8-9153-7c8ae2db9901.mp3';
-        $BadBunnyAlbum4->image = '57423623-2108-46f6-a19c-064ff220517c.jpg';
+        $BadBunnyAlbum4->image = '5842b5db-a01b-41a7-ba4f-45c86067ff29.jpg';
         $BadBunnyAlbum4->total = 173.17;
         $BadBunnyAlbum4->created_at = now();
         $BadBunnyAlbum4->updated_at = now();
@@ -116,7 +116,7 @@ class ExtraArtistSeeder extends Seeder
         $BadBunnyAlbum5->time = '3:48';
         $BadBunnyAlbum5->genre = 'reggaeton';
         $BadBunnyAlbum5->url = 'd8349cda-a0a1-47ea-af44-74f7f1cdffd2.mp3';
-        $BadBunnyAlbum5->image = '57423623-2108-46f6-a19c-064ff220517c.jpg';
+        $BadBunnyAlbum5->image = '5842b5db-a01b-41a7-ba4f-45c86067ff29.jpg';
         $BadBunnyAlbum5->total = 227.66;
         $BadBunnyAlbum5->created_at = now();
         $BadBunnyAlbum5->updated_at = now();

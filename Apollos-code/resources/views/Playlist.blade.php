@@ -167,3 +167,6 @@
     @vite('resources/js/varios.js')
 
 @endsection
+
+
+{{-- Album y norman firmaron este proyecto. --}}

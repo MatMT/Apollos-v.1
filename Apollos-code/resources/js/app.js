@@ -29,7 +29,7 @@ const DropzoneImg = new Dropzone('#dropzone_img', {
             // Clase de Css propia de Dropzone
             imagenPublicada.previewElement.classList.add('dz-success', 'dz-complete');
         }
-        
+
     }
 });
 

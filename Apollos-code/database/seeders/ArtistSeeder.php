@@ -141,7 +141,7 @@ class ArtistSeeder extends Seeder
         $kanyewest->image = 'cb75620d-ba57-4178-be07-9b24cef9cd49.jpg';
         $kanyewest->save();
 
-        // Artist Default - 16 - VINI
+        // Artist Default - 16 - Martín
         $pereira = new User();
         $pereira->name = "Javier";
         $pereira->last_name = "Pereira";
@@ -158,6 +158,4 @@ class ArtistSeeder extends Seeder
         $pereira->birth_date = "1997-05-26";
         $pereira->save();
     }
-
-
 }

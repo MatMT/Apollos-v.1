@@ -11,17 +11,17 @@
 @section('content')
 
     @if (session()->has('message'))
-    <div class="cont-mssg flex justify-center">
-        <li class="flex justify-center p-4 text-sm rounded-lg bg-green-200 text-green-800 w-[500px]" role="alert">
-            <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor"
-                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd"
-                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-                    clip-rule="evenodd"></path>
-            </svg>
-            <p class="font-medium">{{__('The song has been successfully reported!')}}</p>
-        </li>
-    </div>
+        <div class="cont-mssg flex justify-center anim">
+            <li class="flex justify-center p-4 text-sm rounded-lg bg-green-200 text-green-800 w-[500px]" role="alert">
+                <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                        clip-rule="evenodd"></path>
+                </svg>
+                <p class="font-medium">{{ __('The song has been successfully reported!') }}</p>
+            </li>
+        </div>
     @endif
 
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
@@ -37,9 +37,8 @@
                         {{ __('Discover a new world of music') }}</h1>
                     <div class="line w-28 h-0.5 bg-white mb-5"></div>
 
-                    <a
-                        class="font-cuerpo font-thin text-2xl 2xl:text-3xl bg-morado_1 px-6 pt-1 pb-2 rounded-full drop-shadow-2xl mt-3 text-slate-300 cursor-default" href=""><span
-                            id="saludo"></span> {{ Auth::user()->name }}!</a>
+                    <a class="font-cuerpo font-thin text-2xl 2xl:text-3xl bg-morado_1 px-6 pt-1 pb-2 rounded-full drop-shadow-2xl mt-3 text-slate-300 cursor-default"
+                        href=""><span id="saludo"></span> {{ Auth::user()->name }}!</a>
                 </div>
 
                 {{-- <div class="w-2/5 bg-planetas h-9/10 bg-cover mx-16 relative">
@@ -76,7 +75,7 @@
                                             </div>
                                             <div class="title">
                                                 <div class="name font-titulo font-bold text-lg desktop_2:text-base">
-                                                    {{__('Favorites')}}</div>
+                                                    {{ __('Favorites') }}</div>
                                             </div>
                                         </a>
                                     </div>
@@ -108,52 +107,52 @@
                 </div>
             @endif
 
-            @if($artists)
-            <!-- ARTISTAS GENERALES -->
-            <div class="main-content text-white anim">
+            @if ($artists)
+                <!-- ARTISTAS GENERALES -->
+                <div class="main-content text-white anim">
 
-                <h2 class="text-white text-2xl font-bold">{{ __('Suggested artists') }}</h2>
+                    <h2 class="text-white text-2xl font-bold">{{ __('Suggested artists') }}</h2>
 
-                <div class="contenedor-principal ">
+                    <div class="contenedor-principal ">
 
-                    <button rolle="button" id="flecha-izquierda-2"><i class="fi fi-rr-angle-left"></i></button>
+                        <button rolle="button" id="flecha-izquierda-2"><i class="fi fi-rr-angle-left"></i></button>
 
-                    <div class="contenedor-carousel slider-2 artistas">
+                        <div class="contenedor-carousel slider-2 artistas">
 
-                        <!--contenedor-carousel --->
+                            <!--contenedor-carousel --->
 
-                        <div class="carousel">
+                            <div class="carousel">
 
-                            @foreach ($artists as $user)
-                                <div class="card card-2 drop-shadow-xl">
-                                    <a href="{{ route('profile.index', $user->name_artist) }}">
-                                        <div class="imagen">
-                                            <img src="{{ asset('storage') . '/uploads/pfp/' . $user->image }}"
-                                                alt="Imagen de {{ $user->name }}">
-                                        </div>
-                                        <div class="title">
-                                            <div class="name font-titulo font-bold text-base desktop_2:text-sm">
-                                                {{ $user->username }}
+                                @foreach ($artists as $user)
+                                    <div class="card card-2 drop-shadow-xl">
+                                        <a href="{{ route('profile.index', $user->name_artist) }}">
+                                            <div class="imagen">
+                                                <img src="{{ asset('storage') . '/uploads/pfp/' . $user->image }}"
+                                                    alt="Imagen de {{ $user->name }}">
                                             </div>
-                                            <div class="type text-base font-thin text-slate-300 desktop_2:text-base">
-                                                {{ __('Artist') }}
+                                            <div class="title">
+                                                <div class="name font-titulo font-bold text-base desktop_2:text-sm">
+                                                    {{ $user->username }}
+                                                </div>
+                                                <div class="type text-base font-thin text-slate-300 desktop_2:text-base">
+                                                    {{ __('Artist') }}
+                                                </div>
                                             </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            @endforeach
+                                        </a>
+                                    </div>
+                                @endforeach
+
+                            </div>
 
                         </div>
 
+
+                        <button rolle="button" id="flecha-derecha-2"><i class="fi fi-rr-angle-right"></i></button>
+
+
                     </div>
 
-
-                    <button rolle="button" id="flecha-derecha-2"><i class="fi fi-rr-angle-right"></i></button>
-
-
                 </div>
-
-            </div>
             @endif
 
             <!--contenedor-carousel NUEVOS ARTISTAS --->
@@ -217,12 +216,12 @@
 
                 if (hour >= 5 && hour <= 11) {
                     //Escribir en html
-                    lugar.innerHTML = "{{__('Good morning')}}";
+                    lugar.innerHTML = "{{ __('Good morning') }}";
                 } else {
                     if (hour >= 12 && hour <= 18) {
-                        lugar.innerHTML = "{{__('Good afternoon')}}";
+                        lugar.innerHTML = "{{ __('Good afternoon') }}";
                     } else {
-                        lugar.innerHTML = "{{__('Good evening')}}";
+                        lugar.innerHTML = "{{ __('Good evening') }}";
                     }
                 }
             </script>

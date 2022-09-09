@@ -61,14 +61,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/prueba', function () {
-    return view('layouts.player_music');
-});
-
-Route::get('/pruebabuscador', function () {
-    return view('results');
-});
-
 // ============================== CAMBIO DE IDIOMA
 Route::get('/locale/{locale}', [LocaleController::class, 'index'])->name('changeLocale');
 

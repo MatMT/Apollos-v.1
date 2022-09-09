@@ -1,33 +1,43 @@
-@extends('partials.nav_bar')
+@extends('layouts.shape1')
 
-@section('titulo')
-    Subiendo un Álbum
+@section('title')
+{{__('Uploading an album')}}
 @endsection
 
-@push('noBack')
+@section('js')
     @vite(['resources/js/noBack.js'])
-@endpush
+@endsection
 
-@section('contenido')
-    <div class="flex my-0 mx-auto sm:w-full sm:flex-row
-    flex-col w-3/4 bg-white rounded-lg shadow p-3">
-        <div class="basis-1/5 text-center p-1 @yield('step1')">Imagen</div>
-        {{-- @yield('step') --}}
-        <div class="basis-1/5 text-center p-1 @yield('step2')">Titulo</div>
-        <div class="basis-1/5 text-center p-1 @yield('step3')">Género</div>
-        @yield('song/s')
-        <div class="basis-1/5 text-center p-1 @yield('step5')">Subir</div>
-    </div> <!-- Progress bar -->
+@section('css')
+    @vite(['resources/css/stepsStyles.css'])
+@endsection
+
+@section('header')
+    <x-header></x-header>
+@endsection
+
+@section('content')
+    <div class="p-10 overflow-hidden">
+        <div
+            class="flex my-0 mx-auto  sm:w-full sm:flex-row flex-col w-3/4  rounded-xl shadow overflow-hidden font-semibold">
+            <div class="basis-1/5 text-center py-3 bg-white @yield('step1')">{{__('Album cover')}}</div>
+            {{-- @yield('step') --}}
+            <div class="basis-1/5 text-center py-3 bg-white @yield('step2')">{{__('Title')}}</div>
+            <div class="basis-1/5 text-center py-3 bg-white @yield('step3')">{{__('Genre')}}</div>
+            @yield('song/s')
+            <div class="basis-1/5 text-center py-3 bg-white @yield('step4')">{{__('Upload')}}</div>
+        </div> <!-- Progress bar -->
+    </div>
 
     <!-- SUBTITULO -->
     <div class="mx-auto mt-8">
-        <h2 class="font-black text-center text-4xl mb-10">
+        <h2 class="text-white font-titulo text-3xl font-bold mb-5 text-center">
             @yield('subtitulo')
         </h2>
     </div>
 
     <!-- CUERPO -->
-    <div class="px-10">
+    <div class="px-16 xl:px-96 text-white p-5">
         <div>
             <form action="{{ route('upload.store_2') }}" method="POST" id="song_up" novalidate>
                 @csrf
@@ -43,8 +53,8 @@
                     @enderror
                 </div>
 
-                <input type="submit" value="Siguiente"
-                    class=" bg-teal-500 transition-colors cursor-pointer uppercase font-bold w-full p-3  text-white rounded-lg" />
+                <input type="submit" value="{{__('Continue')}}"
+                    class="submit-bttn transition-colors cursor-pointer uppercase font-bold w-full p-3  text-white rounded-lg" />
             </form>
         </div> <!-- Envío de input -->
 

@@ -10,11 +10,12 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
-    // AUTENTIFICACIÓN ==========
     public function __construct()
     {
-        // Autentificación exceptuada para los métodos show(canción) e index(perfil)
+        // Verificar inicio de sesión
         $this->middleware('auth');
+        // Permitir acceso de usuario | No de admin
+        $this->middleware('user.log');
     }
 
     // PERFIL ==========
@@ -22,7 +23,7 @@ class ProfileController extends Controller
     {
         // ÁLBUMES ===
         $albums = DB::table('albums')
-            ->where([['user_id', $user->id], ['sencillo', false]])
+            ->where([['user_id', $user->id], ['sencillo', false], ['confirm', true]])
             ->get(); // Get trae los resultados de la consulta en colección 
 
         // COLECCIÓN DE SENCILLOS ===
@@ -31,33 +32,42 @@ class ProfileController extends Controller
             ->first();
 
         // ÁLBUMES + SENCILLOS ===
-        $AllAlbums = Album::where('user_id', $user->id)->get(); // Todos los álbumes - (Álbumes + Sencillos)
+        $MisColecciones = Album::where([['user_id', $user->id], ['confirm', true]])->get()->pluck('id');
 
-        // 1° ARRAY PROPIO - Todas lasa canciones ===
-        $AllSongs = array();
-
-        // Por cada colección obtenida
-        foreach ($AllAlbums as $album) {
-            $songs_array = Song::where('album_id', $album->id)->get();
-            //Por cada canción de cada álbum
-            foreach ($songs_array as $song) {
-                array_push($AllSongs, $song);
-            }
-        }
+        // Todas mis canciones
+        $MisCanciones = Song::WhereIn('album_id', $MisColecciones)->where('visibility', true)->get();
 
         if ($CollecionSencillos != null) {
             $IfSencillos = true;
-            $sencillos = Song::where([['album_id', $CollecionSencillos->id], ['sencillo', true]])->get();
+            $sencillos = Song::where([['album_id', $CollecionSencillos->id], ['sencillo', true], ['visibility', true]])->latest()->get();
         } else {
             $IfSencillos = false;
             $sencillos = array();
         }
 
         // CONTADOR DE CANCIONES TOTALES ===
-        $counterSongs = (count($AllSongs));
+        $counterSongs = (count($MisCanciones));
 
         // CONTADOR DISPLAYLIST ===
         $displayList = 0;
+
+        // Obtener id de a quienes seguimos ===
+        $ids = $user->followings->pluck('id')->toArray();
+
+        // Extraer la collección de mis artistas ===
+        $Myartistas = DB::table('users')
+            ->where('rol', 'artist')
+            ->whereIn('id', $ids)
+            ->get();
+
+
+        // Extraer la collección de mis álbumes ===
+        $MyalbumsId = DB::table('like_albums')
+            ->where('user_id', $user->id)
+            ->pluck('album_id');
+        $Myalbums = DB::table('albums')
+            ->whereIn('id', $MyalbumsId)
+            ->get();
 
         // Mostramos vista y devolvemos datos con las llaves 
         return view('profile', [
@@ -67,8 +77,11 @@ class ProfileController extends Controller
             'CounterSongs' => $counterSongs,
             'sencillos' => $sencillos,
             'HaySencillos' => $IfSencillos,
-            'displayList' => $displayList
+            'displayList' => $displayList,
+            'followedArts' => $Myartistas,
+            'likedAlbums' => $Myalbums
         ]);
+        // }
     }
 
     // SUBIR CANCIÓN ==========

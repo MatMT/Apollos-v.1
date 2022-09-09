@@ -10,6 +10,14 @@ use Illuminate\Http\Request;
 
 class DataAlbumController extends Controller
 {
+    public function __construct()
+    {
+        // Verificar inicio de sesión
+        $this->middleware('auth');
+        // Permitir acceso de usuario | No de admin
+        $this->middleware('user.log');
+    }
+
     // Trabaja en conjunto con ImagenContoller y SongController
     public function store(Request $request, User $user)
     {
@@ -25,6 +33,8 @@ class DataAlbumController extends Controller
             // Obtenes el registro individual
             ->first();
 
+        $total = $request->total;
+
         // Registro 1
         Song::create([
             'sencillo' => false,
@@ -34,6 +44,7 @@ class DataAlbumController extends Controller
             'url' => $request->song,
             'genre' => $album->genre,
             'image' => $album->image,
+            'total' => $total,
         ]);
 
         return redirect()->route('upload.album_4');

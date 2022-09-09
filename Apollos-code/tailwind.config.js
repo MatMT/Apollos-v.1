@@ -44,7 +44,16 @@ module.exports = {
       'md': '768px',
       // => @media (min-width: 768px) { ... }
 
+      'smd': '830px',
+      // => @media (min-width: 860px) { ... }
+
+      'mp': '945px',
+      // => @media (min-width: 768px) { ... }
+
       'lg': '1024px',
+      // => @media (min-width: 1024px) { ... }
+
+      '2lg': '1169px',
       // => @media (min-width: 1024px) { ... }
 
       'xl': '1280px',
@@ -76,8 +85,10 @@ module.exports = {
         '9/10': '90%',
         '1/10': '10%',
         '22/25': '88%',
-
+        '7/10': '70%',
+        '19/20': '95%',
       },
+      
       height: {
         '84': '21rem',
         '9/10': '91.5%',

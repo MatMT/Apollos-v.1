@@ -6,9 +6,20 @@ use Illuminate\Http\Request;
 use App\Models\Album;
 use App\Models\Song;
 use App\Models\User;
+use App\Traits\TimeTrait;
 
 class AlbumController extends Controller
 {
+    public function __construct()
+    {
+        // Verificar inicio de sesión
+        $this->middleware('auth');
+        // Permitir acceso de usuario | No de admin
+        $this->middleware('user.log');
+    }
+
+    use TimeTrait;
+
     // Redirección a sección de álbum
     public function album_1()
     {
@@ -125,9 +136,6 @@ class AlbumController extends Controller
                 // Obtenes el registro individual
                 ->first();
 
-            // Id del Usuario atenticado
-            $userId = auth()->user()->id;
-
             $songs = Song::where('album_id', $album->id)->get(); // Get trae los resultados de la consulta
 
             // Variable contador
@@ -140,7 +148,7 @@ class AlbumController extends Controller
         }
     }
 
-    public function store_4(Request $request)
+    public function store_4()
     {
         return redirect()->route('upload.album_5');
     }
@@ -159,23 +167,43 @@ class AlbumController extends Controller
                 // Obtenes el registro individual
                 ->first();
 
-            // Id del Usuario atenticado
-            $userId = auth()->user()->id;
-
             $songs = Song::where('album_id', $album->id)->get(); // Get trae los resultados de la consulta
 
             // Variable contador
             $i = 0;
 
-            // Vista con 2 variables
-            return view('uploads.up_album_5', ['songs' => $songs, "i" => $i, 'album' => $album]);
+            // Duración total en segundos
+            $total = 0;
+            foreach ($songs as $song) {
+                $total += $song->total;
+            }
+            // Uso de Trait - Similar a una herencia - No repite codigo
+            $total = $this->TimeTotal($total);
+
+            // Vista con 4 variables
+            return view('uploads.up_album_5', ['songs' => $songs, "i" => $i, 'album' => $album, 'total' => $total]);
         } else {
             return redirect(route('profile.index', $Usuario));
         }
     }
 
-    public function store_5(User $user)
+    public function store_5(Request $request)
     {
+        // Validación - confirmación de publicación
+        $request->validate([
+            'confirm' => 'accepted'
+        ]);
+
+        // Obtener el último albúm del usuario
+        $album = Album::where('user_id', auth()->user()->id)
+            ->latest()
+            ->first(); // Obtener el registro individual
+
+        // Añadirel nuevo campo y guardar
+        $album->confirm = true;
+        $album->duration = $request->total;
+        $album->save();
+
         // Pasada la validación se envía a la siguiente página
         return redirect()->route('profile.index', auth()->user()->name_artist);
     }

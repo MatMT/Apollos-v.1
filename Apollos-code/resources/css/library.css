@@ -1,20 +1,19 @@
-
 /* ------ ----------  ---------- ---------- Contenedores*/
 
-.contenido{
+.contenido {
     width: 100%;
     margin: 50px auto;
 }
 
 /*--------- ---------  PESTAÑAS ------------- ----------*/
 
-.opciones{
+.opciones {
     color: rgba(255, 255, 255, 0.5);
     display: flex;
     margin: 0px 50px;
 }
 
-.opciones li{
+.opciones li {
     margin: 12px;
     font-weight: bold;
     padding: 5px 30px;
@@ -22,46 +21,43 @@
     border-radius: 5px;
     cursor: pointer;
     transition: 0.2s;
-    
 }
 
-.opciones li:hover{
+.opciones li:hover {
     color: white;
 }
 
-.pestanias .line-1{
+.pestanias .line-1 {
     width: 90%;
     height: 1px;
     background-color: white;
     margin: 10px 20px;
 }
 
-
-.active-opcion{
-    background-color: #CE4993;
+.active-opcion {
+    background-color: #ce4993;
     color: white;
 }
 
-.albums-opcion{
-    background-color: #EE5D6C;
+.albums-opcion {
+    background-color: #ee5d6c;
     color: white;
 }
 
-.artistas-opcion{
-    background-color: #FB9062;
+.artistas-opcion {
+    background-color: #fb9062;
     color: white;
 }
 
-.favoritos-opcion{
-    background-color: #EEAF61;
+.favoritos-opcion {
+    background-color: #eeaf61;
     color: white;
 }
 
-.remove{
+.remove {
     background-color: transparent;
     color: rgba(255, 255, 255, 0.774);
 }
-
 
 /*------------ ------------------ -------------------- Contenedores */
 
@@ -69,7 +65,7 @@
 .box-1,
 .box-2,
 .box-3,
-.box-4{
+.box-4 {
     width: 100%;
     padding: 15px;
     display: none;
@@ -78,16 +74,17 @@
 .box-1.active,
 .box-2.active,
 .box-3.active,
-.box-4.active{
+.box-4.active {
     display: block;
 }
 
-.content{
+.content {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
 }
-.content .playList{
+.content .playList,
+.upload-div .playList {
     width: 20%;
     max-width: 209.28px;
     padding: 20px;
@@ -96,18 +93,25 @@
     border-radius: 10px;
     cursor: pointer;
     transition: 0.1s ease all;
-    
 }
-.content .playList:hover{
+
+.upload-div .playList {
+    min-width: 35% !important;
+    width: 55% !important;
+}
+
+.content .playList:hover {
     background-color: #70707050;
 }
 
-.content .playList img{
+.content .playList img,
+.upload-div .playList img {
     width: 100%;
     border-radius: 10px;
 }
 
-.content .playList .description{
+.content .playList .description,
+.upload-div .playList .description {
     height: 20px;
     white-space: nowrap;
     overflow: hidden;
@@ -115,7 +119,7 @@
 
 /*Contenedor 2*/
 
-.content .info{
+.content .info {
     width: 20%;
     max-width: 209.28px;
     padding: 20px;
@@ -124,26 +128,23 @@
     border-radius: 10px;
     cursor: pointer;
     transition: 0.1s ease all;
-    
 }
-.content .info:hover{
+.content .info:hover {
     background-color: #70707050;
 }
 
-.content .info img{
+.content .info img {
     width: 100%;
     border-radius: 10px;
 }
 
-.content .artista img{
+.content .artista img {
     width: 100%;
     border-radius: 100%;
 }
 
-.content .info .description{
+.content .info .description {
     height: 20px;
     white-space: nowrap;
     overflow: hidden;
 }
-
-

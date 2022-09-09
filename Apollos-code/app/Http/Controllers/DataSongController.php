@@ -11,7 +11,10 @@ class DataSongController extends Controller
 {
     public function __construct()
     {
+        // Verificar inicio de sesión
         $this->middleware('auth');
+        // Permitir acceso de usuario | No de admin
+        $this->middleware('user.log');
     }
 
     public function create(User $user)
@@ -37,6 +40,7 @@ class DataSongController extends Controller
             'user_id' => auth()->user()->id,
             'name_album' => ('sencillos_' . auth()->user()->name_artist),
             'sencillo' => true,
+            'confirm' => true
         ]);
 
         // Validación - campos completos
@@ -53,6 +57,7 @@ class DataSongController extends Controller
             'album_id' => $CollecionSencillos->id,
             'name_song' => $request->titulo,
             'time' => $request->time,
+            'total' => $request->total,
             'genre' => $request->genero,
             'url' => $request->song,
             'image' => $request->imagen,

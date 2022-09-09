@@ -7,6 +7,8 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\AgeController;
+use App\Mail\RegistroApollos;
+use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
 {
@@ -22,9 +24,10 @@ class RegisterController extends Controller
             'nombre' => 'required|min:2|max:20 ',
             'apellido' => 'required|min:4|max:25 ',
             'email' => 'required|email|unique:users,email|max:50',
-            'password' => 'required|min:4',
+            'password' => 'required|min:6',
+            'género' => 'required',
             'nacimiento' => 'required|date',
-            'usuario' => 'required|unique:users,name_artist|min:3|max:30',
+            'usuario' => 'required|string|unique:users,username|min:3|max:30',
         ]);
 
         // Modificar el Request
@@ -32,7 +35,7 @@ class RegisterController extends Controller
         $request->request->add(['usuario' => Str::slug($request->usuario)]);
 
         // Género --- 
-        $gender = $request->gender;
+        $gender = $request->género;
 
         // 0 hombre - 1 mujer
         $gender == 'male' ? $gender = false : $gender;
@@ -52,7 +55,7 @@ class RegisterController extends Controller
         $artist = $request->user_type;
         $artist == '' ? $artist = 'user' : $artist;
 
-        // Creación 
+        // Creación de usuario
         User::create([
             'name' => $request->nombre,
             'last_name' => $request->apellido,
@@ -68,6 +71,9 @@ class RegisterController extends Controller
 
         // Autentificación
         auth()->attempt($request->only('email', 'password'));
+
+        // Enviar correo de registro
+        Mail::to($request->email)->send(new RegistroApollos());
 
         return redirect('home');
     }

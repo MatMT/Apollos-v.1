@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&display=swap");
+
+body{
+	background: linear-gradient(-45deg, #262455, #700353, #ff0054, #ff5c0a, #ffce47);
+	background-size: 400% 400%;
+  overflow-x: hidden;
+	animation: gradiente 15s ease infinite;
+}
+@keyframes gradiente {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+.error {
+  text-align: center;
+  font-family: 'Righteous', cursive;
+  font-size: 200px;
+  font-style: italic;
+  text-align: center;
+  height: 60px;
+  line-height: 60px;
+  margin: auto;
+  position: absolute;
+  top: -30%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: #fff;
+  overflow: default;
+}
+.info {
+  text-align: center;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 35px;
+  font-style: italic;
+  text-align: center;
+  width: 650px;
+  margin: auto;
+  right: 0;
+  left: 0;
+  position: absolute;
+  top: 50px;
+  color: #fff;
+}
+.astru{
+width: 550px;
+height: auto;
+animation: floating 3s infinite ease-in-out;
+margin-left: -5%;
+margin-top: 5%;
+}
+@keyframes floating {
+  0% { transform: translate(0,  0px); }
+  50%  { transform: translate(0, 15px); }
+  100%   { transform: translate(0, -0px); }   
+}
+.oops {
+  text-align: center;
+  font-style:oblique;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 75px;
+  text-align: center;
+  font-weight: 700;
+  width: 950px;
+  margin: auto;
+  right: 0;
+  left: 0;
+  position: absolute;
+  top: 80%;
+  color: #fff;
+}
+.espacio{
+  width: 750px;
+height: auto;
+margin-left: 70%;
+margin-top: -35%;
+}
+.boton{
+  display:inline-block;
+  background-color: #ff5677;
+  border-radius: 100px;
+width: 200px;
+height: 90px;
+margin-left: 44%;
+margin-top: -5%;
+text-decoration: none;
+align-items: center;
+}
+.boton p{
+  font-family: 'Montserrat Alternates', sans-serif;
+  text-decoration: none;
+  margin-right: 15px;
+  margin-top: 7px;
+  font-size: 40px;
+  color: white;
+  padding: 7px 40px;
+}

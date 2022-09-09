@@ -2,18 +2,15 @@
 
 {{-- Paso en la progress bar --}}
 @section('step3')
-    bg-purple-800 text-white
+    blur-bg text-white
 @endsection
 
 {{-- Variable de la progress bar --}}
 @section('song/s')
-    <div class="basis-1/5 text-center p-1 ">Canciones</div>
+    <div class="basis-1/5 text-center py-3 bg-white ">{{__('Songs')}}</div>
 @endsection
 
 @section('subtitulo')
-    Establece el Género principal
+{{__('Set the main genre')}}
 @endsection
 
-@section('placeholder')
-    Titulo del álbum
-@endsection

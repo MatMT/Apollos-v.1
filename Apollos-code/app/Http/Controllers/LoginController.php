@@ -30,9 +30,15 @@ class LoginController extends Controller
             // Regenerar la sesión del usuario para evitar "Session Fixation", regenerando el token csrf
             $request->session()->regenerate();
             // En caso de no estar autenticado y se intenta acceder a una url protegida que no sea home luego de un login exitoso se le reenvia a la url anterior a iniciar sesión
-            return $redirect
-                ->intended('home')
-                ->with('status', "You're logged in");
+
+            if (auth()->user()->rol == 'admin') {
+                return $redirect
+                    ->intended(route('admin.index'));
+            } else {
+                return $redirect
+                    ->intended('home')
+                    ->with('status', "You're logged in");
+            }
         }
         // En caso de no funcionar la sesión manda un error
         throw ValidationException::withMessages([

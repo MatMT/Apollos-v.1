@@ -15,9 +15,12 @@ class Album extends Model
         'user_id',
         'name_album',
         'genre',
+        'new_genre',
         'image',
         'sencillo',
-        'new_name_album'
+        'confirm',
+        'new_name_album',
+        'duration'
     ];
 
     // RELACIÓNES ===============================
@@ -33,5 +36,29 @@ class Album extends Model
     public function user()
     {
         return $this->belongsTo(User::class)->select(['id', 'name', 'name_artist']);
+    }
+
+    // Relación
+    public function likes()
+    {
+        // Una canción tiene muchos likes(favoritos)
+        return $this->hasMany(LikeAlbum::class);
+    }
+
+    // Válidación
+    public function checkLike(User $user)
+    {
+        // La asociación con la tabla likes, permite verificar el contenido
+        return $this->likes->contains('user_id', $user->id);
+    }
+
+
+    // Válidación
+    public function checkArtist(Album $Album)
+    {
+        $userId = Album::where('id', $Album->id)->pluck('user_id');
+        $ArtistName = User::where('id', $userId)->first();
+        // La asociación con la tabla likes, permite verificar el contenido $this->user->where('id', $userId)->pluck('name_artist');
+        return $ArtistName;
     }
 }

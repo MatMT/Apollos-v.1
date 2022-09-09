@@ -6,8 +6,9 @@ Dropzone.autoDiscover = false;
 const DropzoneImg = new Dropzone('#dropzone_img', {
     dictDefaultMessage: 'Sube tu <b>imagen</b> aquí',
     acceptedFiles: '.png, .jpg, .jpeg',
+    dictCancelUpload: "",
     addRemoveLinks: true,
-    dictRemoveFile: 'Borrar Archivo',
+    dictRemoveFile: `<span class='remove-dz-img'><img src="../../assets/icons/removeIconWht.png"></span>`,
     maxFiles: 1,
     uploadMultiple: false,
     // maxFilesize: , // 2 MB
@@ -28,6 +29,7 @@ const DropzoneImg = new Dropzone('#dropzone_img', {
             // Clase de Css propia de Dropzone
             imagenPublicada.previewElement.classList.add('dz-success', 'dz-complete');
         }
+        
     }
 });
 
@@ -39,20 +41,19 @@ DropzoneImg.on('success', function (file, response) {
 // Remueve el valor de la imagen al input hiden
 DropzoneImg.on('removedfile', function () {
     document.querySelector('[name="imagen"]').value = '';
-    document.querySelector('[name="time"]').value = '';
 });
 
 // ===============================
 
 // Espacio para canción
 const DropzoneMp3 = new Dropzone('#dropzone_audio', {
-    dictDefaultMessage: 'Sube tu <b>canción</b> aquí',
-    acceptedFiles: '.mp3',
+    acceptedFiles: '.mp3, .m4a',
     addRemoveLinks: true,
-    dictRemoveFile: 'Borrar Archivo',
+    dictRemoveFile: `<span class='remove-dz-img'><img src="../../assets/icons/removeIconWht.png"></span>`,
+    dictCancelUpload: "",
     maxFiles: 1,
     uploadMultiple: false,
-    maxFilesize: 6, // 6 MB
+    maxFilesize: 12, // 6 MB
 
     // En caso de haber subido la canción anteriormente restablecerá el elemento
     init: function () {
@@ -73,11 +74,13 @@ const DropzoneMp3 = new Dropzone('#dropzone_audio', {
 DropzoneMp3.on('success', function (file, response) {
     document.querySelector('[name="song"]').value = response.song;
     document.querySelector('[name="time"]').value = response.time;
+    document.querySelector('[name="total"]').value = response.total;
 });
 
 // Remueve el valor de la canción al input hiden
 DropzoneMp3.on('removedfile', function () {
     document.querySelector('[name="song"]').value = '';
     document.querySelector('[name="time"]').value = '';
+    document.querySelector('[name="total"]').value = '';
 
 });

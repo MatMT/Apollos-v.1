@@ -5,58 +5,85 @@ namespace App\Http\Controllers;
 use App\Models\Song;
 use App\Models\User;
 use App\Models\Album;
-use Illuminate\Http\Request;
+use App\Models\Like;
+use App\Models\Playlist;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
 class SongsShowController extends Controller
 {
-    // Canciones ==========
-    public function index(User $user)
+    public function __construct()
     {
-        // Obtener albúmes
-        $album = Album::where('user_id', $user->id)->first(); // Get trae los resultados de la consulta en colección
-
-        // Llamamos al modelo y automáticamente su tabla
-        $songs = Song::where('album_id', $album->id)->paginate(8); // Paginate elabora una lógica para crear páginas
-
-        // Mostramos vista y devolvemos datos con las llaves 
-        return view('uploads.show', [
-            'user' => $user,
-            'songs' => $songs,
-            'albums' => $album
-        ]);
+        // Verificar inicio de sesión
+        $this->middleware('auth');
+        // Permitir acceso de usuario | No de admin
+        $this->middleware('user.log');
     }
 
     // REPRODUCTOR ==========
     public function show(User $user, Song $song)
     {
-        return view('uploads.show', [
-            'user' => $user,
-            'song' => $song
+        if ($song->visibility == true) {
+            // Llamamos al modelo y automáticamente su tabla
+            $songs = Song::where([['album_id', $song->album_id], ['visibility', true]])->get();
+
+            return view('uploads.show', [
+                'user' => $user,
+                'OtherSongs' => $songs,
+                'ActuallySong' => $song
+            ]);
+        }
+        return back();
+    }
+
+    // Playlist ==========
+    public function fav(User $user, Song $song)
+    {
+        // Extraer mis canciones
+        $MyListOfSongs = Like::where('user_id', auth()->user()->id)->pluck('song_id');
+        $MySongs = Song::whereIn('id', $MyListOfSongs)->where('visibility', true)->orderBy('id')->get();
+
+        // dd($MySongs);
+        return view('uploads.show_fav', [
+            'OtherSongs' => $MySongs,
+            'ActuallySong' => $song
+        ]);
+    }
+
+    // Playlist ==========
+    public function playlist(Playlist $playlist, Song $song)
+    {
+        // Extraer mis canciones en la playlist mediante el método del modelo
+        $MySongs = $playlist->MySongsPlaylist(auth()->user());
+        return view('uploads.show_playlist', [
+            'OtherSongs' => $MySongs,
+            'MyPlaylist' => $playlist,
+            'ActuallySong' => $song
         ]);
     }
 
     // Eliminar ==========
     public function destroy(User $user, Song $song)
-
     {
-        // Eliminar registro
-        $song->delete();
-
-        // Eliminar imagen - sencillos
+        // Validación si es sencillo
         if ($song->sencillo == true) {
-            $imagen_path = storage_path('app/public/uploads/imagenes/' . $song->image);
-            if (File::exists($imagen_path)) { // Facades propio de Laravel
-                unlink($imagen_path);
+            // Eliminar registro
+            $song->delete();
+
+            // Eliminar imagen - sencillos
+            if ($song->sencillo == true) {
+                $imagen_path = storage_path('app/public/uploads/imagenes/' . $song->image);
+                if (File::exists($imagen_path)) { // Facades propio de Laravel
+                    unlink($imagen_path);
+                }
+            }
+
+            // Eliminar archivo .mp3
+            $cancion_path = storage_path('app/public/uploads/canciones/' . $song->url);
+            if (File::exists($cancion_path)) { // Facades propio de Laravel
+                unlink($cancion_path);
             }
         }
-
-        // Eliminar archivo .mp3
-        $cancion_path = storage_path('app/public/uploads/canciones/' . $song->url);
-        if (File::exists($cancion_path)) { // Facades propio de Laravel
-            unlink($cancion_path);
-        }
-
         return redirect()->route('profile.index', auth()->user()->name_artist);
     }
 }

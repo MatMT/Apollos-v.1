@@ -13,7 +13,7 @@
 /*------------------- Contenedor Principal y Flechas -------------------*/
 
 .main-content{
-    margin-bottom: 70px;
+    margin-bottom: 10px;
 }
 
 .main-content .contenedor-principal{
@@ -97,6 +97,24 @@
     
     .card{
         min-width: 20%;
+    }
+}
+
+@media screen and (max-width: 1070px) {
+    
+    .card{
+        min-width: 25%;
+    }
+}
+
+@media screen and (max-width: 864px) {
+    
+    .card{
+        min-width: 33.33333333%;
+    }
+
+    .main-content{
+        margin-bottom: 0px;
     }
 }
 

@@ -2,18 +2,18 @@
 
 {{-- Paso en la progress bar --}}
 @section('step2')
-    bg-purple-800 text-white
+    blur-bg text-white
 @endsection
 
 {{-- Variable de la progress bar --}}
 @section('song/s')
-    <div class="basis-1/5 text-center p-1 ">Canciones</div>
+    <div class="basis-1/5 text-center py-3 bg-white ">{{__('Songs')}}</div>
 @endsection
 
 @section('subtitulo')
-    Establece el Titulo
+{{__('Set a title to your album')}}
 @endsection
 
 @section('placeholder')
-    Titulo del álbum
+{{__('Album title')}}
 @endsection

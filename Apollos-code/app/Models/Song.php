@@ -19,6 +19,8 @@ class Song extends Model
         'genre',
         'url',
         'image',
+        'total',
+        'new_name_sencillo'
     ];
 
     // RELACIÓNES ===============================
@@ -44,9 +46,31 @@ class Song extends Model
         return $this->likes->contains('user_id', $user->id);
     }
 
-    // public function user()
-    // {
-    //     // Una canción pertenece a un usuario
-    //     return $this->belongsTo(User::class)->select(['name', 'name_artist']); // Select - unicos campos a recibir
-    // }
+    // MÉTODO ===============================
+    public function InfoArtista(Song $song)
+    {
+        $Album = Album::where('id', $song->album_id)->first();
+        $Artista = User::where('id', $Album->user_id)->first();
+        return $Artista;
+    }
+
+    public function infoAlbum(Song $song)
+    {
+        $Album = Album::where('id', $song->album_id)->first();
+        return $Album->name_album;
+    }
+
+    public function AlreadyAdded()
+    {
+        $UserLog = auth()->user()->id;
+        $MyPlaylist = Playlist::where('user_id', $UserLog)->exists();
+
+        if ($MyPlaylist) {
+            $MyPlaylist = Playlist::where('user_id', $UserLog)->exists('id');
+            $IsOnPlaylist = Playlist_song::where([['playlist_id', $MyPlaylist], ['song_id', $this->id]])->exists();
+            return $IsOnPlaylist;
+        }
+
+        return null;
+    }
 }

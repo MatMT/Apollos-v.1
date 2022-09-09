@@ -2,14 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Album;
 use App\Models\Song;
 use Illuminate\Http\Request;
 
 class LikeController extends Controller
 {
+    public function __construct()
+    {
+        // Verificar inicio de sesión
+        $this->middleware('auth');
+        // Permitir acceso de usuario | No de admin
+        $this->middleware('user.log');
+    }
+
     // Agregar a favoritos
     public function store(Request $request, Song $song)
     {
+
         $song->likes()->create([
             'user_id' => $request->user()->id
         ]);

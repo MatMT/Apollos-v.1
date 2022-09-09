@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
 
-    // INPUTS ó Campos a recibir ================
+    // INPUTS ó Campos a recibir ===================
 
     protected $fillable = [
         'name',
@@ -52,6 +52,41 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    // CAMPOS ===================================
+
+    public function obtenerName($id)
+    {
+        // Obtener nombre mediante id
+        $nombre = User::find($id);
+        return  $nombre->name;
+    }
+
+    public function obtenerArtist($id)
+    {
+        // Obtener nombre mediante id
+        $nombre = User::find($id);
+        return  $nombre;
+    }
+
+    public function obtenerFavs($u_id)
+    {
+        $favs = Like::where('user_id', $u_id)->get();
+        return $favs;
+    }
+
+    public function obtenerFavsAlbum($u_id)
+    {
+        $favsAlbum = LikeAlbum::where('user_id', $u_id)->get();
+        return $favsAlbum;
+    }
+
+    public function obtenerSong($u_song)
+    {
+        $fSong = Song::where('id', $u_song)->first();
+        return $fSong;
+    }
+
+
     // RELACIÓNES ===============================
 
     // Relación
@@ -68,9 +103,31 @@ class User extends Authenticatable
         return $this->hasMany(Like::class);
     }
 
-    // public function songs()
-    // {
-    //     // Un usuario tiene muchas canciones
-    //     return $this->hasMany(Song::class);
-    // }
+    public function likesAlbum()
+    {
+        // Un usuario puede tener/dar múltiples likes(favoritos)
+        return $this->hasMany(LikeAlbum::class);
+    }
+
+    // Relación inversa - Seguidores de un usuario
+    public function followers()
+    {
+        return $this->belongsToMany(User::class, 'followers', 'user_id', 'follower_id');
+    }
+
+    // Relación - Seguidos de un usuario
+    public function followings()
+    {
+        return $this->belongsToMany(User::class, 'followers', 'follower_id', 'user_id');
+    }
+
+    // MÉTODOS ===============================
+
+    // Válidación
+    public function siguiendo(User $user)
+    {
+        // La asociación con la tabla likes, permite verificar el contenido
+        $Flag = Follower::where([['user_id', $user->id], ['follower_id', auth()->user()->id]])->exists();
+        return $Flag;
+    }
 }

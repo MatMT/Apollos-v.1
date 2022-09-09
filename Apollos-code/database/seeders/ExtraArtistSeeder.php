@@ -32,7 +32,7 @@ class ExtraArtistSeeder extends Seeder
         $BadBunnyAlbum->user_id = 18;
         $BadBunnyAlbum->name_album = 'Un Verano Sin Ti';
         $BadBunnyAlbum->genre = 'reggaeton';
-        $BadBunnyAlbum->image = '438ec736-a425-4a3c-a180-f52577e5f550.jpg';
+        $BadBunnyAlbum->image = '5842b5db-a01b-41a7-ba4f-45c86067ff29.jpg';
         $BadBunnyAlbum->sencillo = false;
         $BadBunnyAlbum->duration = '19:25';
         $BadBunnyAlbum->confirm = true;
@@ -50,7 +50,7 @@ class ExtraArtistSeeder extends Seeder
         $BadBunnySencillo1->time = '3:28';
         $BadBunnySencillo1->genre = 'reggaeton';
         $BadBunnySencillo1->url = '35b56f83-19ae-4103-bf9f-09563e0e00b2.mp3';
-        $BadBunnySencillo1->image = '5842b5db-a01b-41a7-ba4f-45c86067ff29.jpg';
+        $BadBunnySencillo1->image = 'b2b1e80c-d047-48f4-8bd2-9b2d50686a00.png';
         $BadBunnySencillo1->total = 208.07;
         $BadBunnySencillo1->created_at = now();
         $BadBunnySencillo1->updated_at = now();

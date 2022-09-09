@@ -1,7 +1,7 @@
 /* Colores para la barra de reproducción */
 
 var myColors = ['#700353', '#454092', '#ff0054', '#ff5c0a', '#ffce47'];
-var rand = Math.floor(Math.random()*myColors.length);
+var rand = Math.floor(Math.random() * myColors.length);
 var rValue = myColors[rand];
 console.log(rValue)
 
@@ -46,7 +46,7 @@ var range_vol = document.getElementById("vol");
 
 
 
-// Icocno de audio
+// Icono de audio
 
 var volumen = document.getElementById("volumen");
 var volchange = document.getElementById("vol");
@@ -62,35 +62,35 @@ reproducir();
 // Obtenr la posición de la canción dentro del arreglo
 
 function reproducir() {
-    
+
     // numero de veces que se llama la función actually_time
     const num_time = 1000;
 
     audio.load();
-    audio.volume = 0.5;
+    audio.volume = 0.7;
     audio.play();
-    
+
     barra_volumen.addEventListener('click', volumen_control, false);
 
 
-    /* Colocar Evantos  */
+    /* Colocar Eventos  */
 
-    btn_pause.addEventListener('click', function(){
-        
+    btn_pause.addEventListener('click', function () {
+
         audio.pause();
-        
+
         btn_pause.classList.remove("active");
         btn_play.classList.add("active");
-        
+
     })
 
-    btn_play.addEventListener('click', function(){
-        
+    btn_play.addEventListener('click', function () {
+
         audio.play();
-        
+
         btn_play.classList.remove("active");
         btn_pause.classList.add("active");
-        
+
     })
 
 
@@ -103,20 +103,20 @@ function reproducir() {
     // arreglo de las canciones de la lista 
 
     var tracks = document.getElementsByTagName("article");
-    
-    
-    audio.addEventListener('ended', function(e){
 
-        if(posicion+1 == tracks.length){
+
+    audio.addEventListener('ended', function (e) {
+
+        if (posicion + 1 == tracks.length) {
             let repetir_ciclo = tracks[0];
 
             let get_url = repetir_ciclo.getAttribute("href");
 
-            window.location= get_url;
+            window.location = get_url;
 
-        }else{
+        } else {
             let siguiente = tracks[posicion + 1];
-        
+
 
             let url_next_song = siguiente.getAttribute("href");
 
@@ -124,17 +124,17 @@ function reproducir() {
         }
     })
 
-    btn_next.addEventListener('click', function(){
-        if(posicion+1 == tracks.length){
+    btn_next.addEventListener('click', function () {
+        if (posicion + 1 == tracks.length) {
             let repetir_ciclo = tracks[0];
 
             let get_url = repetir_ciclo.getAttribute("href");
 
-            window.location= get_url;
+            window.location = get_url;
 
-        }else{
+        } else {
             let siguiente = tracks[posicion + 1];
-        
+
 
             let url_next_song = siguiente.getAttribute("href");
 
@@ -142,20 +142,20 @@ function reproducir() {
         }
     })
 
-    btn_back.addEventListener('click', function(){
-        if(posicion == 0){
+    btn_back.addEventListener('click', function () {
+        if (posicion == 0) {
 
             let num_canciones = tracks.length;
 
-            let hacia_atras = tracks[num_canciones-1];
+            let hacia_atras = tracks[num_canciones - 1];
 
             let get_url = hacia_atras.getAttribute("href");
 
-            window.location= get_url;
+            window.location = get_url;
 
-        }else{
+        } else {
             let siguiente = tracks[posicion - 1];
-        
+
 
             let url_next_song = siguiente.getAttribute("href");
 
@@ -167,9 +167,9 @@ function reproducir() {
     line_time.addEventListener("click", tim, false);
     var load;
 
-    if(audio.paused == false){
+    if (audio.paused == false) {
         btn_pause.classList.add("active");
-    
+
         load = setInterval(time_continue, 1);
         tmer = setInterval(printTime, num_time);
     }
@@ -177,63 +177,61 @@ function reproducir() {
     var siempre;
 
     siempre = setInterval(widthBarra, num_time);
-    
+
 }
 
 // Control de la barra del tiempo 
 
 function time_continue() {
-    if(audio.ended == false){
-        var total = parseInt(audio.currentTime*wth_line/audio.duration);
+    if (audio.ended == false) {
+        var total = parseInt(audio.currentTime * wth_line / audio.duration);
 
-        var porcentaje = (total*100)/wth_line;
-        line_progress.style.width = porcentaje + "%"; 
+        var porcentaje = (total * 100) / wth_line;
+        line_progress.style.width = porcentaje + "%";
     }
 }
 
-function posicionamiento(posicionamiento){
-    
-    var click = posicionamiento.pageX-line_time.offsetLeft;
+function posicionamiento(posicionamiento) {
 
-    var nuevoTiempo = click*audio.duration/wth_line;
+    var click = posicionamiento.pageX - line_time.offsetLeft;
+
+    var nuevoTiempo = click * audio.duration / wth_line;
 
 
     audio.currentTime = nuevoTiempo;
 
-    line_progress.style.width =  (click) + "px";
+    line_progress.style.width = (click) + "px";
 }
 
 function tim(posicion) {
-    if(audio.ended==false){
-        var raton = posicion.pageX-line_time.offsetLeft;
+    if (audio.ended == false) {
+        var raton = posicion.pageX - line_time.offsetLeft;
 
-        var nuevoTiempo = raton*audio.duration/wth_line;
+        var nuevoTiempo = raton * audio.duration / wth_line;
 
         duracion = nuevoTiempo;
 
-        horas = parseInt(duracion/3600);
-        minutos = parseInt(duracion/60) - horas * 60;
+        horas = parseInt(duracion / 3600);
+        minutos = parseInt(duracion / 60) - horas * 60;
 
-        segundos = parseInt((duracion / 60 - (horas*60))*60) - (minutos * 60);
+        segundos = parseInt((duracion / 60 - (horas * 60)) * 60) - (minutos * 60);
 
-        if(segundos < 10){
+        if (segundos < 10) {
             current_time.innerHTML = minutos.toString() + ":0" + segundos.toString();
-        }else{
+        } else {
             current_time.innerHTML = minutos.toString() + ":" + segundos.toString();
         }
     }
 }
 
-
-
 // Visualización de los minutos que transcurren
-function printTime(){
+function printTime() {
     //seg = pista.currentTime;
-    
-    if (audio.currentTime > 0){
+
+    if (audio.currentTime > 0) {
         var actualSegundos = audio.currentTime.toFixed(0);
         var actual = secondsToString(actualSegundos);
-        
+
         var duracion = actual;
         current_time.innerHTML = duracion;
     }
@@ -242,24 +240,24 @@ function printTime(){
 }
 
 function secondsToString(seconds) {
-    var hour="";
-    if (seconds > 3600){
+    var hour = "";
+    if (seconds > 3600) {
         hour = Math.floor(seconds / 3600);
-        hour = (hour < 10)? '0' + hour : hour;
-        hour+=":"
+        hour = (hour < 10) ? '0' + hour : hour;
+        hour += ":"
     }
 
 
     var minute = Math.floor((seconds / 60) % 60);
-    minute = (minute < 10)? + minute : minute;
+    minute = (minute < 10) ? + minute : minute;
     var second = seconds % 60;
-    second = (second < 10)? '0' + second : second;
-    return hour  + minute + ':' + second;
+    second = (second < 10) ? '0' + second : second;
+    return hour + minute + ':' + second;
 }
 
 // Obtener siempre el ancho del div
 
-function widthBarra(){
+function widthBarra() {
     var newWidth;
 
     newWidth = line_time.offsetWidth;
@@ -269,15 +267,15 @@ function widthBarra(){
 }
 
 
-function volumen_control(volumen_control){
+function volumen_control(volumen_control) {
 
-    
-    let rango = volumen_control.pageX-barra_volumen.offsetLeft;
 
-    var nuevoVolumen = (rango * 1)/wdt_vol;
-    
+    let rango = volumen_control.pageX - barra_volumen.offsetLeft;
+
+    var nuevoVolumen = (rango * 1) / wdt_vol;
+
     audio.volume = nuevoVolumen;
 
-    range_vol.style.width =  rango + "px";
+    range_vol.style.width = rango + "px";
 
 }

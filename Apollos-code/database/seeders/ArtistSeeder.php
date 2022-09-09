@@ -19,7 +19,7 @@ class ArtistSeeder extends Seeder
         $bbno = new User();
         $bbno->name = 'Alexander';
         $bbno->last_name = 'Gumuchian';
-        $bbno->rol = 'artist';
+        $bbno->rol = 'artist';  
         $bbno->email = 'Bbno@correo.com';
         $bbno->username = 'Bbno$';
         $bbno->status = 'active';
@@ -157,7 +157,23 @@ class ArtistSeeder extends Seeder
         $pereira->gender = false;
         $pereira->birth_date = "1997-05-26";
         $pereira->save();
-    }
 
-
+        // Artist Default - 18 - VINI
+        $jnjus = new User();
+        $jnjus->name = "Jesus";
+        $jnjus->last_name = "Flores";
+        $jnjus->rol = 'artist';
+        $jnjus->email = "jnj6032@gmail.com";
+        $jnjus->username = "JnJ";
+        $jnjus->status = "active";
+        $jnjus->age = "18";
+        $jnjus->password = Hash::make('1234');
+        $jnjus->created_at = now();
+        $jnjus->updated_at = now();
+        $jnjus->name_artist = "JnJ";
+        $jnjus->gender = false;
+        $jnjus->birth_date = "2004-08-19";
+        $jnjus->image = '1704617d-ce59-4dfd-9bbd-79b8a273a311.jpg';
+        $jnjus->save();
+        }
 }

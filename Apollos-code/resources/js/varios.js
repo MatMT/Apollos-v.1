@@ -26,11 +26,7 @@ const trespuntitos = document.getElementById("trespuntitos");
 const reportar = document.getElementById("other-icons");
 
 trespuntitos.addEventListener("click", function(){
-    reportar.classList.add("active");
-})
-
-trespuntitos.addEventListener('dblclick', function(){
-    reportar.classList.remove("active");
+    reportar.classList.toggle("active");
 })
 
 

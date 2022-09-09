@@ -217,5 +217,18 @@ class SongViniSeeder extends Seeder
         $TylerCreatAlbum6->updated_at = now();
         $TylerCreatAlbum6->save();
 
+        //       ====================== > JNJ< ===========================
+        // ====================== > JNJ: Sencillos < ===========================        
+        $TylerCreatSencillo1 = new Song();
+        $TylerCreatSencillo1->album_id = 18; 
+        $TylerCreatSencillo1->sencillo = true;
+        $TylerCreatSencillo1->name_song = 'New Orizons';
+        $TylerCreatSencillo1->time = '3:14';
+        $TylerCreatSencillo1->genre = 'electronic';
+        $TylerCreatSencillo1->url = '9d637819-d144-4348-8067-4f105165015e.m4a';
+        $TylerCreatSencillo1->image = 'ccef8c6c-a7ea-4d58-b906-21dc35fdf534.jpg';
+        $TylerCreatSencillo1->created_at = now();
+        $TylerCreatSencillo1->updated_at = now();
+        $TylerCreatSencillo1->save();
     }
 }

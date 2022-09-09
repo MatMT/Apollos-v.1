@@ -85,5 +85,16 @@ class AlbumViniSeeder extends Seeder
         $TylerCreatAlbum2->created_at = now();
         $TylerCreatAlbum2->updated_at = now();
         $TylerCreatAlbum2->save();
+
+        //       ====================== > Tyler, The Creator < ===========================
+        // Tyler sencillo - Vini
+        $jnjsusSencillo = new Album();
+        $jnjsusSencillo->user_id = 18;
+        $jnjsusSencillo->name_album = 'sencillos_jnj';
+        $jnjsusSencillo->sencillo = true;
+        $jnjsusSencillo->confirm = true;
+        $jnjsusSencillo->created_at = now();
+        $jnjsusSencillo->updated_at = now();
+        $jnjsusSencillo->save();
     }
 }

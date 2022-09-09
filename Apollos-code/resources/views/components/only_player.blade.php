@@ -38,7 +38,7 @@
             </div>
             <div class="controles relative">
                 <livewire:like-song :song="$actuallysong" />
-                <div class="sonido flex items-center w-1/3">
+                <div class="sonido  items-center w-1/3 hidden">
                     <i class="fi fi-rr-volume mx-2 text-lg transition-all ease-in-out hover:opacity-100"
                         id="volumen"></i>
                     <div class="totalvol w-4/5 min-w-[3rem] h-[3px] bg-zinc-700 rounded hidden 2lg:flex cursor-pointer"

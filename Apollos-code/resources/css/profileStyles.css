@@ -100,7 +100,6 @@ header.sticky {
     order: 2;
 }
 
-
 .song-pic-tab img,
 .counter-time-tab img {
     min-width: 20px;
@@ -148,8 +147,8 @@ span.song-pic-tab {
 .song-container-tabs,
 .song-info-tabs,
 .content {
-    min-width: 1140px !important;
-    max-width: 1140px !important;
+    min-width: 1240px !important;
+    max-width: 1240px !important;
 }
 
 .content {
@@ -251,12 +250,12 @@ h1.author {
     margin-top: -20px;
 }
 
-.artist-cont{
-        min-width: 1140px !important;
+.artist-cont {
+    min-width: 1140px !important;
     max-width: 1140px !important;
 }
 
-.artist-cont .content{
+.artist-cont .content {
     min-width: 1146.4px !important;
     max-width: 1146.4px !important;
 }

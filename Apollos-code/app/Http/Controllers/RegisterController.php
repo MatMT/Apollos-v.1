@@ -24,8 +24,8 @@ class RegisterController extends Controller
             'nombre' => 'required|min:2|max:20 ',
             'apellido' => 'required|min:4|max:25 ',
             'email' => 'required|email|unique:users,email|max:50',
-            'password' => 'required|min:4',
-            'género'=> 'required',
+            'password' => 'required|min:6',
+            'género' => 'required',
             'nacimiento' => 'required|date',
             'usuario' => 'required|string|unique:users,username|min:3|max:30',
         ]);
@@ -68,7 +68,7 @@ class RegisterController extends Controller
             'name_artist' =>  $request->usuario,
             'username' => $username
         ]);
-        
+
         // Autentificación
         auth()->attempt($request->only('email', 'password'));
 

@@ -157,9 +157,7 @@ class UserSeeder extends Seeder
         $vini->name_artist = 'matador';
         $vini->gender = false;
         $vini->birth_date = '2005-07-01';
-        $vini->image = '3526eb1d-501a-4245-b33e-23823a3eee97.jpg';
+        $vini->image = '4c76e35a-1a47-438e-895d-072b50e64eac.jpg';
         $vini->save();
-
-    
     }
 }

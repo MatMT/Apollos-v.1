@@ -1,4 +1,4 @@
-:root{
+:root {
     /*Paleta de colores Apollos*/
 
     --morado-apl: #262455;
@@ -9,16 +9,15 @@
 }
 /*------- -------- ----- ----- titilo de la pLAYLIST*/
 
-.info-play-list{
+.info-play-list {
     display: flex;
     width: 100%;
     max-height: 350px;
     align-items: center;
     margin-top: 30px;
-    
 }
 
-.img-play-list{
+.img-play-list {
     width: 30%;
     max-width: 250px;
     min-width: 238px;
@@ -32,14 +31,11 @@
     justify-content: center;
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.342);
-    
 }
 
-.img-play-list img{
+.img-play-list img {
     width: 75%;
 }
-
-
 
 /* boton escuchar playlist */
 
@@ -57,10 +53,9 @@
     font-weight: bold;
 }
 
-
 /*----------------------- Lista de repoducción */
 
-.play-list-container{
+.play-list-container {
     width: 100%;
     padding: 10px;
     padding-bottom: 40px;
@@ -68,9 +63,8 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.37);
 }
 
-.songs-list{
+.songs-list {
     width: 100%; /* Este contenedor adquiere el tamaño de su padre*/
-   
 }
 
 /*--- Fila de la tabla -----*/
@@ -82,9 +76,7 @@
     max-height: 50px;
     padding: 5px;
     transition: 0.1s ease-in-out;
-
 }
-
 
 .fila-hight-v .num-song {
     width: 70px;
@@ -113,7 +105,7 @@
 
 /*Linea blanca*/
 
-.line-table{
+.line-table {
     width: 100%;
     height: 1px;
     background-color: white;
@@ -132,13 +124,12 @@
     padding: 1px 0px;
     transition: 0.1s ease-in-out;
 }
-.song a{
+.song a {
     width: 100%;
 }
 .fila-content-v:hover {
     background-color: rgba(255, 255, 255, 0.158);
 }
-
 
 .fila-content-v div {
     cursor: default;
@@ -204,16 +195,15 @@
     color: rgba(255, 255, 255, 0.7);
 }
 
-
 /*----- Area de buscar canciones para la playList*/
 
-.form-buscador{
+.form-buscador {
     width: 60%;
     margin-top: 20px;
     padding: 15px;
 }
 
-.form-buscador .input-b{
+.form-buscador .input-b {
     color: rgba(255, 255, 255, 0.8);
     width: 100%;
     padding: 10px 15px;
@@ -224,34 +214,29 @@
     align-content: center;
 }
 
-.form-buscador input{
+.form-buscador input {
     background-color: transparent;
     margin-left: 10px;
     width: 100%;
     outline: none;
 }
 
-.form-buscador input::placeholder{
+.form-buscador input::placeholder {
     color: rgba(255, 255, 255, 0.8);
 }
 
-
-
 /* Resultado de busquedsa y sugerencias */
 
-
-.list-songs-choose{
+.list-songs-choose {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-
-    margin: 40px 20px;
-
+    justify-content: space-around;
+    margin: 40px 0;
 }
 
 /*Caciones encontradas */
-.song-found{
+.song-found {
     width: 100%;
     min-width: 280px;
     max-width: 330px;
@@ -262,16 +247,16 @@
     margin: 10px;
 }
 
-.song-found img{
+.song-found img {
     width: 25%;
     border-radius: 5px;
 }
 
-.song-found .info-song{
-    margin-right: 10px;    
+.song-found .info-song {
+    margin-right: 10px;
 }
 
-.song-found button{
+.song-found button {
     border: 1px solid white;
     padding: 5px 10px;
     border-radius: 10px;
@@ -280,55 +265,50 @@
     transition: 0.3s all ease;
 }
 
-.song-found button:hover{
+.song-found button:hover {
     opacity: 0.9;
     background-color: white;
     color: black;
 }
 
-
-
 /* ------ Responsive Desing ---------*/
 
-
-@media screen and (max-width: 658px){
-    .list-songs-choose{
+@media screen and (max-width: 658px) {
+    .list-songs-choose {
         justify-content: space-around;
     }
 
-    .song-found{
+    .song-found {
         width: 80%;
         max-width: 100%;
-    }    
+    }
 }
 
-@media screen and (min-width: 1365px){
-    .section_1{
+@media screen and (min-width: 1365px) {
+    .section_1 {
         display: flex;
         justify-content: space-between;
     }
 
-
-    .buscar-cancion{
+    .buscar-cancion {
         width: 30%;
         margin-left: 40px;
     }
-    
-    .form-buscador{
+
+    .form-buscador {
         width: 100%;
     }
 
-    .list-songs-choose{
+    .list-songs-choose {
         max-height: 550px;
         overflow: hidden;
         overflow-y: auto;
     }
 }
 
-
 /*Modificadores PLay list y Albums */
 
-.modify-list-a{
+.modify-list-a {
     border-radius: 10px;
     background-color: rgb(41, 40, 40);
     padding: 20px;
@@ -343,17 +323,16 @@
     transform: scale(1);
 }
 
-.modify-list-a form{
+.modify-list-a form {
     width: 100%;
 }
 
-
-.img-send{
+.img-send {
     width: 100%;
     margin-top: 10px;
 }
 
-.img-send .img-play-list{
+.img-send .img-play-list {
     max-width: 250px;
     min-width: 200px;
     max-height: 250px;
@@ -362,12 +341,12 @@
     margin: 0px auto;
 }
 
-.modify-info{
+.modify-info {
     width: 100%;
     padding: 0% auto;
 }
 
-.modify-info input[type="text"]{
+.modify-info input[type="text"] {
     margin: 30px auto;
     padding: 10px 30px;
     width: 80%;
@@ -378,10 +357,9 @@
     text-align: center;
     font-size: 25px;
     font-weight: 600;
-
 }
 
-.modify-info input[type="text"]::placeholder{
+.modify-info input[type="text"]::placeholder {
     color: var(--amarillo-apl);
     font-size: 25px;
     text-align: center;
@@ -391,14 +369,13 @@
     border-bottom: 1px solid var(--amarillo-apl);
 }
 
-
 /*Subir carción*/
 
-.modify-info input[type="file"]{
- display: none;   
+.modify-info input[type="file"] {
+    display: none;
 }
 
-.modify-info .subir{
+.modify-info .subir {
     padding: 10px;
     border-radius: 10px;
     margin: 0px auto;
@@ -408,25 +385,24 @@
     background-color: transparent;
     border: 1px solid white;
     opacity: 0.8;
-    
+
     cursor: pointer;
     transition: 0.4s all ease;
 }
 
-
-.modify-info .subir:hover{
+.modify-info .subir:hover {
     background-color: white;
     color: black;
     opacity: 1;
 }
 
-.modify-info .subir:active{
+.modify-info .subir:active {
     background-color: white;
     color: black;
     opacity: 1;
 }
 
-.btn-enviar-mod{
+.btn-enviar-mod {
     display: block;
     margin: 20px auto;
     padding: 10px 30px;
@@ -435,108 +411,100 @@
     transition: 0.4s all ease-in;
 }
 
-
-.btn-enviar-mod:hover{
+.btn-enviar-mod:hover {
     transform: scale(1.05);
 }
 
-.btn-cerrar{
+.btn-cerrar {
     opacity: 0.5;
     text-align: right;
     display: block;
     transition: 0.4s all ease-in;
 }
 
-.btn-cerrar:hover{
+.btn-cerrar:hover {
     opacity: 0.8;
 }
 
-
 /*Boton modificar la playlist */
 
-.box-icon{
+.box-icon {
     margin-top: 10px;
     display: flex;
     align-items: center;
 }
 
-
 /*----------------------------------------------------------- Reproductor de Musica (Album, canción, favoritos)*/
 
-.mainplayer{
+.mainplayer {
     height: 70vh;
     display: flex;
 }
 
-.songs-list-l{
+.songs-list-l {
     width: 100%;
 }
-.canciones{
+.canciones {
     max-height: 200px;
     overflow: hidden;
     overflow-y: auto;
 }
 
-.min-space{
+.min-space {
     margin-bottom: 2px;
 }
 
-.img-music{
+.img-music {
     padding: 0px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.img-music img{
+.img-music img {
     width: 55%;
     border-radius: 16px;
 }
 
-
-
-
-
-@media screen and (min-width: 1365px){
-    .list-player{
+@media screen and (min-width: 1365px) {
+    .list-player {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-top: 1rem;
     }
 
-    .img-music img{
-        width: 70%;    
+    .img-music img {
+        width: 70%;
     }
 
-    .canciones{
+    .canciones {
         max-height: 53vh;
     }
 
     .play-list-container.player2 {
         width: 50%;
     }
-    .min-space{
+    .min-space {
         margin-bottom: 20px;
     }
 
-    .mainplayer{
+    .mainplayer {
         align-items: center;
     }
 }
 
-
-@media screen and (max-height: 1000px){
-    .canciones{
+@media screen and (max-height: 1000px) {
+    .canciones {
         max-height: 40vh;
     }
 }
 
-@media screen and (max-height: 842px){
-    .canciones{
+@media screen and (max-height: 842px) {
+    .canciones {
         max-height: 30vh;
     }
-    .img-music img{
-        width: 60%;    
+    .img-music img {
+        width: 60%;
     }
 }

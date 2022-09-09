@@ -15,13 +15,13 @@ class SongViniSeeder extends Seeder
      */
     public function run()
     {
-        
+
         //       ====================== > Kanye West< ===========================
         // ====================== > Kanye: Sencillos < ===========================
 
         // Sencillo Kanye West - 1 - Vini
         $KanyeWestSencillo1 = new Song();
-        $KanyeWestSencillo1->album_id = 11; 
+        $KanyeWestSencillo1->album_id = 11;
         $KanyeWestSencillo1->sencillo = true;
         $KanyeWestSencillo1->name_song = 'True Love';
         $KanyeWestSencillo1->time = '2:29';
@@ -88,7 +88,7 @@ class SongViniSeeder extends Seeder
         $KanyeWestAlbum4->created_at = now();
         $KanyeWestAlbum4->updated_at = now();
         $KanyeWestAlbum4->save();
-        
+
         // Álbum Kanye - 2_2 - Vini
         $KanyeWestAlbum5 = new Song();
         $KanyeWestAlbum5->album_id = 13;
@@ -121,7 +121,7 @@ class SongViniSeeder extends Seeder
         //       ====================== > Tyler, The Creator< ===========================
         // ====================== > Tyler: Sencillos < ===========================        
         $TylerCreatSencillo1 = new Song();
-        $TylerCreatSencillo1->album_id = 14; 
+        $TylerCreatSencillo1->album_id = 14;
         $TylerCreatSencillo1->sencillo = true;
         $TylerCreatSencillo1->name_song = 'Cash In Cash Out';
         $TylerCreatSencillo1->time = '3:38';
@@ -188,7 +188,7 @@ class SongViniSeeder extends Seeder
         $TylerCreatAlbum4->created_at = now();
         $TylerCreatAlbum4->updated_at = now();
         $TylerCreatAlbum4->save();
-        
+
         // Álbum Tyler - 2_2 - Vini
         $TylerCreatAlbum5 = new Song();
         $TylerCreatAlbum5->album_id = 16;
@@ -220,7 +220,7 @@ class SongViniSeeder extends Seeder
         //       ====================== > JNJ< ===========================
         // ====================== > JNJ: Sencillos < ===========================        
         $TylerCreatSencillo1 = new Song();
-        $TylerCreatSencillo1->album_id = 18; 
+        $TylerCreatSencillo1->album_id = 17;
         $TylerCreatSencillo1->sencillo = true;
         $TylerCreatSencillo1->name_song = 'New Orizons';
         $TylerCreatSencillo1->time = '3:14';

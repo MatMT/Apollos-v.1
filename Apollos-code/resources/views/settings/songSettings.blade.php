@@ -7,7 +7,8 @@
 @section('header')
     <x-header></x-header>
 @endsection
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 @section('css')
     <style>
         header.sticky,
@@ -72,36 +73,34 @@
             z-index: -1;
         }
 
-        .foo{
-            max-width: 400px;
+        .foo {
+            width: 100%;
             cursor: pointer;
             border: 0;
             height: 60px;
             border-radius: 5px;
             outline: 0;
             transition: 200ms all ease;
-            border-bottom: 3px solid rgba(0,0,0,.2);
+            border-bottom: 3px solid rgba(0, 0, 0, .2);
             background: #1d1e22;
-            text-shadow: 0 2px 0 rgba(0,0,0,.2);
+            text-shadow: 0 2px 0 rgba(0, 0, 0, .2);
             color: #fff;
             font-size: 20px;
             text-align: center;
             line-height: 60px;
             border-radius: 5px;
-
             text-overflow: ellipsis;
             overflow: hidden;
             white-space: nowrap;
         }
 
         .foo:hover {
-        background: #75ea96;
-        }    
-
-        .photo-ico{
-            z-index: 2;
+            background: #75ea96;
         }
 
+        .photo-ico {
+            z-index: 2;
+        }
     </style>
 @endsection
 
@@ -110,8 +109,8 @@
 @endsection
 
 @section('content')
-    <div class=" md:flex md:justify-center pt-40 pb-32 overflow-hidden px-10 anim2">
-        <div class=" full-container justify-center md:w-3/4 flex shadow minH rounded-2xl overflow-hidden relative">
+    <div class=" md:flex md:justify-center pt-56 pb-32 overflow-hidden px-10 anim2">
+        <div class=" full-container justify-center md:w-3/4 flex shadow rounded-2xl overflow-hidden relative">
 
             <div class='top-div absolute w-full text-center p-5'>
                 <p class="text-2xl font-bold rounded-lg text-white ">
@@ -128,15 +127,17 @@
                                 d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
                                 clip-rule="evenodd"></path>
                         </svg>
-                        <p class="font-medium">{{__('Updated fields!')}}</p>
+                        <p class="font-medium">{{ __('Updated fields!') }}</p>
                     </li>
                 @endif
 
-                <form action="{{ route('song.settings.store', ['user' => $user, 'song' => $song->id]) }}" method="POST" class="needs-validation mt-4" novalidate enctype="multipart/form-data">
+                <form action="{{ route('song.settings.store', ['user' => $user, 'song' => $song->id]) }}" method="POST"
+                    class="needs-validation mt-4" novalidate enctype="multipart/form-data">
                     @csrf
 
                     <div class="mb-5">
-                        <label for="new_name_song" class="mb-2 block uppercase text-gray-800 font-bold">{{__('Title')}}</label>
+                        <label for="new_name_song"
+                            class="mb-2 block uppercase text-gray-800 font-bold">{{ __('Title') }}</label>
                         <input type="text" name="new_name_song" placeholder="{{ $song->name_song }}"
                             class="border p-3 w-full rounded-lg @error('titulo') border-red-500 @enderror">
                         @error('new_name_sencillo')
@@ -146,7 +147,7 @@
                         @enderror
                     </div>
 
-                    @if($song->sencillo)
+                    @if ($song->sencillo)
                         {{-- <div class="mb-5">
                             <x-gender-select></x-gender-select> 
                         </div> --}}
@@ -179,43 +180,44 @@
                         </div> --}}
 
                         <div class="mb-5">
-                            <p class="mb-2 block uppercase text-gray-800 font-bold">{{__('Song cover')}}</p>
+                            <p class="mb-2 block uppercase text-gray-800 font-bold">{{ __('Song cover') }}</p>
                             <div class="errors text-red-600 px-3 py-2 rounded mb-3">
                                 <p>
-                                    <span class="inline"><img src="{{ asset('assets/icons/errorIcon.png') }}" class="h-4 inline m-2"><strong class="font-bold">{{__("Update the song cover by editing your album")}}</strong></span>
+                                    <span class="inline"><img src="{{ asset('assets/icons/errorIcon.png') }}"
+                                            class="h-4 inline m-2"><strong
+                                            class="font-bold">{{ __('Update the song cover by editing your album') }}</strong></span>
                                 </p>
                             </div>
                         </div>
                     @endif
 
-                    <input type="submit" value="{{__('Save changes')}}"
-                    class="submit-bttn bg-sky-600 transition-colors cursor-pointer uppercase font-bold w-full p-3  text-white rounded-lg" />
-                    
+                    <input type="submit" value="{{ __('Save changes') }}"
+                        class="submit-bttn bg-sky-600 transition-colors cursor-pointer uppercase font-bold w-full p-3  text-white rounded-lg" />
+
                 </form>
                 <div>
-                    <li  type="submit" id="opcion2"
-                    class="flex items-center p-2 text-base font-normal">
-                    <a href="{{ route('song.show', ['song' => $song, 'user' => $user]) }}"
-                        class="transition-colors cursor-pointer uppercase font-bold w-full p-3  text-gray-800 rounded-lg text-center" >{{__('Return')}}</a>
-                        </li>
+                    <li type="submit" id="opcion2" class="flex items-center p-2 text-base font-normal">
+                        <a href="{{ route('song.show', ['song' => $song, 'user' => $user]) }}"
+                            class="transition-colors cursor-pointer uppercase font-bold w-full p-3  text-gray-800 rounded-lg text-center">{{ __('Return') }}</a>
+                    </li>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        var input = document.getElementById( 'image' );
-        var infoArea = document.getElementById( 'file-upload-filename' );
+        var input = document.getElementById('image');
+        var infoArea = document.getElementById('file-upload-filename');
 
-        input.addEventListener( 'change', showFileName );
+        input.addEventListener('change', showFileName);
 
-        function showFileName( event ) {
-        
-        var input = event.srcElement;
-        
-        var fileName = input.files[0].name;
-        
-        infoArea.textContent =  fileName;
+        function showFileName(event) {
+
+            var input = event.srcElement;
+
+            var fileName = input.files[0].name;
+
+            infoArea.textContent = fileName;
         }
     </script>
 @endsection

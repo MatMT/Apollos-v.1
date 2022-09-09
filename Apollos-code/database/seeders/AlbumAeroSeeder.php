@@ -19,7 +19,7 @@ class AlbumAeroSeeder extends Seeder
         // Tame Impala - AERO
         $TamImpSencillos = new Album();
         $TamImpSencillos->user_id = 11;
-        $TamImpSencillos->name_album = 'sencillos_tame-impala';
+        $TamImpSencillos->name_album = 'sencillos_tame_impala';
         $TamImpSencillos->sencillo = true;
         $TamImpSencillos->confirm = true;
         $TamImpSencillos->created_at = now();
@@ -54,7 +54,7 @@ class AlbumAeroSeeder extends Seeder
         // The Weeknd - AERO
         $weekndSencillos = new Album();
         $weekndSencillos->user_id = 12;
-        $weekndSencillos->name_album = 'sencillos_the-weeknd';
+        $weekndSencillos->name_album = 'sencillos_the_weeknd';
         $weekndSencillos->sencillo = true;
         $weekndSencillos->confirm = true;
         $weekndSencillos->created_at = now();

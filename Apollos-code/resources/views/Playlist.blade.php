@@ -111,7 +111,7 @@
                                 <div class="num-song font-titulo"></div>
                                 <div class="picture-song"></div>
                                 <div class="name-song text-2xl font-cuerpo">
-                                    <span>{{__("Let's find something for your platlist!")}}</span>
+                                    <span>{{ __("Let's find something for your platlist!") }}</span>
                                 </div>
                                 <div class="artists-song font"></div>
                                 <div class="dur-song font-titulo"></div>
@@ -127,9 +127,9 @@
                 <div class="buscar-cancion w-full">
 
                     <div class="list-buscados w-full">
-                        <h3 class="text-white font-cuerpo font-extrabold text-2xl ml-3 ">
+                        <h3 class="text-white font-cuerpo font-extrabold text-2xl ml-3 text-center ms:text-right">
                             {{ __('Find something for your list') }}</h3>
-                        <div class="form-buscador">
+                        <div class="form-buscador my-0 mx-auto">
                             <livewire:buscador-playlist :mysongs="$MySongs" />
                         </div>
                     </div>

@@ -26,7 +26,7 @@
 *::-webkit-scrollbar-thumb {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    background-color: #b10483;
+    background-color: #303030;
 }
 body {
     position: relative;
@@ -176,7 +176,7 @@ header .contenido-menu {
     padding: 10px 20px;
 
     background: rgba(20, 20, 20, 0.479);
-    border: rgba(250,250,250,0.1) 1px solid;
+    border: rgba(250, 250, 250, 0.1) 1px solid;
 
     -webkit-backdrop-filter: blur(10px);
     -moz-backdrop-filter: blur(10px);
@@ -593,15 +593,14 @@ footer {
     width: 40%;
 }
 
-.player.activer .controles{
+.player.activer .controles {
     width: 22%;
 }
 
-.player.activer .controles .controladores{
+.player.activer .controles .controladores {
     justify-content: space-between;
     min-width: 112px;
 }
-
 
 .player.activer .white-circule {
     left: 46%;
@@ -670,7 +669,7 @@ footer {
 }
 
 /* icocnos para el control de la canción */
-.reproduccion{
+.reproduccion {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -678,12 +677,12 @@ footer {
     margin-bottom: 5px;
 }
 
-.reproduccion .control{
+.reproduccion .control {
     font-size: 45px;
     margin: 0px 5px;
 }
 
-.reproduccion .change{
+.reproduccion .change {
     font-size: 30px;
     margin: 0px 10px;
 }
@@ -737,35 +736,31 @@ footer {
 }
 /* Nuevos botones de reportar */
 
-
-.other-icons{
+.other-icons {
     position: absolute;
     top: -10px;
     right: -10px;
-    padding: 5px 30px;
+    padding: 8px 30px;
     background-color: rgba(53, 53, 53, 0.9);
-    border-radius: 30px;
 }
-.other-icons-single{
+.other-icons-single {
     top: -50px !important;
 }
-.other-icons-song{
+.other-icons-song {
     top: -30px !important;
 }
 
-.other-icons.active{
+.other-icons.active {
     display: block;
 }
-.report{
+.report {
     transition: 0.4s all ease-in-out;
     cursor: pointer;
 }
 
-.report:hover{
+.report:hover {
     color: #ff0054;
 }
-
-
 
 /*
 .rombo{
@@ -1002,16 +997,13 @@ footer {
     }
 }
 
-
-@media screen and (min-width: 1200px){
-    .player.activer .line-time-song{
+@media screen and (min-width: 1200px) {
+    .player.activer .line-time-song {
         display: flex;
         width: 50.666%;
     }
 
-    .player.activer .controles{
+    .player.activer .controles {
         width: 22.6666%;
     }
 }
-
-

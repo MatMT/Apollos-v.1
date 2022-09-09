@@ -19,7 +19,7 @@ class AlbumViniSeeder extends Seeder
         // Kanye sencillo - Vini
         $KanyeWestSencillo = new Album();
         $KanyeWestSencillo->user_id = 15;
-        $KanyeWestSencillo->name_album = 'sencillos_kanye-west';
+        $KanyeWestSencillo->name_album = 'sencillos_kanye_west';
         $KanyeWestSencillo->sencillo = true;
         $KanyeWestSencillo->confirm = true;
         $KanyeWestSencillo->created_at = now();
@@ -55,7 +55,7 @@ class AlbumViniSeeder extends Seeder
         // Tyler sencillo - Vini
         $TylerCreatSencillo = new Album();
         $TylerCreatSencillo->user_id = 14;
-        $TylerCreatSencillo->name_album = 'sencillos_tyler-the-creator';
+        $TylerCreatSencillo->name_album = 'sencillos_tyler_the_creator';
         $TylerCreatSencillo->sencillo = true;
         $TylerCreatSencillo->confirm = true;
         $TylerCreatSencillo->created_at = now();
@@ -89,7 +89,7 @@ class AlbumViniSeeder extends Seeder
         //       ====================== > Tyler, The Creator < ===========================
         // Tyler sencillo - Vini
         $jnjsusSencillo = new Album();
-        $jnjsusSencillo->user_id = 18;
+        $jnjsusSencillo->user_id = 17;
         $jnjsusSencillo->name_album = 'sencillos_jnj';
         $jnjsusSencillo->sencillo = true;
         $jnjsusSencillo->confirm = true;

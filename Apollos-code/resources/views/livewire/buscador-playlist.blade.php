@@ -2,7 +2,7 @@
     <livewire:buscador-p>
         <div class="resultados">
             <div>
-                <div class="list-songs-choose text-white font-cuerpo">
+                <div class="list-songs-choose text-white font-cuerpo ">
                     @foreach ($songs as $song)
                         @if (!$song->AlreadyAdded($song->id))
                             <div class="song-found">

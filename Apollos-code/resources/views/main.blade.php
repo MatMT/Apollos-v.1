@@ -53,7 +53,7 @@
         <main class="principal w-6/7 m-auto mt-12 pt-5 font-cuerpo">
 
             <!--contenedor-carousel ALBUMS FAVORITOS --->
-            @if ($F_Albums->count())
+            @if ($F_Albums->count() or $Fav)
                 <div class="main-content text-white anim">
 
                     <h2 class="text-white text-2xl font-bold">{{ __('More of what you like') }}</h2>
@@ -65,21 +65,19 @@
                         <div class="contenedor-carousel">
                             <div class="carousel albums">
                                 {{-- FAVORITOS --}}
-                                @if ($Fav)
-                                    <div class="card drop-shadow-xl">
-                                        <a
-                                            href="{{ route('song.favorites.show', ['user' => $Fav->InfoArtista($Fav), 'song' => $Fav]) }}">
-                                            <div class="imagen albums">
-                                                <img src="{{ asset('storage/uploads/imagenes/favoritos.webp') }}"
-                                                    alt="Fav image">
-                                            </div>
-                                            <div class="title">
-                                                <div class="name font-titulo font-bold text-lg desktop_2:text-base">
-                                                    {{ __('Favorites') }}</div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                @endif
+                                <div class="card drop-shadow-xl">
+                                    <a
+                                        href="{{ route('song.favorites.show', ['user' => $Fav->InfoArtista($Fav), 'song' => $Fav]) }}">
+                                        <div class="imagen albums">
+                                            <img src="{{ asset('storage/uploads/imagenes/favoritos.webp') }}"
+                                                alt="Fav image">
+                                        </div>
+                                        <div class="title">
+                                            <div class="name font-titulo font-bold text-lg desktop_2:text-base">
+                                                {{ __('Favorites') }}</div>
+                                        </div>
+                                    </a>
+                                </div>
 
                                 @foreach ($F_Albums as $album)
                                     <div class="card drop-shadow-xl">

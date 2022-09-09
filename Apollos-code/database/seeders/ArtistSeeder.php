@@ -167,13 +167,31 @@ class ArtistSeeder extends Seeder
         $jnjus->username = "JnJ";
         $jnjus->status = "active";
         $jnjus->age = "18";
-        $jnjus->password = Hash::make('1234');
+        $jnjus->password = Hash::make('4321');
         $jnjus->created_at = now();
         $jnjus->updated_at = now();
-        $jnjus->name_artist = "JnJ";
+        $jnjus->name_artist = "jnj";
         $jnjus->gender = false;
         $jnjus->birth_date = "2004-08-19";
         $jnjus->image = '1704617d-ce59-4dfd-9bbd-79b8a273a311.jpg';
+        $jnjus->save();
+
+        // Artist Default - 19 - Mati
+        $jnjus = new User();
+        $jnjus->name = "Benito";
+        $jnjus->last_name = "Antonio";
+        $jnjus->rol = 'artist';
+        $jnjus->email = "badbunny@correo.com";
+        $jnjus->username = "Bad Bunny";
+        $jnjus->status = "active";
+        $jnjus->age = "28";
+        $jnjus->password = Hash::make('4321');
+        $jnjus->created_at = now();
+        $jnjus->updated_at = now();
+        $jnjus->name_artist = "bad-bunny";
+        $jnjus->gender = false;
+        $jnjus->birth_date = "1994-03-10";
+        $jnjus->image = '6edc0a3e-10ff-4dd6-9a95-ea2bd537c36d.jpg';
         $jnjus->save();
     }
 }

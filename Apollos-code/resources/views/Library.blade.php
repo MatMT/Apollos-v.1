@@ -1,6 +1,6 @@
 @extends('layouts.shape1')
 
-@section('title', __('Your library ') )
+@section('title', __('Your library '))
 
 @section('header')
     <x-header title="Biblioteca" activeli="this"></x-header>
@@ -25,9 +25,9 @@
 
                 <ul class="opciones text-2xl font-cuerpo desktop_2:text-xl">
                     <li class="opcion active-opcion" id="op1">{{ __('Favorites') }}</li>
-                    <li class="opcion albums-opcion remove" id="op2">{{__('Albums')}}</li>
+                    <li class="opcion albums-opcion remove" id="op2">{{ __('Albums') }}</li>
                     <li class="opcion artistas-opcion remove" id="op3">{{ __('Artists') }}</li>
-                    <li class="opcion favoritos-opcion remove hidden" id="op4">{{__('Favorites')}}</li>
+                    <li class="opcion favoritos-opcion remove hidden" id="op4">{{ __('Favorites') }}</li>
                 </ul>
 
                 <div class="line-1"></div>
@@ -35,7 +35,7 @@
 
             <div class="contenedores">
                 <div class="box-1 active anim2" id="caja-1">
-                    <div class="content">
+                    <div class="content @if (!$songsLikes->count()) flex justify-center mt-4 @endif">
 
                         @if ($songsLikes->count())
                             @foreach ($songsLikes as $song)
@@ -55,7 +55,7 @@
                             @endforeach
                         @else
                             <h1 class='text-white font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>
-                                {{__("You don't have favorites yet...")}}
+                                {{ __("You don't have favorites yet...") }}
                             </h1>
                         @endif
 
@@ -66,7 +66,7 @@
             <!--- Contenido Albums -->
 
             <div class="box-2 anim2" id="caja-2">
-                <div class="content">
+                <div class="content @if (!$F_Albums->count()) flex justify-center mt-4 @endif">
                     @if ($F_Albums->count())
                         @foreach ($F_Albums as $album)
                             <div class="info album">
@@ -84,7 +84,7 @@
                         @endforeach
                     @else
                         <h1 class='text-white font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>
-                            {{__("You don't have favorites albums yet...")}}
+                            {{ __("You don't have favorites albums yet...") }}
                         </h1>
                     @endif
                 </div>
@@ -93,7 +93,7 @@
             <!--- Contenido Artistas -->
 
             <div class="box-3 anim2" id="caja-3">
-                <div class="content">
+                <div class="content @if (!$F_artists->count()) flex justify-center mt-4 @endif">
                     @if ($F_artists->count())
                         @foreach ($F_artists as $artist)
                             <div class="info artista">
@@ -111,9 +111,9 @@
                             </div>
                         @endforeach
                     @else
-                    <h1 class='text-white font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>
-                        {{__("You don't follow any artist yet...")}}
-                    </h1>
+                        <h1 class='text-white font-cuerpo text-3xl font-bold mb-5 anim2 text-center'>
+                            {{ __("You don't follow any artist yet...") }}
+                        </h1>
                     @endif
 
                 </div>

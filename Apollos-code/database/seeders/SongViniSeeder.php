@@ -134,88 +134,88 @@ class SongViniSeeder extends Seeder
 
         // ====================== > Tyler, The Creator: Álbumes < ===========================
         // Álbum Tyler - 1_1 - Vini
-        $TylerCreatAlbum1 = new Song();
-        $TylerCreatAlbum1->album_id = 15;
-        $TylerCreatAlbum1->sencillo = false;
-        $TylerCreatAlbum1->name_song = "EARFQUAKE";
-        $TylerCreatAlbum1->time = '3:10';
-        $TylerCreatAlbum1->genre = 'pop';
-        $TylerCreatAlbum1->url = '6f169817-3f4f-476a-aa37-88c20477db2f.mp3';
-        $TylerCreatAlbum1->image = 'bfb9eef1-f637-45aa-9e3d-9efa1560384f.jpg';
-        $TylerCreatAlbum1->total = 190.12;
-        $TylerCreatAlbum1->created_at = now();
-        $TylerCreatAlbum1->updated_at = now();
-        $TylerCreatAlbum1->save();
+        $TylerCreatAlbum1s = new Song();
+        $TylerCreatAlbum1s->album_id = 15;
+        $TylerCreatAlbum1s->sencillo = false;
+        $TylerCreatAlbum1s->name_song = "EARFQUAKE";
+        $TylerCreatAlbum1s->time = '3:10';
+        $TylerCreatAlbum1s->genre = 'pop';
+        $TylerCreatAlbum1s->url = '6f169817-3f4f-476a-aa37-88c20477db2f.mp3';
+        $TylerCreatAlbum1s->image = 'bfb9eef1-f637-45aa-9e3d-9efa1560384f.jpg';
+        $TylerCreatAlbum1s->total = 190.12;
+        $TylerCreatAlbum1s->created_at = now();
+        $TylerCreatAlbum1s->updated_at = now();
+        $TylerCreatAlbum1s->save();
 
         // Álbum Tyler - 1_2 - Vini
-        $TylerCreatAlbum2 = new Song();
-        $TylerCreatAlbum2->album_id = 15;
-        $TylerCreatAlbum2->sencillo = false;
-        $TylerCreatAlbum2->name_song = "I THINK";
-        $TylerCreatAlbum2->time = '3:32';
-        $TylerCreatAlbum2->genre = 'pop';
-        $TylerCreatAlbum2->url = '7d1f9525-4c07-4fbe-869a-2811f3c509ef.mp3';
-        $TylerCreatAlbum2->image = 'bfb9eef1-f637-45aa-9e3d-9efa1560384f.jpg';
-        $TylerCreatAlbum2->total = 212.06;
-        $TylerCreatAlbum2->created_at = now();
-        $TylerCreatAlbum2->updated_at = now();
-        $TylerCreatAlbum2->save();
+        $TylerCreatAlbum2s = new Song();
+        $TylerCreatAlbum2s->album_id = 15;
+        $TylerCreatAlbum2s->sencillo = false;
+        $TylerCreatAlbum2s->name_song = "I THINK";
+        $TylerCreatAlbum2s->time = '3:32';
+        $TylerCreatAlbum2s->genre = 'pop';
+        $TylerCreatAlbum2s->url = '7d1f9525-4c07-4fbe-869a-2811f3c509ef.mp3';
+        $TylerCreatAlbum2s->image = 'bfb9eef1-f637-45aa-9e3d-9efa1560384f.jpg';
+        $TylerCreatAlbum2s->total = 212.06;
+        $TylerCreatAlbum2s->created_at = now();
+        $TylerCreatAlbum2s->updated_at = now();
+        $TylerCreatAlbum2s->save();
 
         // Álbum Tyler - 1_3 - Vini
-        $TylerCreatAlbum3 = new Song();
-        $TylerCreatAlbum3->album_id = 15;
-        $TylerCreatAlbum3->sencillo = false;
-        $TylerCreatAlbum3->name_song = "PUPPET";
-        $TylerCreatAlbum3->time = '2:59';
-        $TylerCreatAlbum3->genre = 'pop';
-        $TylerCreatAlbum3->url = '3c778a20-7c97-4e0e-b45f-d3b08d5d1165.mp3';
-        $TylerCreatAlbum3->image = 'bfb9eef1-f637-45aa-9e3d-9efa1560384f.jpg';
-        $TylerCreatAlbum3->total = 179.07;
-        $TylerCreatAlbum3->created_at = now();
-        $TylerCreatAlbum3->updated_at = now();
-        $TylerCreatAlbum3->save();
+        $TylerCreatAlbum3s = new Song();
+        $TylerCreatAlbum3s->album_id = 15;
+        $TylerCreatAlbum3s->sencillo = false;
+        $TylerCreatAlbum3s->name_song = "PUPPET";
+        $TylerCreatAlbum3s->time = '2:59';
+        $TylerCreatAlbum3s->genre = 'pop';
+        $TylerCreatAlbum3s->url = '3c778a20-7c97-4e0e-b45f-d3b08d5d1165.mp3';
+        $TylerCreatAlbum3s->image = 'bfb9eef1-f637-45aa-9e3d-9efa1560384f.jpg';
+        $TylerCreatAlbum3s->total = 179.07;
+        $TylerCreatAlbum3s->created_at = now();
+        $TylerCreatAlbum3s->updated_at = now();
+        $TylerCreatAlbum3s->save();
 
         // Álbum Tyler - 2_1 - Vini
-        $TylerCreatAlbum4 = new Song();
-        $TylerCreatAlbum4->album_id = 16;
-        $TylerCreatAlbum4->sencillo = false;
-        $TylerCreatAlbum4->name_song = "Where This Flower Blooms";
-        $TylerCreatAlbum4->time = '3:15';
-        $TylerCreatAlbum4->genre = 'pop';
-        $TylerCreatAlbum4->url = '83dd5161-d133-4f8f-a650-83c8b0a129bb.mp3';
-        $TylerCreatAlbum4->image = '98d69c06-5b4f-477d-825f-f4ed19fb1248.jpg';
-        $TylerCreatAlbum4->total = 194.98;
-        $TylerCreatAlbum4->created_at = now();
-        $TylerCreatAlbum4->updated_at = now();
-        $TylerCreatAlbum4->save();
+        $TylerCreatAlbum4s = new Song();
+        $TylerCreatAlbum4s->album_id = 16;
+        $TylerCreatAlbum4s->sencillo = false;
+        $TylerCreatAlbum4s->name_song = "Where This Flower Blooms";
+        $TylerCreatAlbum4s->time = '3:15';
+        $TylerCreatAlbum4s->genre = 'pop';
+        $TylerCreatAlbum4s->url = '83dd5161-d133-4f8f-a650-83c8b0a129bb.mp3';
+        $TylerCreatAlbum4s->image = '98d69c06-5b4f-477d-825f-f4ed19fb1248.jpg';
+        $TylerCreatAlbum4s->total = 194.98;
+        $TylerCreatAlbum4s->created_at = now();
+        $TylerCreatAlbum4s->updated_at = now();
+        $TylerCreatAlbum4s->save();
 
         // Álbum Tyler - 2_2 - Vini
-        $TylerCreatAlbum5 = new Song();
-        $TylerCreatAlbum5->album_id = 16;
-        $TylerCreatAlbum5->sencillo = false;
-        $TylerCreatAlbum5->name_song = "See You Again";
-        $TylerCreatAlbum5->time = '3:00';
-        $TylerCreatAlbum5->genre = 'pop';
-        $TylerCreatAlbum5->url = '0aed4103-b74b-4dca-8a79-3fbabbaa9cec.mp3';
-        $TylerCreatAlbum5->image = '98d69c06-5b4f-477d-825f-f4ed19fb1248.jpg';
-        $TylerCreatAlbum5->total = 180.43;
-        $TylerCreatAlbum5->created_at = now();
-        $TylerCreatAlbum5->updated_at = now();
-        $TylerCreatAlbum5->save();
+        $TylerCreatAlbum5s = new Song();
+        $TylerCreatAlbum5s->album_id = 16;
+        $TylerCreatAlbum5s->sencillo = false;
+        $TylerCreatAlbum5s->name_song = "See You Again";
+        $TylerCreatAlbum5s->time = '3:00';
+        $TylerCreatAlbum5s->genre = 'pop';
+        $TylerCreatAlbum5s->url = '0aed4103-b74b-4dca-8a79-3fbabbaa9cec.mp3';
+        $TylerCreatAlbum5s->image = '98d69c06-5b4f-477d-825f-f4ed19fb1248.jpg';
+        $TylerCreatAlbum5s->total = 180.43;
+        $TylerCreatAlbum5s->created_at = now();
+        $TylerCreatAlbum5s->updated_at = now();
+        $TylerCreatAlbum5s->save();
 
         // Álbum Tyler - 2_3 - Vini
-        $TylerCreatAlbum6 = new Song();
-        $TylerCreatAlbum6->album_id = 16;
-        $TylerCreatAlbum6->sencillo = false;
-        $TylerCreatAlbum6->name_song = "Glitter";
-        $TylerCreatAlbum6->time = '3:45';
-        $TylerCreatAlbum6->genre = 'pop';
-        $TylerCreatAlbum6->url = '45b131bd-4444-4dd7-b1ec-0c879cc60d7b.mp3';
-        $TylerCreatAlbum6->image = '98d69c06-5b4f-477d-825f-f4ed19fb1248.jpg';
-        $TylerCreatAlbum6->total = 224.91;
-        $TylerCreatAlbum6->created_at = now();
-        $TylerCreatAlbum6->updated_at = now();
-        $TylerCreatAlbum6->save();
+        $TylerCreatAlbum6s = new Song();
+        $TylerCreatAlbum6s->album_id = 16;
+        $TylerCreatAlbum6s->sencillo = false;
+        $TylerCreatAlbum6s->name_song = "Glitter";
+        $TylerCreatAlbum6s->time = '3:45';
+        $TylerCreatAlbum6s->genre = 'pop';
+        $TylerCreatAlbum6s->url = '45b131bd-4444-4dd7-b1ec-0c879cc60d7b.mp3';
+        $TylerCreatAlbum6s->image = '98d69c06-5b4f-477d-825f-f4ed19fb1248.jpg';
+        $TylerCreatAlbum6s->total = 224.91;
+        $TylerCreatAlbum6s->created_at = now();
+        $TylerCreatAlbum6s->updated_at = now();
+        $TylerCreatAlbum6s->save();
 
         //       ====================== > JNJ< ===========================
         // ====================== > JNJ: Sencillos < ===========================        

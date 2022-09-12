@@ -12,7 +12,7 @@ class AdminController extends Controller
     public function index()
     {
         // Todos los reportes generados
-        $reportes = Report::all();
+        $reportes = Report::orderBy('created_at', 'DESC')->get();
 
         // Reportes resueltos
         $resueltos = Report::where('status', 'resolved')->get();

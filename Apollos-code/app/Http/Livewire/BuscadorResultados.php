@@ -42,7 +42,7 @@ class BuscadorResultados extends Component
         })->get();
 
         $usuarios = User::when($this->termino, function ($query) { // Calllback
-            $query->where('name_artist', 'LIKE', "%" . $this->termino . "%");
+            $query->where([['name_artist', 'LIKE', "%" . $this->termino . "%"], ['rol', '<>', 'admin']]);
         })->get();
 
         return view('livewire.buscador-resultados', [

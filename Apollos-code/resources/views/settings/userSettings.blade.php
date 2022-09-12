@@ -8,10 +8,10 @@
     <x-header></x-header>
 @endsection
 
-<link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-
 @section('css')
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
     <style>
         header.sticky,
         header {
@@ -100,6 +100,23 @@
         }
     </style>
 @endsection
+
+@push('script_end')
+    <script type="text/javascript">
+        function validarExt() {
+            var archivoInput = document.getElementById('image');
+            var archivoRuta = archivoInput.value;
+            var extPermitidas = /(.jpg|.jpeg|.png|.gif)$/i;
+
+            if (!extPermitidas.exec(archivoRuta)) {
+                alert('Selecciona un archivo de tipo imagen válido');
+                archivoInput.value = '';
+                return false;
+            };
+        }
+    </script>
+@endpush
+
 
 @section('title')
     {{ __('Edit profile') }}
@@ -281,7 +298,7 @@
                                 class="mb-2 block uppercase text-gray-500 font-bold">{{ __('Profile pic') }}</label>
 
                             <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png"
-                                class="input-file" class="material-symbols-outlined">
+                                class="input-file" class="material-symbols-outlined" onchange="return validarExt()">
                             <label for="image" class="foo flex items-center justify-center p-3">
                                 <span class="material-symbols-outlined photo-ico inline-block px-2">
                                     add_a_photo

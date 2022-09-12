@@ -11,20 +11,22 @@
                     $i = 0;
                 @endphp
                 @foreach ($users as $user)
-                    <a href="{{ route('profile.index', $user->name_artist) }}" class="w-48 p-2 rounded-md anim">
-                        <div class="lista-canciones w-full gris-blur p-2 text-center">
-                            <img src="{{ asset('storage') . '/uploads/pfp/' . $user->image }} "
-                                alt="Imagen de {{ $user->name }}" class="rounded-full">
-                            <div class="pt-3">
-                                <p class="text-white">{{ $user->username }}</p>
+                    @if ($user->rol != 'admin')
+                        <a href="{{ route('profile.index', $user->name_artist) }}" class="w-48 p-2 rounded-md anim">
+                            <div class="lista-canciones w-full gris-blur p-2 text-center">
+                                <img src="{{ asset('storage') . '/uploads/pfp/' . $user->image }} "
+                                    alt="Imagen de {{ $user->name }}" class="rounded-full">
+                                <div class="pt-3">
+                                    <p class="text-white">{{ $user->username }}</p>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                    {{-- Cortar resultados --}}
-                    @if (++$i == 6)
-                        @php
-                            break;
-                        @endphp
+                        </a>
+                        {{-- Cortar resultados --}}
+                        @if (++$i == 6)
+                            @php
+                                break;
+                            @endphp
+                        @endif
                     @endif
                 @endforeach
             </div>

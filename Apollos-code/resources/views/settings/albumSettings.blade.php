@@ -7,9 +7,27 @@
 @section('header')
     <x-header></x-header>
 @endsection
-<link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+@push('script_end')
+    <script type="text/javascript">
+        function validarExt() {
+            var archivoInput = document.getElementById('image');
+            var archivoRuta = archivoInput.value;
+            var extPermitidas = /(.jpg|.jpeg|.png|.gif)$/i;
+
+            if (!extPermitidas.exec(archivoRuta)) {
+                alert('Selecciona un archivo de tipo imagen válido');
+                archivoInput.value = '';
+                return false;
+            };
+        }
+    </script>
+@endpush
+
 @section('css')
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
     <style>
         header.sticky,
         header {

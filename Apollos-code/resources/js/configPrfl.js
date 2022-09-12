@@ -10,8 +10,6 @@ var opcion2 = document.getElementById("opcion2");
 var titulo1 = document.getElementById("TitleSect1");
 var titulo2 = document.getElementById("TitleSect2");
 
-console.log(opcion1);
-
 opcion1.addEventListener('click', () => {
     contenedor_2.classList.add("desactive");
     contenedor_1.classList.remove("desactive");

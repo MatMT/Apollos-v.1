@@ -22,7 +22,7 @@ class Buscador extends Component
 
     public function render()
     {
-        $usuarios = User::all();
+        $usuarios = User::where('rol', '<>', 'admin');
         $canciones = Song::where('visibility', true)->get();
         $albums = Album::all();
 
